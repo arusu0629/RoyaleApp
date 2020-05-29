@@ -22,6 +22,13 @@
 		A1B9D6F8247CA10100126C9F /* DataStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1B9D6E2247CA10100126C9F /* DataStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1B9D702247CA11B00126C9F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B9D701247CA11B00126C9F /* Alamofire.framework */; };
 		A1B9D703247CA11B00126C9F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1B9D701247CA11B00126C9F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1B9D70D247D0C0B00126C9F /* APIRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D70C247D0C0B00126C9F /* APIRequestable.swift */; };
+		A1B9D70F247D0F3100126C9F /* CRAPIRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D70E247D0F3100126C9F /* CRAPIRequestable.swift */; };
+		A1B9D712247D119600126C9F /* CRPlayerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D711247D119600126C9F /* CRPlayerAPIRequest.swift */; };
+		A1B9D716247DF6DA00126C9F /* CRPlayerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D715247DF6DA00126C9F /* CRPlayerResponse.swift */; };
+		A1B9D71A247DFAC600126C9F /* APIDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D719247DFAC600126C9F /* APIDataStore.swift */; };
+		A1B9D71E247DFDE900126C9F /* PlayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D71D247DFDE900126C9F /* PlayerRepository.swift */; };
+		A1B9D720247DFEDA00126C9F /* CRAPIDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D71F247DFED900126C9F /* CRAPIDataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +116,13 @@
 		A1B9D6F1247CA10100126C9F /* DataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
 		A1B9D6F3247CA10100126C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B9D701247CA11B00126C9F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		A1B9D70C247D0C0B00126C9F /* APIRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestable.swift; sourceTree = "<group>"; };
+		A1B9D70E247D0F3100126C9F /* CRAPIRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRAPIRequestable.swift; sourceTree = "<group>"; };
+		A1B9D711247D119600126C9F /* CRPlayerAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRPlayerAPIRequest.swift; sourceTree = "<group>"; };
+		A1B9D715247DF6DA00126C9F /* CRPlayerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRPlayerResponse.swift; sourceTree = "<group>"; };
+		A1B9D719247DFAC600126C9F /* APIDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataStore.swift; sourceTree = "<group>"; };
+		A1B9D71D247DFDE900126C9F /* PlayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepository.swift; sourceTree = "<group>"; };
+		A1B9D71F247DFED900126C9F /* CRAPIDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRAPIDataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +227,9 @@
 		A1B9D6E3247CA10100126C9F /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
+				A1B9D71B247DFDD200126C9F /* Repository */,
+				A1B9D717247DFAA100126C9F /* DataStore */,
+				A1B9D708247D0BE300126C9F /* Entity */,
 				A1B9D6E4247CA10100126C9F /* DataStore.h */,
 				A1B9D6E5247CA10100126C9F /* Info.plist */,
 			);
@@ -234,6 +251,98 @@
 				A1B9D701247CA11B00126C9F /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1B9D708247D0BE300126C9F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D709247D0BED00126C9F /* API */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		A1B9D709247D0BED00126C9F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D713247D128B00126C9F /* Response */,
+				A1B9D70A247D0BF100126C9F /* Request */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A1B9D70A247D0BF100126C9F /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D710247D117600126C9F /* Player */,
+				A1B9D70B247D0BF800126C9F /* Common */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		A1B9D70B247D0BF800126C9F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D70C247D0C0B00126C9F /* APIRequestable.swift */,
+				A1B9D70E247D0F3100126C9F /* CRAPIRequestable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A1B9D710247D117600126C9F /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D711247D119600126C9F /* CRPlayerAPIRequest.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		A1B9D713247D128B00126C9F /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D714247D129200126C9F /* Player */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		A1B9D714247D129200126C9F /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D715247DF6DA00126C9F /* CRPlayerResponse.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		A1B9D717247DFAA100126C9F /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D718247DFAB800126C9F /* API */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		A1B9D718247DFAB800126C9F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D719247DFAC600126C9F /* APIDataStore.swift */,
+				A1B9D71F247DFED900126C9F /* CRAPIDataStore.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		A1B9D71B247DFDD200126C9F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D71C247DFDDB00126C9F /* Player */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		A1B9D71C247DFDDB00126C9F /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9D71D247DFDE900126C9F /* PlayerRepository.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +577,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B9D70D247D0C0B00126C9F /* APIRequestable.swift in Sources */,
+				A1B9D70F247D0F3100126C9F /* CRAPIRequestable.swift in Sources */,
+				A1B9D71A247DFAC600126C9F /* APIDataStore.swift in Sources */,
+				A1B9D716247DF6DA00126C9F /* CRPlayerResponse.swift in Sources */,
+				A1B9D720247DFEDA00126C9F /* CRAPIDataStore.swift in Sources */,
+				A1B9D71E247DFDE900126C9F /* PlayerRepository.swift in Sources */,
+				A1B9D712247D119600126C9F /* CRPlayerAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +762,7 @@
 		A1B9D6D5247C9C7500126C9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoyaleApp/Info.plist;
@@ -663,6 +780,7 @@
 		A1B9D6D6247C9C7500126C9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RoyaleApp/Info.plist;
@@ -823,6 +941,7 @@
 		A1B9D6FC247CA10100126C9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DataStoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -841,6 +960,7 @@
 		A1B9D6FD247CA10100126C9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DataStoreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
