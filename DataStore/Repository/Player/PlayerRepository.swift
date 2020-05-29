@@ -9,7 +9,7 @@
 import Foundation
 
 public enum PlayerRepositoryProvider {
-    
+
     public static func provide() -> PlayerRepository {
         return PlayerRepositoryImpl(apiDataStore: CRAPIDataStoreProvider.provide())
     }
@@ -17,14 +17,14 @@ public enum PlayerRepositoryProvider {
 
 public protocol PlayerRepository {
     typealias Complection = (Result<CRPlayerResponse, Error>) -> Void
-    
+
     func get(playerTag: String, completion: @escaping Complection)
 }
 
 private struct PlayerRepositoryImpl: PlayerRepository {
-    
+
     let apiDataStore: CRAPIDataStore
-    
+
     func get(playerTag: String, completion: @escaping Complection) {
         self.apiDataStore.request(CRPlayerAPIRequest(tag: playerTag), completion: completion)
     }

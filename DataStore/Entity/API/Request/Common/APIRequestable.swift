@@ -17,7 +17,7 @@ protocol APIRequestable: Encodable {
 }
 
 extension APIRequestable {
-    
+
     var parameters: [String: Any] {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -26,7 +26,7 @@ extension APIRequestable {
 }
 
 private extension JSONEncoder {
-    
+
     // Encodable 構造体から Data に変換し後に Dictionary にする (APIのパラメータ生成用)
     func encodeToDictionary<T: Encodable>(_ value: T) -> [String: Any] {
         do {

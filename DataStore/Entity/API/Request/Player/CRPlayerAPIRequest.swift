@@ -9,9 +9,9 @@
 import Foundation
 
 struct CRPlayerAPIRequest: CRAPIRequestable {
-    
+
     let path: String
-    
+
     init(tag: String) {
         self.path = "players/\(tag)"
     }

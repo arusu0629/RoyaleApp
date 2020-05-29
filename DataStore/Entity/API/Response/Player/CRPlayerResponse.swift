@@ -20,11 +20,9 @@ public struct CRPlayerResponse : Decodable {
     let trophies : Int?
 }
 
-import Foundation
-
 // MARK: Achievement
 extension CRPlayerResponse {
-    
+
     public struct Achievement: Decodable {
         let info : String?
         let name : String?
@@ -36,7 +34,7 @@ extension CRPlayerResponse {
 
 // MARK: Arena
 extension CRPlayerResponse {
-    
+
     public struct Arena : Decodable {
         let arena : String?
         let id : Int?
@@ -73,7 +71,7 @@ extension CRPlayerResponse {
 
 // MARK: Clan
 extension CRPlayerResponse {
-    
+
     public struct Clan : Decodable {
         let badge : Badge?
         let donations : Int?
@@ -87,7 +85,7 @@ extension CRPlayerResponse {
 
 // MARK: Badge
 extension CRPlayerResponse.Clan {
-    
+
     public struct Badge : Decodable {
         let category : String?
         let id : Int?
@@ -98,7 +96,7 @@ extension CRPlayerResponse.Clan {
 
 // MARK: Game
 extension CRPlayerResponse {
-    
+
     public struct Game : Decodable {
         let draws : Int?
         let drawsPercent : Float?
@@ -114,7 +112,7 @@ extension CRPlayerResponse {
 
 // MARK: LeagureStatistics
 extension CRPlayerResponse {
-    
+
     public struct LeagueStatistic : Decodable {
         let bestSeason : BestSeason?
         let currentSeason : CurrentSeason?
@@ -124,7 +122,7 @@ extension CRPlayerResponse {
 
 // MARK: Best Season
 extension CRPlayerResponse.LeagueStatistic {
-    
+
     public struct BestSeason : Decodable {
         let id : String?
         let rank : Int?
@@ -134,17 +132,16 @@ extension CRPlayerResponse.LeagueStatistic {
 
 // MARK: Current Season
 extension CRPlayerResponse.LeagueStatistic {
-    
+
     public struct CurrentSeason : Decodable {
         let bestTrophies : Int?
         let trophies : Int?
     }
 }
 
-
 // MARK: Previous Season
 extension CRPlayerResponse.LeagueStatistic {
-    
+
     public struct PreviousSeason : Decodable {
         let bestTrophies : Int?
         let id : String?
@@ -154,7 +151,7 @@ extension CRPlayerResponse.LeagueStatistic {
 
 // MARK: Stat
 extension CRPlayerResponse {
-    
+
     public struct Stat : Decodable {
         let cardsFound : Int?
         let challengeCardsWon : Int?

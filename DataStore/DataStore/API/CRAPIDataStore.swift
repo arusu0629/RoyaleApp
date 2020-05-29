@@ -9,22 +9,22 @@
 import Foundation
 
 enum CRAPIDataStoreProvider {
-    
+
     static func provide() -> CRAPIDataStore {
         return CRAPIDataStoreImpl(dataStore: APIDataStoreProvider.provide())
     }
 }
 
 protocol CRAPIDataStore {
-    
+
     // RoyaleAPI 用の API 処理
     func request<T: Decodable>(_ request: CRAPIRequestable, completion: @escaping (Result<T, Error>) -> Void)
 }
 
 private struct CRAPIDataStoreImpl: CRAPIDataStore {
-    
+
     let dataStore: APIDataStore
-    
+
     func request<T>(_ request: CRAPIRequestable, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
         self.dataStore.request(request) { result in
             switch result {

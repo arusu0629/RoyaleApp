@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 // MARK: - Setup Window
 @available(iOS 13.0, *)
 extension SceneDelegate {
-    
+
     private func setupWindow(_ scene: UIWindowScene) {
         self.window = UIWindow(windowScene: scene)
         let navigationController = UINavigationController(rootViewController: RootBuilder.build())

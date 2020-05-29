@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // MARK: - Setup Window
 extension AppDelegate {
-    
+
     private func setupWindowIfNeeded() {
         if #available(iOS 13.0, *) {
         } else {
@@ -37,7 +37,7 @@ extension AppDelegate {
 
 // MARK: - URL Scheme
 extension AppDelegate {
-    
+
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return true
     }
@@ -46,7 +46,7 @@ extension AppDelegate {
 // MARK: - Scene Lifecycle
 @available(iOS 13.0, *)
 extension AppDelegate {
-    
+
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
