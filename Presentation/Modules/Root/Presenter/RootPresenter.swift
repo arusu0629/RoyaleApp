@@ -7,11 +7,18 @@
 //
 
 import Foundation
+import Domain
 
-protocol RootPresenter: AnyObject {}
+protocol RootPresenter: AnyObject {
+    func viewWillAppear()
+}
 
 final class RootPresenterImpl: RootPresenter {
 
     weak var view: RootView?
     var wireframe: RootWireframe!
+
+    func viewWillAppear() {
+        self.view?.showAllTabs(TabUseCaseProvider.provide().list())
+    }
 }
