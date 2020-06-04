@@ -76,9 +76,9 @@ private extension Tab {
         let image: UIImage? = {
             switch self {
             case .home:
-                return UIImage(named: "home_icon_non_select")
+                return Asset.homeIconNonSelect.image
             case .deck:
-                return UIImage(named: "deck_icon_non_select")
+                return Asset.deckIconNonSelect.image
             }
         }()
         return image?.withRenderingMode(.alwaysOriginal)
@@ -88,9 +88,9 @@ private extension Tab {
         let image: UIImage? = {
             switch self {
             case .home:
-                return UIImage(named: "home_icon_selected")
+                return Asset.homeIconSelected.image
             case .deck:
-                return UIImage(named: "deck_icon_selected")
+                return Asset.deckIconSelected.image
             }
         }()
         return image?.withRenderingMode(.alwaysOriginal)

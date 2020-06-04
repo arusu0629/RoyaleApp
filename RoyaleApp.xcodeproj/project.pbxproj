@@ -30,6 +30,8 @@
 		A18596B7248119E0008F067A /* TabUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18596B6248119E0008F067A /* TabUseCase.swift */; };
 		A18596B824811A4C008F067A /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185969324811316008F067A /* Domain.framework */; };
 		A18596C024812539008F067A /* SwipeableTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18596BF24812539008F067A /* SwipeableTabBarController.framework */; };
+		A196B92324887E0B003C2A7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A196B92224887E0B003C2A7B /* Assets.xcassets */; };
+		A196B92624887EEA003C2A7B /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196B92524887EEA003C2A7B /* Assets.swift */; };
 		A1B9D6AE247C9C7400126C9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D6AD247C9C7400126C9F /* AppDelegate.swift */; };
 		A1B9D6B0247C9C7400126C9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D6AF247C9C7400126C9F /* SceneDelegate.swift */; };
 		A1B9D6B7247C9C7400126C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B9D6B6247C9C7400126C9F /* Assets.xcassets */; };
@@ -193,6 +195,8 @@
 		A18596B22481133B008F067A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		A18596B6248119E0008F067A /* TabUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabUseCase.swift; sourceTree = "<group>"; };
 		A18596BF24812539008F067A /* SwipeableTabBarController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeableTabBarController.framework; path = Carthage/Build/iOS/SwipeableTabBarController.framework; sourceTree = "<group>"; };
+		A196B92224887E0B003C2A7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A196B92524887EEA003C2A7B /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A1B9D6AA247C9C7400126C9F /* RoyaleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoyaleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B9D6AD247C9C7400126C9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1B9D6AF247C9C7400126C9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -313,7 +317,6 @@
 			children = (
 				FCB004C0AC6C6F3D6C17A2BD /* DeckPresenter.swift */,
 			);
-			name = Presenter;
 			path = Presenter;
 			sourceTree = "<group>";
 		};
@@ -323,7 +326,6 @@
 				417C1C2D82D3AF2F382FB294 /* DeckViewController.swift */,
 				E603916B0729670FE1CBA1A0 /* DeckViewController.storyboard */,
 			);
-			name = View;
 			path = View;
 			sourceTree = "<group>";
 		};
@@ -335,7 +337,6 @@
 				0F94E81C9B8778F05796E863 /* Presenter */,
 				3354E5085779942EB3D6CE7D /* Wireframe */,
 			);
-			name = Deck;
 			path = Deck;
 			sourceTree = "<group>";
 		};
@@ -363,7 +364,6 @@
 				376DC539EF07E0E0CD88938F /* DeckWireframe.swift */,
 				C6F937F107C0D1F76507C3DB /* TransitToDeckWireframe.swift */,
 			);
-			name = Wireframe;
 			path = Wireframe;
 			sourceTree = "<group>";
 		};
@@ -388,7 +388,6 @@
 			children = (
 				E7A13733F61EF052BC450143 /* DeckBuilder.swift */,
 			);
-			name = Builder;
 			path = Builder;
 			sourceTree = "<group>";
 		};
@@ -423,6 +422,7 @@
 		A17E57672480CFCF00F05165 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A196B92124887DDA003C2A7B /* Resource */,
 				A1D697672480DC0B00899FE2 /* Utility */,
 				A17E57682480CFCF00F05165 /* Presentation.h */,
 				A17E57692480CFCF00F05165 /* Info.plist */,
@@ -500,6 +500,23 @@
 				A18596B6248119E0008F067A /* TabUseCase.swift */,
 			);
 			path = Tab;
+			sourceTree = "<group>";
+		};
+		A196B92124887DDA003C2A7B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A196B92224887E0B003C2A7B /* Assets.xcassets */,
+				A196B92424887E10003C2A7B /* Generated */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		A196B92424887E10003C2A7B /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				A196B92524887EEA003C2A7B /* Assets.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		A1B9D6A1247C9C7400126C9F = {
@@ -1011,6 +1028,7 @@
 			files = (
 				385FCC8FECE194C0739331CB /* RootViewController.storyboard in Resources */,
 				B9B0D3A4BDFD16456696559E /* HomeViewController.storyboard in Resources */,
+				A196B92324887E0B003C2A7B /* Assets.xcassets in Resources */,
 				5A6F454513F88C64878CDE82 /* DeckViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1129,6 +1147,7 @@
 				B6DF9EFA29E2A46C0D646FDC /* RootPresenter.swift in Sources */,
 				7890DB6A077623E6AE5A3886 /* RootWireframe.swift in Sources */,
 				0678A98F7BB910D4A160B8BF /* TransitToRootWireframe.swift in Sources */,
+				A196B92624887EEA003C2A7B /* Assets.swift in Sources */,
 				4DAE20DCF1F4AC78770A8B5F /* HomeBuilder.swift in Sources */,
 				ECE794BA9B5E4BAFE31A3C18 /* HomeViewController.swift in Sources */,
 				3E901036B1AA5A8919998379 /* HomePresenter.swift in Sources */,
