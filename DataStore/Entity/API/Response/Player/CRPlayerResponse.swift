@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct CRPlayerResponse : Decodable {
+public struct CRPlayerResponse: Decodable {
 
     let achievements : [Achievement]?
     let arena : Arena?

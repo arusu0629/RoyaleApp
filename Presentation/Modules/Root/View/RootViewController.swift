@@ -10,6 +10,8 @@ import Domain
 import SwipeableTabBarController
 import UIKit
 
+import DataStore
+
 protocol RootView: AnyObject {
     func showAllTabs(_ tabs: [Tab])
 }
@@ -30,6 +32,17 @@ extension RootViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter.viewWillAppear()
+
+        UpComingChestsRepositoryProvider.provide().get(playerTag: "%23R89920JY") { result in
+            //        ChestsRepositoryProvider.provide().get(playerTag: "8L9L9GL") { result in
+            //        PlayerRepositoryProvider.provide().get(playerTag: "%23R89920JY") { result in
+            switch result {
+            case .success(let response):
+                print("$$$ response = \(response)")
+            case.failure(let error):
+                print("$$$ error = \(error)")
+            }
+        }
     }
 }
 

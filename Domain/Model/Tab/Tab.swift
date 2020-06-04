@@ -6,8 +6,6 @@
 //  Copyright © 2020 nakandakari. All rights reserved.
 //
 
-import UIKit
-
 public enum Tab: Int, CaseIterable {
     case home = 0
     case deck = 1
