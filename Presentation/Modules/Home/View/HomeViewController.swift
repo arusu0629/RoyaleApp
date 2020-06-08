@@ -9,9 +9,8 @@
 import UIKit
 import Domain
 
-protocol HomeView: AnyObject {
+protocol HomeView: ShowErrorAlertView {
     func didFetchUpcomingChests(chestsModel: UpComingChestsModel)
-
 }
 
 // MARK: - Properties

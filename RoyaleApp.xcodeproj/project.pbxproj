@@ -59,6 +59,8 @@
 		A1B9D71A247DFAC600126C9F /* APIDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D719247DFAC600126C9F /* APIDataStore.swift */; };
 		A1B9D71E247DFDE900126C9F /* PlayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D71D247DFDE900126C9F /* PlayerRepository.swift */; };
 		A1B9D720247DFEDA00126C9F /* CRAPIDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D71F247DFED900126C9F /* CRAPIDataStore.swift */; };
+		A1D07D54248E1EA300FE1785 /* ShowAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D53248E1EA300FE1785 /* ShowAlertView.swift */; };
+		A1D07D56248E1F2D00FE1785 /* ShowErrorAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */; };
 		A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */; };
 		A1E72B5E2488C046000B0949 /* UpComingChestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */; };
 		A1E72B602488C05C000B0949 /* UpComingChestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */; };
@@ -240,6 +242,8 @@
 		A1B9D719247DFAC600126C9F /* APIDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataStore.swift; sourceTree = "<group>"; };
 		A1B9D71D247DFDE900126C9F /* PlayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepository.swift; sourceTree = "<group>"; };
 		A1B9D71F247DFED900126C9F /* CRAPIDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRAPIDataStore.swift; sourceTree = "<group>"; };
+		A1D07D53248E1EA300FE1785 /* ShowAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlertView.swift; sourceTree = "<group>"; };
+		A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorAlertView.swift; sourceTree = "<group>"; };
 		A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardInstantiate.swift; sourceTree = "<group>"; };
 		A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingChestCell.swift; sourceTree = "<group>"; };
 		A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpComingChestCell.xib; sourceTree = "<group>"; };
@@ -794,6 +798,8 @@
 			isa = PBXGroup;
 			children = (
 				A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */,
+				A1D07D53248E1EA300FE1785 /* ShowAlertView.swift */,
+				A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1242,6 +1248,7 @@
 				A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */,
 				A1E72B5E2488C046000B0949 /* UpComingChestCell.swift in Sources */,
 				ABDB60F26E924475A142F2C6 /* RootViewController.swift in Sources */,
+				A1D07D54248E1EA300FE1785 /* ShowAlertView.swift in Sources */,
 				B6DF9EFA29E2A46C0D646FDC /* RootPresenter.swift in Sources */,
 				A1E72B652488C645000B0949 /* NSObject+.swift in Sources */,
 				7890DB6A077623E6AE5A3886 /* RootWireframe.swift in Sources */,
@@ -1254,6 +1261,7 @@
 				2C72A4A21B7C5FF6C6DCC945 /* TransitToHomeWireframe.swift in Sources */,
 				9D0100124A08E38D9DC2AAD3 /* DeckBuilder.swift in Sources */,
 				DB6EAB2919EFB05FC4A48764 /* DeckViewController.swift in Sources */,
+				A1D07D56248E1F2D00FE1785 /* ShowErrorAlertView.swift in Sources */,
 				A1E72B632488C612000B0949 /* UIView+.swift in Sources */,
 				23B0460731DD49BD930C2D4D /* DeckPresenter.swift in Sources */,
 				D215B55CD22711D504A03113 /* DeckWireframe.swift in Sources */,

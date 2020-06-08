@@ -31,7 +31,7 @@ final class HomePresenterImpl: HomePresenter {
             case .success(let upComingChestsModel):
                 self.view?.didFetchUpcomingChests(chestsModel: upComingChestsModel)
             case .failure(let error):
-                print("[requestUpComingChests Error] error = \(error)")
+                self.view?.showErrorAlert(error)
             }
         }
     }
