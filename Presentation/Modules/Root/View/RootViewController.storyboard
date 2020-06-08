@@ -14,23 +14,7 @@
                     <view key="view" contentMode="scaleToFill" id="bKc-lE-aH5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RootViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14E-vy-0DY">
-                                <rect key="frame" x="33" y="422.5" width="348" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="348" id="JrN-EX-izW"/>
-                                    <constraint firstAttribute="height" constant="51" id="eEK-yJ-pR9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="14E-vy-0DY" firstAttribute="centerY" secondItem="bKc-lE-aH5" secondAttribute="centerY" id="MIu-3U-64R"/>
-                            <constraint firstItem="14E-vy-0DY" firstAttribute="centerX" secondItem="bKc-lE-aH5" secondAttribute="centerX" id="pAo-QY-DwI"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1Nd-An-6hM"/>
                     </view>
                 </viewController>

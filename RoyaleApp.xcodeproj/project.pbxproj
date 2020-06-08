@@ -60,6 +60,10 @@
 		A1B9D71E247DFDE900126C9F /* PlayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D71D247DFDE900126C9F /* PlayerRepository.swift */; };
 		A1B9D720247DFEDA00126C9F /* CRAPIDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D71F247DFED900126C9F /* CRAPIDataStore.swift */; };
 		A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */; };
+		A1E72B5E2488C046000B0949 /* UpComingChestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */; };
+		A1E72B602488C05C000B0949 /* UpComingChestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */; };
+		A1E72B632488C612000B0949 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E72B622488C612000B0949 /* UIView+.swift */; };
+		A1E72B652488C645000B0949 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E72B642488C645000B0949 /* NSObject+.swift */; };
 		ABDB60F26E924475A142F2C6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E1501B9FD425818E302286 /* RootViewController.swift */; };
 		B6DF9EFA29E2A46C0D646FDC /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521157BA9F9B33DD6AD1810 /* RootPresenter.swift */; };
 		B9B0D3A4BDFD16456696559E /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE16E962A4A033F912C678E5 /* HomeViewController.storyboard */; };
@@ -237,6 +241,10 @@
 		A1B9D71D247DFDE900126C9F /* PlayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepository.swift; sourceTree = "<group>"; };
 		A1B9D71F247DFED900126C9F /* CRAPIDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRAPIDataStore.swift; sourceTree = "<group>"; };
 		A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardInstantiate.swift; sourceTree = "<group>"; };
+		A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingChestCell.swift; sourceTree = "<group>"; };
+		A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpComingChestCell.xib; sourceTree = "<group>"; };
+		A1E72B622488C612000B0949 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		A1E72B642488C645000B0949 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		A521157BA9F9B33DD6AD1810 /* RootPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
 		BE16E962A4A033F912C678E5 /* HomeViewController.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		C5A7F3D8DB81B51EA1230931 /* TransitToRootWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitToRootWireframe.swift; sourceTree = "<group>"; };
@@ -366,6 +374,7 @@
 		257553C949866510ADF68F58 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A1E72B5A2488BFFB000B0949 /* Custom */,
 				FC512290C43FFDA6E0DA441F /* HomeViewController.swift */,
 				BE16E962A4A033F912C678E5 /* HomeViewController.storyboard */,
 			);
@@ -775,6 +784,7 @@
 		A1D697672480DC0B00899FE2 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				A1E72B612488C60A000B0949 /* Extensions */,
 				A1D697682480DC1100899FE2 /* Protocol */,
 			);
 			path = Utility;
@@ -786,6 +796,24 @@
 				A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		A1E72B5A2488BFFB000B0949 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */,
+				A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		A1E72B612488C60A000B0949 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A1E72B622488C612000B0949 /* UIView+.swift */,
+				A1E72B642488C645000B0949 /* NSObject+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F1C18FA9C7372C3804129F31 /* Builder */ = {
@@ -1094,6 +1122,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1E72B602488C05C000B0949 /* UpComingChestCell.xib in Resources */,
 				385FCC8FECE194C0739331CB /* RootViewController.storyboard in Resources */,
 				B9B0D3A4BDFD16456696559E /* HomeViewController.storyboard in Resources */,
 				A196B92324887E0B003C2A7B /* Assets.xcassets in Resources */,
@@ -1211,8 +1240,10 @@
 			files = (
 				E8AB4E38E0FA2F9C05046D8B /* RootBuilder.swift in Sources */,
 				A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */,
+				A1E72B5E2488C046000B0949 /* UpComingChestCell.swift in Sources */,
 				ABDB60F26E924475A142F2C6 /* RootViewController.swift in Sources */,
 				B6DF9EFA29E2A46C0D646FDC /* RootPresenter.swift in Sources */,
+				A1E72B652488C645000B0949 /* NSObject+.swift in Sources */,
 				7890DB6A077623E6AE5A3886 /* RootWireframe.swift in Sources */,
 				0678A98F7BB910D4A160B8BF /* TransitToRootWireframe.swift in Sources */,
 				A196B92624887EEA003C2A7B /* Assets.swift in Sources */,
@@ -1223,6 +1254,7 @@
 				2C72A4A21B7C5FF6C6DCC945 /* TransitToHomeWireframe.swift in Sources */,
 				9D0100124A08E38D9DC2AAD3 /* DeckBuilder.swift in Sources */,
 				DB6EAB2919EFB05FC4A48764 /* DeckViewController.swift in Sources */,
+				A1E72B632488C612000B0949 /* UIView+.swift in Sources */,
 				23B0460731DD49BD930C2D4D /* DeckPresenter.swift in Sources */,
 				D215B55CD22711D504A03113 /* DeckWireframe.swift in Sources */,
 				E460FEE8F3294D6EA6330EBC /* TransitToDeckWireframe.swift in Sources */,
@@ -1394,6 +1426,7 @@
 				);
 				INFOPLIST_FILE = Presentation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1424,6 +1457,7 @@
 				);
 				INFOPLIST_FILE = Presentation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1489,6 +1523,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Domain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1517,6 +1552,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Domain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1620,7 +1656,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1674,7 +1710,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1690,7 +1726,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8CBGKNYH9U;
 				INFOPLIST_FILE = RoyaleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1708,7 +1746,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8CBGKNYH9U;
 				INFOPLIST_FILE = RoyaleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1816,6 +1856,7 @@
 				);
 				INFOPLIST_FILE = DataStore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1848,6 +1889,7 @@
 				);
 				INFOPLIST_FILE = DataStore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

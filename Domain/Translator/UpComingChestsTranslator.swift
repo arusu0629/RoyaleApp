@@ -9,6 +9,13 @@
 import DataStore
 import Foundation
 
+enum UpComingChestsTranlatorProvider {
+
+    static func provide() -> UpComingChestsTranslator {
+        return UpComingChestsTranslatorImpl()
+    }
+}
+
 protocol UpComingChestsTranslator {
     func convert(from response: CRUpComingChestsResponse) -> UpComingChestsModel
 }

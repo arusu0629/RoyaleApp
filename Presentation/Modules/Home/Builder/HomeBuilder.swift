@@ -6,6 +6,7 @@
 //  Copyright © 2020 arusu0629. All rights reserved.
 //
 
+import Domain
 import UIKit
 
 enum HomeBuilder {
@@ -19,6 +20,7 @@ enum HomeBuilder {
 
         presenter.view = view
         presenter.wireframe = wireframe
+        presenter.chestsUseCase = UpComingChestsProvider.provide()
 
         wireframe.viewController = view
 

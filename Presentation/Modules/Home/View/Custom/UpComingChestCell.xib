@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpComingChestCell" customModule="Presentation" customModuleProvider="target">
+            <connections>
+                <outlet property="chestImage" destination="vUX-7D-8ze" id="Ewm-HJ-ld4"/>
+                <outlet property="indexLabel" destination="IX6-Pb-zOC" id="pgy-yZ-8OW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chest-epic" translatesAutoresizingMaskIntoConstraints="NO" id="vUX-7D-8ze" userLabel="ChestImage">
+                    <rect key="frame" x="5" y="5" width="70" height="70"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IX6-Pb-zOC" userLabel="NextIndex">
+                    <rect key="frame" x="57" y="0.0" width="21" height="20"/>
+                    <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="E3V-Ol-cdP"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="e1P-pd-vVN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="IX6-Pb-zOC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7VS-7m-8q2"/>
+                <constraint firstItem="IX6-Pb-zOC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="H1z-TV-gld"/>
+                <constraint firstItem="vUX-7D-8ze" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="Hv3-gq-jBc"/>
+                <constraint firstAttribute="bottom" secondItem="vUX-7D-8ze" secondAttribute="bottom" constant="5" id="hQu-4J-Nw3"/>
+                <constraint firstAttribute="trailing" secondItem="vUX-7D-8ze" secondAttribute="trailing" constant="5" id="kHA-m5-jpg"/>
+                <constraint firstAttribute="trailing" secondItem="IX6-Pb-zOC" secondAttribute="trailing" constant="2" id="rKd-aq-pFq"/>
+                <constraint firstItem="vUX-7D-8ze" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="zhd-uX-hpD"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chest-epic" width="173" height="190"/>
+    </resources>
+</document>

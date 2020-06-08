@@ -9,6 +9,16 @@
 import DataStore
 import Foundation
 
+public enum UpComingChestsProvider {
+
+    public static func provide() -> UpComingChestsUseCase {
+        return UpComingChestsUseCaseImpl(
+            repository: UpComingChestsRepositoryProvider.provide(),
+            translator: UpComingChestsTranlatorProvider.provide()
+        )
+    }
+}
+
 public protocol UpComingChestsUseCase {
     typealias Completion = (Result<UpComingChestsModel, Error>) -> Void
 

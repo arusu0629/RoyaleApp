@@ -11,7 +11,7 @@ import Foundation
 
 public struct UpComingChestsModel {
 
-    public let chests: [UpComingChest]?
+    public let chests: [UpComingChest]
 }
 
 extension UpComingChestsModel {
@@ -26,9 +26,9 @@ extension UpComingChestsModel {
 }
 
 // MARK: - Chest
-extension UpComingChestsModel {
+public extension UpComingChestsModel {
 
-    public enum ChestType {
+    enum ChestType {
         case silver
         case golden
         case giant
@@ -39,14 +39,14 @@ extension UpComingChestsModel {
         case none
     }
 
-    public struct UpComingChest {
+    struct UpComingChest {
 
         public let index: Int
         public var type: ChestType = .none
     }
 }
 
-extension UpComingChestsModel.UpComingChest {
+private extension UpComingChestsModel.UpComingChest {
 
     init(_ chest: CRUpComingChestsResponse.Item) {
         self.index = chest.index ?? 0
@@ -54,9 +54,9 @@ extension UpComingChestsModel.UpComingChest {
     }
 }
 
-extension UpComingChestsModel.UpComingChest {
+private extension UpComingChestsModel.UpComingChest {
 
-    private func nameToType(_ name: String?) -> UpComingChestsModel.ChestType {
+    func nameToType(_ name: String?) -> UpComingChestsModel.ChestType {
         guard let name = name else {
             return .none
         }

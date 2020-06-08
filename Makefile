@@ -1,6 +1,6 @@
 PROJECT_NAME := RoyaleApp
 SCHEME_NAME := ${PRODUCT_NAME}
-PROJECT_AME := ${PRODUCT_NAME}.xcodeproj
+PROJECT_NAME := ${PRODUCT_NAME}.xcodeproj
 UI_TESTS_TARGET_NAME := ${PRODUCT_NAME}UITests
 
 TEST_SDK := iphonesimulator

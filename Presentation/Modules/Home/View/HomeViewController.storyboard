@@ -15,28 +15,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HomeViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ah3-5b-jAt">
-                                <rect key="frame" x="22" y="422.5" width="370" height="51"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPI-ol-D5i" userLabel="UpComingChestsScrollView">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="infinite" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="33b-D7-ZlR" userLabel="ChestsListScrollView">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="80"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="370" id="0N9-OF-haP"/>
-                                    <constraint firstAttribute="height" constant="51" id="Gxz-eC-hOy"/>
+                                    <constraint firstItem="33b-D7-ZlR" firstAttribute="top" secondItem="Icl-Oh-jwB" secondAttribute="top" id="1Wm-Vu-siq"/>
+                                    <constraint firstAttribute="height" constant="80" id="5mj-K9-6XX"/>
+                                    <constraint firstItem="33b-D7-ZlR" firstAttribute="bottom" secondItem="Icl-Oh-jwB" secondAttribute="bottom" id="8fg-w5-IKy"/>
+                                    <constraint firstItem="33b-D7-ZlR" firstAttribute="leading" secondItem="Icl-Oh-jwB" secondAttribute="leading" id="BiD-tk-CTu"/>
+                                    <constraint firstItem="33b-D7-ZlR" firstAttribute="height" secondItem="pzT-xi-O0A" secondAttribute="height" id="EmQ-yO-XU9"/>
+                                    <constraint firstItem="33b-D7-ZlR" firstAttribute="trailing" secondItem="Icl-Oh-jwB" secondAttribute="trailing" id="OgP-dz-jyw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Icl-Oh-jwB"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="pzT-xi-O0A"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UpComingChests..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaz-11-y5d" userLabel="UpComingChestsLabel">
+                                <rect key="frame" x="5" y="757" width="404" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="UGn-jo-nfB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Ah3-5b-jAt" firstAttribute="centerX" secondItem="lcz-hx-WxI" secondAttribute="centerX" id="FgG-6F-86c"/>
-                            <constraint firstItem="Ah3-5b-jAt" firstAttribute="centerY" secondItem="lcz-hx-WxI" secondAttribute="centerY" id="X7A-oG-sJM"/>
+                            <constraint firstItem="KJl-vF-boh" firstAttribute="trailing" secondItem="iaz-11-y5d" secondAttribute="trailing" constant="5" id="1T1-tR-fQj"/>
+                            <constraint firstItem="iaz-11-y5d" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" constant="5" id="IdM-BK-d17"/>
+                            <constraint firstItem="KJl-vF-boh" firstAttribute="trailing" secondItem="mPI-ol-D5i" secondAttribute="trailing" id="Oi1-B4-dFw"/>
+                            <constraint firstItem="KJl-vF-boh" firstAttribute="bottom" secondItem="mPI-ol-D5i" secondAttribute="bottom" id="XxJ-ES-jMa"/>
+                            <constraint firstItem="mPI-ol-D5i" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" id="ZuJ-h7-tRJ"/>
+                            <constraint firstItem="mPI-ol-D5i" firstAttribute="top" secondItem="iaz-11-y5d" secondAttribute="bottom" constant="5" id="l4B-vE-kKB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KJl-vF-boh"/>
                     </view>
+                    <connections>
+                        <outlet property="chestsListView" destination="33b-D7-ZlR" id="kUD-cr-efD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbV-n2-erj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128" y="141"/>
+            <point key="canvasLocation" x="127.53623188405798" y="140.625"/>
         </scene>
     </scenes>
 </document>
