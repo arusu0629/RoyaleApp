@@ -17,7 +17,7 @@ final class SignInPresenterImpl: SignInPresenter {
 
     weak var view: SignInView?
     var wireframe: SignInWireframe!
-    var upcomingChestsUseCase: UpComingChestsUseCase!
+    var playerUseCase: PlayerUseCase!
 
     var dismissCompletion: (() -> Void)?
 
@@ -39,8 +39,7 @@ extension SignInPresenterImpl {
 
     func requestPlayerInfo(playerTag: String) {
         let convertPlayerTag = AppConfig.convertPlayerTag(playerTag)
-        // TODO: 適切な API に変える
-        self.upcomingChestsUseCase.get(playerTag: convertPlayerTag) { result in
+        self.playerUseCase.get(playerTag: convertPlayerTag) { result in
             switch result {
             case .success:
                 AppConfig.playerTag = convertPlayerTag

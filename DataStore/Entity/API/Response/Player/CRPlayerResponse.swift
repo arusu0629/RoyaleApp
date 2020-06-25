@@ -16,7 +16,7 @@ public struct CRPlayerResponse: Decodable {
     let leagueStatistics : LeagueStatistic?
     let name : String?
     let stats : Stat?
-    let tag : String?
+    public let tag : String?
     let trophies : Int?
 }
 

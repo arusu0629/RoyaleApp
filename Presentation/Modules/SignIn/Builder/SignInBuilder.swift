@@ -20,7 +20,7 @@ public enum SignInBuilder {
 
         presenter.view = view
         presenter.wireframe = wireframe
-        presenter.upcomingChestsUseCase = UpComingChestsProvider.provide()
+        presenter.playerUseCase = PlayerUseCaseProvider.provide()
 
         wireframe.viewController = view
 
