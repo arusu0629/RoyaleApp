@@ -20,20 +20,49 @@ final class HomePresenterImpl: HomePresenter {
     var chestsUseCase: UpComingChestsUseCase!
 
     func viewDidLoad() {
+        if AppConfig.playerTag.isEmpty {
+            self.presentSignIn(dismissCompletion: self.setup)
+            return
+        }
+        self.setup()
+    }
+}
+
+// MARK: - Setup
+private extension HomePresenterImpl {
+
+    func setup() {
+        self.requestPlayerInfo()
+    }
+}
+
+// MARK: - PlayerInfo
+private extension HomePresenterImpl {
+
+    private func requestPlayerInfo() {
         self.requestUpComingChests()
     }
 
-    private func requestUpComingChests() {
-        // TODO: 消す (UserDefaultから取ってくる？)
-        let playerTag = "%23R89920JY"
+    private func requestUpComingChests(_ playerTag: String = AppConfig.playerTag) {
+        if playerTag.isEmpty {
+            return
+        }
         self.chestsUseCase.get(playerTag: playerTag) { result in
             switch result {
             case .success(let upComingChestsModel):
                 self.view?.didFetchUpcomingChests(chestsModel: upComingChestsModel)
+                AppConfig.playerTag = playerTag
             case .failure(let error):
                 self.view?.showErrorAlert(error)
             }
         }
     }
+}
 
+// MARK: - SignIn
+private extension HomePresenterImpl {
+
+    func presentSignIn(dismissCompletion: (() -> Void)?) {
+        self.wireframe.presentSignIn(dismissCompletion: dismissCompletion)
+    }
 }

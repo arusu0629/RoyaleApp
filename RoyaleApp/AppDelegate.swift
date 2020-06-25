@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.setupWindowIfNeeded()
         return true
     }
 }
@@ -28,10 +29,14 @@ extension AppDelegate {
         if #available(iOS 13.0, *) {
         } else {
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            let navigationController = UINavigationController(rootViewController: RootBuilder.build())
+            let navigationController = UINavigationController(rootViewController: self.rootViewController())
             self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()
         }
+    }
+
+    private func rootViewController() -> UIViewController {
+        return RootBuilder.build()
     }
 }
 

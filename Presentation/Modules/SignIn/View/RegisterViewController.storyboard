@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RvU-Wz-6Oh">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In View Controller-->
+        <scene sceneID="yXs-Dx-Kz0">
+            <objects>
+                <viewController id="RvU-Wz-6Oh" customClass="SignInViewController" customModule="Presentation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ryh-Dd-KJm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Register_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="pvP-8h-5la">
+                                <rect key="frame" x="143.66666666666666" y="374.66666666666669" width="126.99999999999997" height="147.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="3mH-tQ-awa"/>
+                                    <constraint firstAttribute="height" constant="147" id="sIi-5g-QdI"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Input player tag" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBj-yJ-g7G">
+                                <rect key="frame" x="57" y="541.66666666666663" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="QFf-ja-Ewz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SBj-yJ-g7G" firstAttribute="top" secondItem="pvP-8h-5la" secondAttribute="bottom" constant="20" id="9Du-2j-tWd"/>
+                            <constraint firstItem="pvP-8h-5la" firstAttribute="centerX" secondItem="ryh-Dd-KJm" secondAttribute="centerX" id="DG9-zk-j1h"/>
+                            <constraint firstItem="SBj-yJ-g7G" firstAttribute="centerX" secondItem="ryh-Dd-KJm" secondAttribute="centerX" id="Dot-cU-BC3"/>
+                            <constraint firstItem="pvP-8h-5la" firstAttribute="centerY" secondItem="ryh-Dd-KJm" secondAttribute="centerY" id="UxU-G8-FKA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7km-GW-sGv"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputPlayerTagTextField" destination="SBj-yJ-g7G" id="6sQ-3d-PeT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5h3-kl-qJT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168" y="179"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Register_Logo" width="1270" height="1469"/>
+    </resources>
+</document>

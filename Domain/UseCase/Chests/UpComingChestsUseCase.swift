@@ -9,6 +9,17 @@
 import DataStore
 import Foundation
 
+enum UpComingChestsError: LocalizedError {
+    case empty
+
+    var errorDescription: String? {
+        switch self {
+        case .empty:
+            return "Invalid player tag"
+        }
+    }
+}
+
 public enum UpComingChestsProvider {
 
     public static func provide() -> UpComingChestsUseCase {
@@ -35,11 +46,14 @@ private struct UpComingChestsUseCaseImpl: UpComingChestsUseCase {
             switch result {
             case .success(let response):
                 let chestsModel = self.translator.convert(from: response)
+                if chestsModel.chests.isEmpty {
+                    completion(.failure(UpComingChestsError.empty))
+                    return
+                }
                 completion(.success(chestsModel))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-
 }

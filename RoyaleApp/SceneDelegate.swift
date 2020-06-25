@@ -28,8 +28,12 @@ extension SceneDelegate {
 
     private func setupWindow(_ scene: UIWindowScene) {
         self.window = UIWindow(windowScene: scene)
-        let navigationController = UINavigationController(rootViewController: RootBuilder.build())
+        let navigationController = UINavigationController(rootViewController: self.rootViewController())
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
+    }
+
+    private func rootViewController() -> UIViewController {
+        return RootBuilder.build()
     }
 }
