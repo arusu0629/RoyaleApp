@@ -25,6 +25,8 @@ internal enum Asset {
   internal static let chestMagical = ImageAsset(name: "chest-magical")
   internal static let chestMegalightning = ImageAsset(name: "chest-megalightning")
   internal static let chestSilver = ImageAsset(name: "chest-silver")
+  internal static let arena0 = ImageAsset(name: "arena0")
+  internal static let registerLogo = ImageAsset(name: "Register_Logo")
   internal static let deckIconNonSelect = ImageAsset(name: "deck_icon_non_select")
   internal static let deckIconSelected = ImageAsset(name: "deck_icon_selected")
   internal static let homeIconNonSelect = ImageAsset(name: "home_icon_non_select")

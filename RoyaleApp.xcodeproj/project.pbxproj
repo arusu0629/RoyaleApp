@@ -78,6 +78,8 @@
 		A1D07D54248E1EA300FE1785 /* ShowAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D53248E1EA300FE1785 /* ShowAlertView.swift */; };
 		A1D07D56248E1F2D00FE1785 /* ShowErrorAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */; };
 		A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */; };
+		A1E117ED24A58C6D00CE8FC3 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1E117EC24A58C6C00CE8FC3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1E117F424A58FEF00CE8FC3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1E117F324A58FEF00CE8FC3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1E72B5E2488C046000B0949 /* UpComingChestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */; };
 		A1E72B602488C05C000B0949 /* UpComingChestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */; };
 		A1E72B632488C612000B0949 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E72B622488C612000B0949 /* UIView+.swift */; };
@@ -195,6 +197,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A1B9D703247CA11B00126C9F /* Alamofire.framework in Embed Frameworks */,
+				A1E117ED24A58C6D00CE8FC3 /* Realm.framework in Embed Frameworks */,
+				A1E117F424A58FEF00CE8FC3 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +281,8 @@
 		A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorAlertView.swift; sourceTree = "<group>"; };
 		A1D07D58248E22F600FE1785 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardInstantiate.swift; sourceTree = "<group>"; };
+		A1E117EC24A58C6C00CE8FC3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		A1E117F324A58FEF00CE8FC3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingChestCell.swift; sourceTree = "<group>"; };
 		A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpComingChestCell.xib; sourceTree = "<group>"; };
 		A1E72B622488C612000B0949 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -741,6 +747,8 @@
 		A1B9D6A1247C9C7400126C9F = {
 			isa = PBXGroup;
 			children = (
+				A1E117F324A58FEF00CE8FC3 /* RealmSwift.framework */,
+				A1E117EC24A58C6C00CE8FC3 /* Realm.framework */,
 				A1B9D6E3247CA10100126C9F /* DataStore */,
 				A1B9D6F0247CA10100126C9F /* DataStoreTests */,
 				A185969424811316008F067A /* Domain */,
@@ -1389,6 +1397,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwipeableTabBarController.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -1396,6 +1406,8 @@
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework\n",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwipableTabBarController.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

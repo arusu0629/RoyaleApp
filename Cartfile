@@ -1,2 +1,3 @@
 github "Alamofire/Alamofire"
 github "marcosgriselli/SwipeableTabBarController"
+github "realm/realm-cocoa"
