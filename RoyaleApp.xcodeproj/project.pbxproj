@@ -26,6 +26,12 @@
 		A17CE39724A47F8A0081170B /* PlayerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE39624A47F8A0081170B /* PlayerUseCase.swift */; };
 		A17CE39A24A47FE60081170B /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE39924A47FE60081170B /* PlayerModel.swift */; };
 		A17CE39C24A480CD0081170B /* PlayerTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE39B24A480CD0081170B /* PlayerTranslator.swift */; };
+		A17CE39F24A4A2F20081170B /* CRPlayerBattleLogsAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE39E24A4A2F20081170B /* CRPlayerBattleLogsAPIRequest.swift */; };
+		A17CE3A224A4A3C50081170B /* CRPlayerBattleLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE3A124A4A3C50081170B /* CRPlayerBattleLog.swift */; };
+		A17CE3A524A4B2710081170B /* BattleLogsRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE3A424A4B2710081170B /* BattleLogsRespository.swift */; };
+		A17CE3A824A4B3D50081170B /* BattleLogsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE3A724A4B3D50081170B /* BattleLogsUseCase.swift */; };
+		A17CE3AA24A4B4EB0081170B /* BattleLogsTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE3A924A4B4EB0081170B /* BattleLogsTranslator.swift */; };
+		A17CE3AD24A4B5390081170B /* BattleLogsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE3AC24A4B5390081170B /* BattleLogsModel.swift */; };
 		A17E576F2480CFCF00F05165 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17E57662480CFCF00F05165 /* Presentation.framework */; };
 		A17E57762480CFCF00F05165 /* PresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17E57752480CFCF00F05165 /* PresentationTests.swift */; };
 		A17E57782480CFCF00F05165 /* Presentation.h in Headers */ = {isa = PBXBuildFile; fileRef = A17E57682480CFCF00F05165 /* Presentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -212,6 +218,12 @@
 		A17CE39624A47F8A0081170B /* PlayerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUseCase.swift; sourceTree = "<group>"; };
 		A17CE39924A47FE60081170B /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		A17CE39B24A480CD0081170B /* PlayerTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTranslator.swift; sourceTree = "<group>"; };
+		A17CE39E24A4A2F20081170B /* CRPlayerBattleLogsAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRPlayerBattleLogsAPIRequest.swift; sourceTree = "<group>"; };
+		A17CE3A124A4A3C50081170B /* CRPlayerBattleLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRPlayerBattleLog.swift; sourceTree = "<group>"; };
+		A17CE3A424A4B2710081170B /* BattleLogsRespository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleLogsRespository.swift; sourceTree = "<group>"; };
+		A17CE3A724A4B3D50081170B /* BattleLogsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleLogsUseCase.swift; sourceTree = "<group>"; };
+		A17CE3A924A4B4EB0081170B /* BattleLogsTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleLogsTranslator.swift; sourceTree = "<group>"; };
+		A17CE3AC24A4B5390081170B /* BattleLogsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleLogsModel.swift; sourceTree = "<group>"; };
 		A17E57662480CFCF00F05165 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17E57682480CFCF00F05165 /* Presentation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Presentation.h; sourceTree = "<group>"; };
 		A17E57692480CFCF00F05165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -528,6 +540,46 @@
 			path = Player;
 			sourceTree = "<group>";
 		};
+		A17CE39D24A4A2C20081170B /* BattleLogs */ = {
+			isa = PBXGroup;
+			children = (
+				A17CE39E24A4A2F20081170B /* CRPlayerBattleLogsAPIRequest.swift */,
+			);
+			path = BattleLogs;
+			sourceTree = "<group>";
+		};
+		A17CE3A024A4A3AE0081170B /* BattleLogs */ = {
+			isa = PBXGroup;
+			children = (
+				A17CE3A124A4A3C50081170B /* CRPlayerBattleLog.swift */,
+			);
+			path = BattleLogs;
+			sourceTree = "<group>";
+		};
+		A17CE3A324A4B2590081170B /* BattleLogs */ = {
+			isa = PBXGroup;
+			children = (
+				A17CE3A424A4B2710081170B /* BattleLogsRespository.swift */,
+			);
+			path = BattleLogs;
+			sourceTree = "<group>";
+		};
+		A17CE3A624A4B3C40081170B /* BattleLogs */ = {
+			isa = PBXGroup;
+			children = (
+				A17CE3A724A4B3D50081170B /* BattleLogsUseCase.swift */,
+			);
+			path = BattleLogs;
+			sourceTree = "<group>";
+		};
+		A17CE3AB24A4B5270081170B /* BattleLogs */ = {
+			isa = PBXGroup;
+			children = (
+				A17CE3AC24A4B5390081170B /* BattleLogsModel.swift */,
+			);
+			path = BattleLogs;
+			sourceTree = "<group>";
+		};
 		A17E57672480CFCF00F05165 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,8 +636,9 @@
 		A18596B024811328008F067A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A17CE39824A47FCD0081170B /* Player */,
+				A17CE3AB24A4B5270081170B /* BattleLogs */,
 				A196B9332488A3B1003C2A7B /* Chests */,
+				A17CE39824A47FCD0081170B /* Player */,
 				A18596B12481132E008F067A /* Tab */,
 			);
 			path = Model;
@@ -602,6 +655,7 @@
 		A18596B4248119C9008F067A /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				A17CE3A624A4B3C40081170B /* BattleLogs */,
 				A196B9302488A202003C2A7B /* Chests */,
 				A17CE39524A47F590081170B /* Player */,
 				A18596B5248119D7008F067A /* Tab */,
@@ -677,6 +731,7 @@
 		A196B9372488AA34003C2A7B /* Translator */ = {
 			isa = PBXGroup;
 			children = (
+				A17CE3A924A4B4EB0081170B /* BattleLogsTranslator.swift */,
 				A17CE39B24A480CD0081170B /* PlayerTranslator.swift */,
 				A196B9382488AA43003C2A7B /* UpComingChestsTranslator.swift */,
 			);
@@ -796,6 +851,7 @@
 		A1B9D70A247D0BF100126C9F /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				A17CE39D24A4A2C20081170B /* BattleLogs */,
 				A196B927248883DD003C2A7B /* Chests */,
 				A1B9D710247D117600126C9F /* Player */,
 				A1B9D70B247D0BF800126C9F /* Common */,
@@ -823,6 +879,7 @@
 		A1B9D713247D128B00126C9F /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				A17CE3A024A4A3AE0081170B /* BattleLogs */,
 				A196B92A2488843A003C2A7B /* Chests */,
 				A1B9D714247D129200126C9F /* Player */,
 			);
@@ -857,6 +914,7 @@
 		A1B9D71B247DFDD200126C9F /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				A17CE3A324A4B2590081170B /* BattleLogs */,
 				A196B92D24888541003C2A7B /* Chests */,
 				A1B9D71C247DFDDB00126C9F /* Player */,
 			);
@@ -1396,12 +1454,15 @@
 			files = (
 				A17CE39C24A480CD0081170B /* PlayerTranslator.swift in Sources */,
 				A196B9322488A244003C2A7B /* UpComingChestsUseCase.swift in Sources */,
+				A17CE3AD24A4B5390081170B /* BattleLogsModel.swift in Sources */,
 				A196B9392488AA43003C2A7B /* UpComingChestsTranslator.swift in Sources */,
 				A18596B32481133B008F067A /* Tab.swift in Sources */,
 				A18596B7248119E0008F067A /* TabUseCase.swift in Sources */,
 				A17CE39724A47F8A0081170B /* PlayerUseCase.swift in Sources */,
+				A17CE3AA24A4B4EB0081170B /* BattleLogsTranslator.swift in Sources */,
 				A196B9352488A3C0003C2A7B /* UpComingChestsModel.swift in Sources */,
 				A17CE39A24A47FE60081170B /* PlayerModel.swift in Sources */,
+				A17CE3A824A4B3D50081170B /* BattleLogsUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1444,8 +1505,11 @@
 			files = (
 				A1B9D70D247D0C0B00126C9F /* APIRequestable.swift in Sources */,
 				A1B9D70F247D0F3100126C9F /* CRAPIRequestable.swift in Sources */,
+				A17CE3A224A4A3C50081170B /* CRPlayerBattleLog.swift in Sources */,
 				A1B9D71A247DFAC600126C9F /* APIDataStore.swift in Sources */,
+				A17CE39F24A4A2F20081170B /* CRPlayerBattleLogsAPIRequest.swift in Sources */,
 				A196B92F24888550003C2A7B /* UpComingChestsRepository.swift in Sources */,
+				A17CE3A524A4B2710081170B /* BattleLogsRespository.swift in Sources */,
 				A196B92C24888448003C2A7B /* CRUpComingChestsResponse.swift in Sources */,
 				A1B9D716247DF6DA00126C9F /* CRPlayerResponse.swift in Sources */,
 				A1B9D720247DFEDA00126C9F /* CRAPIDataStore.swift in Sources */,

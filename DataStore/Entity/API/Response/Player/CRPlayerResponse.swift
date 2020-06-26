@@ -35,7 +35,7 @@ extension CRPlayerResponse {
 // MARK: Arena
 extension CRPlayerResponse {
 
-    public struct Arena : Decodable {
+    public struct Arena: Decodable {
         let arena : String?
         let id : Int?
         let name : String?

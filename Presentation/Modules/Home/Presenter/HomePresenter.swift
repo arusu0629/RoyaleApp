@@ -18,6 +18,7 @@ final class HomePresenterImpl: HomePresenter {
     weak var view: HomeView?
     var wireframe: HomeWireframe!
     var chestsUseCase: UpComingChestsUseCase!
+    var battleLogsUseCase: BattleLogsUseCase!
 
     func viewDidLoad() {
         if AppConfig.playerTag.isEmpty {
@@ -41,6 +42,7 @@ private extension HomePresenterImpl {
 
     private func requestPlayerInfo() {
         self.requestUpComingChests()
+        self.requestBattleLogs()
     }
 
     private func requestUpComingChests(_ playerTag: String = AppConfig.playerTag) {
@@ -52,6 +54,20 @@ private extension HomePresenterImpl {
             case .success(let upComingChestsModel):
                 self.view?.didFetchUpcomingChests(chestsModel: upComingChestsModel)
                 AppConfig.playerTag = playerTag
+            case .failure(let error):
+                self.view?.showErrorAlert(error)
+            }
+        }
+    }
+
+    private func requestBattleLogs(_ playerTag: String = AppConfig.playerTag) {
+        if playerTag.isEmpty {
+            return
+        }
+        self.battleLogsUseCase.get(playerTag: playerTag) { result in
+            switch result {
+            case .success(let battleLogsModel):
+                break
             case .failure(let error):
                 self.view?.showErrorAlert(error)
             }
