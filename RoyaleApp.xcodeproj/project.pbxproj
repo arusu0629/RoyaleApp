@@ -67,7 +67,6 @@
 		A1B9D6F7247CA10100126C9F /* DataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B9D6E2247CA10100126C9F /* DataStore.framework */; };
 		A1B9D6F8247CA10100126C9F /* DataStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1B9D6E2247CA10100126C9F /* DataStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1B9D702247CA11B00126C9F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B9D701247CA11B00126C9F /* Alamofire.framework */; };
-		A1B9D703247CA11B00126C9F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1B9D701247CA11B00126C9F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1B9D70D247D0C0B00126C9F /* APIRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D70C247D0C0B00126C9F /* APIRequestable.swift */; };
 		A1B9D70F247D0F3100126C9F /* CRAPIRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D70E247D0F3100126C9F /* CRAPIRequestable.swift */; };
 		A1B9D712247D119600126C9F /* CRPlayerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D711247D119600126C9F /* CRPlayerAPIRequest.swift */; };
@@ -78,8 +77,11 @@
 		A1D07D54248E1EA300FE1785 /* ShowAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D53248E1EA300FE1785 /* ShowAlertView.swift */; };
 		A1D07D56248E1F2D00FE1785 /* ShowErrorAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */; };
 		A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */; };
-		A1E117ED24A58C6D00CE8FC3 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1E117EC24A58C6C00CE8FC3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A1E117F424A58FEF00CE8FC3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1E117F324A58FEF00CE8FC3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1D973FB24A5DBC900A654C2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D973F924A5DBC900A654C2 /* Realm.framework */; };
+		A1D973FC24A5DBC900A654C2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D973FA24A5DBC900A654C2 /* RealmSwift.framework */; };
+		A1E117F724A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */; };
+		A1E117FA24A595C200CE8FC3 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117F924A595C200CE8FC3 /* RealmRepository.swift */; };
+		A1E117FD24A5963C00CE8FC3 /* RealmUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */; };
 		A1E72B5E2488C046000B0949 /* UpComingChestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */; };
 		A1E72B602488C05C000B0949 /* UpComingChestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */; };
 		A1E72B632488C612000B0949 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E72B622488C612000B0949 /* UIView+.swift */; };
@@ -190,17 +192,14 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A1B9D704247CA11B00126C9F /* Embed Frameworks */ = {
+		A1E117FE24A5972700CE8FC3 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 7;
 			files = (
-				A1B9D703247CA11B00126C9F /* Alamofire.framework in Embed Frameworks */,
-				A1E117ED24A58C6D00CE8FC3 /* Realm.framework in Embed Frameworks */,
-				A1E117F424A58FEF00CE8FC3 /* RealmSwift.framework in Embed Frameworks */,
 			);
-			name = "Embed Frameworks";
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -281,8 +280,11 @@
 		A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorAlertView.swift; sourceTree = "<group>"; };
 		A1D07D58248E22F600FE1785 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardInstantiate.swift; sourceTree = "<group>"; };
-		A1E117EC24A58C6C00CE8FC3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		A1E117F324A58FEF00CE8FC3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		A1D973F924A5DBC900A654C2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		A1D973FA24A5DBC900A654C2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBattleLogRealmDataStore.swift; sourceTree = "<group>"; };
+		A1E117F924A595C200CE8FC3 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUseCase.swift; sourceTree = "<group>"; };
 		A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingChestCell.swift; sourceTree = "<group>"; };
 		A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpComingChestCell.xib; sourceTree = "<group>"; };
 		A1E72B622488C612000B0949 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -364,6 +366,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1B9D702247CA11B00126C9F /* Alamofire.framework in Frameworks */,
+				A1D973FB24A5DBC900A654C2 /* Realm.framework in Frameworks */,
+				A1D973FC24A5DBC900A654C2 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +665,7 @@
 		A18596B4248119C9008F067A /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				A1E117FB24A5963200CE8FC3 /* Local */,
 				A17CE3A624A4B3C40081170B /* BattleLogs */,
 				A196B9302488A202003C2A7B /* Chests */,
 				A17CE39524A47F590081170B /* Player */,
@@ -747,8 +752,6 @@
 		A1B9D6A1247C9C7400126C9F = {
 			isa = PBXGroup;
 			children = (
-				A1E117F324A58FEF00CE8FC3 /* RealmSwift.framework */,
-				A1E117EC24A58C6C00CE8FC3 /* Realm.framework */,
 				A1B9D6E3247CA10100126C9F /* DataStore */,
 				A1B9D6F0247CA10100126C9F /* DataStoreTests */,
 				A185969424811316008F067A /* Domain */,
@@ -833,8 +836,10 @@
 		A1B9D700247CA11B00126C9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A18596BF24812539008F067A /* SwipeableTabBarController.framework */,
 				A1B9D701247CA11B00126C9F /* Alamofire.framework */,
+				A1D973F924A5DBC900A654C2 /* Realm.framework */,
+				A1D973FA24A5DBC900A654C2 /* RealmSwift.framework */,
+				A18596BF24812539008F067A /* SwipeableTabBarController.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -905,6 +910,7 @@
 		A1B9D717247DFAA100126C9F /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
+				A1E117F524A5904A00CE8FC3 /* Local */,
 				A1B9D718247DFAB800126C9F /* API */,
 			);
 			path = DataStore;
@@ -922,6 +928,7 @@
 		A1B9D71B247DFDD200126C9F /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				A1E117F824A5958100CE8FC3 /* Local */,
 				A17CE3A324A4B2590081170B /* BattleLogs */,
 				A196B92D24888541003C2A7B /* Chests */,
 				A1B9D71C247DFDDB00126C9F /* Player */,
@@ -956,6 +963,30 @@
 				A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		A1E117F524A5904A00CE8FC3 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		A1E117F824A5958100CE8FC3 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				A1E117F924A595C200CE8FC3 /* RealmRepository.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		A1E117FB24A5963200CE8FC3 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 		A1E72B5A2488BFFB000B0949 /* Custom */ = {
@@ -1096,6 +1127,7 @@
 				A185968F24811316008F067A /* Sources */,
 				A185969024811316008F067A /* Frameworks */,
 				A185969124811316008F067A /* Resources */,
+				A1E117FE24A5972700CE8FC3 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -1192,7 +1224,6 @@
 				A1B9D6DE247CA10100126C9F /* Sources */,
 				A1B9D6DF247CA10100126C9F /* Frameworks */,
 				A1B9D6E0247CA10100126C9F /* Resources */,
-				A1B9D704247CA11B00126C9F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1475,6 +1506,7 @@
 				A196B9352488A3C0003C2A7B /* UpComingChestsModel.swift in Sources */,
 				A17CE39A24A47FE60081170B /* PlayerModel.swift in Sources */,
 				A17CE3A824A4B3D50081170B /* BattleLogsUseCase.swift in Sources */,
+				A1E117FD24A5963C00CE8FC3 /* RealmUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1520,12 +1552,14 @@
 				A17CE3A224A4A3C50081170B /* CRPlayerBattleLog.swift in Sources */,
 				A1B9D71A247DFAC600126C9F /* APIDataStore.swift in Sources */,
 				A17CE39F24A4A2F20081170B /* CRPlayerBattleLogsAPIRequest.swift in Sources */,
+				A1E117FA24A595C200CE8FC3 /* RealmRepository.swift in Sources */,
 				A196B92F24888550003C2A7B /* UpComingChestsRepository.swift in Sources */,
 				A17CE3A524A4B2710081170B /* BattleLogsRespository.swift in Sources */,
 				A196B92C24888448003C2A7B /* CRUpComingChestsResponse.swift in Sources */,
 				A1B9D716247DF6DA00126C9F /* CRPlayerResponse.swift in Sources */,
 				A1B9D720247DFEDA00126C9F /* CRAPIDataStore.swift in Sources */,
 				A196B92924888406003C2A7B /* CRUpComingChestsAPIRequest.swift in Sources */,
+				A1E117F724A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift in Sources */,
 				A1B9D71E247DFDE900126C9F /* PlayerRepository.swift in Sources */,
 				A1B9D712247D119600126C9F /* CRPlayerAPIRequest.swift in Sources */,
 			);
@@ -1721,6 +1755,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Domain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1750,6 +1788,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Domain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -2053,6 +2095,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = DataStore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -2086,6 +2129,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = DataStore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

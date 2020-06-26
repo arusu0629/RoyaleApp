@@ -19,6 +19,7 @@ final class HomePresenterImpl: HomePresenter {
     var wireframe: HomeWireframe!
     var chestsUseCase: UpComingChestsUseCase!
     var battleLogsUseCase: BattleLogsUseCase!
+    var realmUseCase: RealmUseCase!
 
     func viewDidLoad() {
         if AppConfig.playerTag.isEmpty {
@@ -67,7 +68,7 @@ private extension HomePresenterImpl {
         self.battleLogsUseCase.get(playerTag: playerTag) { result in
             switch result {
             case .success(let battleLogsModel):
-                break
+                self.realmUseCase.save(objects: battleLogsModel.realmBattleLogs())
             case .failure(let error):
                 self.view?.showErrorAlert(error)
             }

@@ -6,14 +6,14 @@ import Foundation
 
 public struct CRPlayerBattleLog: Decodable {
 
-    let gameMode: GameMode?
+    public let gameMode: GameMode?
     let arena: Arena?
     let type: String?
     let deckSelection: String?
-    let team: [Team]?
+    public let team: [Team]?
     let opponent: [Team]?
     let challengeWinCountBefore: Int?
-    let battleTime: String?
+    public let battleTime: String?
     let challengeId: Int?
     let tournamentTag: String?
     let challengeTitle: String?
@@ -26,7 +26,7 @@ extension CRPlayerBattleLog {
 
     public struct GameMode: Decodable {
         let id: Int?
-        let name: String?
+        public let name: String?
     }
 }
 
@@ -56,8 +56,8 @@ extension CRPlayerBattleLog {
         let cards: [Card]?
         let tag: String?
         let name: String?
-        let startingTrophies: Int?
-        let trophyChange: Int?
+        public let startingTrophies: Int?
+        public let trophyChange: Int?
         let crowns: Int?
         let kingTowerHitPoints: Int?
         let princessTowersHitPoints: [Int]?
