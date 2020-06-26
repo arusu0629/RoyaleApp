@@ -1,3 +1,4 @@
 github "Alamofire/Alamofire" "5.2.1"
+github "danielgindi/Charts" "v3.5.0"
 github "marcosgriselli/SwipeableTabBarController" "3.2.1"
 github "realm/realm-cocoa" "v5.1.0"

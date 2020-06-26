@@ -79,6 +79,7 @@
 		A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */; };
 		A1D973FB24A5DBC900A654C2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D973F924A5DBC900A654C2 /* Realm.framework */; };
 		A1D973FC24A5DBC900A654C2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D973FA24A5DBC900A654C2 /* RealmSwift.framework */; };
+		A1D973FE24A5DF3C00A654C2 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D973FD24A5DF3C00A654C2 /* Charts.framework */; };
 		A1E117F724A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */; };
 		A1E117FA24A595C200CE8FC3 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117F924A595C200CE8FC3 /* RealmRepository.swift */; };
 		A1E117FD24A5963C00CE8FC3 /* RealmUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */; };
@@ -282,6 +283,7 @@
 		A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardInstantiate.swift; sourceTree = "<group>"; };
 		A1D973F924A5DBC900A654C2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		A1D973FA24A5DBC900A654C2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		A1D973FD24A5DF3C00A654C2 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBattleLogRealmDataStore.swift; sourceTree = "<group>"; };
 		A1E117F924A595C200CE8FC3 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUseCase.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D973FE24A5DF3C00A654C2 /* Charts.framework in Frameworks */,
 				A18596B824811A4C008F067A /* Domain.framework in Frameworks */,
 				A18596C024812539008F067A /* SwipeableTabBarController.framework in Frameworks */,
 			);
@@ -837,6 +840,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B9D701247CA11B00126C9F /* Alamofire.framework */,
+				A1D973FD24A5DF3C00A654C2 /* Charts.framework */,
 				A1D973F924A5DBC900A654C2 /* Realm.framework */,
 				A1D973FA24A5DBC900A654C2 /* RealmSwift.framework */,
 				A18596BF24812539008F067A /* SwipeableTabBarController.framework */,
@@ -1430,6 +1434,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwipeableTabBarController.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -1439,6 +1444,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwipableTabBarController.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Charts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
