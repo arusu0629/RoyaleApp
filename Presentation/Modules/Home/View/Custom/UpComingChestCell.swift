@@ -18,15 +18,15 @@ final class UpComingChestCell: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.initilize()
+        self.initialize()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.initilize()
+        self.initialize()
     }
 
-    private func initilize() {
+    private func initialize() {
         self.loadXib()
     }
 }

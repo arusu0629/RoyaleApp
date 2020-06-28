@@ -69,6 +69,12 @@ private extension HomePresenterImpl {
             switch result {
             case .success(let battleLogsModel):
                 self.realmUseCase.save(objects: battleLogsModel.realmBattleLogs())
+                guard let battleLogModels = self.realmUseCase.get(with: RealmBattleLogModel.self) else {
+                    self.view?.didFetchPlayerBattleLog(realmBattleLogs: [])
+                    return
+                }
+                let realmBattleLogs = [RealmBattleLogModel](battleLogModels.sorted(byKeyPath: RealmBattleLogModel.sortedKey))
+                self.view?.didFetchPlayerBattleLog(realmBattleLogs: realmBattleLogs)
             case .failure(let error):
                 self.view?.showErrorAlert(error)
             }

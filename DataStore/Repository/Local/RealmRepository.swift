@@ -19,6 +19,7 @@ public enum RealmRepositoryProvider {
 public protocol RealmRepository {
     func save<T: Object>(object: T)
     func save<T: Object>(objects: [T])
+    func get<T: Object>(with type: T.Type) -> Results<T>?
 }
 
 private struct RealmRepositoryImpl: RealmRepository {
@@ -31,5 +32,9 @@ private struct RealmRepositoryImpl: RealmRepository {
 
     func save<T>(objects: [T]) where T : Object {
         self.realmDataStore.save(objects: objects)
+    }
+
+    func get<T>(with type: T.Type) -> Results<T>? where T : Object {
+        return self.realmDataStore.get(with: type)
     }
 }

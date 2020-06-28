@@ -6,17 +6,19 @@
 //  Copyright © 2020 arusu0629. All rights reserved.
 //
 
-import UIKit
 import Domain
+import UIKit
 
 protocol HomeView: ShowErrorAlertView {
     func didFetchUpcomingChests(chestsModel: UpComingChestsModel)
+    func didFetchPlayerBattleLog(realmBattleLogs: [RealmBattleLogModel])
 }
 
 // MARK: - Properties
 final class HomeViewController: UIViewController {
 
     @IBOutlet private weak var chestsListView: UIStackView!
+    @IBOutlet private weak var playerTrophyChartView: PlayerTrophyLineChartView!
 
     var presenter: HomePresenter!
 
@@ -41,6 +43,13 @@ extension HomeViewController: HomeView {
             let cell = self.createUpComingChestCell(chest: chest)
             self.chestsListView.addArrangedSubview(cell)
         }
+    }
+
+    func didFetchPlayerBattleLog(realmBattleLogs: [RealmBattleLogModel]) {
+        if realmBattleLogs.isEmpty {
+            return
+        }
+        self.playerTrophyChartView.setupData(battleLogs: realmBattleLogs)
     }
 }
 

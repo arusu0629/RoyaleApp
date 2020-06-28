@@ -37,6 +37,7 @@
 		A17E57782480CFCF00F05165 /* Presentation.h in Headers */ = {isa = PBXBuildFile; fileRef = A17E57682480CFCF00F05165 /* Presentation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A17E577B2480CFCF00F05165 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17E57662480CFCF00F05165 /* Presentation.framework */; };
 		A17E577C2480CFCF00F05165 /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A17E57662480CFCF00F05165 /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1815C4724A8D9FA001B59FA /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1815C4624A8D9FA001B59FA /* DateFormatter+.swift */; };
 		A185969C24811316008F067A /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185969324811316008F067A /* Domain.framework */; };
 		A18596A324811316008F067A /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18596A224811316008F067A /* DomainTests.swift */; };
 		A18596A524811316008F067A /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = A185969524811316008F067A /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,6 +81,8 @@
 		A1D973FB24A5DBC900A654C2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D973F924A5DBC900A654C2 /* Realm.framework */; };
 		A1D973FC24A5DBC900A654C2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D973FA24A5DBC900A654C2 /* RealmSwift.framework */; };
 		A1D973FE24A5DF3C00A654C2 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D973FD24A5DF3C00A654C2 /* Charts.framework */; };
+		A1D9740024A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D973FF24A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib */; };
+		A1D9740224A5E20F00A654C2 /* PlayerTrophyLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9740124A5E20F00A654C2 /* PlayerTrophyLineChartView.swift */; };
 		A1E117F724A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */; };
 		A1E117FA24A595C200CE8FC3 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117F924A595C200CE8FC3 /* RealmRepository.swift */; };
 		A1E117FD24A5963C00CE8FC3 /* RealmUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */; };
@@ -234,6 +237,7 @@
 		A17E576E2480CFCF00F05165 /* PresentationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresentationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17E57752480CFCF00F05165 /* PresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTests.swift; sourceTree = "<group>"; };
 		A17E57772480CFCF00F05165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1815C4624A8D9FA001B59FA /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		A185969324811316008F067A /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A185969524811316008F067A /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		A185969624811316008F067A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 		A1D973F924A5DBC900A654C2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		A1D973FA24A5DBC900A654C2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A1D973FD24A5DF3C00A654C2 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		A1D973FF24A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTrophyLineChartView.xib; sourceTree = "<group>"; };
+		A1D9740124A5E20F00A654C2 /* PlayerTrophyLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTrophyLineChartView.swift; sourceTree = "<group>"; };
 		A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBattleLogRealmDataStore.swift; sourceTree = "<group>"; };
 		A1E117F924A595C200CE8FC3 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUseCase.swift; sourceTree = "<group>"; };
@@ -436,9 +442,9 @@
 		257553C949866510ADF68F58 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A1E72B5A2488BFFB000B0949 /* Custom */,
 				FC512290C43FFDA6E0DA441F /* HomeViewController.swift */,
 				BE16E962A4A033F912C678E5 /* HomeViewController.storyboard */,
+				A1E72B5A2488BFFB000B0949 /* Custom */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -998,6 +1004,8 @@
 			children = (
 				A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */,
 				A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */,
+				A1D9740124A5E20F00A654C2 /* PlayerTrophyLineChartView.swift */,
+				A1D973FF24A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1007,6 +1015,7 @@
 			children = (
 				A1E72B622488C612000B0949 /* UIView+.swift */,
 				A1E72B642488C645000B0949 /* NSObject+.swift */,
+				A1815C4624A8D9FA001B59FA /* DateFormatter+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1338,6 +1347,7 @@
 				385FCC8FECE194C0739331CB /* RootViewController.storyboard in Resources */,
 				B9B0D3A4BDFD16456696559E /* HomeViewController.storyboard in Resources */,
 				A196B92324887E0B003C2A7B /* Assets.xcassets in Resources */,
+				A1D9740024A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib in Resources */,
 				5A6F454513F88C64878CDE82 /* DeckViewController.storyboard in Resources */,
 				D6255190073526673650CBE3 /* SignInViewController.storyboard in Resources */,
 			);
@@ -1471,9 +1481,11 @@
 				A196B92624887EEA003C2A7B /* Assets.swift in Sources */,
 				4DAE20DCF1F4AC78770A8B5F /* HomeBuilder.swift in Sources */,
 				ECE794BA9B5E4BAFE31A3C18 /* HomeViewController.swift in Sources */,
+				A1D9740224A5E20F00A654C2 /* PlayerTrophyLineChartView.swift in Sources */,
 				3E901036B1AA5A8919998379 /* HomePresenter.swift in Sources */,
 				D6CDB78B9C4B2DA0CE228F80 /* HomeWireframe.swift in Sources */,
 				2C72A4A21B7C5FF6C6DCC945 /* TransitToHomeWireframe.swift in Sources */,
+				A1815C4724A8D9FA001B59FA /* DateFormatter+.swift in Sources */,
 				9D0100124A08E38D9DC2AAD3 /* DeckBuilder.swift in Sources */,
 				DB6EAB2919EFB05FC4A48764 /* DeckViewController.swift in Sources */,
 				A1D07D56248E1F2D00FE1785 /* ShowErrorAlertView.swift in Sources */,

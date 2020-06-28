@@ -19,7 +19,7 @@ enum RealmDataStoreProvider {
 protocol RealmDataStore {
     func save<T: Object>(object: T)
     func save<T: Object>(objects: [T])
-    func get<T: Object>() -> Results<T>?
+    func get<T: Object>(with type: T.Type) -> Results<T>?
 }
 
 private struct RealmDataStoreImpl: RealmDataStore {
@@ -43,10 +43,10 @@ private struct RealmDataStoreImpl: RealmDataStore {
         }
     }
 
-    func get<T>() -> Results<T>? where T : Object {
+    func get<T>(with type: T.Type) -> Results<T>? where T : Object {
         guard let realm = try? Realm() else {
             return nil
         }
-        return realm.objects(T.self)
+        return realm.objects(type.self)
     }
 }

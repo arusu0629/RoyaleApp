@@ -20,6 +20,7 @@ public enum RealmUseCaseProvider {
 public protocol RealmUseCase {
     func save<T: Object>(object: T)
     func save<T: Object>(objects: [T])
+    func get<T: Object>(with type: T.Type) -> Results<T>?
 }
 
 private struct RealmUseCaseImpl: RealmUseCase {
@@ -32,5 +33,9 @@ private struct RealmUseCaseImpl: RealmUseCase {
 
     func save<T>(objects: [T]) where T : Object {
         self.repository.save(objects: objects)
+    }
+
+    func get<T>(with type: T.Type) -> Results<T>? where T : Object {
+        return self.repository.get(with: type)
     }
 }

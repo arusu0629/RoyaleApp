@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hA2-hf-Ug9">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="hA2-hf-Ug9" customClass="HomeViewController" customModule="Presentation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcz-hx-WxI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPI-ol-D5i" userLabel="UpComingChestsScrollView">
-                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="infinite" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="33b-D7-ZlR" userLabel="ChestsListScrollView">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="80"/>
@@ -36,7 +36,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="pzT-xi-O0A"/>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UpComingChests..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaz-11-y5d" userLabel="UpComingChestsLabel">
-                                <rect key="frame" x="5" y="757" width="404" height="20"/>
+                                <rect key="frame" x="5" y="562" width="365" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="UGn-jo-nfB"/>
                                 </constraints>
@@ -44,20 +44,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fo9-aF-SHd" customClass="PlayerTrophyLineChartView" customModule="Presentation" customModuleProvider="target">
+                                <rect key="frame" x="5" y="233.5" width="365" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="6Si-TW-H6z"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="KJl-vF-boh" firstAttribute="trailing" secondItem="iaz-11-y5d" secondAttribute="trailing" constant="5" id="1T1-tR-fQj"/>
+                            <constraint firstItem="Fo9-aF-SHd" firstAttribute="centerY" secondItem="lcz-hx-WxI" secondAttribute="centerY" id="5vn-NR-qUC"/>
                             <constraint firstItem="iaz-11-y5d" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" constant="5" id="IdM-BK-d17"/>
                             <constraint firstItem="KJl-vF-boh" firstAttribute="trailing" secondItem="mPI-ol-D5i" secondAttribute="trailing" id="Oi1-B4-dFw"/>
                             <constraint firstItem="KJl-vF-boh" firstAttribute="bottom" secondItem="mPI-ol-D5i" secondAttribute="bottom" id="XxJ-ES-jMa"/>
                             <constraint firstItem="mPI-ol-D5i" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" id="ZuJ-h7-tRJ"/>
+                            <constraint firstItem="Fo9-aF-SHd" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" constant="5" id="eEG-jA-xLS"/>
                             <constraint firstItem="mPI-ol-D5i" firstAttribute="top" secondItem="iaz-11-y5d" secondAttribute="bottom" constant="5" id="l4B-vE-kKB"/>
+                            <constraint firstItem="KJl-vF-boh" firstAttribute="trailing" secondItem="Fo9-aF-SHd" secondAttribute="trailing" constant="5" id="st6-Hx-hjf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KJl-vF-boh"/>
                     </view>
                     <connections>
                         <outlet property="chestsListView" destination="33b-D7-ZlR" id="kUD-cr-efD"/>
+                        <outlet property="playerTrophyChartView" destination="Fo9-aF-SHd" id="RI2-Zd-KmJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbV-n2-erj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
