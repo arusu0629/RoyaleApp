@@ -20,8 +20,9 @@ enum HomeBuilder {
 
         presenter.view = view
         presenter.wireframe = wireframe
-        presenter.chestsUseCase = UpComingChestsProvider.provide()
+        presenter.playerUseCase = PlayerUseCaseProvider.provide()
         presenter.battleLogsUseCase = BattleLogsUseCaseProvider.provide()
+        presenter.chestsUseCase = UpComingChestsProvider.provide()
         presenter.realmUseCase = RealmUseCaseProvider.provide()
 
         wireframe.viewController = view

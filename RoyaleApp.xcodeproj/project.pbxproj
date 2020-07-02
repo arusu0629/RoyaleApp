@@ -38,6 +38,8 @@
 		A17E577B2480CFCF00F05165 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17E57662480CFCF00F05165 /* Presentation.framework */; };
 		A17E577C2480CFCF00F05165 /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A17E57662480CFCF00F05165 /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1815C4724A8D9FA001B59FA /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1815C4624A8D9FA001B59FA /* DateFormatter+.swift */; };
+		A1831AE324AE114100F9EB35 /* PlayerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1831AE224AE114100F9EB35 /* PlayerInfoView.xib */; };
+		A1831AE524AE17EE00F9EB35 /* PlayerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1831AE424AE17EE00F9EB35 /* PlayerInfoView.swift */; };
 		A185969C24811316008F067A /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185969324811316008F067A /* Domain.framework */; };
 		A18596A324811316008F067A /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18596A224811316008F067A /* DomainTests.swift */; };
 		A18596A524811316008F067A /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = A185969524811316008F067A /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -238,6 +240,8 @@
 		A17E57752480CFCF00F05165 /* PresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTests.swift; sourceTree = "<group>"; };
 		A17E57772480CFCF00F05165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1815C4624A8D9FA001B59FA /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
+		A1831AE224AE114100F9EB35 /* PlayerInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerInfoView.xib; sourceTree = "<group>"; };
+		A1831AE424AE17EE00F9EB35 /* PlayerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoView.swift; sourceTree = "<group>"; };
 		A185969324811316008F067A /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A185969524811316008F067A /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		A185969624811316008F067A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1006,6 +1010,8 @@
 				A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */,
 				A1D9740124A5E20F00A654C2 /* PlayerTrophyLineChartView.swift */,
 				A1D973FF24A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib */,
+				A1831AE424AE17EE00F9EB35 /* PlayerInfoView.swift */,
+				A1831AE224AE114100F9EB35 /* PlayerInfoView.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1350,6 +1356,7 @@
 				A1D9740024A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib in Resources */,
 				5A6F454513F88C64878CDE82 /* DeckViewController.storyboard in Resources */,
 				D6255190073526673650CBE3 /* SignInViewController.storyboard in Resources */,
+				A1831AE324AE114100F9EB35 /* PlayerInfoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1470,6 +1477,7 @@
 				E8AB4E38E0FA2F9C05046D8B /* RootBuilder.swift in Sources */,
 				A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */,
 				A17CE39424A46C400081170B /* KeyboardManager.swift in Sources */,
+				A1831AE524AE17EE00F9EB35 /* PlayerInfoView.swift in Sources */,
 				A1E72B5E2488C046000B0949 /* UpComingChestCell.swift in Sources */,
 				ABDB60F26E924475A142F2C6 /* RootViewController.swift in Sources */,
 				A1D07D54248E1EA300FE1785 /* ShowAlertView.swift in Sources */,

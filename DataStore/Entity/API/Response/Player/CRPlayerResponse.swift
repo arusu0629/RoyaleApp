@@ -9,15 +9,15 @@ public struct CRPlayerResponse: Decodable {
     let achievements : [Achievement]?
     let arena : Arena?
     let cards : [Card]?
-    let clan : Clan?
+    public let clan : Clan?
     let currentDeck : [Card]?
     let deckLink : String?
     let games : Game?
     let leagueStatistics : LeagueStatistic?
-    let name : String?
+    public let name : String?
     let stats : Stat?
     public let tag : String?
-    let trophies : Int?
+    public let trophies : Int?
 }
 
 // MARK: Achievement
@@ -77,7 +77,7 @@ extension CRPlayerResponse {
         let donations : Int?
         let donationsDelta : Int?
         let donationsReceived : Int?
-        let name : String?
+        public let name : String?
         let role : String?
         let tag : String?
     }

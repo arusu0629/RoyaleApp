@@ -10,15 +10,17 @@ import Domain
 import UIKit
 
 protocol HomeView: ShowErrorAlertView {
-    func didFetchUpcomingChests(chestsModel: UpComingChestsModel)
+    func didFetchPlayerInfo(playerModel: PlayerModel)
     func didFetchPlayerBattleLog(realmBattleLogs: [RealmBattleLogModel])
+    func didFetchUpcomingChests(chestsModel: UpComingChestsModel)
 }
 
 // MARK: - Properties
 final class HomeViewController: UIViewController {
 
-    @IBOutlet private weak var chestsListView: UIStackView!
+    @IBOutlet private weak var playerInfoView: PlayerInfoView!
     @IBOutlet private weak var playerTrophyChartView: PlayerTrophyLineChartView!
+    @IBOutlet private weak var chestsListView: UIStackView!
 
     var presenter: HomePresenter!
 
@@ -37,12 +39,8 @@ extension HomeViewController {
 // MARK: - HomeView
 extension HomeViewController: HomeView {
 
-    func didFetchUpcomingChests(chestsModel: UpComingChestsModel) {
-        self.removeAllChestCell()
-        for chest in chestsModel.chests {
-            let cell = self.createUpComingChestCell(chest: chest)
-            self.chestsListView.addArrangedSubview(cell)
-        }
+    func didFetchPlayerInfo(playerModel: PlayerModel) {
+        self.playerInfoView.setup(playerModel: playerModel)
     }
 
     func didFetchPlayerBattleLog(realmBattleLogs: [RealmBattleLogModel]) {
@@ -50,6 +48,14 @@ extension HomeViewController: HomeView {
             return
         }
         self.playerTrophyChartView.setupData(battleLogs: realmBattleLogs)
+    }
+
+    func didFetchUpcomingChests(chestsModel: UpComingChestsModel) {
+        self.removeAllChestCell()
+        for chest in chestsModel.chests {
+            let cell = self.createUpComingChestCell(chest: chest)
+            self.chestsListView.addArrangedSubview(cell)
+        }
     }
 }
 

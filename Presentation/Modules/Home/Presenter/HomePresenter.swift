@@ -17,8 +17,9 @@ final class HomePresenterImpl: HomePresenter {
 
     weak var view: HomeView?
     var wireframe: HomeWireframe!
-    var chestsUseCase: UpComingChestsUseCase!
+    var playerUseCase: PlayerUseCase!
     var battleLogsUseCase: BattleLogsUseCase!
+    var chestsUseCase: UpComingChestsUseCase!
     var realmUseCase: RealmUseCase!
 
     func viewDidLoad() {
@@ -34,27 +35,27 @@ final class HomePresenterImpl: HomePresenter {
 private extension HomePresenterImpl {
 
     func setup() {
-        self.requestPlayerInfo()
+        self.requestPlayerData()
     }
 }
 
-// MARK: - PlayerInfo
+// MARK: - Request Player Data
 private extension HomePresenterImpl {
 
-    private func requestPlayerInfo() {
-        self.requestUpComingChests()
+    private func requestPlayerData() {
+        self.requestPlayerInfo()
         self.requestBattleLogs()
+        self.requestUpComingChests()
     }
 
-    private func requestUpComingChests(_ playerTag: String = AppConfig.playerTag) {
+    private func requestPlayerInfo(_ playerTag: String = AppConfig.playerTag) {
         if playerTag.isEmpty {
             return
         }
-        self.chestsUseCase.get(playerTag: playerTag) { result in
+        self.playerUseCase.get(playerTag: playerTag) { result in
             switch result {
-            case .success(let upComingChestsModel):
-                self.view?.didFetchUpcomingChests(chestsModel: upComingChestsModel)
-                AppConfig.playerTag = playerTag
+            case .success(let playerModel):
+                self.view?.didFetchPlayerInfo(playerModel: playerModel)
             case .failure(let error):
                 self.view?.showErrorAlert(error)
             }
@@ -75,6 +76,20 @@ private extension HomePresenterImpl {
                 }
                 let realmBattleLogs = [RealmBattleLogModel](battleLogModels.sorted(byKeyPath: RealmBattleLogModel.sortedKey))
                 self.view?.didFetchPlayerBattleLog(realmBattleLogs: realmBattleLogs)
+            case .failure(let error):
+                self.view?.showErrorAlert(error)
+            }
+        }
+    }
+
+    private func requestUpComingChests(_ playerTag: String = AppConfig.playerTag) {
+        if playerTag.isEmpty {
+            return
+        }
+        self.chestsUseCase.get(playerTag: playerTag) { result in
+            switch result {
+            case .success(let upComingChestsModel):
+                self.view?.didFetchUpcomingChests(chestsModel: upComingChestsModel)
             case .failure(let error):
                 self.view?.showErrorAlert(error)
             }

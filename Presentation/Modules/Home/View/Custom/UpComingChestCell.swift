@@ -6,8 +6,8 @@
 //  Copyright © 2020 nakandakari. All rights reserved.
 //
 
-import UIKit
 import Domain
+import UIKit
 
 final class UpComingChestCell: UIView {
 

@@ -22,12 +22,26 @@ enum PlayerModelError: LocalizedError {
 
 public struct PlayerModel {
 
-    public let tag: String?
+    public let name: String
+    public let tag: String
+    public let clanName: String
+    public let trophy: Int
+
 }
 
 extension PlayerModel {
 
     init(_ response: CRPlayerResponse) {
-        self.tag = response.tag
+        self.name = response.name ?? ""
+        self.tag = response.tag ?? ""
+        self.clanName = response.clan?.name ?? ""
+        self.trophy = response.trophies ?? 0
+    }
+}
+
+extension PlayerModel {
+
+    public func isEmptyTag() -> Bool {
+        return self.tag.isEmpty
     }
 }
