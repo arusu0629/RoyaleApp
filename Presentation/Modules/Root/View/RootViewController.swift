@@ -32,6 +32,19 @@ extension RootViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter.viewWillAppear()
+        self.setupNavigationTitle()
+    }
+}
+
+// MARK: - Setup
+extension RootViewController {
+
+    func setupNavigationTitle() {
+        self.navigationItem.titleView = {
+            let imageView = UIImageView(image: Asset.titleIcon.image)
+            imageView.contentMode = .scaleAspectFit
+            return imageView
+        }()
     }
 }
 
