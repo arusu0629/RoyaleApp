@@ -16,62 +16,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gN-R1-vXK" userLabel="PlayerInfoView" customClass="PlayerInfoView" customModule="Presentation" customModuleProvider="target">
-                                <rect key="frame" x="5" y="5" width="365" height="60"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="nwu-7L-mlZ"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fo9-aF-SHd" customClass="PlayerTrophyLineChartView" customModule="Presentation" customModuleProvider="target">
-                                <rect key="frame" x="5" y="233.5" width="365" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="6Si-TW-H6z"/>
-                                </constraints>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPI-ol-D5i" userLabel="UpComingChestsScrollView">
-                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2lR-5t-woL">
+                                <rect key="frame" x="5" y="10" width="365" height="647"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="infinite" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="33b-D7-ZlR" userLabel="ChestsListScrollView">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="80"/>
-                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gN-R1-vXK" userLabel="PlayerInfoView" customClass="PlayerInfoView" customModule="Presentation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="365" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="nwu-7L-mlZ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fo9-aF-SHd" customClass="PlayerTrophyLineChartView" customModule="Presentation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70" width="365" height="457"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UpComingChests..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaz-11-y5d" userLabel="UpComingChestsLabel">
+                                        <rect key="frame" x="0.0" y="537" width="365" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="UGn-jo-nfB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPI-ol-D5i" userLabel="UpComingChestsScrollView">
+                                        <rect key="frame" x="0.0" y="567" width="365" height="80"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="infinite" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="33b-D7-ZlR" userLabel="ChestsListScrollView">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="80"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="33b-D7-ZlR" firstAttribute="top" secondItem="Icl-Oh-jwB" secondAttribute="top" id="1Wm-Vu-siq"/>
+                                            <constraint firstAttribute="height" constant="80" id="5mj-K9-6XX"/>
+                                            <constraint firstItem="33b-D7-ZlR" firstAttribute="bottom" secondItem="Icl-Oh-jwB" secondAttribute="bottom" id="8fg-w5-IKy"/>
+                                            <constraint firstItem="33b-D7-ZlR" firstAttribute="leading" secondItem="Icl-Oh-jwB" secondAttribute="leading" id="BiD-tk-CTu"/>
+                                            <constraint firstItem="33b-D7-ZlR" firstAttribute="height" secondItem="pzT-xi-O0A" secondAttribute="height" id="EmQ-yO-XU9"/>
+                                            <constraint firstItem="33b-D7-ZlR" firstAttribute="trailing" secondItem="Icl-Oh-jwB" secondAttribute="trailing" id="OgP-dz-jyw"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="Icl-Oh-jwB"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="pzT-xi-O0A"/>
+                                    </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="33b-D7-ZlR" firstAttribute="top" secondItem="Icl-Oh-jwB" secondAttribute="top" id="1Wm-Vu-siq"/>
-                                    <constraint firstAttribute="height" constant="80" id="5mj-K9-6XX"/>
-                                    <constraint firstItem="33b-D7-ZlR" firstAttribute="bottom" secondItem="Icl-Oh-jwB" secondAttribute="bottom" id="8fg-w5-IKy"/>
-                                    <constraint firstItem="33b-D7-ZlR" firstAttribute="leading" secondItem="Icl-Oh-jwB" secondAttribute="leading" id="BiD-tk-CTu"/>
-                                    <constraint firstItem="33b-D7-ZlR" firstAttribute="height" secondItem="pzT-xi-O0A" secondAttribute="height" id="EmQ-yO-XU9"/>
-                                    <constraint firstItem="33b-D7-ZlR" firstAttribute="trailing" secondItem="Icl-Oh-jwB" secondAttribute="trailing" id="OgP-dz-jyw"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="Icl-Oh-jwB"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="pzT-xi-O0A"/>
-                            </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UpComingChests..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaz-11-y5d" userLabel="UpComingChestsLabel">
-                                <rect key="frame" x="5" y="562" width="365" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="UGn-jo-nfB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="KJl-vF-boh" firstAttribute="trailing" secondItem="iaz-11-y5d" secondAttribute="trailing" constant="5" id="1T1-tR-fQj"/>
-                            <constraint firstItem="Fo9-aF-SHd" firstAttribute="centerY" secondItem="lcz-hx-WxI" secondAttribute="centerY" id="5vn-NR-qUC"/>
-                            <constraint firstItem="iaz-11-y5d" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" constant="5" id="IdM-BK-d17"/>
-                            <constraint firstItem="KJl-vF-boh" firstAttribute="trailing" secondItem="mPI-ol-D5i" secondAttribute="trailing" id="Oi1-B4-dFw"/>
-                            <constraint firstItem="KJl-vF-boh" firstAttribute="bottom" secondItem="mPI-ol-D5i" secondAttribute="bottom" id="XxJ-ES-jMa"/>
-                            <constraint firstItem="mPI-ol-D5i" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" id="ZuJ-h7-tRJ"/>
-                            <constraint firstItem="8gN-R1-vXK" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" constant="5" id="cLq-o1-nnO"/>
-                            <constraint firstItem="Fo9-aF-SHd" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" constant="5" id="eEG-jA-xLS"/>
-                            <constraint firstItem="8gN-R1-vXK" firstAttribute="top" secondItem="KJl-vF-boh" secondAttribute="top" constant="5" id="ebW-4Z-DIC"/>
-                            <constraint firstItem="mPI-ol-D5i" firstAttribute="top" secondItem="iaz-11-y5d" secondAttribute="bottom" constant="5" id="l4B-vE-kKB"/>
-                            <constraint firstItem="KJl-vF-boh" firstAttribute="trailing" secondItem="Fo9-aF-SHd" secondAttribute="trailing" constant="5" id="st6-Hx-hjf"/>
-                            <constraint firstItem="KJl-vF-boh" firstAttribute="trailing" secondItem="8gN-R1-vXK" secondAttribute="trailing" constant="5" id="wKH-OK-L7k"/>
+                            <constraint firstItem="2lR-5t-woL" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" constant="5" id="6I6-Gn-vAd"/>
+                            <constraint firstAttribute="trailing" secondItem="2lR-5t-woL" secondAttribute="trailing" constant="5" id="D2y-bw-GvO"/>
+                            <constraint firstItem="2lR-5t-woL" firstAttribute="top" secondItem="KJl-vF-boh" secondAttribute="top" constant="10" id="EdK-Sa-5Cr"/>
+                            <constraint firstItem="KJl-vF-boh" firstAttribute="bottom" secondItem="2lR-5t-woL" secondAttribute="bottom" constant="10" id="TtK-lI-wFW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KJl-vF-boh"/>
                     </view>
