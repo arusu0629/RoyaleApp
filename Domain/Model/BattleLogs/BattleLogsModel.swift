@@ -46,7 +46,7 @@ public extension BattleLogsModel {
                 let gameModeName = gameMode.name else {
                     continue
             }
-            if gameModeName != "Ladder" {
+            if gameModeName != "Ladder_CrownRush" {
                 continue
             }
             realmBattleLogs.append(self.realmBattleLog(from: battleLog))
