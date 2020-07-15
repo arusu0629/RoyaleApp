@@ -49,4 +49,5 @@ private struct RealmDataStoreImpl: RealmDataStore {
         }
         return realm.objects(type.self)
     }
+
 }

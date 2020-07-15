@@ -37,6 +37,9 @@ extension PlayerInfoView {
     func setup(playerModel: PlayerModel) {
         self.nameAndTagLabel.text = playerModel.name + " " + playerModel.tag
         self.clanLabel.text = playerModel.clanName
-        self.trophyLabel.text = String(playerModel.trophy)
+    }
+
+    func setupTrophy(trophy: Int) {
+        self.trophyLabel.text = String(trophy)
     }
 }

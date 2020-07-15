@@ -13,10 +13,12 @@ protocol HomeView: ShowErrorAlertView {
     func didFetchPlayerInfo(playerModel: PlayerModel)
     func didFetchPlayerBattleLog(realmBattleLogs: [RealmBattleLogModel])
     func didFetchUpcomingChests(chestsModel: UpComingChestsModel)
+    func didUpdatePlayerBattleLog(realmBattleLogs: [RealmBattleLogModel])
+    func willEnterForground()
 }
 
 // MARK: - Properties
-final class HomeViewController: UIViewController {
+public final class HomeViewController: UIViewController {
 
     @IBOutlet private weak var playerInfoView: PlayerInfoView!
     @IBOutlet private weak var playerTrophyChartView: PlayerTrophyLineChartView!
@@ -30,7 +32,7 @@ final class HomeViewController: UIViewController {
 // MARK: - Life cycle
 extension HomeViewController {
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.viewDidLoad()
     }
@@ -44,10 +46,7 @@ extension HomeViewController: HomeView {
     }
 
     func didFetchPlayerBattleLog(realmBattleLogs: [RealmBattleLogModel]) {
-        if realmBattleLogs.isEmpty {
-            return
-        }
-        self.playerTrophyChartView.setupData(battleLogs: realmBattleLogs)
+        self.setupPlayerInfo(realmBattleLogs: realmBattleLogs)
     }
 
     func didFetchUpcomingChests(chestsModel: UpComingChestsModel) {
@@ -57,9 +56,30 @@ extension HomeViewController: HomeView {
             self.chestsListView.addArrangedSubview(cell)
         }
     }
+
+    func didUpdatePlayerBattleLog(realmBattleLogs: [RealmBattleLogModel]) {
+        self.setupPlayerInfo(realmBattleLogs: realmBattleLogs)
+    }
+
+    public func willEnterForground() {
+        self.presenter.willEnterForground()
+    }
 }
 
-// MARK: UpComingChestCell
+// MARK: - PlayerInfo
+extension HomeViewController {
+
+    private func setupPlayerInfo(realmBattleLogs: [RealmBattleLogModel]) {
+        if realmBattleLogs.isEmpty {
+            return
+        }
+        self.playerTrophyChartView.setupData(battleLogs: realmBattleLogs)
+        let trophy = realmBattleLogs[realmBattleLogs.count - 1].afterTrophy
+        self.playerInfoView.setupTrophy(trophy: trophy)
+    }
+}
+
+// MARK: - UpComingChestCell
 extension HomeViewController {
 
     private func createUpComingChestCell(chest: UpComingChestsModel.UpComingChest) -> UpComingChestCell {

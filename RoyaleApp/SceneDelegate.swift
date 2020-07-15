@@ -20,6 +20,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         self.setupWindow(scene)
     }
+
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        BackgroundTaskManager.shared.scheduleAppRefresh()
+    }
+
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        guard let homeViewController = self.homeViewController() else {
+            return
+        }
+        homeViewController.willEnterForground()
+    }
+}
+
+// MARK: - HomeViewController
+@available(iOS 13.0, *)
+extension SceneDelegate {
+
+    private func homeViewController() -> HomeViewController? {
+
+        guard let navigationController = self.window?.rootViewController as? UINavigationController,
+            let rootViewController = navigationController.viewControllers[0] as? RootViewController else {
+                return nil
+        }
+
+        guard let viewControllers = rootViewController.viewControllers,
+            let homeViewController = viewControllers[0] as? HomeViewController else {
+                return nil
+        }
+
+        return homeViewController
+    }
 }
 
 // MARK: - Setup Window

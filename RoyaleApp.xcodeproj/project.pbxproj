@@ -21,6 +21,8 @@
 		7890DB6A077623E6AE5A3886 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5109605D18788817C2A262 /* RootWireframe.swift */; };
 		7B97999459637B1D04B8287C /* SignInWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DC1C3CD9CB6ED6A00E54B /* SignInWireframe.swift */; };
 		9D0100124A08E38D9DC2AAD3 /* DeckBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A13733F61EF052BC450143 /* DeckBuilder.swift */; };
+		A173231F24B44B8400CD3FC1 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173231E24B44B8400CD3FC1 /* NotificationHelper.swift */; };
+		A173232124B4AA2400CD3FC1 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173232024B4AA2400CD3FC1 /* BackgroundTaskManager.swift */; };
 		A17CE39024A35C550081170B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D58248E22F600FE1785 /* AppConfig.swift */; };
 		A17CE39424A46C400081170B /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE39324A46C400081170B /* KeyboardManager.swift */; };
 		A17CE39724A47F8A0081170B /* PlayerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17CE39624A47F8A0081170B /* PlayerUseCase.swift */; };
@@ -38,6 +40,7 @@
 		A17E577B2480CFCF00F05165 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17E57662480CFCF00F05165 /* Presentation.framework */; };
 		A17E577C2480CFCF00F05165 /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A17E57662480CFCF00F05165 /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A1815C4724A8D9FA001B59FA /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1815C4624A8D9FA001B59FA /* DateFormatter+.swift */; };
+		A182F39F24B6083B00F4D24A /* RealmBattleLogsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182F39E24B6083B00F4D24A /* RealmBattleLogsUseCase.swift */; };
 		A1831AE324AE114100F9EB35 /* PlayerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1831AE224AE114100F9EB35 /* PlayerInfoView.xib */; };
 		A1831AE524AE17EE00F9EB35 /* PlayerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1831AE424AE17EE00F9EB35 /* PlayerInfoView.swift */; };
 		A185969C24811316008F067A /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185969324811316008F067A /* Domain.framework */; };
@@ -223,6 +226,8 @@
 		8CF11BAB1743D4F3DC897A9C /* HomePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		8DB11439995252720C566754 /* HomeWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
 		A0E1501B9FD425818E302286 /* RootViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A173231E24B44B8400CD3FC1 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
+		A173232024B4AA2400CD3FC1 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		A17CE39324A46C400081170B /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		A17CE39624A47F8A0081170B /* PlayerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUseCase.swift; sourceTree = "<group>"; };
 		A17CE39924A47FE60081170B /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
@@ -240,6 +245,7 @@
 		A17E57752480CFCF00F05165 /* PresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTests.swift; sourceTree = "<group>"; };
 		A17E57772480CFCF00F05165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1815C4624A8D9FA001B59FA /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
+		A182F39E24B6083B00F4D24A /* RealmBattleLogsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBattleLogsUseCase.swift; sourceTree = "<group>"; };
 		A1831AE224AE114100F9EB35 /* PlayerInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerInfoView.xib; sourceTree = "<group>"; };
 		A1831AE424AE17EE00F9EB35 /* PlayerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoView.swift; sourceTree = "<group>"; };
 		A185969324811316008F067A /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -535,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				A1D07D58248E22F600FE1785 /* AppConfig.swift */,
+				A173232024B4AA2400CD3FC1 /* BackgroundTaskManager.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -543,6 +550,7 @@
 			isa = PBXGroup;
 			children = (
 				A17CE39324A46C400081170B /* KeyboardManager.swift */,
+				A173231E24B44B8400CD3FC1 /* NotificationHelper.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -591,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				A17CE3A724A4B3D50081170B /* BattleLogsUseCase.swift */,
+				A182F39E24B6083B00F4D24A /* RealmBattleLogsUseCase.swift */,
 			);
 			path = BattleLogs;
 			sourceTree = "<group>";
@@ -1495,8 +1504,10 @@
 				2C72A4A21B7C5FF6C6DCC945 /* TransitToHomeWireframe.swift in Sources */,
 				A1815C4724A8D9FA001B59FA /* DateFormatter+.swift in Sources */,
 				9D0100124A08E38D9DC2AAD3 /* DeckBuilder.swift in Sources */,
+				A173231F24B44B8400CD3FC1 /* NotificationHelper.swift in Sources */,
 				DB6EAB2919EFB05FC4A48764 /* DeckViewController.swift in Sources */,
 				A1D07D56248E1F2D00FE1785 /* ShowErrorAlertView.swift in Sources */,
+				A173232124B4AA2400CD3FC1 /* BackgroundTaskManager.swift in Sources */,
 				A1E72B632488C612000B0949 /* UIView+.swift in Sources */,
 				23B0460731DD49BD930C2D4D /* DeckPresenter.swift in Sources */,
 				D215B55CD22711D504A03113 /* DeckWireframe.swift in Sources */,
@@ -1522,6 +1533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A17CE39C24A480CD0081170B /* PlayerTranslator.swift in Sources */,
+				A182F39F24B6083B00F4D24A /* RealmBattleLogsUseCase.swift in Sources */,
 				A196B9322488A244003C2A7B /* UpComingChestsUseCase.swift in Sources */,
 				A17CE3AD24A4B5390081170B /* BattleLogsModel.swift in Sources */,
 				A196B9392488AA43003C2A7B /* UpComingChestsTranslator.swift in Sources */,

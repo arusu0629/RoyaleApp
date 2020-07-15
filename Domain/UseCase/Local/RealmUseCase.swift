@@ -10,14 +10,14 @@ import DataStore
 import Foundation
 import RealmSwift
 
-public enum RealmUseCaseProvider {
+enum RealmUseCaseProvider {
 
-    public static func provide() -> RealmUseCase {
+    static func provide() -> RealmUseCase {
         return RealmUseCaseImpl(repository: RealmRepositoryProvider.provide())
     }
 }
 
-public protocol RealmUseCase {
+protocol RealmUseCase {
     func save<T: Object>(object: T)
     func save<T: Object>(objects: [T])
     func get<T: Object>(with type: T.Type) -> Results<T>?

@@ -17,7 +17,7 @@ protocol RootView: AnyObject {
 }
 
 // MARK: - Properties
-final class RootViewController: SwipeableTabBarController {
+public final class RootViewController: SwipeableTabBarController {
 
     var presenter: RootPresenter!
 }
@@ -25,11 +25,11 @@ final class RootViewController: SwipeableTabBarController {
 // MARK: - Life cycle
 extension RootViewController {
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter.viewWillAppear()
         self.setupNavigationTitle()

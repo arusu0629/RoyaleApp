@@ -11,6 +11,7 @@ import Foundation
 
 protocol HomePresenter: AnyObject {
     func viewDidLoad()
+    func willEnterForground()
 }
 
 final class HomePresenterImpl: HomePresenter {
@@ -20,7 +21,7 @@ final class HomePresenterImpl: HomePresenter {
     var playerUseCase: PlayerUseCase!
     var battleLogsUseCase: BattleLogsUseCase!
     var chestsUseCase: UpComingChestsUseCase!
-    var realmUseCase: RealmUseCase!
+    var realmBattleLogsUseCase: RealmBattleLogsUseCase!
 
     func viewDidLoad() {
         if AppConfig.playerTag.isEmpty {
@@ -28,6 +29,10 @@ final class HomePresenterImpl: HomePresenter {
             return
         }
         self.setup()
+    }
+
+    func willEnterForground() {
+        self.updatePlayerData()
     }
 }
 
@@ -46,6 +51,10 @@ private extension HomePresenterImpl {
         self.requestPlayerInfo()
         self.requestBattleLogs()
         self.requestUpComingChests()
+    }
+
+    private func updatePlayerData() {
+        self.updateBattleLogs()
     }
 
     private func requestPlayerInfo(_ playerTag: String = AppConfig.playerTag) {
@@ -69,8 +78,12 @@ private extension HomePresenterImpl {
         self.battleLogsUseCase.get(playerTag: playerTag) { result in
             switch result {
             case .success(let battleLogsModel):
-                self.realmUseCase.save(objects: battleLogsModel.realmBattleLogs())
-                guard let battleLogModels = self.realmUseCase.get(with: RealmBattleLogModel.self) else {
+                if let latestBattleLog = self.realmBattleLogsUseCase.getLatest() {
+                    let realmBattleLogs = battleLogsModel.realmBattleLogs()
+                    let filteredRealmBattleLogs = realmBattleLogs.filter { $0.battleDate > latestBattleLog.battleDate }
+                }
+                self.realmBattleLogsUseCase.save(objects: battleLogsModel.realmBattleLogs())
+                guard let battleLogModels = self.realmBattleLogsUseCase.get() else {
                     self.view?.didFetchPlayerBattleLog(realmBattleLogs: [])
                     return
                 }
@@ -94,6 +107,14 @@ private extension HomePresenterImpl {
                 self.view?.showErrorAlert(error)
             }
         }
+    }
+
+    private func updateBattleLogs() {
+        guard let battleLogModels = self.realmBattleLogsUseCase.get() else {
+            return
+        }
+        let realmBattleLogs = [RealmBattleLogModel](battleLogModels.sorted(byKeyPath: RealmBattleLogModel.sortedKey))
+        self.view?.didUpdatePlayerBattleLog(realmBattleLogs: realmBattleLogs)
     }
 }
 

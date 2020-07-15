@@ -25,8 +25,6 @@ public struct PlayerModel {
     public let name: String
     public let tag: String
     public let clanName: String
-    public let trophy: Int
-
 }
 
 extension PlayerModel {
@@ -35,7 +33,6 @@ extension PlayerModel {
         self.name = response.name ?? ""
         self.tag = response.tag ?? ""
         self.clanName = response.clan?.name ?? ""
-        self.trophy = response.trophies ?? 0
     }
 }
 

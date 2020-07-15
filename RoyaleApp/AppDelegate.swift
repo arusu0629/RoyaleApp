@@ -18,7 +18,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.setupWindowIfNeeded()
+
+        NotificationHelper.requestAuthorization(withDelegate: self)
+
+        if #available(iOS 13.0, *) {
+            BackgroundTaskManager.shared.registerBackgroundTask()
+        }
+
         return true
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("token = \(token)")
+    }
+
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        NotificationHelper.postLocalNotification(with: Message(body: "Received Background Push"))
+        DispatchQueue.main.async {
+            completionHandler(.noData)
+        }
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+
+    // 通知をタップして起動された際に呼ばれる
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("userNotificationCenter didReceive")
+        completionHandler()
+    }
+
+    // アプリ起動中に通知を受信
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("userNotificationCenter willPresent")
+        completionHandler([.alert, .badge, .sound])
     }
 }
 

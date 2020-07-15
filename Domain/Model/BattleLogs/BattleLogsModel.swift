@@ -22,7 +22,7 @@ public final class RealmBattleLogModel: Object {
         return "battleTime"
     }
 
-    public static let sortedKey = primaryKey() ?? ""
+    public static let sortedKey = "battleDate"
 }
 
 public struct BattleLogsModel {
@@ -46,7 +46,7 @@ public extension BattleLogsModel {
                 let gameModeName = gameMode.name else {
                     continue
             }
-            if gameModeName != "Ladder_CrownRush" {
+            if !gameModeName.starts(with: "Ladder") {
                 continue
             }
             realmBattleLogs.append(self.realmBattleLog(from: battleLog))
