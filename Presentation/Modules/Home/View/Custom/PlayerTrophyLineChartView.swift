@@ -36,8 +36,7 @@ final class PlayerTrophyLineChartView: UIView {
         self.trophyLineChartView.drawGridBackgroundEnabled = true
 
         // Interaction Enabled
-        self.trophyLineChartView.pinchZoomEnabled = false
-        self.trophyLineChartView.doubleTapToZoomEnabled = false
+        self.trophyLineChartView.isUserInteractionEnabled = false
 
         // X Axis label
         let xAxis = self.trophyLineChartView.xAxis
