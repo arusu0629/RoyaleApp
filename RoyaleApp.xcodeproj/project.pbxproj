@@ -52,6 +52,10 @@
 		A18596B7248119E0008F067A /* TabUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18596B6248119E0008F067A /* TabUseCase.swift */; };
 		A18596B824811A4C008F067A /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185969324811316008F067A /* Domain.framework */; };
 		A18596C024812539008F067A /* SwipeableTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18596BF24812539008F067A /* SwipeableTabBarController.framework */; };
+		A186736124C0911700D8C32A /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A186736024C0911700D8C32A /* TabBarView.xib */; };
+		A186736324C091D200D8C32A /* TabBarButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A186736224C091D200D8C32A /* TabBarButtonView.xib */; };
+		A186736524C092B800D8C32A /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186736424C092B800D8C32A /* TabBarView.swift */; };
+		A186736924C0977F00D8C32A /* TabBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186736824C0977F00D8C32A /* TabBarButtonView.swift */; };
 		A196B92324887E0B003C2A7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A196B92224887E0B003C2A7B /* Assets.xcassets */; };
 		A196B92624887EEA003C2A7B /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196B92524887EEA003C2A7B /* Assets.swift */; };
 		A196B92924888406003C2A7B /* CRUpComingChestsAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196B92824888406003C2A7B /* CRUpComingChestsAPIRequest.swift */; };
@@ -95,6 +99,8 @@
 		A1E72B602488C05C000B0949 /* UpComingChestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */; };
 		A1E72B632488C612000B0949 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E72B622488C612000B0949 /* UIView+.swift */; };
 		A1E72B652488C645000B0949 /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E72B642488C645000B0949 /* NSObject+.swift */; };
+		A1F294A924C1D65B0094AEEB /* TrophyDateFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F294A824C1D65B0094AEEB /* TrophyDateFilter.swift */; };
+		A1F294AC24C1D9B60094AEEB /* TrophyDateFilterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F294AB24C1D9B60094AEEB /* TrophyDateFilterUseCase.swift */; };
 		ABDB60F26E924475A142F2C6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E1501B9FD425818E302286 /* RootViewController.swift */; };
 		B6DF9EFA29E2A46C0D646FDC /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521157BA9F9B33DD6AD1810 /* RootPresenter.swift */; };
 		B9B0D3A4BDFD16456696559E /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE16E962A4A033F912C678E5 /* HomeViewController.storyboard */; };
@@ -257,6 +263,10 @@
 		A18596B22481133B008F067A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		A18596B6248119E0008F067A /* TabUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabUseCase.swift; sourceTree = "<group>"; };
 		A18596BF24812539008F067A /* SwipeableTabBarController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeableTabBarController.framework; path = Carthage/Build/iOS/SwipeableTabBarController.framework; sourceTree = "<group>"; };
+		A186736024C0911700D8C32A /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
+		A186736224C091D200D8C32A /* TabBarButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarButtonView.xib; sourceTree = "<group>"; };
+		A186736424C092B800D8C32A /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		A186736824C0977F00D8C32A /* TabBarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButtonView.swift; sourceTree = "<group>"; };
 		A196B92224887E0B003C2A7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A196B92524887EEA003C2A7B /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		A196B92824888406003C2A7B /* CRUpComingChestsAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUpComingChestsAPIRequest.swift; sourceTree = "<group>"; };
@@ -307,6 +317,8 @@
 		A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpComingChestCell.xib; sourceTree = "<group>"; };
 		A1E72B622488C612000B0949 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		A1E72B642488C645000B0949 /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		A1F294A824C1D65B0094AEEB /* TrophyDateFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyDateFilter.swift; sourceTree = "<group>"; };
+		A1F294AB24C1D9B60094AEEB /* TrophyDateFilterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyDateFilterUseCase.swift; sourceTree = "<group>"; };
 		A521157BA9F9B33DD6AD1810 /* RootPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
 		BE16E962A4A033F912C678E5 /* HomeViewController.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		C5A7F3D8DB81B51EA1230931 /* TransitToRootWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitToRootWireframe.swift; sourceTree = "<group>"; };
@@ -551,6 +563,7 @@
 			children = (
 				A17CE39324A46C400081170B /* KeyboardManager.swift */,
 				A173231E24B44B8400CD3FC1 /* NotificationHelper.swift */,
+				A186735F24C0907F00D8C32A /* TabBarView */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -672,6 +685,7 @@
 				A196B9332488A3B1003C2A7B /* Chests */,
 				A17CE39824A47FCD0081170B /* Player */,
 				A18596B12481132E008F067A /* Tab */,
+				A1F294A724C1B45A0094AEEB /* TrophyDateFilter */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -692,6 +706,7 @@
 				A196B9302488A202003C2A7B /* Chests */,
 				A17CE39524A47F590081170B /* Player */,
 				A18596B5248119D7008F067A /* Tab */,
+				A1F294AA24C1D99F0094AEEB /* TrophyDateFilter */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -702,6 +717,44 @@
 				A18596B6248119E0008F067A /* TabUseCase.swift */,
 			);
 			path = Tab;
+			sourceTree = "<group>";
+		};
+		A186735B24C08FE700D8C32A /* UpComingChestCell */ = {
+			isa = PBXGroup;
+			children = (
+				A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */,
+				A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */,
+			);
+			path = UpComingChestCell;
+			sourceTree = "<group>";
+		};
+		A186735C24C08FF400D8C32A /* PlayerTrophy */ = {
+			isa = PBXGroup;
+			children = (
+				A1D9740124A5E20F00A654C2 /* PlayerTrophyLineChartView.swift */,
+				A1D973FF24A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib */,
+			);
+			path = PlayerTrophy;
+			sourceTree = "<group>";
+		};
+		A186735D24C08FFD00D8C32A /* PlayerInfo */ = {
+			isa = PBXGroup;
+			children = (
+				A1831AE424AE17EE00F9EB35 /* PlayerInfoView.swift */,
+				A1831AE224AE114100F9EB35 /* PlayerInfoView.xib */,
+			);
+			path = PlayerInfo;
+			sourceTree = "<group>";
+		};
+		A186735F24C0907F00D8C32A /* TabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				A186736824C0977F00D8C32A /* TabBarButtonView.swift */,
+				A186736224C091D200D8C32A /* TabBarButtonView.xib */,
+				A186736424C092B800D8C32A /* TabBarView.swift */,
+				A186736024C0911700D8C32A /* TabBarView.xib */,
+			);
+			path = TabBarView;
 			sourceTree = "<group>";
 		};
 		A196B92124887DDA003C2A7B /* Resource */ = {
@@ -1015,12 +1068,9 @@
 		A1E72B5A2488BFFB000B0949 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */,
-				A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */,
-				A1D9740124A5E20F00A654C2 /* PlayerTrophyLineChartView.swift */,
-				A1D973FF24A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib */,
-				A1831AE424AE17EE00F9EB35 /* PlayerInfoView.swift */,
-				A1831AE224AE114100F9EB35 /* PlayerInfoView.xib */,
+				A186735D24C08FFD00D8C32A /* PlayerInfo */,
+				A186735C24C08FF400D8C32A /* PlayerTrophy */,
+				A186735B24C08FE700D8C32A /* UpComingChestCell */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -1033,6 +1083,22 @@
 				A1815C4624A8D9FA001B59FA /* DateFormatter+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A1F294A724C1B45A0094AEEB /* TrophyDateFilter */ = {
+			isa = PBXGroup;
+			children = (
+				A1F294A824C1D65B0094AEEB /* TrophyDateFilter.swift */,
+			);
+			path = TrophyDateFilter;
+			sourceTree = "<group>";
+		};
+		A1F294AA24C1D99F0094AEEB /* TrophyDateFilter */ = {
+			isa = PBXGroup;
+			children = (
+				A1F294AB24C1D9B60094AEEB /* TrophyDateFilterUseCase.swift */,
+			);
+			path = TrophyDateFilter;
 			sourceTree = "<group>";
 		};
 		C66F8D4077572D876863DD41 /* Builder */ = {
@@ -1359,11 +1425,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E72B602488C05C000B0949 /* UpComingChestCell.xib in Resources */,
+				A186736324C091D200D8C32A /* TabBarButtonView.xib in Resources */,
 				385FCC8FECE194C0739331CB /* RootViewController.storyboard in Resources */,
 				B9B0D3A4BDFD16456696559E /* HomeViewController.storyboard in Resources */,
 				A196B92324887E0B003C2A7B /* Assets.xcassets in Resources */,
 				A1D9740024A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib in Resources */,
 				5A6F454513F88C64878CDE82 /* DeckViewController.storyboard in Resources */,
+				A186736124C0911700D8C32A /* TabBarView.xib in Resources */,
 				D6255190073526673650CBE3 /* SignInViewController.storyboard in Resources */,
 				A1831AE324AE114100F9EB35 /* PlayerInfoView.xib in Resources */,
 			);
@@ -1506,6 +1574,8 @@
 				9D0100124A08E38D9DC2AAD3 /* DeckBuilder.swift in Sources */,
 				A173231F24B44B8400CD3FC1 /* NotificationHelper.swift in Sources */,
 				DB6EAB2919EFB05FC4A48764 /* DeckViewController.swift in Sources */,
+				A186736524C092B800D8C32A /* TabBarView.swift in Sources */,
+				A186736924C0977F00D8C32A /* TabBarButtonView.swift in Sources */,
 				A1D07D56248E1F2D00FE1785 /* ShowErrorAlertView.swift in Sources */,
 				A173232124B4AA2400CD3FC1 /* BackgroundTaskManager.swift in Sources */,
 				A1E72B632488C612000B0949 /* UIView+.swift in Sources */,
@@ -1543,8 +1613,10 @@
 				A17CE3AA24A4B4EB0081170B /* BattleLogsTranslator.swift in Sources */,
 				A196B9352488A3C0003C2A7B /* UpComingChestsModel.swift in Sources */,
 				A17CE39A24A47FE60081170B /* PlayerModel.swift in Sources */,
+				A1F294A924C1D65B0094AEEB /* TrophyDateFilter.swift in Sources */,
 				A17CE3A824A4B3D50081170B /* BattleLogsUseCase.swift in Sources */,
 				A1E117FD24A5963C00CE8FC3 /* RealmUseCase.swift in Sources */,
+				A1F294AC24C1D9B60094AEEB /* TrophyDateFilterUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

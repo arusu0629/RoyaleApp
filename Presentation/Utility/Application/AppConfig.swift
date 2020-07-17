@@ -21,6 +21,15 @@ extension AppConfig {
             return UserDefaults.standard.string(forKey: #function) ?? ""
         }
     }
+
+    public static var lastSelectedFilterDateIndex: Int {
+        set {
+            UserDefaults.standard.set(newValue, forKey: #function)
+        }
+        get {
+            return UserDefaults.standard.integer(forKey: #function)
+        }
+    }
 }
 
 // MARK: - PlayerTag

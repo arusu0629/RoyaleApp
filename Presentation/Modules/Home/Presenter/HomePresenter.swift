@@ -12,6 +12,7 @@ import Foundation
 protocol HomePresenter: AnyObject {
     func viewDidLoad()
     func willEnterForground()
+    func didSelectDateFilterButton(index: Int)
 }
 
 final class HomePresenterImpl: HomePresenter {
@@ -22,6 +23,7 @@ final class HomePresenterImpl: HomePresenter {
     var battleLogsUseCase: BattleLogsUseCase!
     var chestsUseCase: UpComingChestsUseCase!
     var realmBattleLogsUseCase: RealmBattleLogsUseCase!
+    var trophyDateFilterUseCase: TrophyDateFilterUseCase!
 
     func viewDidLoad() {
         if AppConfig.playerTag.isEmpty {
@@ -29,10 +31,18 @@ final class HomePresenterImpl: HomePresenter {
             return
         }
         self.setup()
+        self.view?.setupTrophyDateFilter(trophyDateFilters: self.trophyDateFilterUseCase.list())
     }
 
     func willEnterForground() {
-        self.updatePlayerData()
+        let filterDate = self.trophyDateFilterUseCase.list()[AppConfig.lastSelectedFilterDateIndex].filterDate
+        self.requestBattleLog(with: filterDate)
+    }
+
+    func didSelectDateFilterButton(index: Int) {
+        AppConfig.lastSelectedFilterDateIndex = index
+        let filterDate = self.trophyDateFilterUseCase.list()[index].filterDate
+        self.requestBattleLog(with: filterDate)
     }
 }
 
@@ -47,17 +57,13 @@ private extension HomePresenterImpl {
 // MARK: - Request Player Data
 private extension HomePresenterImpl {
 
-    private func requestPlayerData() {
+    func requestPlayerData() {
         self.requestPlayerInfo()
         self.requestBattleLogs()
         self.requestUpComingChests()
     }
 
-    private func updatePlayerData() {
-        self.updateBattleLogs()
-    }
-
-    private func requestPlayerInfo(_ playerTag: String = AppConfig.playerTag) {
+    func requestPlayerInfo(_ playerTag: String = AppConfig.playerTag) {
         if playerTag.isEmpty {
             return
         }
@@ -71,31 +77,23 @@ private extension HomePresenterImpl {
         }
     }
 
-    private func requestBattleLogs(_ playerTag: String = AppConfig.playerTag) {
+    func requestBattleLogs(_ playerTag: String = AppConfig.playerTag) {
         if playerTag.isEmpty {
             return
         }
         self.battleLogsUseCase.get(playerTag: playerTag) { result in
             switch result {
             case .success(let battleLogsModel):
-                if let latestBattleLog = self.realmBattleLogsUseCase.getLatest() {
-                    let realmBattleLogs = battleLogsModel.realmBattleLogs()
-                    let filteredRealmBattleLogs = realmBattleLogs.filter { $0.battleDate > latestBattleLog.battleDate }
-                }
                 self.realmBattleLogsUseCase.save(objects: battleLogsModel.realmBattleLogs())
-                guard let battleLogModels = self.realmBattleLogsUseCase.get() else {
-                    self.view?.didFetchPlayerBattleLog(realmBattleLogs: [])
-                    return
-                }
-                let realmBattleLogs = [RealmBattleLogModel](battleLogModels.sorted(byKeyPath: RealmBattleLogModel.sortedKey))
-                self.view?.didFetchPlayerBattleLog(realmBattleLogs: realmBattleLogs)
+                let filterDate = self.trophyDateFilterUseCase.list()[AppConfig.lastSelectedFilterDateIndex].filterDate
+                self.requestBattleLog(with: filterDate)
             case .failure(let error):
                 self.view?.showErrorAlert(error)
             }
         }
     }
 
-    private func requestUpComingChests(_ playerTag: String = AppConfig.playerTag) {
+    func requestUpComingChests(_ playerTag: String = AppConfig.playerTag) {
         if playerTag.isEmpty {
             return
         }
@@ -109,11 +107,25 @@ private extension HomePresenterImpl {
         }
     }
 
-    private func updateBattleLogs() {
+    func updateBattleLogs() {
         guard let battleLogModels = self.realmBattleLogsUseCase.get() else {
             return
         }
         let realmBattleLogs = [RealmBattleLogModel](battleLogModels.sorted(byKeyPath: RealmBattleLogModel.sortedKey))
+        self.view?.didUpdatePlayerBattleLog(realmBattleLogs: realmBattleLogs)
+    }
+}
+
+// MARK: - Request Battle Log with date filter
+extension HomePresenterImpl {
+
+    func requestBattleLog(with filterDate: Date) {
+        guard let battleLogsModels = self.realmBattleLogsUseCase.get() else {
+            self.view?.didUpdatePlayerBattleLog(realmBattleLogs: [])
+            return
+        }
+        var realmBattleLogs = [RealmBattleLogModel](battleLogsModels.sorted(byKeyPath: RealmBattleLogModel.sortedKey))
+        realmBattleLogs = realmBattleLogs.filter { $0.battleDate >= filterDate }
         self.view?.didUpdatePlayerBattleLog(realmBattleLogs: realmBattleLogs)
     }
 }

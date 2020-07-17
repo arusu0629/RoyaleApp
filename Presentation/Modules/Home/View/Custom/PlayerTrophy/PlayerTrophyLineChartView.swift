@@ -10,9 +10,24 @@ import Charts
 import Domain
 import UIKit
 
+protocol DateFilterTabViewDelegate: AnyObject {
+    func didTapFilterButton(index: Int)
+}
+
 final class PlayerTrophyLineChartView: UIView {
 
     @IBOutlet private weak var trophyLineChartView: LineChartView!
+
+    @IBOutlet private weak var dateFilterTabView: TabBarView! {
+        willSet {
+            newValue.isHidden = true
+            newValue.delegate = self
+        }
+    }
+
+    weak var dateFitlerDelegate: DateFilterTabViewDelegate?
+
+    let lineAnimateSecPerOne: TimeInterval = 1.0 / 60.0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,7 +71,12 @@ extension PlayerTrophyLineChartView {
         let dataSet = self.createDataSet(entry: entry)
         let chartData = LineChartData(dataSet: dataSet)
         self.trophyLineChartView.data = chartData
-        self.trophyLineChartView.animate(xAxisDuration: 2.0)
+        self.trophyLineChartView.animate(xAxisDuration: self.lineAnimateSecPerOne * TimeInterval(battleLogs.count))
+    }
+
+    func setupDateFilterTabView(texts: [String], initialIndex: Int = 0) {
+        self.dateFilterTabView.setupTab(tabTexts: texts, initialIndex: initialIndex)
+        self.dateFilterTabView.isHidden = false
     }
 
     private func createEntries(realmBattleLogModels: [RealmBattleLogModel]) -> [ChartDataEntry] {
@@ -95,6 +115,14 @@ extension PlayerTrophyLineChartView {
         dataSet.colors = [.orange]
 
         return dataSet
+    }
+}
+
+// MARK: - DateFilterTabViewDelegate
+extension PlayerTrophyLineChartView: TabBarButtonViewDelegate {
+
+    func didTapButton(index: Int) {
+        self.dateFitlerDelegate?.didTapFilterButton(index: index)
     }
 }
 

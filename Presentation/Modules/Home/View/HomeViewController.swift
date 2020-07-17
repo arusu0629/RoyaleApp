@@ -15,13 +15,18 @@ protocol HomeView: ShowErrorAlertView {
     func didFetchUpcomingChests(chestsModel: UpComingChestsModel)
     func didUpdatePlayerBattleLog(realmBattleLogs: [RealmBattleLogModel])
     func willEnterForground()
+    func setupTrophyDateFilter(trophyDateFilters: [TrophyDateFilter])
 }
 
 // MARK: - Properties
 public final class HomeViewController: UIViewController {
 
     @IBOutlet private weak var playerInfoView: PlayerInfoView!
-    @IBOutlet private weak var playerTrophyChartView: PlayerTrophyLineChartView!
+    @IBOutlet private weak var playerTrophyChartView: PlayerTrophyLineChartView! {
+        willSet {
+            newValue.dateFitlerDelegate = self
+        }
+    }
     @IBOutlet private weak var chestsListView: UIStackView!
 
     var presenter: HomePresenter!
@@ -64,6 +69,10 @@ extension HomeViewController: HomeView {
     public func willEnterForground() {
         self.presenter.willEnterForground()
     }
+
+    func setupTrophyDateFilter(trophyDateFilters: [TrophyDateFilter]) {
+        self.playerTrophyChartView.setupDateFilterTabView(texts: trophyDateFilters.map { $0.label }, initialIndex: AppConfig.lastSelectedFilterDateIndex)
+    }
 }
 
 // MARK: - PlayerInfo
@@ -76,6 +85,13 @@ extension HomeViewController {
         self.playerTrophyChartView.setupData(battleLogs: realmBattleLogs)
         let trophy = realmBattleLogs[realmBattleLogs.count - 1].afterTrophy
         self.playerInfoView.setupTrophy(trophy: trophy)
+    }
+
+    private func filterPlayerBattleLog(realmBattleLogs: [RealmBattleLogModel]) {
+        if realmBattleLogs.isEmpty {
+            return
+        }
+        self.playerTrophyChartView.setupData(battleLogs: realmBattleLogs)
     }
 }
 
@@ -96,5 +112,13 @@ extension HomeViewController {
             self.chestsListView.removeArrangedSubview(cell)
         }
         self.chestCells.removeAll()
+    }
+}
+
+// MARK: - DateFilterTabViewDelegate
+extension HomeViewController: DateFilterTabViewDelegate {
+
+    func didTapFilterButton(index: Int) {
+        self.presenter.didSelectDateFilterButton(index: index)
     }
 }

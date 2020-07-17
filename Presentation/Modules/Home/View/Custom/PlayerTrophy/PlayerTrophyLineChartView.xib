@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerTrophyLineChartView" customModule="Presentation" customModuleProvider="target">
+            <connections>
+                <outlet property="dateFilterTabView" destination="Wen-co-QK4" id="ugA-Ws-I9T"/>
+                <outlet property="trophyLineChartView" destination="RvQ-et-JRu" id="Wrb-AG-a0W"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FiJ-ul-V3R">
+                    <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wen-co-QK4" customClass="TabBarView" customModule="Presentation" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="35"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="2Ct-3p-wSJ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvQ-et-JRu" customClass="LineChartView" customModule="Charts">
+                            <rect key="frame" x="0.0" y="35" width="350" height="265"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="FiJ-ul-V3R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8IQ-cE-nT1"/>
+                <constraint firstItem="FiJ-ul-V3R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QXl-Ta-XLX"/>
+                <constraint firstAttribute="trailing" secondItem="FiJ-ul-V3R" secondAttribute="trailing" id="b2M-jN-5dJ"/>
+                <constraint firstAttribute="bottom" secondItem="FiJ-ul-V3R" secondAttribute="bottom" id="wNl-Co-DxN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="141" y="127"/>
+        </view>
+    </objects>
+</document>
