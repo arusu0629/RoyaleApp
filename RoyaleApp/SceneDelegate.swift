@@ -9,7 +9,6 @@
 import Presentation
 import UIKit
 
-@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -33,8 +32,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+// MARK: - Setup Window
+extension SceneDelegate {
+
+    private func setupWindow(_ scene: UIWindowScene) {
+        self.window = UIWindow(windowScene: scene)
+        let navigationController = UINavigationController(rootViewController: RootBuilder.build())
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+        self.window?.overrideUserInterfaceStyle = .dark
+    }
+}
+
 // MARK: - HomeViewController
-@available(iOS 13.0, *)
 extension SceneDelegate {
 
     private func homeViewController() -> HomeViewController? {
@@ -50,22 +60,5 @@ extension SceneDelegate {
         }
 
         return homeViewController
-    }
-}
-
-// MARK: - Setup Window
-@available(iOS 13.0, *)
-extension SceneDelegate {
-
-    private func setupWindow(_ scene: UIWindowScene) {
-        self.window = UIWindow(windowScene: scene)
-        let navigationController = UINavigationController(rootViewController: self.rootViewController())
-        self.window?.rootViewController = navigationController
-        self.window?.makeKeyAndVisible()
-        self.window?.overrideUserInterfaceStyle = .dark
-    }
-
-    private func rootViewController() -> UIViewController {
-        return RootBuilder.build()
     }
 }

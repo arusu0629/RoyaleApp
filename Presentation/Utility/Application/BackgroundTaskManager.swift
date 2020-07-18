@@ -10,7 +10,6 @@ import BackgroundTasks
 import Domain
 import Foundation
 
-@available(iOS 13.0, *)
 public final class BackgroundTaskManager {
 
     public static let shared = BackgroundTaskManager()
@@ -19,7 +18,6 @@ public final class BackgroundTaskManager {
 }
 
 // MARK: - Task
-@available(iOS 13.0, *)
 extension BackgroundTaskManager {
 
     enum Task: CaseIterable {
@@ -50,7 +48,6 @@ extension BackgroundTaskManager {
 }
 
 // MARK: - Function
-@available(iOS 13.0, *)
 extension BackgroundTaskManager {
 
     public func registerBackgroundTask() {
@@ -94,7 +91,6 @@ extension BackgroundTaskManager {
     }
 }
 
-@available(iOS 13.0, *)
 final class BattleLogFetchOperation: Operation {
 
     let realmBattleLogsUseCase = RealmBattleLogsUseCaseProvider.provide()
