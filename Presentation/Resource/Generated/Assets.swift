@@ -28,10 +28,6 @@ internal enum Asset {
   internal static let playerTrophy = ImageAsset(name: "player_trophy")
   internal static let titleIcon = ImageAsset(name: "title_icon")
   internal static let registerLogo = ImageAsset(name: "Register_Logo")
-  internal static let deckIconNonSelect = ImageAsset(name: "deck_icon_non_select")
-  internal static let deckIconSelected = ImageAsset(name: "deck_icon_selected")
-  internal static let homeIconNonSelect = ImageAsset(name: "home_icon_non_select")
-  internal static let homeIconSelected = ImageAsset(name: "home_icon_selected")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

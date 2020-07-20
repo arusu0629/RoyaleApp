@@ -92,9 +92,9 @@ private extension Tab {
         let image: UIImage? = {
             switch self {
             case .home:
-                return Asset.homeIconNonSelect.image
+                return SFSymbols.homeIconImage
             case .deck:
-                return Asset.deckIconNonSelect.image
+                return SFSymbols.deckIconImage
             }
         }()
         return image?.withRenderingMode(.alwaysOriginal)
@@ -104,9 +104,9 @@ private extension Tab {
         let image: UIImage? = {
             switch self {
             case .home:
-                return Asset.homeIconSelected.image
+                return SFSymbols.homeFillIconImage
             case .deck:
-                return Asset.deckIconSelected.image
+                return SFSymbols.deckFillIconImage
             }
         }()
         return image?.withRenderingMode(.alwaysOriginal)

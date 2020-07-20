@@ -21,6 +21,7 @@
 		7890DB6A077623E6AE5A3886 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5109605D18788817C2A262 /* RootWireframe.swift */; };
 		7B97999459637B1D04B8287C /* SignInWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2DC1C3CD9CB6ED6A00E54B /* SignInWireframe.swift */; };
 		9D0100124A08E38D9DC2AAD3 /* DeckBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A13733F61EF052BC450143 /* DeckBuilder.swift */; };
+		A121939524C2DD11008347DC /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121939424C2DD11008347DC /* SFSymbols.swift */; };
 		A173231F24B44B8400CD3FC1 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173231E24B44B8400CD3FC1 /* NotificationHelper.swift */; };
 		A173232124B4AA2400CD3FC1 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173232024B4AA2400CD3FC1 /* BackgroundTaskManager.swift */; };
 		A17CE39024A35C550081170B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D58248E22F600FE1785 /* AppConfig.swift */; };
@@ -232,6 +233,7 @@
 		8CF11BAB1743D4F3DC897A9C /* HomePresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		8DB11439995252720C566754 /* HomeWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeWireframe.swift; sourceTree = "<group>"; };
 		A0E1501B9FD425818E302286 /* RootViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A121939424C2DD11008347DC /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
 		A173231E24B44B8400CD3FC1 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		A173232024B4AA2400CD3FC1 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		A17CE39324A46C400081170B /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
@@ -549,6 +551,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		A121939324C2DCF4008347DC /* SFSymbols */ = {
+			isa = PBXGroup;
+			children = (
+				A121939424C2DD11008347DC /* SFSymbols.swift */,
+			);
+			path = SFSymbols;
+			sourceTree = "<group>";
+		};
 		A17CE38F24A35C220081170B /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +571,7 @@
 		A17CE39224A46C2D0081170B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A121939324C2DCF4008347DC /* SFSymbols */,
 				A17CE39324A46C400081170B /* KeyboardManager.swift */,
 				A173231E24B44B8400CD3FC1 /* NotificationHelper.swift */,
 				A186735F24C0907F00D8C32A /* TabBarView */,
@@ -1562,6 +1573,7 @@
 				A1E72B652488C645000B0949 /* NSObject+.swift in Sources */,
 				A17CE39024A35C550081170B /* AppConfig.swift in Sources */,
 				7890DB6A077623E6AE5A3886 /* RootWireframe.swift in Sources */,
+				A121939524C2DD11008347DC /* SFSymbols.swift in Sources */,
 				0678A98F7BB910D4A160B8BF /* TransitToRootWireframe.swift in Sources */,
 				A196B92624887EEA003C2A7B /* Assets.swift in Sources */,
 				4DAE20DCF1F4AC78770A8B5F /* HomeBuilder.swift in Sources */,
