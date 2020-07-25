@@ -24,6 +24,11 @@ final class PlayerTrophyLineChartView: UIView {
             newValue.delegate = self
         }
     }
+    @IBOutlet private weak var indicator: UIActivityIndicatorView! {
+        willSet {
+            newValue.isHidden = true
+        }
+    }
 
     weak var dateFitlerDelegate: DateFilterTabViewDelegate?
 
@@ -145,5 +150,36 @@ extension PlayerTrophyChartXAxisFormatter: IAxisValueFormatter {
             return ""
         }
         return dateFormatter.string(from: data[index].battleDate)
+    }
+}
+
+// MARK: - Indicator
+extension PlayerTrophyLineChartView {
+
+    func showLoading() {
+
+        // show indicator instead of no data text
+        self.trophyLineChartView.noDataText = ""
+
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
+    }
+
+    func hideLoading() {
+        self.indicator.isHidden = true
+        self.indicator.stopAnimating()
+
+        if let entryCount = self.trophyLineChartView.data?.entryCount, entryCount <= 0 {
+            self.trophyLineChartView.noDataText = "No Data"
+        }
+    }
+}
+
+// MARK: - User Interaction
+extension PlayerTrophyLineChartView {
+
+    @IBAction private func didTapLineChartView() {
+        // Stop animating
+        self.trophyLineChartView.animate(xAxisDuration: 0)
     }
 }

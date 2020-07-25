@@ -85,6 +85,8 @@
 		A1B9D71A247DFAC600126C9F /* APIDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D719247DFAC600126C9F /* APIDataStore.swift */; };
 		A1B9D71E247DFDE900126C9F /* PlayerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D71D247DFDE900126C9F /* PlayerRepository.swift */; };
 		A1B9D720247DFEDA00126C9F /* CRAPIDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D71F247DFED900126C9F /* CRAPIDataStore.swift */; };
+		A1BDF63624CBBD6000B269AF /* UpComingChestListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1BDF63524CBBD6000B269AF /* UpComingChestListView.xib */; };
+		A1BDF63824CBC0CB00B269AF /* UpComingChestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BDF63724CBC0CB00B269AF /* UpComingChestListView.swift */; };
 		A1D07D54248E1EA300FE1785 /* ShowAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D53248E1EA300FE1785 /* ShowAlertView.swift */; };
 		A1D07D56248E1F2D00FE1785 /* ShowErrorAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */; };
 		A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */; };
@@ -303,6 +305,8 @@
 		A1B9D719247DFAC600126C9F /* APIDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataStore.swift; sourceTree = "<group>"; };
 		A1B9D71D247DFDE900126C9F /* PlayerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRepository.swift; sourceTree = "<group>"; };
 		A1B9D71F247DFED900126C9F /* CRAPIDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRAPIDataStore.swift; sourceTree = "<group>"; };
+		A1BDF63524CBBD6000B269AF /* UpComingChestListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpComingChestListView.xib; sourceTree = "<group>"; };
+		A1BDF63724CBC0CB00B269AF /* UpComingChestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingChestListView.swift; sourceTree = "<group>"; };
 		A1D07D53248E1EA300FE1785 /* ShowAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlertView.swift; sourceTree = "<group>"; };
 		A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorAlertView.swift; sourceTree = "<group>"; };
 		A1D07D58248E22F600FE1785 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -733,6 +737,8 @@
 		A186735B24C08FE700D8C32A /* UpComingChestCell */ = {
 			isa = PBXGroup;
 			children = (
+				A1BDF63724CBC0CB00B269AF /* UpComingChestListView.swift */,
+				A1BDF63524CBBD6000B269AF /* UpComingChestListView.xib */,
 				A1E72B5D2488C046000B0949 /* UpComingChestCell.swift */,
 				A1E72B5F2488C05C000B0949 /* UpComingChestCell.xib */,
 			);
@@ -1438,6 +1444,7 @@
 				A1E72B602488C05C000B0949 /* UpComingChestCell.xib in Resources */,
 				A186736324C091D200D8C32A /* TabBarButtonView.xib in Resources */,
 				385FCC8FECE194C0739331CB /* RootViewController.storyboard in Resources */,
+				A1BDF63624CBBD6000B269AF /* UpComingChestListView.xib in Resources */,
 				B9B0D3A4BDFD16456696559E /* HomeViewController.storyboard in Resources */,
 				A196B92324887E0B003C2A7B /* Assets.xcassets in Resources */,
 				A1D9740024A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib in Resources */,
@@ -1568,6 +1575,7 @@
 				A1831AE524AE17EE00F9EB35 /* PlayerInfoView.swift in Sources */,
 				A1E72B5E2488C046000B0949 /* UpComingChestCell.swift in Sources */,
 				ABDB60F26E924475A142F2C6 /* RootViewController.swift in Sources */,
+				A1BDF63824CBC0CB00B269AF /* UpComingChestListView.swift in Sources */,
 				A1D07D54248E1EA300FE1785 /* ShowAlertView.swift in Sources */,
 				B6DF9EFA29E2A46C0D646FDC /* RootPresenter.swift in Sources */,
 				A1E72B652488C645000B0949 /* NSObject+.swift in Sources */,

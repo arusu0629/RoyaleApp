@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hA2-hf-Ug9">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,62 +16,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2lR-5t-woL">
-                                <rect key="frame" x="5" y="10" width="365" height="647"/>
+                                <rect key="frame" x="10" y="10" width="355" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gN-R1-vXK" userLabel="PlayerInfoView" customClass="PlayerInfoView" customModule="Presentation" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="365" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="65"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="nwu-7L-mlZ"/>
+                                            <constraint firstAttribute="height" constant="65" id="nwu-7L-mlZ"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fo9-aF-SHd" customClass="PlayerTrophyLineChartView" customModule="Presentation" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="70" width="365" height="457"/>
+                                        <rect key="frame" x="0.0" y="75" width="355" height="457"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UpComingChests..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaz-11-y5d" userLabel="UpComingChestsLabel">
-                                        <rect key="frame" x="0.0" y="537" width="365" height="20"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgy-cK-gQd" customClass="UpComingChestListView" customModule="Presentation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="542" width="355" height="105"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="UGn-jo-nfB"/>
+                                            <constraint firstAttribute="height" constant="105" id="iz7-dO-ooh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mPI-ol-D5i" userLabel="UpComingChestsScrollView">
-                                        <rect key="frame" x="0.0" y="567" width="365" height="80"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="0.0" placeholderIntrinsicHeight="infinite" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="33b-D7-ZlR" userLabel="ChestsListScrollView">
-                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="80"/>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="33b-D7-ZlR" firstAttribute="top" secondItem="Icl-Oh-jwB" secondAttribute="top" id="1Wm-Vu-siq"/>
-                                            <constraint firstAttribute="height" constant="80" id="5mj-K9-6XX"/>
-                                            <constraint firstItem="33b-D7-ZlR" firstAttribute="bottom" secondItem="Icl-Oh-jwB" secondAttribute="bottom" id="8fg-w5-IKy"/>
-                                            <constraint firstItem="33b-D7-ZlR" firstAttribute="leading" secondItem="Icl-Oh-jwB" secondAttribute="leading" id="BiD-tk-CTu"/>
-                                            <constraint firstItem="33b-D7-ZlR" firstAttribute="height" secondItem="pzT-xi-O0A" secondAttribute="height" id="EmQ-yO-XU9"/>
-                                            <constraint firstItem="33b-D7-ZlR" firstAttribute="trailing" secondItem="Icl-Oh-jwB" secondAttribute="trailing" id="OgP-dz-jyw"/>
-                                        </constraints>
-                                        <viewLayoutGuide key="contentLayoutGuide" id="Icl-Oh-jwB"/>
-                                        <viewLayoutGuide key="frameLayoutGuide" id="pzT-xi-O0A"/>
-                                    </scrollView>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="2lR-5t-woL" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" constant="5" id="6I6-Gn-vAd"/>
-                            <constraint firstAttribute="trailing" secondItem="2lR-5t-woL" secondAttribute="trailing" constant="5" id="D2y-bw-GvO"/>
+                            <constraint firstItem="2lR-5t-woL" firstAttribute="leading" secondItem="KJl-vF-boh" secondAttribute="leading" constant="10" id="6I6-Gn-vAd"/>
+                            <constraint firstAttribute="trailing" secondItem="2lR-5t-woL" secondAttribute="trailing" constant="10" id="D2y-bw-GvO"/>
                             <constraint firstItem="2lR-5t-woL" firstAttribute="top" secondItem="KJl-vF-boh" secondAttribute="top" constant="10" id="EdK-Sa-5Cr"/>
                             <constraint firstItem="KJl-vF-boh" firstAttribute="bottom" secondItem="2lR-5t-woL" secondAttribute="bottom" constant="10" id="TtK-lI-wFW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KJl-vF-boh"/>
                     </view>
                     <connections>
-                        <outlet property="chestsListView" destination="33b-D7-ZlR" id="kUD-cr-efD"/>
                         <outlet property="playerInfoView" destination="8gN-R1-vXK" id="0jF-zI-3uw"/>
                         <outlet property="playerTrophyChartView" destination="Fo9-aF-SHd" id="RI2-Zd-KmJ"/>
+                        <outlet property="upcomingChestListView" destination="Wgy-cK-gQd" id="CDd-iL-MuS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbV-n2-erj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

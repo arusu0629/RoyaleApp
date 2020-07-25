@@ -10,12 +10,17 @@ import Domain
 import UIKit
 
 protocol HomeView: ShowErrorAlertView {
+    func willFetchPlayerInfo()
+    func willFetchUpComingChests()
+    func willFetchPlayerBattleLog()
     func didFetchPlayerInfo(playerModel: PlayerModel)
-    func didFetchPlayerBattleLog(realmBattleLogs: [RealmBattleLogModel])
-    func didFetchUpcomingChests(chestsModel: UpComingChestsModel)
+    func didFetchUpComingChests(chestsModel: UpComingChestsModel)
     func didUpdatePlayerBattleLog(realmBattleLogs: [RealmBattleLogModel])
-    func willEnterForground()
+    func didFailedFetchPlayerInfo(_ error: Error)
+    func didFailedFetchUpComingChests(_ error: Error)
+    func didFailedFetchPlayerBattleLog(_ error: Error)
     func setupTrophyDateFilter(trophyDateFilters: [TrophyDateFilter])
+    func willEnterForground()
 }
 
 // MARK: - Properties
@@ -27,11 +32,9 @@ public final class HomeViewController: UIViewController {
             newValue.dateFitlerDelegate = self
         }
     }
-    @IBOutlet private weak var chestsListView: UIStackView!
+    @IBOutlet private weak var upcomingChestListView: UpComingChestListView!
 
     var presenter: HomePresenter!
-
-    private var chestCells: [UpComingChestCell] = []
 }
 
 // MARK: - Life cycle
@@ -46,32 +49,54 @@ extension HomeViewController {
 // MARK: - HomeView
 extension HomeViewController: HomeView {
 
+    func willFetchPlayerInfo() {
+        self.playerInfoView.showLoading()
+    }
+
+    func willFetchUpComingChests() {
+        self.upcomingChestListView.showLoading()
+    }
+
+    func willFetchPlayerBattleLog() {
+        self.playerTrophyChartView.showLoading()
+    }
+
     func didFetchPlayerInfo(playerModel: PlayerModel) {
         self.playerInfoView.setup(playerModel: playerModel)
+        self.playerInfoView.hideLoading()
     }
 
-    func didFetchPlayerBattleLog(realmBattleLogs: [RealmBattleLogModel]) {
-        self.setupPlayerInfo(realmBattleLogs: realmBattleLogs)
-    }
-
-    func didFetchUpcomingChests(chestsModel: UpComingChestsModel) {
-        self.removeAllChestCell()
-        for chest in chestsModel.chests {
-            let cell = self.createUpComingChestCell(chest: chest)
-            self.chestsListView.addArrangedSubview(cell)
-        }
+    func didFetchUpComingChests(chestsModel: UpComingChestsModel) {
+        self.setupUpComingChest(chestsModel: chestsModel)
+        self.upcomingChestListView.hideLoading()
     }
 
     func didUpdatePlayerBattleLog(realmBattleLogs: [RealmBattleLogModel]) {
         self.setupPlayerInfo(realmBattleLogs: realmBattleLogs)
+        self.playerTrophyChartView.hideLoading()
     }
 
-    public func willEnterForground() {
-        self.presenter.willEnterForground()
+    func didFailedFetchPlayerInfo(_ error: Error) {
+        self.playerInfoView.hideLoading()
+        self.showErrorAlert(error)
+    }
+
+    func didFailedFetchUpComingChests(_ error: Error) {
+        self.upcomingChestListView.hideLoading()
+        self.showErrorAlert(error)
+    }
+
+    func didFailedFetchPlayerBattleLog(_ error: Error) {
+        self.playerTrophyChartView.hideLoading()
+        self.showErrorAlert(error)
     }
 
     func setupTrophyDateFilter(trophyDateFilters: [TrophyDateFilter]) {
         self.playerTrophyChartView.setupDateFilterTabView(texts: trophyDateFilters.map { $0.label }, initialIndex: AppConfig.lastSelectedFilterDateIndex)
+    }
+
+    public func willEnterForground() {
+        self.presenter.willEnterForground()
     }
 }
 
@@ -98,20 +123,8 @@ extension HomeViewController {
 // MARK: - UpComingChestCell
 extension HomeViewController {
 
-    private func createUpComingChestCell(chest: UpComingChestsModel.UpComingChest) -> UpComingChestCell {
-        let cell = UpComingChestCell()
-        cell.widthAnchor.constraint(equalToConstant: UpComingChestCell.cellSize.width).isActive = true
-        cell.heightAnchor.constraint(equalToConstant: UpComingChestCell.cellSize.height).isActive = true
-        cell.setupChest(chest)
-        self.chestCells.append(cell)
-        return cell
-    }
-
-    private func removeAllChestCell() {
-        for cell in self.chestCells {
-            self.chestsListView.removeArrangedSubview(cell)
-        }
-        self.chestCells.removeAll()
+    private func setupUpComingChest(chestsModel: UpComingChestsModel) {
+        self.upcomingChestListView.setup(chestsModel: chestsModel)
     }
 }
 

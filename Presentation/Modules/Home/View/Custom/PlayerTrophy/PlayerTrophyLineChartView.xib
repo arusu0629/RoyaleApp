@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerTrophyLineChartView" customModule="Presentation" customModuleProvider="target">
             <connections>
                 <outlet property="dateFilterTabView" destination="Wen-co-QK4" id="ugA-Ws-I9T"/>
+                <outlet property="indicator" destination="hk7-DK-RFV" id="ftJ-Es-wJf"/>
                 <outlet property="trophyLineChartView" destination="RvQ-et-JRu" id="Wrb-AG-a0W"/>
             </connections>
         </placeholder>
@@ -18,19 +18,59 @@
             <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FiJ-ul-V3R">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FiJ-ul-V3R">
                     <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trophies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ece-4V-rIl">
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="JLL-aa-slc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wen-co-QK4" customClass="TabBarView" customModule="Presentation" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="350" height="35"/>
+                            <rect key="frame" x="0.0" y="30" width="350" height="35"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="2Ct-3p-wSJ"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvQ-et-JRu" customClass="LineChartView" customModule="Charts">
-                            <rect key="frame" x="0.0" y="35" width="350" height="265"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lan-th-nev">
+                            <rect key="frame" x="0.0" y="70" width="350" height="230"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvQ-et-JRu" customClass="LineChartView" customModule="Charts">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="230"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="hk7-DK-RFV">
+                                    <rect key="frame" x="165" y="105" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="20" id="AeD-7K-R0g"/>
+                                        <constraint firstAttribute="height" constant="20" id="Isp-cV-mtI"/>
+                                    </constraints>
+                                </activityIndicatorView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zV-Fx-KIs">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="230"/>
+                                    <connections>
+                                        <action selector="didTapLineChartView" destination="-1" eventType="touchUpInside" id="Rpt-ve-IaC"/>
+                                    </connections>
+                                </button>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="4zV-Fx-KIs" secondAttribute="bottom" id="1WU-57-uej"/>
+                                <constraint firstItem="hk7-DK-RFV" firstAttribute="centerX" secondItem="lan-th-nev" secondAttribute="centerX" id="3J5-P3-aeY"/>
+                                <constraint firstItem="4zV-Fx-KIs" firstAttribute="leading" secondItem="lan-th-nev" secondAttribute="leading" id="Fwe-yK-oDU"/>
+                                <constraint firstAttribute="trailing" secondItem="RvQ-et-JRu" secondAttribute="trailing" id="LCO-OV-qc4"/>
+                                <constraint firstItem="RvQ-et-JRu" firstAttribute="top" secondItem="lan-th-nev" secondAttribute="top" id="NFc-Pe-6iV"/>
+                                <constraint firstItem="4zV-Fx-KIs" firstAttribute="top" secondItem="lan-th-nev" secondAttribute="top" id="USe-n2-Mm0"/>
+                                <constraint firstAttribute="trailing" secondItem="4zV-Fx-KIs" secondAttribute="trailing" id="ldD-Du-3jE"/>
+                                <constraint firstItem="RvQ-et-JRu" firstAttribute="leading" secondItem="lan-th-nev" secondAttribute="leading" id="nmm-Lw-blz"/>
+                                <constraint firstAttribute="bottom" secondItem="RvQ-et-JRu" secondAttribute="bottom" id="tmd-oq-Yyo"/>
+                                <constraint firstItem="hk7-DK-RFV" firstAttribute="centerY" secondItem="lan-th-nev" secondAttribute="centerY" id="w9T-Ie-zRZ"/>
+                            </constraints>
                         </view>
                     </subviews>
                 </stackView>

@@ -15,10 +15,12 @@ protocol TabBarViewDelegate: AnyObject {
 final class TabBarView: UIView {
 
     @IBOutlet private weak var selectedView: UIView!
+    @IBOutlet private weak var selectedViewLabel: UILabel!
     @IBOutlet private weak var stackView: UIStackView!
 
     private var tabBarButtonViews: [TabBarButtonView] = []
     private var selectedTabIndex: Int = 0
+    private var tabTexts: [String] = []
 
     weak var delegate: TabBarButtonViewDelegate?
 
@@ -41,9 +43,12 @@ final class TabBarView: UIView {
 extension TabBarView {
 
     func setupTab(tabTexts: [String], initialIndex: Int = 0) {
+        self.tabTexts = tabTexts
         self.selectedTabIndex = initialIndex
         self.removeAllTabBarButtonViews()
         self.addTabBarButtonViews(texts: tabTexts)
+        self.setupStackView()
+        self.moveSelectedView(index: self.selectedTabIndex, moveDuration: 0)
     }
 
     // Remove button view from StackView and Array
@@ -62,9 +67,14 @@ extension TabBarView {
             self.stackView.addArrangedSubview(tabBarButtonView)
             self.tabBarButtonViews.append(tabBarButtonView)
         }
+    }
+
+    private func setupStackView() {
         self.stackView.isHidden = false
         self.stackView.layoutIfNeeded() // want to get child view frame
-        self.moveSelectedView(index: self.selectedTabIndex, moveDuration: 0)
+        let stackViewSize = self.stackView.frame.size
+        self.selectedView.frame.size = CGSize(width: stackViewSize.width / CGFloat(self.tabBarButtonViews.count), height: stackViewSize.height)
+        self.selectedViewLabel.frame.size = self.selectedView.frame.size
     }
 
     private func createTabBarButtonView(text: String, index: Int) -> TabBarButtonView {
@@ -82,12 +92,21 @@ extension TabBarView {
         if self.stackView.subviews.count <= index {
             return
         }
+
         let targetView = self.stackView.subviews[index]
         let moveTargetPosition = targetView.frame.origin
 
-        UIView.animate(withDuration: moveDuration) {
+        self.selectedViewLabel.text = ""
+
+        UIView.animate(withDuration: moveDuration, animations: {
             self.selectedView.frame.origin.x = moveTargetPosition.x
-        }
+        }, completion: { _ in
+            self.selectedViewLabel.text = self.tabTexts[index]
+            // Control tabBarButton borderLine show/hide
+            self.showAllBorderLine()
+            self.hideBorderLine(indices: [index - 1, index])
+            self.hideText(index: index)
+        })
     }
 }
 
@@ -95,7 +114,43 @@ extension TabBarView {
 extension TabBarView: TabBarButtonViewDelegate {
 
     func didTapButton(index: Int) {
+        self.showText(index: self.selectedTabIndex)
+        self.selectedTabIndex = index
         self.moveSelectedView(index: index)
         self.delegate?.didTapButton(index: index)
+    }
+
+}
+
+// MARK: - Text, BorderLine Show/Hide
+private extension TabBarView {
+
+    func showAllBorderLine() {
+        self.tabBarButtonViews.forEach { $0.showBorderLine() }
+    }
+
+    func hideBorderLine(indices: [Int]) {
+        indices.forEach { self.hideBorderLine(index: $0) }
+    }
+
+    func hideBorderLine(index: Int) {
+        if index < 0 || self.tabBarButtonViews.count <= index {
+            return
+        }
+        self.tabBarButtonViews[index].hideBorderLine()
+    }
+
+    func showText(index: Int) {
+        if index < 0 || self.tabBarButtonViews.count <= index {
+            return
+        }
+        self.tabBarButtonViews[index].showText()
+    }
+
+    func hideText(index: Int) {
+        if index < 0 || self.tabBarButtonViews.count <= index {
+            return
+        }
+        self.tabBarButtonViews[index].hideText()
     }
 }

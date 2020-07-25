@@ -67,12 +67,13 @@ private extension HomePresenterImpl {
         if playerTag.isEmpty {
             return
         }
+        self.view?.willFetchPlayerInfo()
         self.playerUseCase.get(playerTag: playerTag) { result in
             switch result {
             case .success(let playerModel):
                 self.view?.didFetchPlayerInfo(playerModel: playerModel)
             case .failure(let error):
-                self.view?.showErrorAlert(error)
+                self.view?.didFailedFetchPlayerInfo(error)
             }
         }
     }
@@ -81,6 +82,7 @@ private extension HomePresenterImpl {
         if playerTag.isEmpty {
             return
         }
+        self.view?.willFetchUpComingChests()
         self.battleLogsUseCase.get(playerTag: playerTag) { result in
             switch result {
             case .success(let battleLogsModel):
@@ -88,7 +90,7 @@ private extension HomePresenterImpl {
                 let filterDate = self.trophyDateFilterUseCase.list()[AppConfig.lastSelectedFilterDateIndex].filterDate
                 self.requestBattleLog(with: filterDate)
             case .failure(let error):
-                self.view?.showErrorAlert(error)
+                self.view?.didFailedFetchPlayerInfo(error)
             }
         }
     }
@@ -97,28 +99,22 @@ private extension HomePresenterImpl {
         if playerTag.isEmpty {
             return
         }
+        self.view?.willFetchPlayerBattleLog()
         self.chestsUseCase.get(playerTag: playerTag) { result in
             switch result {
             case .success(let upComingChestsModel):
-                self.view?.didFetchUpcomingChests(chestsModel: upComingChestsModel)
+                self.view?.didFetchUpComingChests(chestsModel: upComingChestsModel)
             case .failure(let error):
-                self.view?.showErrorAlert(error)
+                self.view?.didFailedFetchPlayerBattleLog(error)
             }
         }
-    }
-
-    func updateBattleLogs() {
-        guard let battleLogModels = self.realmBattleLogsUseCase.get() else {
-            return
-        }
-        let realmBattleLogs = [RealmBattleLogModel](battleLogModels.sorted(byKeyPath: RealmBattleLogModel.sortedKey))
-        self.view?.didUpdatePlayerBattleLog(realmBattleLogs: realmBattleLogs)
     }
 }
 
 // MARK: - Request Battle Log with date filter
 extension HomePresenterImpl {
 
+    // TODO: Refactoring
     func requestBattleLog(with filterDate: Date) {
         guard let battleLogsModels = self.realmBattleLogsUseCase.get() else {
             self.view?.didUpdatePlayerBattleLog(realmBattleLogs: [])

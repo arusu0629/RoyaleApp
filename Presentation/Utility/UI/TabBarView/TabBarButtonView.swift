@@ -62,7 +62,7 @@ extension TabBarButtonView {
     }
 }
 
-// MARK: - BorderLine Show/Hide
+// MARK: - Text, BorderLine Show/Hide
 extension TabBarButtonView {
 
     func showBorderLine() {
@@ -71,5 +71,13 @@ extension TabBarButtonView {
 
     func hideBorderLine() {
         self.borderLine.isHidden = true
+    }
+
+    func showText() {
+        self.button.titleLabel?.isHidden = false
+    }
+
+    func hideText() {
+        self.button.titleLabel?.isHidden = true
     }
 }
