@@ -44,7 +44,7 @@ extension CRPlayerBattleLog {
 extension CRPlayerBattleLog {
 
     public struct IconUrls: Decodable {
-        let medium: String?
+        public let medium: String?
     }
 }
 

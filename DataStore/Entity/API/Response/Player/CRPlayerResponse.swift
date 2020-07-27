@@ -8,7 +8,7 @@ public struct CRPlayerResponse: Decodable {
 
     let achievements : [Achievement]?
     let arena : Arena?
-    let cards : [Card]?
+    public let cards : [Card]?
     public let clan : Clan?
     let currentDeck : [Card]?
     let deckLink : String?
@@ -47,25 +47,13 @@ extension CRPlayerResponse {
 extension CRPlayerResponse {
 
     public struct Card : Decodable {
-        let arena : Int?
-        let count : Int?
-        let descriptionField : String?
-        let displayLevel : Int?
-        let elixir : Int?
-        let icon : String?
-        let id : Int?
-        let key : String?
-        let leftToUpgrade : Int?
-        let level : Int?
-        let maxLevel : Int?
-        let maxed : Bool?
-        let minLevel : Int?
-        let name : String?
-        let rarity : String?
-        let readyForUpgrade : Bool?
-        let requiredForUpgrade : Int?
-        let starLevel : Int?
-        let type : String?
+        public let id: Int?
+        let count: Int?
+        public let level: Int?
+        let starLevel: Int?
+        public let name: String?
+        let maxLevel: Int?
+        public let iconUrls: CRPlayerBattleLog.IconUrls?
     }
 }
 

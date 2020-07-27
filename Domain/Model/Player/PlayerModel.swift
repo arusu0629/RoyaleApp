@@ -25,6 +25,7 @@ public struct PlayerModel {
     public let name: String
     public let tag: String
     public let clanName: String
+    public let cards: [CRPlayerResponse.Card]
 }
 
 extension PlayerModel {
@@ -33,6 +34,7 @@ extension PlayerModel {
         self.name = response.name ?? ""
         self.tag = response.tag ?? ""
         self.clanName = response.clan?.name ?? ""
+        self.cards = response.cards ?? []
     }
 }
 
