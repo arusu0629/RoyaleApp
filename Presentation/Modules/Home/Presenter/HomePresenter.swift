@@ -31,7 +31,6 @@ final class HomePresenterImpl: HomePresenter {
             return
         }
         self.setup()
-        self.view?.setupTrophyDateFilter(trophyDateFilters: self.trophyDateFilterUseCase.list())
     }
 
     func willEnterForground() {
@@ -51,6 +50,7 @@ private extension HomePresenterImpl {
 
     func setup() {
         self.requestPlayerData()
+        self.view?.setupTrophyDateFilter(trophyDateFilters: self.trophyDateFilterUseCase.list())
     }
 }
 
@@ -82,7 +82,7 @@ private extension HomePresenterImpl {
         if playerTag.isEmpty {
             return
         }
-        self.view?.willFetchUpComingChests()
+        self.view?.willFetchPlayerBattleLog()
         self.battleLogsUseCase.get(playerTag: playerTag) { result in
             switch result {
             case .success(let battleLogsModel):
@@ -99,7 +99,7 @@ private extension HomePresenterImpl {
         if playerTag.isEmpty {
             return
         }
-        self.view?.willFetchPlayerBattleLog()
+        self.view?.willFetchUpComingChests()
         self.chestsUseCase.get(playerTag: playerTag) { result in
             switch result {
             case .success(let upComingChestsModel):
@@ -122,6 +122,11 @@ extension HomePresenterImpl {
         }
         var realmBattleLogs = [RealmBattleLogModel](battleLogsModels.sorted(byKeyPath: RealmBattleLogModel.sortedKey))
         realmBattleLogs = realmBattleLogs.filter { $0.battleDate >= filterDate }
+        // Required two or more battle logs because the trophy graph cannot be showwn correctly
+        if realmBattleLogs.count <= 1 {
+            self.view?.didUpdatePlayerBattleLog(realmBattleLogs: [])
+            return
+        }
         self.view?.didUpdatePlayerBattleLog(realmBattleLogs: realmBattleLogs)
     }
 }

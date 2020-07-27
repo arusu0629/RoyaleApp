@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="dateFilterTabView" destination="Wen-co-QK4" id="ugA-Ws-I9T"/>
                 <outlet property="indicator" destination="hk7-DK-RFV" id="ftJ-Es-wJf"/>
+                <outlet property="noDataView" destination="jAX-XC-XUS" id="cQT-y3-JLp"/>
                 <outlet property="trophyLineChartView" destination="RvQ-et-JRu" id="Wrb-AG-a0W"/>
             </connections>
         </placeholder>
@@ -44,6 +45,35 @@
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="230"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAX-XC-XUS" userLabel="NoDataView">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="230"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Battle Log" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4W-Tw-G62">
+                                            <rect key="frame" x="0.0" y="95" width="350" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="HrY-xX-3uq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="T4W-Tw-G62" firstAttribute="centerY" secondItem="jAX-XC-XUS" secondAttribute="centerY" id="5Gd-OR-Z9J"/>
+                                        <constraint firstItem="T4W-Tw-G62" firstAttribute="centerX" secondItem="jAX-XC-XUS" secondAttribute="centerX" id="G9L-EN-X5U"/>
+                                        <constraint firstItem="T4W-Tw-G62" firstAttribute="leading" secondItem="jAX-XC-XUS" secondAttribute="leading" id="Yya-fs-kUN"/>
+                                        <constraint firstAttribute="trailing" secondItem="T4W-Tw-G62" secondAttribute="trailing" id="j2F-4Q-Qoc"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="8"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="hk7-DK-RFV">
                                     <rect key="frame" x="165" y="105" width="20" height="20"/>
                                     <constraints>
@@ -65,9 +95,13 @@
                                 <constraint firstItem="4zV-Fx-KIs" firstAttribute="leading" secondItem="lan-th-nev" secondAttribute="leading" id="Fwe-yK-oDU"/>
                                 <constraint firstAttribute="trailing" secondItem="RvQ-et-JRu" secondAttribute="trailing" id="LCO-OV-qc4"/>
                                 <constraint firstItem="RvQ-et-JRu" firstAttribute="top" secondItem="lan-th-nev" secondAttribute="top" id="NFc-Pe-6iV"/>
+                                <constraint firstItem="jAX-XC-XUS" firstAttribute="top" secondItem="lan-th-nev" secondAttribute="top" id="OGP-Tc-5bF"/>
+                                <constraint firstAttribute="trailing" secondItem="jAX-XC-XUS" secondAttribute="trailing" id="OOM-qT-XjL"/>
                                 <constraint firstItem="4zV-Fx-KIs" firstAttribute="top" secondItem="lan-th-nev" secondAttribute="top" id="USe-n2-Mm0"/>
+                                <constraint firstAttribute="bottom" secondItem="jAX-XC-XUS" secondAttribute="bottom" id="dlD-K6-b7a"/>
                                 <constraint firstAttribute="trailing" secondItem="4zV-Fx-KIs" secondAttribute="trailing" id="ldD-Du-3jE"/>
                                 <constraint firstItem="RvQ-et-JRu" firstAttribute="leading" secondItem="lan-th-nev" secondAttribute="leading" id="nmm-Lw-blz"/>
+                                <constraint firstItem="jAX-XC-XUS" firstAttribute="leading" secondItem="lan-th-nev" secondAttribute="leading" id="s9M-4R-5oa"/>
                                 <constraint firstAttribute="bottom" secondItem="RvQ-et-JRu" secondAttribute="bottom" id="tmd-oq-Yyo"/>
                                 <constraint firstItem="hk7-DK-RFV" firstAttribute="centerY" secondItem="lan-th-nev" secondAttribute="centerY" id="w9T-Ie-zRZ"/>
                             </constraints>

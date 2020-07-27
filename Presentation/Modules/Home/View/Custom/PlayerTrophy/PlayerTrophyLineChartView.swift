@@ -16,7 +16,11 @@ protocol DateFilterTabViewDelegate: AnyObject {
 
 final class PlayerTrophyLineChartView: UIView {
 
-    @IBOutlet private weak var trophyLineChartView: LineChartView!
+    @IBOutlet private weak var trophyLineChartView: LineChartView! {
+        willSet {
+            newValue.isHidden = true
+        }
+    }
 
     @IBOutlet private weak var dateFilterTabView: TabBarView! {
         willSet {
@@ -25,6 +29,11 @@ final class PlayerTrophyLineChartView: UIView {
         }
     }
     @IBOutlet private weak var indicator: UIActivityIndicatorView! {
+        willSet {
+            newValue.isHidden = true
+        }
+    }
+    @IBOutlet private weak var noDataView: UIView! {
         willSet {
             newValue.isHidden = true
         }
@@ -71,7 +80,15 @@ final class PlayerTrophyLineChartView: UIView {
 // MARK: - Setup
 extension PlayerTrophyLineChartView {
 
+    func setupNoData() {
+        self.trophyLineChartView.isHidden = true
+        self.noDataView.isHidden = false
+    }
+
     func setupData(battleLogs: [RealmBattleLogModel]) {
+        self.trophyLineChartView.isHidden = false
+        self.noDataView.isHidden = true
+
         let entry = createEntries(realmBattleLogModels: battleLogs)
         let dataSet = self.createDataSet(entry: entry)
         let chartData = LineChartData(dataSet: dataSet)
@@ -146,7 +163,7 @@ extension PlayerTrophyChartXAxisFormatter: IAxisValueFormatter {
 
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         let index = Int(value)
-        guard let data = self.data, index < data.count else {
+        guard let data = self.data, index >= 0, index < data.count else {
             return ""
         }
         return dateFormatter.string(from: data[index].battleDate)

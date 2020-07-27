@@ -42,7 +42,26 @@ extension SignInViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setup()
+    }
+}
+
+// MARK: - Setup
+private extension SignInViewController {
+
+    func setup() {
         self.registerKeyboardManagerDelegate()
+        self.setupTextFieldPlaceholder()
+    }
+
+    func setupTextFieldPlaceholder() {
+        let buttonText = "Input player tag"
+        // Shifting the placeholder letter up from the baseline to the bottom of the g
+        let attributes = [
+            NSAttributedString.Key.baselineOffset: NSNumber(value: 1.0)
+        ]
+        let attrText = NSAttributedString(string: buttonText, attributes: attributes)
+        self.inputPlayerTagTextField.attributedPlaceholder = attrText
     }
 }
 

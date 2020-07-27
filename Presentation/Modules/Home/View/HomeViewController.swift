@@ -105,18 +105,12 @@ extension HomeViewController {
 
     private func setupPlayerInfo(realmBattleLogs: [RealmBattleLogModel]) {
         if realmBattleLogs.isEmpty {
+            self.playerTrophyChartView.setupNoData()
             return
         }
         self.playerTrophyChartView.setupData(battleLogs: realmBattleLogs)
         let trophy = realmBattleLogs[realmBattleLogs.count - 1].afterTrophy
         self.playerInfoView.setupTrophy(trophy: trophy)
-    }
-
-    private func filterPlayerBattleLog(realmBattleLogs: [RealmBattleLogModel]) {
-        if realmBattleLogs.isEmpty {
-            return
-        }
-        self.playerTrophyChartView.setupData(battleLogs: realmBattleLogs)
     }
 }
 
