@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ebh-mb-J0C">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ebh-mb-J0C">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,24 +12,61 @@
             <objects>
                 <viewController id="ebh-mb-J0C" customClass="DeckViewController" customModule="Presentation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lca-IT-thV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DeckViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXj-bY-spO">
-                                <rect key="frame" x="28.5" y="422.5" width="357" height="51"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IgQ-2g-zex">
+                                <rect key="frame" x="10" y="10" width="355" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XZ-9z-7Dk" userLabel="Spacer">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="89.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvN-ws-aBX" customClass="DeckPreviewView" customModule="Presentation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="99.5" width="355" height="213"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="jvN-ws-aBX" secondAttribute="height" multiplier="320:192" id="jnS-Tx-oee"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DX-Rw-Vi6" userLabel="DeckDescriptionView">
+                                        <rect key="frame" x="0.0" y="322.5" width="355" height="45"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="LVm-Ab-o1E"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oym-D7-UaV" userLabel="DeckCreateView">
+                                        <rect key="frame" x="0.0" y="377.5" width="355" height="80"/>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="kdM-Vg-Sm5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEW-iG-63f" userLabel="DeckSelectionScrollView">
+                                        <rect key="frame" x="0.0" y="467.5" width="355" height="80"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="mNQ-0s-hkf"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDV-1Q-t3O" userLabel="Spacer">
+                                        <rect key="frame" x="0.0" y="557.5" width="355" height="89.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="357" id="hxa-vF-m3v"/>
-                                    <constraint firstAttribute="height" constant="51" id="wri-gD-CI3"/>
+                                    <constraint firstItem="dDV-1Q-t3O" firstAttribute="height" secondItem="3XZ-9z-7Dk" secondAttribute="height" id="roV-bt-8XR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="FXj-bY-spO" firstAttribute="centerY" secondItem="Lca-IT-thV" secondAttribute="centerY" id="1Dh-da-0Ea"/>
-                            <constraint firstItem="FXj-bY-spO" firstAttribute="centerX" secondItem="Lca-IT-thV" secondAttribute="centerX" id="Btj-Kn-Vua"/>
+                            <constraint firstItem="IgQ-2g-zex" firstAttribute="leading" secondItem="ERi-tN-PEG" secondAttribute="leading" constant="10" id="6Hi-kq-xTt"/>
+                            <constraint firstItem="IgQ-2g-zex" firstAttribute="centerX" secondItem="Lca-IT-thV" secondAttribute="centerX" id="DYQ-nx-nmM"/>
+                            <constraint firstItem="ERi-tN-PEG" firstAttribute="trailing" secondItem="IgQ-2g-zex" secondAttribute="trailing" constant="10" id="MT1-fk-rU7"/>
+                            <constraint firstItem="ERi-tN-PEG" firstAttribute="bottom" secondItem="IgQ-2g-zex" secondAttribute="bottom" constant="10" id="Qx9-Wo-d0m"/>
+                            <constraint firstItem="IgQ-2g-zex" firstAttribute="top" secondItem="ERi-tN-PEG" secondAttribute="top" constant="10" id="vJn-e3-b8u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ERi-tN-PEG"/>
                     </view>

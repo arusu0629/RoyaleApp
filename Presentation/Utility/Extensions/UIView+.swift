@@ -12,7 +12,7 @@ import UIKit
 extension UIView {
 
     static var nib: UINib {
-        return UINib(nibName: self.className, bundle: nil)
+        return UINib(nibName: self.className, bundle: Bundle(for: self.self))
     }
 
     var nib: UINib {
