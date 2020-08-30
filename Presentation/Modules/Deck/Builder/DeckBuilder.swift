@@ -6,6 +6,7 @@
 //  Copyright © 2020 arusu0629. All rights reserved.
 //
 
+import Domain
 import UIKit
 
 enum DeckBuilder {
@@ -19,6 +20,8 @@ enum DeckBuilder {
 
         presenter.view = view
         presenter.wireframe = wireframe
+        presenter.playerUserCase = PlayerUseCaseProvider.provide()
+        presenter.realmDeckModelUseCase = RealmDeckModelUseCaseProvider.provide()
 
         wireframe.viewController = view
 

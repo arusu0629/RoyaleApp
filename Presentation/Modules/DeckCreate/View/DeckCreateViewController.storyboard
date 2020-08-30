@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BLX-9N-R0N">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Deck Create View Controller-->
+        <scene sceneID="vAP-er-F10">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="BLX-9N-R0N" customClass="DeckCreateViewController" customModule="Presentation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F5D-7c-VQg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PZd-94-TBe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfp-7I-CGS" userLabel="CardSortView" customClass="CardSortView" customModule="Presentation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="sjl-Tg-uwG"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qI4-DI-agr" userLabel="DeckCreateListView" customClass="DeckCreateListView" customModule="Presentation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="521"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TX-27-Z4c" userLabel="FooterView">
+                                        <rect key="frame" x="0.0" y="571" width="375" height="96"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHo-4x-seI">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHP-Yc-3Tb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="107.5" height="96"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="96" id="fPj-Kd-jeb"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
+                                                        <state key="normal" title="Clear">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="didTapDeckClearButton" destination="BLX-9N-R0N" eventType="touchUpInside" id="Kcf-ZU-vzv"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rL9-hy-TgT" userLabel="DeckCreatePreviewView" customClass="DeckCreatePreviewView" customModule="Presentation" customModuleProvider="target">
+                                                        <rect key="frame" x="107.5" y="0.0" width="160" height="96"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="rL9-hy-TgT" secondAttribute="height" multiplier="160:96" id="Kxy-Vj-lTA"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPU-j4-Vo9">
+                                                        <rect key="frame" x="267.5" y="0.0" width="107.5" height="96"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="96" id="FKL-Hv-u5Q"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
+                                                        <state key="normal" title="OK"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="didTapDeckSelectButton" destination="BLX-9N-R0N" eventType="touchUpInside" id="hAM-vL-hks"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="qPU-j4-Vo9" firstAttribute="width" secondItem="dHP-Yc-3Tb" secondAttribute="width" id="7Ty-ff-zYS"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="kHo-4x-seI" secondAttribute="trailing" id="2vJ-lB-OUz"/>
+                                            <constraint firstItem="kHo-4x-seI" firstAttribute="leading" secondItem="2TX-27-Z4c" secondAttribute="leading" id="3QY-Xc-2sG"/>
+                                            <constraint firstAttribute="height" constant="96" id="UWq-HM-53x"/>
+                                            <constraint firstAttribute="bottom" secondItem="kHo-4x-seI" secondAttribute="bottom" id="lPE-rF-5rL"/>
+                                            <constraint firstItem="kHo-4x-seI" firstAttribute="top" secondItem="2TX-27-Z4c" secondAttribute="top" id="shn-f7-wIF"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PZd-94-TBe" firstAttribute="top" secondItem="3Aq-GK-SNy" secondAttribute="top" id="8gl-Y8-qaZ"/>
+                            <constraint firstItem="3Aq-GK-SNy" firstAttribute="trailing" secondItem="PZd-94-TBe" secondAttribute="trailing" id="Cqj-8U-O4K"/>
+                            <constraint firstItem="3Aq-GK-SNy" firstAttribute="bottom" secondItem="PZd-94-TBe" secondAttribute="bottom" id="ExZ-lc-kt6"/>
+                            <constraint firstItem="PZd-94-TBe" firstAttribute="leading" secondItem="F5D-7c-VQg" secondAttribute="leading" id="nxx-GT-WoB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Aq-GK-SNy"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardSortView" destination="bfp-7I-CGS" id="gb3-Nz-70l"/>
+                        <outlet property="deckCreateListView" destination="qI4-DI-agr" id="vWf-2U-Pn5"/>
+                        <outlet property="deckCreatePreviewView" destination="rL9-hy-TgT" id="TV6-MX-Ou8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GJw-0R-tgZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="213" y="128"/>
+        </scene>
+    </scenes>
+</document>

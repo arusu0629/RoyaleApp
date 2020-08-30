@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DeckCreatePreviewCell" customModule="Presentation" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="40" height="48"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="40" height="48"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bandit" translatesAutoresizingMaskIntoConstraints="NO" id="xha-Jl-BPa">
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="48"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="xha-Jl-BPa" secondAttribute="trailing" id="9Ee-6t-CES"/>
+                <constraint firstAttribute="bottom" secondItem="xha-Jl-BPa" secondAttribute="bottom" id="TRd-Es-Gbu"/>
+                <constraint firstItem="xha-Jl-BPa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Xew-TZ-qFf"/>
+                <constraint firstItem="xha-Jl-BPa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ejQ-Sm-dOT"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="iconImageView" destination="xha-Jl-BPa" id="0JB-Ml-Fjj"/>
+            </connections>
+            <point key="canvasLocation" x="141" y="154"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="bandit" width="302" height="363"/>
+    </resources>
+</document>

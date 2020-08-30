@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ebh-mb-J0C">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ebh-mb-J0C">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -19,39 +19,152 @@
                                 <rect key="frame" x="10" y="10" width="355" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XZ-9z-7Dk" userLabel="Spacer">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="89.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="109.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNc-kS-RuG" userLabel="HeaderView">
+                                        <rect key="frame" x="0.0" y="119.5" width="355" height="40"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kAM-ee-xtF">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mh8-PX-K2U" userLabel="AddView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o90-k7-EUm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                                <state key="normal" image="plus.square.on.square" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="didTapDeckCreate" destination="ebh-mb-J0C" eventType="touchUpInside" id="lLs-Vj-gY8"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="Ijt-iD-Sek"/>
+                                                            <constraint firstAttribute="bottom" secondItem="o90-k7-EUm" secondAttribute="bottom" id="S3f-Rl-pbQ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="o90-k7-EUm" secondAttribute="trailing" id="hGR-53-ye8"/>
+                                                            <constraint firstItem="o90-k7-EUm" firstAttribute="leading" secondItem="Mh8-PX-K2U" secondAttribute="leading" id="qcf-c2-8h8"/>
+                                                            <constraint firstItem="o90-k7-EUm" firstAttribute="top" secondItem="Mh8-PX-K2U" secondAttribute="top" id="tx6-oA-BRv"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEW-iG-63f" userLabel="DeckSelectionScrollView" customClass="DeckSelectionView" customModule="Presentation" customModuleProvider="target">
+                                                        <rect key="frame" x="60" y="0.0" width="235" height="40"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkG-kK-fQ1" userLabel="ShareView">
+                                                        <rect key="frame" x="315" y="0.0" width="40" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jw-zP-3SF">
+                                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                                <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="didTapDeckShare" destination="ebh-mb-J0C" eventType="touchUpInside" id="0hn-9O-XOS"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="6jw-zP-3SF" firstAttribute="leading" secondItem="gkG-kK-fQ1" secondAttribute="leading" id="2fG-k3-Bap"/>
+                                                            <constraint firstAttribute="trailing" secondItem="6jw-zP-3SF" secondAttribute="trailing" id="CrI-yX-a51"/>
+                                                            <constraint firstAttribute="bottom" secondItem="6jw-zP-3SF" secondAttribute="bottom" id="M0z-0Z-YII"/>
+                                                            <constraint firstItem="6jw-zP-3SF" firstAttribute="top" secondItem="gkG-kK-fQ1" secondAttribute="top" id="zys-Gx-edK"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="gkG-kK-fQ1" firstAttribute="width" secondItem="Mh8-PX-K2U" secondAttribute="width" id="ggQ-a5-cex"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="5Lm-VQ-9jQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="kAM-ee-xtF" secondAttribute="trailing" id="5Vd-ww-Xq5"/>
+                                            <constraint firstAttribute="bottom" secondItem="kAM-ee-xtF" secondAttribute="bottom" id="QC7-gh-I0i"/>
+                                            <constraint firstItem="kAM-ee-xtF" firstAttribute="top" secondItem="DNc-kS-RuG" secondAttribute="top" id="QV0-M4-s31"/>
+                                            <constraint firstItem="kAM-ee-xtF" firstAttribute="leading" secondItem="DNc-kS-RuG" secondAttribute="leading" id="pdG-Ap-jrF"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvN-ws-aBX" customClass="DeckPreviewView" customModule="Presentation" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="99.5" width="355" height="213"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="169.5" width="355" height="213"/>
+                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jvN-ws-aBX" secondAttribute="height" multiplier="320:192" id="jnS-Tx-oee"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DX-Rw-Vi6" userLabel="DeckDescriptionView">
-                                        <rect key="frame" x="0.0" y="322.5" width="355" height="45"/>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DX-Rw-Vi6" userLabel="DeckDescriptionView" customClass="DeckDescriptionView" customModule="Presentation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="392.5" width="355" height="45"/>
+                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="LVm-Ab-o1E"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oym-D7-UaV" userLabel="DeckCreateView">
-                                        <rect key="frame" x="0.0" y="377.5" width="355" height="80"/>
-                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="447.5" width="355" height="80"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuD-kE-Qs5">
+                                                <rect key="frame" x="10" y="10" width="335" height="60"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
+                                                <state key="normal" title="Deck Change">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapDeckChange" destination="ebh-mb-J0C" eventType="touchUpInside" id="Y3J-O8-hOX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="GuD-kE-Qs5" secondAttribute="trailing" constant="10" id="3Io-0d-b4f"/>
+                                            <constraint firstItem="GuD-kE-Qs5" firstAttribute="leading" secondItem="Oym-D7-UaV" secondAttribute="leading" constant="10" id="TGs-MV-oQA"/>
                                             <constraint firstAttribute="height" constant="80" id="kdM-Vg-Sm5"/>
+                                            <constraint firstItem="GuD-kE-Qs5" firstAttribute="top" secondItem="Oym-D7-UaV" secondAttribute="top" constant="10" id="tfo-Uw-5sQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="GuD-kE-Qs5" secondAttribute="bottom" constant="10" id="uKH-ws-HYr"/>
                                         </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEW-iG-63f" userLabel="DeckSelectionScrollView">
-                                        <rect key="frame" x="0.0" y="467.5" width="355" height="80"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="mNQ-0s-hkf"/>
-                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDV-1Q-t3O" userLabel="Spacer">
-                                        <rect key="frame" x="0.0" y="557.5" width="355" height="89.5"/>
+                                        <rect key="frame" x="0.0" y="537.5" width="355" height="109.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -70,10 +183,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ERi-tN-PEG"/>
                     </view>
+                    <connections>
+                        <outlet property="deckDescritpionView" destination="9DX-Rw-Vi6" id="7iu-Sj-6eL"/>
+                        <outlet property="deckPreviewView" destination="jvN-ws-aBX" id="wgu-bo-qnJ"/>
+                        <outlet property="deckSelectionView" destination="vEW-iG-63f" id="tXa-1b-0vr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDG-FY-GIn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="152" y="126"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus.square.on.square" catalog="system" width="128" height="113"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+    </resources>
 </document>

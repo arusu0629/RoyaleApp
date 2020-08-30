@@ -12,8 +12,8 @@ import RealmSwift
 
 enum RealmUseCaseProvider {
 
-    static func provide() -> RealmUseCase {
-        return RealmUseCaseImpl(repository: RealmRepositoryProvider.provide())
+    static func provide(configName: String) -> RealmUseCase {
+        return RealmUseCaseImpl(repository: RealmRepositoryProvider.provide(configName: configName))
     }
 }
 

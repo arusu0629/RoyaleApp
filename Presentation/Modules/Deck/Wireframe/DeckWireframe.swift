@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol DeckWireframe: AnyObject {}
+protocol DeckWireframe: TransitToDeckCreateWireframe {}
 
 final class DeckWireframeImpl: DeckWireframe {
 

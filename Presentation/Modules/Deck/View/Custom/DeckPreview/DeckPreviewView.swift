@@ -6,12 +6,15 @@
 //  Copyright © 2020 nakandakari. All rights reserved.
 //
 
+import Domain
 import UIKit
 
 final class DeckPreviewView: UIView {
 
     let sectionCount: Int = 2
     let itemsPerRow: Int = 4
+
+    private var currentDeck: DeckModel = DeckModel()
 
     @IBOutlet private weak var deckPreviewCollectionView: UICollectionView! {
         willSet {
@@ -21,6 +24,7 @@ final class DeckPreviewView: UIView {
             newValue.register(DeckPreviewCell.nib, forCellWithReuseIdentifier: DeckPreviewCell.className)
         }
     }
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,6 +38,14 @@ final class DeckPreviewView: UIView {
 
     private func initialize() {
         self.loadXib()
+    }
+}
+
+extension DeckPreviewView {
+
+    func setup(currentDeck: DeckModel) {
+        self.currentDeck = currentDeck
+        self.deckPreviewCollectionView.reloadData()
     }
 }
 
@@ -55,6 +67,13 @@ extension DeckPreviewView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DeckPreviewCell.className, for: indexPath) as! DeckPreviewCell
+        let index = (indexPath.section * self.itemsPerRow) + indexPath.row
+        if index >= self.currentDeck.cards.count {
+            cell.isHidden = true
+        } else {
+            cell.setData(iconUrl: self.currentDeck.cards[index].iconUrl)
+            cell.isHidden = false
+        }
         return cell
     }
 }
@@ -72,5 +91,19 @@ extension DeckPreviewView: UICollectionViewDelegateFlowLayout {
         let ratio: CGFloat =  cellWidth / defaultCellSize.width
         let cellHeight: CGFloat = defaultCellSize.height * ratio
         return CGSize(width: cellWidth, height: cellHeight)
+    }
+}
+
+// MARK: - Indicator
+extension DeckPreviewView {
+
+    func showLoading() {
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
+    }
+
+    func hideLoading() {
+        self.indicator.isHidden = true
+        self.indicator.stopAnimating()
     }
 }

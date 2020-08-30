@@ -25,7 +25,7 @@ public struct PlayerModel {
     public let name: String
     public let tag: String
     public let clanName: String
-    public let cards: [CRPlayerResponse.Card]
+    public var cards: [CardModel]
 }
 
 extension PlayerModel {
@@ -34,7 +34,12 @@ extension PlayerModel {
         self.name = response.name ?? ""
         self.tag = response.tag ?? ""
         self.clanName = response.clan?.name ?? ""
-        self.cards = response.cards ?? []
+
+        if let cards = response.cards {
+            self.cards = cards.map { CardModel($0) }
+        } else {
+            self.cards = []
+        }
     }
 }
 

@@ -30,6 +30,24 @@ extension AppConfig {
             return UserDefaults.standard.integer(forKey: #function)
         }
     }
+
+    public static var lastSelectedDeckIndex: Int {
+        set {
+            UserDefaults.standard.set(newValue, forKey: #function)
+        }
+        get {
+            return UserDefaults.standard.integer(forKey: #function)
+        }
+    }
+
+    public static var lastSelectedSortIndex: Int {
+        set {
+            UserDefaults.standard.set(newValue, forKey: #function)
+        }
+        get {
+            return UserDefaults.standard.integer(forKey: #function)
+        }
+    }
 }
 
 // MARK: - PlayerTag
