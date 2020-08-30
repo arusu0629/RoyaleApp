@@ -95,6 +95,7 @@
 		A1BDF64C24CEC6CE00B269AF /* DeckPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1BDF64B24CEC6CE00B269AF /* DeckPreviewView.xib */; };
 		A1BDF65124CEC8D400B269AF /* DeckPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BDF64F24CEC8D400B269AF /* DeckPreviewCell.swift */; };
 		A1BDF65224CEC8D400B269AF /* DeckPreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1BDF65024CEC8D400B269AF /* DeckPreviewCell.xib */; };
+		A1C7FAF324FB54DB004A5F5B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C7FAF224FB54DB004A5F5B /* Kingfisher.framework */; };
 		A1D07D54248E1EA300FE1785 /* ShowAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D53248E1EA300FE1785 /* ShowAlertView.swift */; };
 		A1D07D56248E1F2D00FE1785 /* ShowErrorAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */; };
 		A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D697692480DC2D00899FE2 /* StoryBoardInstantiate.swift */; };
@@ -322,6 +323,7 @@
 		A1BDF64B24CEC6CE00B269AF /* DeckPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckPreviewView.xib; sourceTree = "<group>"; };
 		A1BDF64F24CEC8D400B269AF /* DeckPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckPreviewCell.swift; sourceTree = "<group>"; };
 		A1BDF65024CEC8D400B269AF /* DeckPreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckPreviewCell.xib; sourceTree = "<group>"; };
+		A1C7FAF224FB54DB004A5F5B /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		A1D07D53248E1EA300FE1785 /* ShowAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlertView.swift; sourceTree = "<group>"; };
 		A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorAlertView.swift; sourceTree = "<group>"; };
 		A1D07D58248E22F600FE1785 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			files = (
 				A1D973FE24A5DF3C00A654C2 /* Charts.framework in Frameworks */,
 				A18596B824811A4C008F067A /* Domain.framework in Frameworks */,
+				A1C7FAF324FB54DB004A5F5B /* Kingfisher.framework in Frameworks */,
 				A18596C024812539008F067A /* SwipeableTabBarController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -949,6 +952,7 @@
 			children = (
 				A1B9D701247CA11B00126C9F /* Alamofire.framework */,
 				A1D973FD24A5DF3C00A654C2 /* Charts.framework */,
+				A1C7FAF224FB54DB004A5F5B /* Kingfisher.framework */,
 				A1D973F924A5DBC900A654C2 /* Realm.framework */,
 				A1D973FA24A5DBC900A654C2 /* RealmSwift.framework */,
 				A18596BF24812539008F067A /* SwipeableTabBarController.framework */,
@@ -1589,6 +1593,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
