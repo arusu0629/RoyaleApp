@@ -62,6 +62,7 @@ extension CardSortView {
     @IBAction private func didTapSort() {
         let nextSortType = CardSortType(rawValue: (self.sortType.rawValue + 1) % CardSortType.allCases.count) ?? .arena
         self.sortType = nextSortType
+        SoundManager.shared.playSoundEffect(.selectSortButton)
         self.delegate?.didTapSortButton(sortType: self.sortType)
     }
 }

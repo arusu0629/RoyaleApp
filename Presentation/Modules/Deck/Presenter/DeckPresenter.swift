@@ -52,11 +52,11 @@ extension DeckPresenterImpl {
 
     func didSelectDeckCreate() {
         self.selectedDeckIndex = self.decks.count
-        self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex)
+        self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex, selectedCardList: self.currentDeck.cards)
     }
 
     func didSelectDeckChange() {
-        self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex)
+        self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex, selectedCardList: self.currentDeck.cards)
     }
 
     func didSelectDeckShare() {
@@ -84,7 +84,7 @@ extension DeckPresenterImpl {
         self.view?.willFetchDecks()
         guard let deckModel = self.realmDeckModelUseCase.get() else {
             self.decks = []
-            self.view?.didFetchDecks(decks: [], selectedDeckIndex: self.selectedDeckIndex)
+            self.view?.didFetchDecks(decks: self.decks, selectedDeckIndex: self.selectedDeckIndex)
             return
         }
         let realmDeckModel = [RealmDeckModel](deckModel).filter { $0.playerTag == AppConfig.playerTag }
@@ -96,7 +96,6 @@ extension DeckPresenterImpl {
                 self.view?.didFetchDecks(decks: self.decks, selectedDeckIndex: self.selectedDeckIndex)
             case .failure(let error):
                 self.view?.didFailedFetchDecks(error: error)
-                break
             }
         }
     }

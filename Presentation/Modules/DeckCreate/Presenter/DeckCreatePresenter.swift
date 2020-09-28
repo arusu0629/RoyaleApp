@@ -36,8 +36,9 @@ final class DeckCreatePresenterImpl: DeckCreatePresenter {
 
     private var playerModel: PlayerModel?
 
-    init(deckIndex: Int) {
+    init(deckIndex: Int, selectedCardList: [CardModel]) {
         self.selectedDeckIndex = deckIndex
+        self.selectedCardList = selectedCardList
         self.sortType = CardSortType(rawValue: AppConfig.lastSelectedSortIndex) ?? .arena
     }
 }

@@ -117,6 +117,7 @@ extension TabBarView: TabBarButtonViewDelegate {
         self.showText(index: self.selectedTabIndex)
         self.selectedTabIndex = index
         self.moveSelectedView(index: index)
+        SoundManager.shared.playSoundEffect(.selectTab)
         self.delegate?.didTapButton(index: index)
     }
 

@@ -27,6 +27,8 @@
 		85B9BCBF81CE1826BD269E26 /* DeckCreateWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1C930B9D3CC1E53D7145C1 /* DeckCreateWireframe.swift */; };
 		9D0100124A08E38D9DC2AAD3 /* DeckBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A13733F61EF052BC450143 /* DeckBuilder.swift */; };
 		A121939524C2DD11008347DC /* SFSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A121939424C2DD11008347DC /* SFSymbols.swift */; };
+		A14FB82E25086DD00071145B /* menu_click_06.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14FB82C25086DD00071145B /* menu_click_06.mp3 */; };
+		A14FB83125086E0D0071145B /* card_fly_in_06.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A14FB83025086E0D0071145B /* card_fly_in_06.mp3 */; };
 		A173231F24B44B8400CD3FC1 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173231E24B44B8400CD3FC1 /* NotificationHelper.swift */; };
 		A173232124B4AA2400CD3FC1 /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A173232024B4AA2400CD3FC1 /* BackgroundTaskManager.swift */; };
 		A17CE39024A35C550081170B /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07D58248E22F600FE1785 /* AppConfig.swift */; };
@@ -71,6 +73,8 @@
 		A196B9352488A3C0003C2A7B /* UpComingChestsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196B9342488A3C0003C2A7B /* UpComingChestsModel.swift */; };
 		A196B9362488A4F0003C2A7B /* DataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B9D6E2247CA10100126C9F /* DataStore.framework */; };
 		A196B9392488AA43003C2A7B /* UpComingChestsTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196B9382488AA43003C2A7B /* UpComingChestsTranslator.swift */; };
+		A1AEE6A72503645300FC18AE /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AEE6A62503645300FC18AE /* SoundManager.swift */; };
+		A1AEE6A92503649000FC18AE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AEE6A82503649000FC18AE /* AVFoundation.framework */; };
 		A1B9D6AE247C9C7400126C9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D6AD247C9C7400126C9F /* AppDelegate.swift */; };
 		A1B9D6B0247C9C7400126C9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D6AF247C9C7400126C9F /* SceneDelegate.swift */; };
 		A1B9D6B7247C9C7400126C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B9D6B6247C9C7400126C9F /* Assets.xcassets */; };
@@ -139,6 +143,7 @@
 		A1F9408425006D250042AF18 /* CardSortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9408325006D250042AF18 /* CardSortType.swift */; };
 		A1F94088250224000042AF18 /* DeckDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F94087250224000042AF18 /* DeckDescriptionView.swift */; };
 		A1F9408A25022A450042AF18 /* DeckDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1F9408925022A450042AF18 /* DeckDescriptionView.xib */; };
+		A1F9408F250357160042AF18 /* HoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9408E250357160042AF18 /* HoverCollectionViewCell.swift */; };
 		ABDB60F26E924475A142F2C6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E1501B9FD425818E302286 /* RootViewController.swift */; };
 		B6DF9EFA29E2A46C0D646FDC /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A521157BA9F9B33DD6AD1810 /* RootPresenter.swift */; };
 		B9B0D3A4BDFD16456696559E /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE16E962A4A033F912C678E5 /* HomeViewController.storyboard */; };
@@ -276,6 +281,8 @@
 		9DC3FE0A36F1AACC81A49D50 /* DeckCreateViewController.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = DeckCreateViewController.storyboard; sourceTree = "<group>"; };
 		A0E1501B9FD425818E302286 /* RootViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		A121939424C2DD11008347DC /* SFSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbols.swift; sourceTree = "<group>"; };
+		A14FB82C25086DD00071145B /* menu_click_06.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu_click_06.mp3; sourceTree = "<group>"; };
+		A14FB83025086E0D0071145B /* card_fly_in_06.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = card_fly_in_06.mp3; sourceTree = "<group>"; };
 		A173231E24B44B8400CD3FC1 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		A173232024B4AA2400CD3FC1 /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		A17CE39324A46C400081170B /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
@@ -319,6 +326,8 @@
 		A196B9312488A244003C2A7B /* UpComingChestsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingChestsUseCase.swift; sourceTree = "<group>"; };
 		A196B9342488A3C0003C2A7B /* UpComingChestsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingChestsModel.swift; sourceTree = "<group>"; };
 		A196B9382488AA43003C2A7B /* UpComingChestsTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingChestsTranslator.swift; sourceTree = "<group>"; };
+		A1AEE6A62503645300FC18AE /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		A1AEE6A82503649000FC18AE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		A1B9D6AA247C9C7400126C9F /* RoyaleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoyaleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B9D6AD247C9C7400126C9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1B9D6AF247C9C7400126C9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -394,6 +403,7 @@
 		A1F9408325006D250042AF18 /* CardSortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSortType.swift; sourceTree = "<group>"; };
 		A1F94087250224000042AF18 /* DeckDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDescriptionView.swift; sourceTree = "<group>"; };
 		A1F9408925022A450042AF18 /* DeckDescriptionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckDescriptionView.xib; sourceTree = "<group>"; };
+		A1F9408E250357160042AF18 /* HoverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverCollectionViewCell.swift; sourceTree = "<group>"; };
 		A521157BA9F9B33DD6AD1810 /* RootPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
 		BE16E962A4A033F912C678E5 /* HomeViewController.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		C5A7F3D8DB81B51EA1230931 /* TransitToRootWireframe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitToRootWireframe.swift; sourceTree = "<group>"; };
@@ -415,6 +425,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1AEE6A92503649000FC18AE /* AVFoundation.framework in Frameworks */,
 				A1D973FE24A5DF3C00A654C2 /* Charts.framework in Frameworks */,
 				A18596B824811A4C008F067A /* Domain.framework in Frameworks */,
 				A1C7FAF324FB54DB004A5F5B /* Kingfisher.framework in Frameworks */,
@@ -685,6 +696,7 @@
 				A1D07D58248E22F600FE1785 /* AppConfig.swift */,
 				A173232024B4AA2400CD3FC1 /* BackgroundTaskManager.swift */,
 				A1BDF64124CEB86C00B269AF /* CardMaster.swift */,
+				A1AEE6A62503645300FC18AE /* SoundManager.swift */,
 				A1BDF64624CEBF5400B269AF /* Utility.swift */,
 			);
 			path = Application;
@@ -693,10 +705,10 @@
 		A17CE39224A46C2D0081170B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A1F9408C250356FD0042AF18 /* View */,
 				A121939324C2DCF4008347DC /* SFSymbols */,
 				A17CE39324A46C400081170B /* KeyboardManager.swift */,
 				A173231E24B44B8400CD3FC1 /* NotificationHelper.swift */,
-				A186735F24C0907F00D8C32A /* TabBarView */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -964,6 +976,15 @@
 			path = Translator;
 			sourceTree = "<group>";
 		};
+		A1AEE6BE250380AF00FC18AE /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				A14FB83025086E0D0071145B /* card_fly_in_06.mp3 */,
+				A14FB82C25086DD00071145B /* menu_click_06.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		A1B9D6A1247C9C7400126C9F = {
 			isa = PBXGroup;
 			children = (
@@ -1052,6 +1073,7 @@
 		A1B9D700247CA11B00126C9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1AEE6A82503649000FC18AE /* AVFoundation.framework */,
 				A1B9D701247CA11B00126C9F /* Alamofire.framework */,
 				A1D973FD24A5DF3C00A654C2 /* Charts.framework */,
 				A1C7FAF224FB54DB004A5F5B /* Kingfisher.framework */,
@@ -1166,6 +1188,7 @@
 			isa = PBXGroup;
 			children = (
 				A1BDF63F24CEB85D00B269AF /* Cards.json */,
+				A1AEE6BE250380AF00FC18AE /* Sound */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1342,6 +1365,23 @@
 				A1F9408925022A450042AF18 /* DeckDescriptionView.xib */,
 			);
 			path = DeckDescription;
+			sourceTree = "<group>";
+		};
+		A1F9408C250356FD0042AF18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1F9408D250357090042AF18 /* HoverView */,
+				A186735F24C0907F00D8C32A /* TabBarView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1F9408D250357090042AF18 /* HoverView */ = {
+			isa = PBXGroup;
+			children = (
+				A1F9408E250357160042AF18 /* HoverCollectionViewCell.swift */,
+			);
+			path = HoverView;
 			sourceTree = "<group>";
 		};
 		B1DC7C51A40E42B6D6E99B42 /* Builder */ = {
@@ -1743,8 +1783,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14FB83125086E0D0071145B /* card_fly_in_06.mp3 in Resources */,
 				A1BDF64524CEBD3E00B269AF /* Cards.json in Resources */,
 				A1B9D6BA247C9C7400126C9F /* LaunchScreen.storyboard in Resources */,
+				A14FB82E25086DD00071145B /* menu_click_06.mp3 in Resources */,
 				A1B9D6B7247C9C7400126C9F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1837,6 +1879,7 @@
 				E8AB4E38E0FA2F9C05046D8B /* RootBuilder.swift in Sources */,
 				A1D6976A2480DC2D00899FE2 /* StoryBoardInstantiate.swift in Sources */,
 				A17CE39424A46C400081170B /* KeyboardManager.swift in Sources */,
+				A1AEE6A72503645300FC18AE /* SoundManager.swift in Sources */,
 				A1831AE524AE17EE00F9EB35 /* PlayerInfoView.swift in Sources */,
 				A1E72B5E2488C046000B0949 /* UpComingChestCell.swift in Sources */,
 				ABDB60F26E924475A142F2C6 /* RootViewController.swift in Sources */,
@@ -1861,6 +1904,7 @@
 				2C72A4A21B7C5FF6C6DCC945 /* TransitToHomeWireframe.swift in Sources */,
 				A1815C4724A8D9FA001B59FA /* DateFormatter+.swift in Sources */,
 				9D0100124A08E38D9DC2AAD3 /* DeckBuilder.swift in Sources */,
+				A1F9408F250357160042AF18 /* HoverCollectionViewCell.swift in Sources */,
 				A1E7C35124FB90C200644836 /* DeckCreatePreviewView.swift in Sources */,
 				A173231F24B44B8400CD3FC1 /* NotificationHelper.swift in Sources */,
 				A1E7C35B24FC70B100644836 /* DeckSelectionView.swift in Sources */,

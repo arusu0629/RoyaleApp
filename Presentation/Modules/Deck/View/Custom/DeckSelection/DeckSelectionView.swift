@@ -93,6 +93,7 @@ extension DeckSelectionView: UICollectionViewDataSource {
         // reload cell
         self.collectionView.reloadItems(at: reloadIndexPathList)
 
+        SoundManager.shared.playSoundEffect(.selectTab)
         self.delegate?.didSelected(index: indexPath.row)
     }
 }

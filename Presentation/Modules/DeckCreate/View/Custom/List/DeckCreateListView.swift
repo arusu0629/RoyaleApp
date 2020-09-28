@@ -44,6 +44,8 @@ final class DeckCreateListView: UIView {
         self.loadXib()
     }
 
+    private var willReloadIndexPathList: [IndexPath] = []
+
     weak var delegate: DeckCreateListViewDelegate?
 }
 
@@ -99,6 +101,7 @@ extension DeckCreateListView: UICollectionViewDataSource {
         let cardData = self.cardList[cardIndex]
         cell.setup(card: cardData, selectedNumber: self.selectedCardNumber(indexPath: indexPath))
         cell.isHidden = false
+        cell.delegate = self
         return cell
     }
 
@@ -115,18 +118,18 @@ extension DeckCreateListView: UICollectionViewDataSource {
         if let selectedIndex = self.selectedCardList.firstIndex(where: { $0.id == self.cardList[cardIndex].id }) {
             cell.deselect()
             self.selectedCardList.remove(at: selectedIndex)
-            var reloadIndexPathList = self.indexPathList(from: self.selectedCardList)
-            reloadIndexPathList.append(indexPath)
-            collectionView.reloadItems(at: reloadIndexPathList)
+            self.willReloadIndexPathList = self.indexPathList(from: self.selectedCardList)
+            self.willReloadIndexPathList.append(indexPath)
         } else {
             if self.selectedCardList.count >= self.maxCardCountPerDeck {
                 return
             }
             self.selectedCardList.append(self.cardList[cardIndex])
             cell.select(selectedNumber: self.selectedCardList.count)
-            collectionView.reloadItems(at: self.indexPathList(from: self.selectedCardList))
+            self.willReloadIndexPathList = self.indexPathList(from: self.selectedCardList)
         }
 
+        SoundManager.shared.playSoundEffect(.selectCell)
         self.delegate?.didUpdateSelectedCardList(selectedCardList: self.selectedCardList)
     }
 
@@ -183,5 +186,15 @@ extension DeckCreateListView: UICollectionViewDelegateFlowLayout {
         let ratio: CGFloat =  cellWidth / defaultCellSize.width
         let cellHeight: CGFloat = defaultCellSize.height * ratio
         return CGSize(width: cellWidth, height: cellHeight)
+    }
+}
+
+// MARK: - HoverCollectionViewCellDelegate
+extension DeckCreateListView: HoverCollectionViewCellDelegate {
+
+    func didFinishTapAnimation() {
+        self.deckCardCollectionView.reloadItems(at: self.willReloadIndexPathList)
+
+        self.willReloadIndexPathList = []
     }
 }

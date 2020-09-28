@@ -15,9 +15,8 @@
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="njF-vH-sRu">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="njF-vH-sRu">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qzZ-Nk-fD4">
                         <size key="itemSize" width="40" height="40"/>
@@ -28,6 +27,12 @@
                 </collectionView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="njF-vH-sRu" secondAttribute="bottom" id="fXd-QY-0B1"/>
+                <constraint firstAttribute="trailing" secondItem="njF-vH-sRu" secondAttribute="trailing" id="fra-4l-HK9"/>
+                <constraint firstItem="njF-vH-sRu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gzp-OQ-bEQ"/>
+                <constraint firstItem="njF-vH-sRu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="w83-Yw-MuO"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="139" y="123"/>
         </view>

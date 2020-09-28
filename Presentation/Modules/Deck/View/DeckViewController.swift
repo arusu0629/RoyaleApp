@@ -24,6 +24,16 @@ final class DeckViewController: UIViewController, ShowErrorAlertView {
 
     var presenter: DeckPresenter!
 
+    private var decks: [DeckModel] = []
+    private var selectedDeckIndex: Int = 0
+
+    private var currentDeck: DeckModel {
+        if self.decks.isEmpty || self.selectedDeckIndex < 0 || self.decks.count <= self.selectedDeckIndex {
+            return DeckModel()
+        }
+        return self.decks[self.selectedDeckIndex]
+    }
+
     @IBOutlet private weak var deckSelectionView: DeckSelectionView! {
         willSet {
             newValue.delegate = self
@@ -51,10 +61,12 @@ extension DeckViewController: DeckView {
     }
 
     func didFetchDecks(decks: [DeckModel], selectedDeckIndex: Int) {
-        self.deckPreviewView.setup(currentDeck: decks[selectedDeckIndex])
+        self.decks = decks
+        self.selectedDeckIndex = selectedDeckIndex
+        self.deckPreviewView.setup(currentDeck: self.currentDeck)
         self.deckPreviewView.hideLoading()
-        self.deckSelectionView.setup(deckCount: decks.count, lastSelectedDeckIndex: selectedDeckIndex)
-        self.deckDescritpionView.setup(currentDeck: decks[selectedDeckIndex])
+        self.deckSelectionView.setup(deckCount: self.decks.count, lastSelectedDeckIndex: self.selectedDeckIndex)
+        self.deckDescritpionView.setup(currentDeck: self.currentDeck)
         self.deckDescritpionView.hideLoading()
     }
 

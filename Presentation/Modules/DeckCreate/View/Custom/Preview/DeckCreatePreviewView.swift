@@ -105,6 +105,7 @@ extension DeckCreatePreviewView: UICollectionViewDataSource {
         let selectedCardModel = self.selectedCardList[index]
         self.selectedCardList.remove(at: index)
         self.collectionView.reloadData()
+        SoundManager.shared.playSoundEffect(.selectCell)
         self.delegate?.didTapSelectedCard(cardModel: selectedCardModel)
     }
 }

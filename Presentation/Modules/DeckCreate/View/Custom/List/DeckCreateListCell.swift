@@ -9,7 +9,7 @@
 import Domain
 import UIKit
 
-final class DeckCreateListCell: UICollectionViewCell {
+final class DeckCreateListCell: HoverCollectionViewCell {
 
     static let CellSize = CGSize(width: 80, height: 96)
 

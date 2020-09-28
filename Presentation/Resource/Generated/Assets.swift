@@ -25,9 +25,12 @@ internal enum Asset {
   internal static let chestMagical = ImageAsset(name: "chest-magical")
   internal static let chestMegalightning = ImageAsset(name: "chest-megalightning")
   internal static let chestSilver = ImageAsset(name: "chest-silver")
+  internal static let deckAverageElixir = ImageAsset(name: "deck_average_elixir")
+  internal static let deckFourCycleElixir = ImageAsset(name: "deck_four_cycle_elixir")
   internal static let playerTrophy = ImageAsset(name: "player_trophy")
   internal static let titleIcon = ImageAsset(name: "title_icon")
   internal static let registerLogo = ImageAsset(name: "Register_Logo")
+  internal static let bandit = ImageAsset(name: "bandit")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
