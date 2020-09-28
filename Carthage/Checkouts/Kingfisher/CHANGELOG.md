@@ -2,6 +2,35 @@
 
 -----
 
+## [5.15.4 - Farewell Objective-C (CocoaPods)](https://github.com/onevcat/Kingfisher/releases/tag/5.15.4) (2020-09-24)
+
+#### Fix
+* Give `SessionDelegate` an Objective-C name so it can work with other libraries even added by a dependency which generates Objective-C header. [#1532](https://github.com/onevcat/Kingfisher/pull/1532)
+
+---
+
+## [5.15.3 - Farewell Objective-C](https://github.com/onevcat/Kingfisher/releases/tag/5.15.3) (2020-09-21)
+
+#### Fix
+* Removed the unnecessary ObjC header generating and module defining due to Xcode 12 is now generating conflicted types even for different libraries. [#1517](https://github.com/onevcat/Kingfisher/issues/1517)
+* Set deploy target for SwiftUI target and its pod spec to iOS 10 and macOS 10.12, which aligns to the settings of core framework. That resolves some dependency issues when using CocoaPods for both app target and extension targets. But it does not mean you can use the SwiftUI support on those minimal target. All related APIs are still unavailable on old system versions. [#1524](https://github.com/onevcat/Kingfisher/pull/1524)
+
+---
+
+## [5.15.2 - Xcode 11 Revived](https://github.com/onevcat/Kingfisher/releases/tag/5.15.2) (2020-09-19)
+
+#### Fix
+* Fix a build error introduced by the previous SwiftUI fix for Xcode 12. Now Xcode 11 can also build the KingfisherSwiftUI target. [#1515](https://github.com/onevcat/Kingfisher/pull/1515)
+
+---
+
+## [5.15.1 - SwiftUI Layout](https://github.com/onevcat/Kingfisher/releases/tag/5.15.1) (2020-09-16)
+
+#### Fix
+* A workaround for a SwiftUI issue that embedding an image view inside the `List` > `NavigationLink` > `HStack` hierarchy could crash the app on iOS 14. [#1508](https://github.com/onevcat/Kingfisher/issues/1508)
+
+---
+
 ## [5.15.0 - Video and Text Attachment](https://github.com/onevcat/Kingfisher/releases/tag/5.15.0) (2020-08-17)
 
 #### Add
