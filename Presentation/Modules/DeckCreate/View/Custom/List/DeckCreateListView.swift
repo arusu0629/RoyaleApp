@@ -30,6 +30,8 @@ final class DeckCreateListView: UIView {
         }
     }
 
+    @IBOutlet weak private var indicator: UIActivityIndicatorView!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.initialize()
@@ -196,5 +198,19 @@ extension DeckCreateListView: HoverCollectionViewCellDelegate {
         self.deckCardCollectionView.reloadItems(at: self.willReloadIndexPathList)
 
         self.willReloadIndexPathList = []
+    }
+}
+
+// MARK: - Indicator
+extension DeckCreateListView {
+
+    func showLoading() {
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
+    }
+
+    func hideLoading() {
+        self.indicator.isHidden = true
+        self.indicator.stopAnimating()
     }
 }

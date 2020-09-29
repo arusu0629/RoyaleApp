@@ -97,15 +97,15 @@ extension DeckCreatePresenterImpl {
 
     private func getSelectedDeckInfo(playerModel: PlayerModel) {
         guard let realmDeckModel = self.realmDeckModelUseCase.get() else {
-            self.view?.didFetchDeckInfo(playerModel: playerModel, currentDeck: DeckModel(), cardSortType: self.sortType)
+            self.view?.didFetchDeckInfo(playerModel: playerModel, currentDeck: DeckModel())
             return
         }
 
         let playerDeckModel = [RealmDeckModel](realmDeckModel).filter { $0.playerTag == AppConfig.playerTag }
         if let selectedDeckModel = playerDeckModel.first(where: { $0.index == self.selectedDeckIndex }) {
-            self.view?.didFetchDeckInfo(playerModel: playerModel, currentDeck: selectedDeckModel.convertToDeckModel(cards: playerModel.cards), cardSortType: self.sortType)
+            self.view?.didFetchDeckInfo(playerModel: playerModel, currentDeck: selectedDeckModel.convertToDeckModel(cards: playerModel.cards))
         } else {
-            self.view?.didFetchDeckInfo(playerModel: playerModel, currentDeck: DeckModel(), cardSortType: self.sortType)
+            self.view?.didFetchDeckInfo(playerModel: playerModel, currentDeck: DeckModel())
         }
     }
 

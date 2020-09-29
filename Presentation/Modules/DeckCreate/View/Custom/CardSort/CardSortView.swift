@@ -50,8 +50,11 @@ final class CardSortView: UIView {
 // MARK: - Setup
 extension CardSortView {
 
-    func setup(cardFoundCount: Int, sortType: CardSortType) {
+    func setup(cardFoundCount: Int) {
         self.cardFoundCount = cardFoundCount
+    }
+
+    func setSortType(_ sortType: CardSortType) {
         self.sortType = sortType
     }
 }

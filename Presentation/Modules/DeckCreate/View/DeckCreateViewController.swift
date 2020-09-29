@@ -11,7 +11,8 @@ import UIKit
 
 protocol DeckCreateView: ShowErrorAlertView {
     func willFetchDeckInfo()
-    func didFetchDeckInfo(playerModel: PlayerModel, currentDeck: DeckModel, cardSortType: CardSortType)
+    func didFetchCardSortType(cardSortType: CardSortType)
+    func didFetchDeckInfo(playerModel: PlayerModel, currentDeck: DeckModel)
     func didFailedDeckInfo(error: Error)
     func didSortCards(cards: [CardModel], selectedCardList: [CardModel])
     func didClearSelectedCardList()
@@ -52,12 +53,18 @@ extension DeckCreateViewController {
 extension DeckCreateViewController: DeckCreateView {
 
     func willFetchDeckInfo() {
+        self.deckCreateListView.showLoading()
     }
 
-    func didFetchDeckInfo(playerModel: PlayerModel, currentDeck: DeckModel, cardSortType: CardSortType) {
+    func didFetchCardSortType(cardSortType: CardSortType) {
+        self.cardSortView.setSortType(cardSortType)
+    }
+
+    func didFetchDeckInfo(playerModel: PlayerModel, currentDeck: DeckModel) {
         self.deckCreateListView.setup(cardList: playerModel.cards, selectedCardList: currentDeck.cards)
+        self.deckCreateListView.hideLoading()
         self.deckCreatePreviewView.setup(selectedCardList: currentDeck.cards)
-        self.cardSortView.setup(cardFoundCount: playerModel.cards.count, sortType: cardSortType)
+        self.cardSortView.setup(cardFoundCount: playerModel.cards.count)
     }
 
     func didFailedDeckInfo(error: Error) {
