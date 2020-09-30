@@ -6,6 +6,7 @@
 //  Copyright © 2020 arusu0629. All rights reserved.
 //
 
+import Analytics
 import Domain
 import Foundation
 
@@ -46,16 +47,19 @@ final class DeckPresenterImpl: DeckPresenter {
 extension DeckPresenterImpl {
 
     func viewDidLoad() {
+        AnalyticsManager.sendEvent(DeckEvent.display)
         self.selectedDeckIndex = AppConfig.lastSelectedDeckIndex
         self.getDeckModel()
     }
 
     func didSelectDeckCreate() {
+        AnalyticsManager.sendEvent(DeckEvent.selectCreateDeck)
         self.selectedDeckIndex = self.decks.count
         self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex, selectedCardList: self.currentDeck.cards)
     }
 
     func didSelectDeckChange() {
+        AnalyticsManager.sendEvent(DeckEvent.selectChangeDeck)
         self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex, selectedCardList: self.currentDeck.cards)
     }
 
@@ -68,6 +72,7 @@ extension DeckPresenterImpl {
             self.view?.failedToDeckShare(error: DeckShareError.invalidURL)
             return
         }
+        AnalyticsManager.sendEvent(DeckEvent.selectShareDeck(deck: self.currentDeck))
         self.view?.executeDeckShare(url: url)
     }
 

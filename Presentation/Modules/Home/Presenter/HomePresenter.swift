@@ -6,6 +6,7 @@
 //  Copyright © 2020 arusu0629. All rights reserved.
 //
 
+import Analytics
 import Domain
 import Foundation
 
@@ -30,6 +31,7 @@ final class HomePresenterImpl: HomePresenter {
             self.presentSignIn(dismissCompletion: self.setup)
             return
         }
+        AnalyticsManager.sendEvent(HomeEvent.display)
         self.setup()
     }
 
@@ -40,8 +42,9 @@ final class HomePresenterImpl: HomePresenter {
 
     func didSelectDateFilterButton(index: Int) {
         AppConfig.lastSelectedFilterDateIndex = index
-        let filterDate = self.trophyDateFilterUseCase.list()[index].filterDate
-        self.requestBattleLog(with: filterDate)
+        let trophyDateFilter = self.trophyDateFilterUseCase.list()[index]
+        AnalyticsManager.sendEvent(HomeEvent.selectDateFilter(trophyDateFilter: trophyDateFilter))
+        self.requestBattleLog(with: trophyDateFilter.filterDate)
     }
 }
 

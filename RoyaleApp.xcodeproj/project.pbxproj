@@ -75,6 +75,11 @@
 		A196B9392488AA43003C2A7B /* UpComingChestsTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196B9382488AA43003C2A7B /* UpComingChestsTranslator.swift */; };
 		A1AEE6A72503645300FC18AE /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AEE6A62503645300FC18AE /* SoundManager.swift */; };
 		A1AEE6A92503649000FC18AE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AEE6A82503649000FC18AE /* AVFoundation.framework */; };
+		A1B12DA62524C2840060BF09 /* HomeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B12DA52524C2840060BF09 /* HomeEvent.swift */; };
+		A1B12DA72524C4230060BF09 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185969324811316008F067A /* Domain.framework */; };
+		A1B12DA82524C4300060BF09 /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34C225246A13001BA27A /* Analytics.framework */; };
+		A1B12DAB2524C5870060BF09 /* DeckEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B12DAA2524C5870060BF09 /* DeckEvent.swift */; };
+		A1B12DAE2524C7670060BF09 /* DeckCreateEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B12DAD2524C7670060BF09 /* DeckCreateEvent.swift */; };
 		A1B9D6AE247C9C7400126C9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D6AD247C9C7400126C9F /* AppDelegate.swift */; };
 		A1B9D6B0247C9C7400126C9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9D6AF247C9C7400126C9F /* SceneDelegate.swift */; };
 		A1B9D6B7247C9C7400126C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B9D6B6247C9C7400126C9F /* Assets.xcassets */; };
@@ -136,6 +141,7 @@
 		A1DD34FE25247453001BA27A /* DataStoreConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DD34FD25247453001BA27A /* DataStoreConfig.swift */; };
 		A1DD34FF2524750D001BA27A /* DataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B9D6E2247CA10100126C9F /* DataStore.framework */; };
 		A1DD35012524755F001BA27A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1DD35002524755F001BA27A /* GoogleService-Info.plist */; };
+		A1DD35032524BFEC001BA27A /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DD35022524BFEC001BA27A /* AnalyticsManager.swift */; };
 		A1E117F724A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */; };
 		A1E117FA24A595C200CE8FC3 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117F924A595C200CE8FC3 /* RealmRepository.swift */; };
 		A1E117FD24A5963C00CE8FC3 /* RealmUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */; };
@@ -372,6 +378,9 @@
 		A196B9382488AA43003C2A7B /* UpComingChestsTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingChestsTranslator.swift; sourceTree = "<group>"; };
 		A1AEE6A62503645300FC18AE /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		A1AEE6A82503649000FC18AE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		A1B12DA52524C2840060BF09 /* HomeEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEvent.swift; sourceTree = "<group>"; };
+		A1B12DAA2524C5870060BF09 /* DeckEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckEvent.swift; sourceTree = "<group>"; };
+		A1B12DAD2524C7670060BF09 /* DeckCreateEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckCreateEvent.swift; sourceTree = "<group>"; };
 		A1B9D6AA247C9C7400126C9F /* RoyaleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoyaleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B9D6AD247C9C7400126C9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1B9D6AF247C9C7400126C9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -441,6 +450,7 @@
 		A1DD34FB2524712E001BA27A /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Carthage/Build/iOS/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
 		A1DD34FD25247453001BA27A /* DataStoreConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreConfig.swift; sourceTree = "<group>"; };
 		A1DD35002524755F001BA27A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A1DD35022524BFEC001BA27A /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBattleLogRealmDataStore.swift; sourceTree = "<group>"; };
 		A1E117F924A595C200CE8FC3 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUseCase.swift; sourceTree = "<group>"; };
@@ -492,6 +502,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B12DA82524C4300060BF09 /* Analytics.framework in Frameworks */,
 				A1AEE6A92503649000FC18AE /* AVFoundation.framework in Frameworks */,
 				A1D973FE24A5DF3C00A654C2 /* Charts.framework in Frameworks */,
 				A18596B824811A4C008F067A /* Domain.framework in Frameworks */,
@@ -572,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1DD34FF2524750D001BA27A /* DataStore.framework in Frameworks */,
+				A1B12DA72524C4230060BF09 /* Domain.framework in Frameworks */,
 				A1DD34FC2524712E001BA27A /* FirebaseRemoteConfig.framework in Frameworks */,
 				A1DD34EB25246A76001BA27A /* FirebaseCrashlytics.framework in Frameworks */,
 				A1DD34EC25246A76001BA27A /* FirebaseCoreDiagnostics.framework in Frameworks */,
@@ -1081,6 +1093,30 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		A1B12DA42524C27D0060BF09 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A1B12DA52524C2840060BF09 /* HomeEvent.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A1B12DA92524C5660060BF09 /* Deck */ = {
+			isa = PBXGroup;
+			children = (
+				A1B12DAA2524C5870060BF09 /* DeckEvent.swift */,
+			);
+			path = Deck;
+			sourceTree = "<group>";
+		};
+		A1B12DAC2524C75D0060BF09 /* DeckCreate */ = {
+			isa = PBXGroup;
+			children = (
+				A1B12DAD2524C7670060BF09 /* DeckCreateEvent.swift */,
+			);
+			path = DeckCreate;
+			sourceTree = "<group>";
+		};
 		A1B9D6A1247C9C7400126C9F = {
 			isa = PBXGroup;
 			children = (
@@ -1342,10 +1378,10 @@
 		A1DD34C325246A13001BA27A /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
+				A1DD35052524C026001BA27A /* Event */,
+				A1DD35042524C01C001BA27A /* Manager */,
 				A1DD34C425246A13001BA27A /* Analytics.h */,
 				A1DD34C525246A13001BA27A /* Info.plist */,
-				A1DD34F725246B6F001BA27A /* FirebaseInitilizer.swift */,
-				A1DD34F925246B96001BA27A /* FirebaseRemoteConfigManager.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -1357,6 +1393,26 @@
 				A1DD34D325246A14001BA27A /* Info.plist */,
 			);
 			path = AnalyticsTests;
+			sourceTree = "<group>";
+		};
+		A1DD35042524C01C001BA27A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A1DD35022524BFEC001BA27A /* AnalyticsManager.swift */,
+				A1DD34F725246B6F001BA27A /* FirebaseInitilizer.swift */,
+				A1DD34F925246B96001BA27A /* FirebaseRemoteConfigManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		A1DD35052524C026001BA27A /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				A1B12DAC2524C75D0060BF09 /* DeckCreate */,
+				A1B12DA42524C27D0060BF09 /* Home */,
+				A1B12DA92524C5660060BF09 /* Deck */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		A1E117F524A5904A00CE8FC3 /* Local */ = {
@@ -2245,8 +2301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1DD35032524BFEC001BA27A /* AnalyticsManager.swift in Sources */,
+				A1B12DA62524C2840060BF09 /* HomeEvent.swift in Sources */,
 				A1DD34FA25246B96001BA27A /* FirebaseRemoteConfigManager.swift in Sources */,
+				A1B12DAE2524C7670060BF09 /* DeckCreateEvent.swift in Sources */,
 				A1DD34F825246B6F001BA27A /* FirebaseInitilizer.swift in Sources */,
+				A1B12DAB2524C5870060BF09 /* DeckEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

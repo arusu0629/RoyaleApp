@@ -6,6 +6,7 @@
 //  Copyright © 2020 arusu0629. All rights reserved.
 //
 
+import Analytics
 import Domain
 import Foundation
 
@@ -47,20 +48,25 @@ final class DeckCreatePresenterImpl: DeckCreatePresenter {
 extension DeckCreatePresenterImpl {
 
     func viewDidload() {
+        AnalyticsManager.sendEvent(DeckCreateEvent.display)
         self.getDeckInfo()
     }
 
     func didSelectDeckSelect() {
-        self.realmDeckModelUseCase.save(object: RealmDeckModel.create(playerTag: AppConfig.playerTag, index: self.selectedDeckIndex, name: "テスト", deckModel: DeckModel(cards: self.selectedCardList)))
+        let deck = DeckModel(cards: self.selectedCardList)
+        AnalyticsManager.sendEvent(DeckCreateEvent.selectDeckSelect(deck: deck))
+        self.realmDeckModelUseCase.save(object: RealmDeckModel.create(playerTag: AppConfig.playerTag, index: self.selectedDeckIndex, name: "テスト", deckModel: deck))
         self.wireframe.dismiss(completion: nil)
     }
 
     func didSelectDeckClear() {
+        AnalyticsManager.sendEvent(DeckCreateEvent.selectClear)
         self.selectedCardList = []
         self.view?.didClearSelectedCardList()
     }
 
     func didSelectSortButton(sortType: CardSortType) {
+        AnalyticsManager.sendEvent(DeckCreateEvent.selectCardSort(cardSortType: sortType))
         self.sortType = sortType
         AppConfig.lastSelectedSortIndex = self.sortType.rawValue
         self.sortCards(sortType: self.sortType)
