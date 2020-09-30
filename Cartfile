@@ -3,3 +3,6 @@ github "marcosgriselli/SwipeableTabBarController"
 github "realm/realm-cocoa"
 github "danielgindi/Charts" == 3.5.0
 github "onevcat/Kingfisher" ~> 5.15.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinary.json"

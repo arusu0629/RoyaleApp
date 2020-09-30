@@ -114,6 +114,28 @@
 		A1D973FE24A5DF3C00A654C2 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1D973FD24A5DF3C00A654C2 /* Charts.framework */; };
 		A1D9740024A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1D973FF24A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib */; };
 		A1D9740224A5E20F00A654C2 /* PlayerTrophyLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9740124A5E20F00A654C2 /* PlayerTrophyLineChartView.swift */; };
+		A1DD34CB25246A14001BA27A /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34C225246A13001BA27A /* Analytics.framework */; };
+		A1DD34D225246A14001BA27A /* AnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DD34D125246A14001BA27A /* AnalyticsTests.swift */; };
+		A1DD34D425246A14001BA27A /* Analytics.h in Headers */ = {isa = PBXBuildFile; fileRef = A1DD34C425246A13001BA27A /* Analytics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1DD34D725246A14001BA27A /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34C225246A13001BA27A /* Analytics.framework */; };
+		A1DD34D825246A14001BA27A /* Analytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34C225246A13001BA27A /* Analytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A1DD34EB25246A76001BA27A /* FirebaseCrashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34DF25246A75001BA27A /* FirebaseCrashlytics.framework */; };
+		A1DD34EC25246A76001BA27A /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34E025246A76001BA27A /* FirebaseCoreDiagnostics.framework */; };
+		A1DD34ED25246A76001BA27A /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34E125246A76001BA27A /* FirebaseAnalytics.framework */; };
+		A1DD34EE25246A76001BA27A /* GoogleDataTransport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34E225246A76001BA27A /* GoogleDataTransport.framework */; };
+		A1DD34EF25246A76001BA27A /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34E325246A76001BA27A /* GoogleUtilities.framework */; };
+		A1DD34F025246A76001BA27A /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34E425246A76001BA27A /* nanopb.framework */; };
+		A1DD34F125246A76001BA27A /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34E525246A76001BA27A /* FIRAnalyticsConnector.framework */; };
+		A1DD34F225246A76001BA27A /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34E625246A76001BA27A /* FirebaseInstallations.framework */; };
+		A1DD34F325246A76001BA27A /* PromisesObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34E725246A76001BA27A /* PromisesObjC.framework */; };
+		A1DD34F425246A76001BA27A /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34E825246A76001BA27A /* GoogleAppMeasurement.framework */; };
+		A1DD34F525246A76001BA27A /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34E925246A76001BA27A /* FirebaseCore.framework */; };
+		A1DD34F825246B6F001BA27A /* FirebaseInitilizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DD34F725246B6F001BA27A /* FirebaseInitilizer.swift */; };
+		A1DD34FA25246B96001BA27A /* FirebaseRemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DD34F925246B96001BA27A /* FirebaseRemoteConfigManager.swift */; };
+		A1DD34FC2524712E001BA27A /* FirebaseRemoteConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1DD34FB2524712E001BA27A /* FirebaseRemoteConfig.framework */; };
+		A1DD34FE25247453001BA27A /* DataStoreConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DD34FD25247453001BA27A /* DataStoreConfig.swift */; };
+		A1DD34FF2524750D001BA27A /* DataStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B9D6E2247CA10100126C9F /* DataStore.framework */; };
+		A1DD35012524755F001BA27A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1DD35002524755F001BA27A /* GoogleService-Info.plist */; };
 		A1E117F724A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */; };
 		A1E117FA24A595C200CE8FC3 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117F924A595C200CE8FC3 /* RealmRepository.swift */; };
 		A1E117FD24A5963C00CE8FC3 /* RealmUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */; };
@@ -235,6 +257,27 @@
 			remoteGlobalIDString = A1B9D6E1247CA10100126C9F;
 			remoteInfo = DataStore;
 		};
+		A1DD34CC25246A14001BA27A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1B9D6A2247C9C7400126C9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1DD34C125246A13001BA27A;
+			remoteInfo = Analytics;
+		};
+		A1DD34CE25246A14001BA27A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1B9D6A2247C9C7400126C9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1B9D6A9247C9C7400126C9F;
+			remoteInfo = RoyaleApp;
+		};
+		A1DD34D525246A14001BA27A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1B9D6A2247C9C7400126C9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1DD34C125246A13001BA27A;
+			remoteInfo = Analytics;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -247,6 +290,7 @@
 				A18596A924811316008F067A /* Domain.framework in Embed Frameworks */,
 				A17E577C2480CFCF00F05165 /* Presentation.framework in Embed Frameworks */,
 				A1B9D6F8247CA10100126C9F /* DataStore.framework in Embed Frameworks */,
+				A1DD34D825246A14001BA27A /* Analytics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +418,29 @@
 		A1D973FD24A5DF3C00A654C2 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		A1D973FF24A5E1AD00A654C2 /* PlayerTrophyLineChartView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTrophyLineChartView.xib; sourceTree = "<group>"; };
 		A1D9740124A5E20F00A654C2 /* PlayerTrophyLineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTrophyLineChartView.swift; sourceTree = "<group>"; };
+		A1DD34C225246A13001BA27A /* Analytics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Analytics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1DD34C425246A13001BA27A /* Analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
+		A1DD34C525246A13001BA27A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1DD34CA25246A14001BA27A /* AnalyticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnalyticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1DD34D125246A14001BA27A /* AnalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTests.swift; sourceTree = "<group>"; };
+		A1DD34D325246A14001BA27A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1DD34DF25246A75001BA27A /* FirebaseCrashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCrashlytics.framework; path = Carthage/Build/iOS/FirebaseCrashlytics.framework; sourceTree = "<group>"; };
+		A1DD34E025246A76001BA27A /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = Carthage/Build/iOS/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
+		A1DD34E125246A76001BA27A /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Carthage/Build/iOS/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		A1DD34E225246A76001BA27A /* GoogleDataTransport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleDataTransport.framework; path = Carthage/Build/iOS/GoogleDataTransport.framework; sourceTree = "<group>"; };
+		A1DD34E325246A76001BA27A /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Carthage/Build/iOS/GoogleUtilities.framework; sourceTree = "<group>"; };
+		A1DD34E425246A76001BA27A /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = Carthage/Build/iOS/nanopb.framework; sourceTree = "<group>"; };
+		A1DD34E525246A76001BA27A /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
+		A1DD34E625246A76001BA27A /* FirebaseInstallations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstallations.framework; path = Carthage/Build/iOS/FirebaseInstallations.framework; sourceTree = "<group>"; };
+		A1DD34E725246A76001BA27A /* PromisesObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromisesObjC.framework; path = Carthage/Build/iOS/PromisesObjC.framework; sourceTree = "<group>"; };
+		A1DD34E825246A76001BA27A /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = Carthage/Build/iOS/GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		A1DD34E925246A76001BA27A /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Carthage/Build/iOS/FirebaseCore.framework; sourceTree = "<group>"; };
+		A1DD34EA25246A76001BA27A /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = Carthage/Build/iOS/Firebase.framework; sourceTree = "<group>"; };
+		A1DD34F725246B6F001BA27A /* FirebaseInitilizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseInitilizer.swift; sourceTree = "<group>"; };
+		A1DD34F925246B96001BA27A /* FirebaseRemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteConfigManager.swift; sourceTree = "<group>"; };
+		A1DD34FB2524712E001BA27A /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Carthage/Build/iOS/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
+		A1DD34FD25247453001BA27A /* DataStoreConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreConfig.swift; sourceTree = "<group>"; };
+		A1DD35002524755F001BA27A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A1E117F624A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBattleLogRealmDataStore.swift; sourceTree = "<group>"; };
 		A1E117F924A595C200CE8FC3 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		A1E117FC24A5963C00CE8FC3 /* RealmUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUseCase.swift; sourceTree = "<group>"; };
@@ -464,6 +531,7 @@
 				A18596A824811316008F067A /* Domain.framework in Frameworks */,
 				A17E577B2480CFCF00F05165 /* Presentation.framework in Frameworks */,
 				A1B9D6F7247CA10100126C9F /* DataStore.framework in Frameworks */,
+				A1DD34D725246A14001BA27A /* Analytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +564,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1B9D6EB247CA10100126C9F /* DataStore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DD34BF25246A13001BA27A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DD34FF2524750D001BA27A /* DataStore.framework in Frameworks */,
+				A1DD34FC2524712E001BA27A /* FirebaseRemoteConfig.framework in Frameworks */,
+				A1DD34EB25246A76001BA27A /* FirebaseCrashlytics.framework in Frameworks */,
+				A1DD34EC25246A76001BA27A /* FirebaseCoreDiagnostics.framework in Frameworks */,
+				A1DD34ED25246A76001BA27A /* FirebaseAnalytics.framework in Frameworks */,
+				A1DD34EE25246A76001BA27A /* GoogleDataTransport.framework in Frameworks */,
+				A1DD34EF25246A76001BA27A /* GoogleUtilities.framework in Frameworks */,
+				A1DD34F025246A76001BA27A /* nanopb.framework in Frameworks */,
+				A1DD34F125246A76001BA27A /* FIRAnalyticsConnector.framework in Frameworks */,
+				A1DD34F225246A76001BA27A /* FirebaseInstallations.framework in Frameworks */,
+				A1DD34F325246A76001BA27A /* PromisesObjC.framework in Frameworks */,
+				A1DD34F425246A76001BA27A /* GoogleAppMeasurement.framework in Frameworks */,
+				A1DD34F525246A76001BA27A /* FirebaseCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DD34C725246A14001BA27A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DD34CB25246A14001BA27A /* Analytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,6 +1088,8 @@
 				A1B9D6F0247CA10100126C9F /* DataStoreTests */,
 				A185969424811316008F067A /* Domain */,
 				A18596A124811316008F067A /* DomainTests */,
+				A1DD34C325246A13001BA27A /* Analytics */,
+				A1DD34D025246A14001BA27A /* AnalyticsTests */,
 				A1B9D700247CA11B00126C9F /* Frameworks */,
 				A17E57672480CFCF00F05165 /* Presentation */,
 				A17E57742480CFCF00F05165 /* PresentationTests */,
@@ -1014,6 +1112,8 @@
 				A17E576E2480CFCF00F05165 /* PresentationTests.xctest */,
 				A185969324811316008F067A /* Domain.framework */,
 				A185969B24811316008F067A /* DomainTests.xctest */,
+				A1DD34C225246A13001BA27A /* Analytics.framework */,
+				A1DD34CA25246A14001BA27A /* AnalyticsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1021,6 +1121,7 @@
 		A1B9D6AC247C9C7400126C9F /* RoyaleApp */ = {
 			isa = PBXGroup;
 			children = (
+				A1DD35002524755F001BA27A /* GoogleService-Info.plist */,
 				A1B9D6AD247C9C7400126C9F /* AppDelegate.swift */,
 				A1B9D6AF247C9C7400126C9F /* SceneDelegate.swift */,
 				A1B9D6B6247C9C7400126C9F /* Assets.xcassets */,
@@ -1057,6 +1158,7 @@
 				A1B9D708247D0BE300126C9F /* Entity */,
 				A1B9D6E4247CA10100126C9F /* DataStore.h */,
 				A1B9D6E5247CA10100126C9F /* Info.plist */,
+				A1DD34FD25247453001BA27A /* DataStoreConfig.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -1073,6 +1175,19 @@
 		A1B9D700247CA11B00126C9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1DD34FB2524712E001BA27A /* FirebaseRemoteConfig.framework */,
+				A1DD34E525246A76001BA27A /* FIRAnalyticsConnector.framework */,
+				A1DD34EA25246A76001BA27A /* Firebase.framework */,
+				A1DD34E125246A76001BA27A /* FirebaseAnalytics.framework */,
+				A1DD34E925246A76001BA27A /* FirebaseCore.framework */,
+				A1DD34E025246A76001BA27A /* FirebaseCoreDiagnostics.framework */,
+				A1DD34DF25246A75001BA27A /* FirebaseCrashlytics.framework */,
+				A1DD34E625246A76001BA27A /* FirebaseInstallations.framework */,
+				A1DD34E825246A76001BA27A /* GoogleAppMeasurement.framework */,
+				A1DD34E225246A76001BA27A /* GoogleDataTransport.framework */,
+				A1DD34E325246A76001BA27A /* GoogleUtilities.framework */,
+				A1DD34E425246A76001BA27A /* nanopb.framework */,
+				A1DD34E725246A76001BA27A /* PromisesObjC.framework */,
 				A1AEE6A82503649000FC18AE /* AVFoundation.framework */,
 				A1B9D701247CA11B00126C9F /* Alamofire.framework */,
 				A1D973FD24A5DF3C00A654C2 /* Charts.framework */,
@@ -1222,6 +1337,26 @@
 				A1D07D55248E1F2D00FE1785 /* ShowErrorAlertView.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		A1DD34C325246A13001BA27A /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				A1DD34C425246A13001BA27A /* Analytics.h */,
+				A1DD34C525246A13001BA27A /* Info.plist */,
+				A1DD34F725246B6F001BA27A /* FirebaseInitilizer.swift */,
+				A1DD34F925246B96001BA27A /* FirebaseRemoteConfigManager.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		A1DD34D025246A14001BA27A /* AnalyticsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1DD34D125246A14001BA27A /* AnalyticsTests.swift */,
+				A1DD34D325246A14001BA27A /* Info.plist */,
+			);
+			path = AnalyticsTests;
 			sourceTree = "<group>";
 		};
 		A1E117F524A5904A00CE8FC3 /* Local */ = {
@@ -1481,6 +1616,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1DD34BD25246A13001BA27A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DD34D425246A14001BA27A /* Analytics.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -1576,6 +1719,7 @@
 				A1B9D6F6247CA10100126C9F /* PBXTargetDependency */,
 				A17E577A2480CFCF00F05165 /* PBXTargetDependency */,
 				A18596A724811316008F067A /* PBXTargetDependency */,
+				A1DD34D625246A14001BA27A /* PBXTargetDependency */,
 			);
 			name = RoyaleApp;
 			productName = RoyaleApp;
@@ -1655,13 +1799,50 @@
 			productReference = A1B9D6EA247CA10100126C9F /* DataStoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A1DD34C125246A13001BA27A /* Analytics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1DD34DD25246A14001BA27A /* Build configuration list for PBXNativeTarget "Analytics" */;
+			buildPhases = (
+				A1DD34BD25246A13001BA27A /* Headers */,
+				A1DD34BE25246A13001BA27A /* Sources */,
+				A1DD34BF25246A13001BA27A /* Frameworks */,
+				A1DD34C025246A13001BA27A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Analytics;
+			productName = Analytics;
+			productReference = A1DD34C225246A13001BA27A /* Analytics.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A1DD34C925246A14001BA27A /* AnalyticsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1DD34DE25246A14001BA27A /* Build configuration list for PBXNativeTarget "AnalyticsTests" */;
+			buildPhases = (
+				A1DD34C625246A14001BA27A /* Sources */,
+				A1DD34C725246A14001BA27A /* Frameworks */,
+				A1DD34C825246A14001BA27A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1DD34CD25246A14001BA27A /* PBXTargetDependency */,
+				A1DD34CF25246A14001BA27A /* PBXTargetDependency */,
+			);
+			name = AnalyticsTests;
+			productName = AnalyticsTests;
+			productReference = A1DD34CA25246A14001BA27A /* AnalyticsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A1B9D6A2247C9C7400126C9F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = nakandakari;
 				TargetAttributes = {
@@ -1699,6 +1880,14 @@
 						CreatedOnToolsVersion = 11.4;
 						TestTargetID = A1B9D6A9247C9C7400126C9F;
 					};
+					A1DD34C125246A13001BA27A = {
+						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
+					};
+					A1DD34C925246A14001BA27A = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = A1B9D6A9247C9C7400126C9F;
+					};
 				};
 			};
 			buildConfigurationList = A1B9D6A5247C9C7400126C9F /* Build configuration list for PBXProject "RoyaleApp" */;
@@ -1723,6 +1912,8 @@
 				A17E576D2480CFCF00F05165 /* PresentationTests */,
 				A185969224811316008F067A /* Domain */,
 				A185969A24811316008F067A /* DomainTests */,
+				A1DD34C125246A13001BA27A /* Analytics */,
+				A1DD34C925246A14001BA27A /* AnalyticsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1788,6 +1979,7 @@
 				A1B9D6BA247C9C7400126C9F /* LaunchScreen.storyboard in Resources */,
 				A14FB82E25086DD00071145B /* menu_click_06.mp3 in Resources */,
 				A1B9D6B7247C9C7400126C9F /* Assets.xcassets in Resources */,
+				A1DD35012524755F001BA27A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1813,6 +2005,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A1B9D6E8247CA10100126C9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DD34C025246A13001BA27A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DD34C825246A14001BA27A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2021,6 +2227,7 @@
 				A1B9D720247DFEDA00126C9F /* CRAPIDataStore.swift in Sources */,
 				A196B92924888406003C2A7B /* CRUpComingChestsAPIRequest.swift in Sources */,
 				A1E117F724A5905A00CE8FC3 /* PlayerBattleLogRealmDataStore.swift in Sources */,
+				A1DD34FE25247453001BA27A /* DataStoreConfig.swift in Sources */,
 				A1B9D71E247DFDE900126C9F /* PlayerRepository.swift in Sources */,
 				A1B9D712247D119600126C9F /* CRPlayerAPIRequest.swift in Sources */,
 			);
@@ -2031,6 +2238,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1B9D6F2247CA10100126C9F /* DataStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DD34BE25246A13001BA27A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DD34FA25246B96001BA27A /* FirebaseRemoteConfigManager.swift in Sources */,
+				A1DD34F825246B6F001BA27A /* FirebaseInitilizer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1DD34C625246A14001BA27A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1DD34D225246A14001BA27A /* AnalyticsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2091,6 +2315,21 @@
 			isa = PBXTargetDependency;
 			target = A1B9D6E1247CA10100126C9F /* DataStore */;
 			targetProxy = A1B9D6F5247CA10100126C9F /* PBXContainerItemProxy */;
+		};
+		A1DD34CD25246A14001BA27A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1DD34C125246A13001BA27A /* Analytics */;
+			targetProxy = A1DD34CC25246A14001BA27A /* PBXContainerItemProxy */;
+		};
+		A1DD34CF25246A14001BA27A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1B9D6A9247C9C7400126C9F /* RoyaleApp */;
+			targetProxy = A1DD34CE25246A14001BA27A /* PBXContainerItemProxy */;
+		};
+		A1DD34D625246A14001BA27A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1DD34C125246A13001BA27A /* Analytics */;
+			targetProxy = A1DD34D525246A14001BA27A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2436,6 +2675,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = nakandakari.toru.RoyaleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2455,6 +2698,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = nakandakari.toru.RoyaleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2648,6 +2895,121 @@
 			};
 			name = Release;
 		};
+		A1DD34D925246A14001BA27A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8CBGKNYH9U;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Analytics/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Analytics;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A1DD34DA25246A14001BA27A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8CBGKNYH9U;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = Analytics/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Analytics;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A1DD34DB25246A14001BA27A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AnalyticsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.AnalyticsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp";
+			};
+			name = Debug;
+		};
+		A1DD34DC25246A14001BA27A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AnalyticsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.AnalyticsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2737,6 +3099,24 @@
 			buildConfigurations = (
 				A1B9D6FC247CA10100126C9F /* Debug */,
 				A1B9D6FD247CA10100126C9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1DD34DD25246A14001BA27A /* Build configuration list for PBXNativeTarget "Analytics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1DD34D925246A14001BA27A /* Debug */,
+				A1DD34DA25246A14001BA27A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1DD34DE25246A14001BA27A /* Build configuration list for PBXNativeTarget "AnalyticsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1DD34DB25246A14001BA27A /* Debug */,
+				A1DD34DC25246A14001BA27A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

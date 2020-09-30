@@ -1,3 +1,52 @@
+5.4.6 Release notes (2020-09-29)
+=============================================================
+
+5.4.5 failed to actually update the core version for installation methods other
+than SPM. All changes listed there actually happened in this version for
+non-SPM installation methods.
+
+
+### Compatibility
+
+* File format: Generates Realms with format v11 (Reads and upgrades all previous formats)
+* Realm Object Server: 3.21.0 or later.
+* Realm Studio: 5.0.0 or later.
+* APIs are backwards compatible with all previous releases in the 5.x.y series.
+* Carthage release for Swift is built with Xcode 12.
+
+### Internal
+
+* Upgraded realm-sync from v5.0.26 to v5.0.27
+
+5.4.5 Release notes (2020-09-28)
+=============================================================
+
+### Enhancements
+
+* Slightly (<5%) improve the performance of most operations which involve
+  reading from a Realm file.
+
+### Fixed
+
+* Rerunning a equality query on an indexed string property would give incorrect
+  results if a previous run of the query matched multiple objects and it now
+  matches one object. This could manifest as either finding a non-matching
+  object or a "key not found" exception being thrown.
+  ([#6536](https://github.com/realm/realm-cocoa/issues/6536), since 5.0.0).
+
+### Compatibility
+
+* File format: Generates Realms with format v11 (Reads and upgrades all previous formats)
+* Realm Object Server: 3.21.0 or later.
+* Realm Studio: 5.0.0 or later.
+* APIs are backwards compatible with all previous releases in the 5.x.y series.
+* Carthage release for Swift is built with Xcode 12.
+
+### Internal
+
+* Upgraded realm-core from v6.1.1 to v6.1.2
+* Upgraded realm-sync from v5.0.25 to v5.0.26
+
 5.4.4 Release notes (2020-09-25)
 =============================================================
 
@@ -25,7 +74,7 @@
 ### Internal
 
 * Upgraded realm-core from v6.0.26 to v6.1.1
-* Upgraded realm-sync from v5.0.23 to v5.0.24
+* Upgraded realm-sync from v5.0.23 to v5.0.25
 
 5.4.3 Release notes (2020-09-21)
 =============================================================

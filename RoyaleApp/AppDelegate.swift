@@ -6,6 +6,7 @@
 //  Copyright © 2020 nakandakari. All rights reserved.
 //
 
+import Analytics
 import Presentation
 import UIKit
 
@@ -24,8 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
 
     func setup() {
+        self.setupFirebase()
         self.setupPushNotification()
         self.setupBackgroundFetch()
+    }
+}
+
+// MARK: - Setup Firebase
+private extension AppDelegate {
+
+    func setupFirebase() {
+        FirebaseInitilizer.setup()
     }
 }
 
