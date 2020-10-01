@@ -15,12 +15,18 @@ bootstrap:
 	brew update
 	brew install mint
 	mint bootstrap
+	mint run XcodeGen xcodegen
 
 .PHONY: project
 project:
 	mint run Carthage/Carthage carthage bootstrap --platform iOS --cache-builds
 	mint run Carthage/Carthage carthage update --platform iOS
 	mint run SwiftGen/SwiftGen swiftgen
+	mint run XcodeGen xcodegen
+
+.PHONY: xcodegen
+xcodegen:
+	mint run XcodeGen xcodegen
 
 .PHONY: open
 open:
