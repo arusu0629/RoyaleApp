@@ -26,6 +26,7 @@ private extension AppDelegate {
 
     func setup() {
         self.setupFirebase()
+        self.setupAd()
         self.setupPushNotification()
         self.setupBackgroundFetch()
     }
@@ -36,6 +37,14 @@ private extension AppDelegate {
 
     func setupFirebase() {
         FirebaseInitilizer.setup()
+    }
+}
+
+// MARK: - Setup Ad
+private extension AppDelegate {
+
+    func setupAd() {
+        AdManager.setup()
     }
 }
 

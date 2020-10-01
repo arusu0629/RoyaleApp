@@ -17,6 +17,9 @@ protocol DeckView: AnyObject {
     func executeDeckShare(url: URL)
     func failedToDeckShare(error: Error)
     func didUpdateSelectedDeck(currentDeck: DeckModel)
+
+    // Ad
+    func showFooterAdView()
 }
 
 // MARK: - Properties
@@ -41,6 +44,16 @@ final class DeckViewController: UIViewController, ShowErrorAlertView {
     }
     @IBOutlet private weak var deckPreviewView: DeckPreviewView!
     @IBOutlet private weak var deckDescritpionView: DeckDescriptionView!
+
+    // Ad
+    @IBOutlet private weak var footerAdView: FooterAdView!
+
+    // Footer Spacer View
+    @IBOutlet private weak var footerSpacerView: UIView! {
+        willSet {
+            newValue.isHidden = true
+        }
+    }
 }
 
 // MARK: - Life cycle
@@ -92,6 +105,11 @@ extension DeckViewController: DeckView {
         self.deckPreviewView.setup(currentDeck: currentDeck)
         self.deckDescritpionView.setup(currentDeck: currentDeck)
     }
+
+    func showFooterAdView() {
+        self.footerAdView.showLoading()
+        AdManager.shared.setupAd(dataSource: self, delegate: self, targetView: self.footerAdView)
+    }
 }
 
 // MARK: Deck Create/Change/Share
@@ -115,5 +133,28 @@ extension DeckViewController: DeckSelectionViewDelegate {
 
     func didSelected(index: Int) {
         self.presenter.didSelectDeckIndex(index)
+    }
+}
+
+// MARK: - AdManagerDataSource
+extension DeckViewController: AdManagerDataSource {
+
+    public func currentViewController() -> UIViewController {
+        return self
+    }
+}
+
+// MARK: - AdManagerDelegate
+extension DeckViewController: AdManagerDelegate {
+
+    public func didReceiveAd() {
+        self.footerAdView.hideLoading()
+        self.footerSpacerView.isHidden = true
+    }
+
+    public func didFailedAd() {
+        self.footerAdView.isHidden = true
+        self.footerAdView.hideLoading()
+        self.footerSpacerView.isHidden = false
     }
 }

@@ -19,11 +19,11 @@
                                 <rect key="frame" x="10" y="10" width="355" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XZ-9z-7Dk" userLabel="Spacer">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="109.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="169"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNc-kS-RuG" userLabel="HeaderView">
-                                        <rect key="frame" x="0.0" y="119.5" width="355" height="40"/>
+                                        <rect key="frame" x="0.0" y="179" width="355" height="40"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kAM-ee-xtF">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
@@ -103,7 +103,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvN-ws-aBX" customClass="DeckPreviewView" customModule="Presentation" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="169.5" width="355" height="213"/>
+                                        <rect key="frame" x="0.0" y="229" width="355" height="213"/>
                                         <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jvN-ws-aBX" secondAttribute="height" multiplier="320:192" id="jnS-Tx-oee"/>
@@ -118,7 +118,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DX-Rw-Vi6" userLabel="DeckDescriptionView" customClass="DeckDescriptionView" customModule="Presentation" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="392.5" width="355" height="45"/>
+                                        <rect key="frame" x="0.0" y="452" width="355" height="45"/>
                                         <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="LVm-Ab-o1E"/>
@@ -133,7 +133,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oym-D7-UaV" userLabel="DeckCreateView">
-                                        <rect key="frame" x="0.0" y="447.5" width="355" height="80"/>
+                                        <rect key="frame" x="0.0" y="507" width="355" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuD-kE-Qs5">
                                                 <rect key="frame" x="10" y="10" width="335" height="60"/>
@@ -163,12 +163,22 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDV-1Q-t3O" userLabel="Spacer">
-                                        <rect key="frame" x="0.0" y="537.5" width="355" height="109.5"/>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDV-1Q-t3O" userLabel="Spacer">
+                                        <rect key="frame" x="0.0" y="592" width="355" height="169"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deD-zo-whs" userLabel="AdView" customClass="FooterAdView" customModule="Presentation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="597" width="355" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="g5h-h0-pbS"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="deD-zo-whs" secondAttribute="trailing" id="9E3-U2-CHE"/>
+                                    <constraint firstItem="deD-zo-whs" firstAttribute="leading" secondItem="IgQ-2g-zex" secondAttribute="leading" id="LUk-Df-OtW"/>
+                                    <constraint firstAttribute="bottom" secondItem="deD-zo-whs" secondAttribute="bottom" id="bTI-cI-VCX"/>
                                     <constraint firstItem="dDV-1Q-t3O" firstAttribute="height" secondItem="3XZ-9z-7Dk" secondAttribute="height" id="roV-bt-8XR"/>
                                 </constraints>
                             </stackView>
@@ -187,6 +197,8 @@
                         <outlet property="deckDescritpionView" destination="9DX-Rw-Vi6" id="7iu-Sj-6eL"/>
                         <outlet property="deckPreviewView" destination="jvN-ws-aBX" id="wgu-bo-qnJ"/>
                         <outlet property="deckSelectionView" destination="vEW-iG-63f" id="tXa-1b-0vr"/>
+                        <outlet property="footerAdView" destination="deD-zo-whs" id="aGH-iT-lOM"/>
+                        <outlet property="footerSpacerView" destination="dDV-1Q-t3O" id="Bny-65-G2k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDG-FY-GIn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

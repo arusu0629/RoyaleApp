@@ -21,6 +21,9 @@ protocol HomeView: ShowErrorAlertView {
     func didFailedFetchPlayerBattleLog(_ error: Error)
     func setupTrophyDateFilter(trophyDateFilters: [TrophyDateFilter])
     func willEnterForground()
+
+    // Ad
+    func showFooterAdView()
 }
 
 // MARK: - Properties
@@ -33,6 +36,9 @@ public final class HomeViewController: UIViewController {
         }
     }
     @IBOutlet private weak var upcomingChestListView: UpComingChestListView!
+
+    // Ad
+    @IBOutlet private weak var footerAdView: FooterAdView!
 
     var presenter: HomePresenter!
 }
@@ -98,6 +104,11 @@ extension HomeViewController: HomeView {
     public func willEnterForground() {
         self.presenter.willEnterForground()
     }
+
+    func showFooterAdView() {
+        self.footerAdView.showLoading()
+        AdManager.shared.setupAd(dataSource: self, delegate: self, targetView: self.footerAdView)
+    }
 }
 
 // MARK: - PlayerInfo
@@ -127,5 +138,26 @@ extension HomeViewController: DateFilterTabViewDelegate {
 
     func didTapFilterButton(index: Int) {
         self.presenter.didSelectDateFilterButton(index: index)
+    }
+}
+
+// MARK: - AdManagerDataSource
+extension HomeViewController: AdManagerDataSource {
+
+    public func currentViewController() -> UIViewController {
+        return self
+    }
+}
+
+// MARK: - AdManagerDelegate
+extension HomeViewController: AdManagerDelegate {
+
+    public func didReceiveAd() {
+        self.footerAdView.hideLoading()
+    }
+
+    public func didFailedAd() {
+        self.footerAdView.isHidden = true
+        self.footerAdView.hideLoading()
     }
 }

@@ -48,6 +48,7 @@ extension DeckPresenterImpl {
 
     func viewDidLoad() {
         AnalyticsManager.sendEvent(DeckEvent.display)
+        self.view?.showFooterAdView()
         self.selectedDeckIndex = AppConfig.lastSelectedDeckIndex
         self.getDeckModel()
     }

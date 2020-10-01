@@ -32,5 +32,7 @@
 	<string>1:386741150014:ios:de19294d889770a0f6cc6f</string>
 	<key>DATABASE_URL</key>
 	<string>https://royaleapp-35f2b.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-3870375746282451~2546825069</string>
 </dict>
 </plist>

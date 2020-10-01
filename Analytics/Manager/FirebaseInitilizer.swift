@@ -6,7 +6,7 @@
 //  Copyright © 2020 nakandakari. All rights reserved.
 //
 
-import Firebase
+import FirebaseCore
 import Foundation
 
 public enum FirebaseInitilizer {

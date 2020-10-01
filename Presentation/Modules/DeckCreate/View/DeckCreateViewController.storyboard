@@ -20,17 +20,17 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfp-7I-CGS" userLabel="CardSortView" customClass="CardSortView" customModule="Presentation" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="sjl-Tg-uwG"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qI4-DI-agr" userLabel="DeckCreateListView" customClass="DeckCreateListView" customModule="Presentation" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="521"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="471"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TX-27-Z4c" userLabel="FooterView">
-                                        <rect key="frame" x="0.0" y="571" width="375" height="96"/>
+                                        <rect key="frame" x="0.0" y="521" width="375" height="96"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHo-4x-seI">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -100,7 +100,19 @@
                                             <constraint firstItem="kHo-4x-seI" firstAttribute="top" secondItem="2TX-27-Z4c" secondAttribute="top" id="shn-f7-wIF"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbK-TL-PPp" userLabel="FooterAdView" customClass="FooterAdView" customModule="Presentation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5wA-Mt-743"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="tbK-TL-PPp" firstAttribute="leading" secondItem="PZd-94-TBe" secondAttribute="leading" id="0F2-Jz-dfS"/>
+                                    <constraint firstAttribute="bottom" secondItem="tbK-TL-PPp" secondAttribute="bottom" id="fGh-Ag-XOn"/>
+                                    <constraint firstAttribute="trailing" secondItem="tbK-TL-PPp" secondAttribute="trailing" id="vxX-Eg-ppd"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -116,6 +128,7 @@
                         <outlet property="cardSortView" destination="bfp-7I-CGS" id="gb3-Nz-70l"/>
                         <outlet property="deckCreateListView" destination="qI4-DI-agr" id="vWf-2U-Pn5"/>
                         <outlet property="deckCreatePreviewView" destination="rL9-hy-TgT" id="TV6-MX-Ou8"/>
+                        <outlet property="footerAdView" destination="tbK-TL-PPp" id="sFp-1r-clJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJw-0R-tgZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

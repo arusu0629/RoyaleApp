@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hA2-hf-Ug9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hA2-hf-Ug9">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -26,16 +26,28 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fo9-aF-SHd" customClass="PlayerTrophyLineChartView" customModule="Presentation" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="75" width="355" height="457"/>
+                                        <rect key="frame" x="0.0" y="75" width="355" height="397"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgy-cK-gQd" customClass="UpComingChestListView" customModule="Presentation" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="542" width="355" height="105"/>
+                                        <rect key="frame" x="0.0" y="482" width="355" height="105"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="105" id="iz7-dO-ooh"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWX-1o-kiA" userLabel="FooterAdView" customClass="FooterAdView" customModule="Presentation" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="597" width="355" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ubR-gW-KG4"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="eWX-1o-kiA" firstAttribute="leading" secondItem="2lR-5t-woL" secondAttribute="leading" id="R2l-MK-rMT"/>
+                                    <constraint firstAttribute="bottom" secondItem="eWX-1o-kiA" secondAttribute="bottom" id="voq-rs-CmL"/>
+                                    <constraint firstAttribute="trailing" secondItem="eWX-1o-kiA" secondAttribute="trailing" id="yYE-KP-SHz"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -48,6 +60,7 @@
                         <viewLayoutGuide key="safeArea" id="KJl-vF-boh"/>
                     </view>
                     <connections>
+                        <outlet property="footerAdView" destination="eWX-1o-kiA" id="b7f-bg-ogs"/>
                         <outlet property="playerInfoView" destination="8gN-R1-vXK" id="0jF-zI-3uw"/>
                         <outlet property="playerTrophyChartView" destination="Fo9-aF-SHd" id="RI2-Zd-KmJ"/>
                         <outlet property="upcomingChestListView" destination="Wgy-cK-gQd" id="CDd-iL-MuS"/>

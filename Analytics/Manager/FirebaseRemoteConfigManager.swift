@@ -42,4 +42,18 @@ extension FirebaseRemoteConfigManager {
         }
         DataStoreConfig.token = token
     }
+
+    private static func fetchStringValue(key: String) -> String {
+        let remoteConfig = RemoteConfig.remoteConfig()
+        return remoteConfig[key].stringValue ?? ""
+    }
+}
+
+// MARK: - AdMob AdUnitId
+extension FirebaseRemoteConfigManager {
+
+    public static func getAdMobAdUnitId() -> String {
+        let key = "admob_adunit_id"
+        return fetchStringValue(key: key)
+    }
 }

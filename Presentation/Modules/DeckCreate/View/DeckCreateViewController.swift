@@ -16,6 +16,9 @@ protocol DeckCreateView: ShowErrorAlertView {
     func didFailedDeckInfo(error: Error)
     func didSortCards(cards: [CardModel], selectedCardList: [CardModel])
     func didClearSelectedCardList()
+
+    // Ad
+    func showFooterAd()
 }
 
 // MARK: - Properties
@@ -38,6 +41,9 @@ final class DeckCreateViewController: UIViewController {
             newValue.delegate = self
         }
     }
+
+    // Ad
+    @IBOutlet private weak var footerAdView: FooterAdView!
 }
 
 // MARK: - Life cycle
@@ -79,6 +85,12 @@ extension DeckCreateViewController: DeckCreateView {
         self.deckCreateListView.clearSelectedCardList()
         self.deckCreatePreviewView.clearSelectedCardList()
     }
+
+    // Ad
+    func showFooterAd() {
+        self.footerAdView.showLoading()
+        AdManager.shared.setupAd(dataSource: self, delegate: self, targetView: self.footerAdView)
+    }
 }
 
 // MARK: - User Interaction
@@ -116,5 +128,26 @@ extension DeckCreateViewController: DeckCreatePreviewViewDelegate {
     func didTapSelectedCard(cardModel: CardModel) {
         self.presenter.removeSelectedCard(cardModel)
         self.deckCreateListView.removeSelectedCard(cardModel)
+    }
+}
+
+// MARK: -
+extension DeckCreateViewController: AdManagerDataSource {
+
+    public func currentViewController() -> UIViewController {
+        return self
+    }
+}
+
+// MARK: - AdManagerDelegate
+extension DeckCreateViewController: AdManagerDelegate {
+
+    public func didReceiveAd() {
+        self.footerAdView.hideLoading()
+    }
+
+    public func didFailedAd() {
+        self.footerAdView.isHidden = true
+        self.footerAdView.hideLoading()
     }
 }

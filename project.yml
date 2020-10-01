@@ -30,18 +30,6 @@ targets:
     dependencies:
     - target: DataStore
     - target: Domain
-    - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
-    - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
-    - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
-    - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
-    - framework: Carthage/Build/iOS/GoogleDataTransport.framework
-    - framework: Carthage/Build/iOS/GoogleUtilities.framework
-    - framework: Carthage/Build/iOS/nanopb.framework
-    - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
-    - framework: Carthage/Build/iOS/FirebaseInstallations.framework
-    - framework: Carthage/Build/iOS/PromisesObjC.framework
-    - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
-    - framework: Carthage/Build/iOS/FirebaseCore.framework
     platform: iOS
     settings:
       configs:
@@ -78,7 +66,7 @@ targets:
           ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
           CODE_SIGN_STYLE: Automatic
           INFOPLIST_FILE: AnalyticsTests/Info.plist
-          IPHONEOS_DEPLOYMENT_TARGET: 13.6
+          IPHONEOS_DEPLOYMENT_TARGET: 13.0
           PRODUCT_BUNDLE_IDENTIFIER: com.AnalyticsTests
           SWIFT_VERSION: 5.0
           TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp
@@ -86,7 +74,7 @@ targets:
           ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
           CODE_SIGN_STYLE: Automatic
           INFOPLIST_FILE: AnalyticsTests/Info.plist
-          IPHONEOS_DEPLOYMENT_TARGET: 13.6
+          IPHONEOS_DEPLOYMENT_TARGET: 13.0
           PRODUCT_BUNDLE_IDENTIFIER: com.AnalyticsTests
           SWIFT_VERSION: 5.0
           TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp
@@ -197,7 +185,6 @@ targets:
   Presentation:
     dependencies:
     - target: Analytics
-    - framework: Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AVFoundation.framework
     - framework: Carthage/Build/iOS/Charts.framework
     - target: Domain
     - framework: Carthage/Build/iOS/Kingfisher.framework

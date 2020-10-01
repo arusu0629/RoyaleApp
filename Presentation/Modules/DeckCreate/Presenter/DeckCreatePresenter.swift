@@ -50,6 +50,7 @@ extension DeckCreatePresenterImpl {
     func viewDidload() {
         AnalyticsManager.sendEvent(DeckCreateEvent.display)
         self.getDeckInfo()
+        self.view?.showFooterAd()
     }
 
     func didSelectDeckSelect() {

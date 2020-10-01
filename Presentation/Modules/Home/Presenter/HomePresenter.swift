@@ -33,6 +33,7 @@ final class HomePresenterImpl: HomePresenter {
         }
         AnalyticsManager.sendEvent(HomeEvent.display)
         self.setup()
+        self.view?.showFooterAdView()
     }
 
     func willEnterForground() {
