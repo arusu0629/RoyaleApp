@@ -53,9 +53,6 @@ targets:
           - $(PROJECT_DIR)/Carthage/Build/iOS
           INFOPLIST_FILE: Analytics/Info.plist
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
-          OTHER_LDFLAGS:
-          - $(OTHER_LDFLAGS)
-          - -ObjC
           PRODUCT_BUNDLE_IDENTIFIER: com.Analytics
           SWIFT_VERSION: 5.0
         Release:
@@ -66,9 +63,6 @@ targets:
           - $(PROJECT_DIR)/Carthage/Build/iOS
           INFOPLIST_FILE: Analytics/Info.plist
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
-          OTHER_LDFLAGS:
-          - $(OTHER_LDFLAGS)
-          - -ObjC
           PRODUCT_BUNDLE_IDENTIFIER: com.Analytics
           SWIFT_VERSION: 5.0
     sources: [Analytics]
@@ -297,9 +291,6 @@ targets:
           DEVELOPMENT_TEAM: 8CBGKNYH9U
           INFOPLIST_FILE: RoyaleApp/Info.plist
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
-          OTHER_LDFLAGS:
-          - $(OTHER_LDFLAGS)
-          - -ObjC
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleApp
           SWIFT_VERSION: 5.0
         Release:
@@ -308,9 +299,6 @@ targets:
           DEVELOPMENT_TEAM: 8CBGKNYH9U
           INFOPLIST_FILE: RoyaleApp/Info.plist
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
-          OTHER_LDFLAGS:
-          - $(OTHER_LDFLAGS)
-          - -ObjC
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleApp
           SWIFT_VERSION: 5.0
     sources: [RoyaleApp]
