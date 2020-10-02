@@ -67,6 +67,8 @@ private extension Tab {
                 return HomeBuilder.build()
             case .deck:
                 return DeckBuilder.build()
+            case .web:
+                return WebBuilder.build()
             }
         }()
         vc.tabBarItem = self.tabBarItem
@@ -85,6 +87,8 @@ private extension Tab {
             return "Home"
         case .deck:
             return "Deck"
+        case .web:
+            return "Web"
         }
     }
 
@@ -95,6 +99,8 @@ private extension Tab {
                 return SFSymbols.homeIconImage
             case .deck:
                 return SFSymbols.deckIconImage
+            case .web:
+                return SFSymbols.webIconImage
             }
         }()
         return image?.withRenderingMode(.alwaysOriginal)
@@ -107,6 +113,8 @@ private extension Tab {
                 return SFSymbols.homeFillIconImage
             case .deck:
                 return SFSymbols.deckFillIconImage
+            case .web:
+                return SFSymbols.webFillIconImage
             }
         }()
         return image?.withRenderingMode(.alwaysOriginal)

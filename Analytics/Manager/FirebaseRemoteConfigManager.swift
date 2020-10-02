@@ -36,8 +36,8 @@ extension FirebaseRemoteConfigManager {
 
     private static func fetchAndSaveApiToken() {
         let apiTokenKey = "api_token_key"
-        let remoteConfig = RemoteConfig.remoteConfig()
-        guard let token = remoteConfig[apiTokenKey].stringValue, !token.isEmpty else {
+        let token = fetchStringValue(key: apiTokenKey)
+        if token.isEmpty {
             return
         }
         DataStoreConfig.token = token
@@ -54,6 +54,25 @@ extension FirebaseRemoteConfigManager {
 
     public static func getAdMobAdUnitId() -> String {
         let key = "admob_adunit_id"
+        return fetchStringValue(key: key)
+    }
+}
+
+// MARK: - WebView
+extension FirebaseRemoteConfigManager {
+
+    public static func getClassicChallengeWebViewUrl() -> String {
+        let key = "classic_challenge_web_url"
+        return fetchStringValue(key: key)
+    }
+
+    public static func getGrandChallengeWebViewUrl() -> String {
+        let key = "grand_challenge_web_url"
+        return fetchStringValue(key: key)
+    }
+
+    public static func getTopLadderWebViewUrl() -> String {
+        let key = "top_ladder_web_url"
         return fetchStringValue(key: key)
     }
 }

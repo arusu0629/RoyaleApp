@@ -48,6 +48,15 @@ extension AppConfig {
             return UserDefaults.standard.integer(forKey: #function)
         }
     }
+
+    public static var lastSelectedWebViewTabIndex: Int {
+        set {
+            UserDefaults.standard.set(newValue, forKey: #function)
+        }
+        get {
+            return UserDefaults.standard.integer(forKey: #function)
+        }
+    }
 }
 
 // MARK: - PlayerTag

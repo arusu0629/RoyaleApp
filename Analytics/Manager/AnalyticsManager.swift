@@ -31,6 +31,7 @@ extension AnalyticsManager {
         case trophyDateFilter
         case deckCardIds
         case cardSortType
+        case webViewTab
 
         var key: String {
             switch self {
@@ -40,6 +41,8 @@ extension AnalyticsManager {
                 return "deck_card_ids"
             case .cardSortType:
                 return "deckcreate_card_sort_type"
+            case .webViewTab:
+                return "web_view_tab"
             }
         }
     }

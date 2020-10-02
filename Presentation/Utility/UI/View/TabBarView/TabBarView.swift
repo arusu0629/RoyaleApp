@@ -22,7 +22,7 @@ final class TabBarView: UIView {
     private var selectedTabIndex: Int = 0
     private var tabTexts: [String] = []
 
-    weak var delegate: TabBarButtonViewDelegate?
+    weak var delegate: TabBarViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -118,7 +118,7 @@ extension TabBarView: TabBarButtonViewDelegate {
         self.selectedTabIndex = index
         self.moveSelectedView(index: index)
         SoundManager.shared.playSoundEffect(.selectTab)
-        self.delegate?.didTapButton(index: index)
+        self.delegate?.didTapTabBarButton(index: index)
     }
 
 }

@@ -27,7 +27,7 @@ public enum TrophyDateFilter: Int, CaseIterable {
         case .today:   return Calendar.current.date(byAdding: .day, value: -1, to: now)!
         case .weekly:  return Calendar.current.date(byAdding: .day, value: -7, to: now)!
         case .monthly: return Calendar.current.date(byAdding: .month, value: -1, to: now)!
-        case .year:    return Calendar.current.date(byAdding: .year, value: -7, to: now)!
+        case .year:    return Calendar.current.date(byAdding: .year, value: -1, to: now)!
         }
     }
 }

@@ -141,9 +141,9 @@ extension PlayerTrophyLineChartView {
 }
 
 // MARK: - DateFilterTabViewDelegate
-extension PlayerTrophyLineChartView: TabBarButtonViewDelegate {
+extension PlayerTrophyLineChartView: TabBarViewDelegate {
 
-    func didTapButton(index: Int) {
+    func didTapTabBarButton(index: Int) {
         self.dateFitlerDelegate?.didTapFilterButton(index: index)
     }
 }

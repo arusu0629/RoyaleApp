@@ -7,6 +7,7 @@
 //
 
 public enum Tab: Int, CaseIterable {
-    case home = 0
-    case deck = 1
+    case deck = 0
+    case home = 1
+    case web = 2
 }
