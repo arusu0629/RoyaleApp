@@ -13,6 +13,10 @@ import Foundation
 protocol WebPresenter: AnyObject {
     func viewDidLoad()
 
+    // WebView
+    func didStartProvisionalNavigation()
+    func didFinish()
+
     func didSelectBack()
     func didSelectForward()
     func didSelectReload()
@@ -38,13 +42,21 @@ final class WebPresenterImpl: WebPresenter {
         self.setupWebView()
     }
 
+    func didStartProvisionalNavigation() {
+        self.view?.showLoading()
+    }
+
+    func didFinish() {
+        self.view?.hideLoading()
+    }
+
     private func setupWebView() {
         self.view?.setupWebView()
         self.view?.setupWebViewTab(self.webViewTabUseCase.list(), initialIndex: self.selectedWebViewTabIndex)
 
         let lastSelectedWebViewTab = self.webViewTabUseCase.list()[AppConfig.lastSelectedWebViewTabIndex]
-        guard let url = lastSelectedWebViewTab.url else {
-            //            self.view?.didFailedShowWebView(error: Error())
+        guard let url = URL(string: lastSelectedWebViewTab.urlString) else {
+            self.view?.showErrorAlert(WebViewError.invalidURL(url: lastSelectedWebViewTab.urlString))
             return
         }
         self.view?.loadRequest(URLRequest(url: url))
@@ -64,8 +76,8 @@ final class WebPresenterImpl: WebPresenter {
 
     func didSelectWebViewTab(index: Int) {
         let selectedWebViewTab = self.webViewTabUseCase.list()[index]
-        guard let url = selectedWebViewTab.url else {
-            //            self.view?.didFailedShowWebView(error: Error())
+        guard let url = URL(string: selectedWebViewTab.urlString) else {
+            self.view?.showErrorAlert(WebViewError.invalidURL(url: selectedWebViewTab.urlString))
             return
         }
         AnalyticsManager.sendEvent(WebEvent.selectWebTab(tab: selectedWebViewTab))
@@ -76,14 +88,14 @@ final class WebPresenterImpl: WebPresenter {
 
 private extension WebViewTab {
 
-    var url: URL? {
+    var urlString: String {
         switch self {
         case .classicChallenge:
-            return URL(string: FirebaseRemoteConfigManager.getClassicChallengeWebViewUrl())
+            return FirebaseRemoteConfigManager.getClassicChallengeWebViewUrl()
         case .grandChallenge:
-            return URL(string: FirebaseRemoteConfigManager.getGrandChallengeWebViewUrl())
+            return FirebaseRemoteConfigManager.getGrandChallengeWebViewUrl()
         case .topLadder:
-            return URL(string: FirebaseRemoteConfigManager.getTopLadderWebViewUrl())
+            return FirebaseRemoteConfigManager.getTopLadderWebViewUrl()
         }
     }
 }

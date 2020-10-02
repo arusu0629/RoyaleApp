@@ -9,17 +9,6 @@
 import DataStore
 import Foundation
 
-enum PlayerModelError: LocalizedError {
-    case invalid
-
-    var errorDescription: String? {
-        switch self {
-        case .invalid:
-            return "Invalid player tag"
-        }
-    }
-}
-
 public struct PlayerModel {
 
     public let name: String

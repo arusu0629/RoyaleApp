@@ -110,11 +110,20 @@
                                     <constraint firstItem="Fl9-x9-sOH" firstAttribute="top" secondItem="noR-uS-XVf" secondAttribute="bottom" id="xVJ-cx-zJN"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mDl-pt-taS">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="atc-SI-bKU"/>
+                                    <constraint firstAttribute="width" constant="20" id="rzG-wr-RWg"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="uaV-T0-ABA" secondAttribute="bottom" id="Exl-Kq-muF"/>
                             <constraint firstItem="uaV-T0-ABA" firstAttribute="trailing" secondItem="ehQ-jN-FdK" secondAttribute="trailingMargin" id="MZg-Tw-gvm"/>
+                            <constraint firstItem="mDl-pt-taS" firstAttribute="centerX" secondItem="ehQ-jN-FdK" secondAttribute="centerX" id="WiE-Nd-MFM"/>
+                            <constraint firstItem="mDl-pt-taS" firstAttribute="centerY" secondItem="ehQ-jN-FdK" secondAttribute="centerY" id="Xfd-Hv-JiE"/>
                             <constraint firstItem="uaV-T0-ABA" firstAttribute="leading" secondItem="ehQ-jN-FdK" secondAttribute="leadingMargin" id="cjE-4q-2qL"/>
                             <constraint firstItem="uaV-T0-ABA" firstAttribute="top" secondItem="ehQ-jN-FdK" secondAttribute="topMargin" id="pdh-Jx-faB"/>
                         </constraints>
@@ -126,6 +135,7 @@
                         <outlet property="footerAdView" destination="Fl9-x9-sOH" id="i7M-GC-DVC"/>
                         <outlet property="footerSpacerView" destination="noR-uS-XVf" id="kfw-DR-Gf6"/>
                         <outlet property="forwardutton" destination="70o-xc-ERT" id="8GE-ko-an5"/>
+                        <outlet property="indicator" destination="mDl-pt-taS" id="elC-UD-Wiy"/>
                         <outlet property="reloadButton" destination="wDY-7C-SdO" id="Gq2-q0-F7w"/>
                         <outlet property="webViewTabBarView" destination="SiW-ng-FYd" id="vmB-2N-dKs"/>
                     </connections>

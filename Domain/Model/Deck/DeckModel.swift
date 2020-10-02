@@ -9,23 +9,6 @@
 import Foundation
 import RealmSwift
 
-public enum DeckShareError: LocalizedError {
-    case invalidCardCount
-    case duplication
-    case invalidURL
-
-    public var errorDescription: String? {
-        switch self {
-        case .invalidCardCount:
-            return "You need 8 cards for a deck share"
-        case .duplication:
-            return "All 8 cards must be different cards"
-        case .invalidURL:
-            return "Invalid URL\nPlease try again later"
-        }
-    }
-}
-
 public final class RealmDeckModel: Object {
     @objc dynamic public var index: Int = 0
     @objc dynamic public var playerTag: String = ""

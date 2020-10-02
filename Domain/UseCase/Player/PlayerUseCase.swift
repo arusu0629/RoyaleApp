@@ -34,7 +34,7 @@ private struct PlayerUseCaseImpl: PlayerUseCase {
             case .success(let response):
                 let playerModel = self.translator.convert(from: response)
                 if playerModel.isEmptyTag() {
-                    completion(.failure(PlayerModelError.invalid))
+                    completion(.failure(PlayerModelError.invalidPlayerTag(tag: playerTag)))
                     return
                 }
                 completion(.success(playerModel))

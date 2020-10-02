@@ -10,11 +10,13 @@ import Domain
 import UIKit
 import WebKit
 
-protocol WebView: AnyObject {
+protocol WebView: ShowErrorAlertView {
     func setupWebView()
     func setupWebViewTab(_ tabs: [WebViewTab], initialIndex: Int)
     func loadRequest(_ request: URLRequest)
-    func didFailedShowWebView(error: Error)
+
+    func showLoading()
+    func hideLoading()
 
     func pageBack()
     func pageForward()
@@ -60,6 +62,9 @@ final class WebViewController: UIViewController {
     // Ad
     @IBOutlet private weak var footerAdView: FooterAdView!
 
+    // Indicator
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
+
     var presenter: WebPresenter!
 
     private var webView: WKWebView! {
@@ -97,7 +102,14 @@ extension WebViewController: WebView {
         self.webView.load(request)
     }
 
-    func didFailedShowWebView(error: Error) {
+    func showLoading() {
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
+    }
+
+    func hideLoading() {
+        self.indicator.stopAnimating()
+        self.indicator.isHidden = true
     }
 
     func pageBack() {
@@ -134,6 +146,14 @@ extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         self.setupToolButton()
         decisionHandler(.allow)
+    }
+
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        self.presenter.didStartProvisionalNavigation()
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.presenter.didFinish()
     }
 }
 
