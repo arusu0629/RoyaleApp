@@ -338,3 +338,21 @@ targets:
           TEST_TARGET_NAME: RoyaleApp
     sources: [RoyaleAppUITests]
     type: bundle.ui-testing
+schemes:
+  RoyaleApp:
+    build:
+      targets:
+        RoyaleApp: all
+    run:
+      config: Debug
+      commandLineArguments:
+        "-FIRDebugEnabled": false
+        "-FIRDebugDisabled": true
+    test:
+      config: Debug
+    profile:
+      config: Debug
+    analyze:
+      config: Debug
+    archive:
+      config: Release
