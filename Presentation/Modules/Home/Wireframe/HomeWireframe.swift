@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol HomeWireframe: TransitToSignInWireframe {}
+protocol HomeWireframe: AnyObject {}
 
 final class HomeWireframeImpl: HomeWireframe {
 

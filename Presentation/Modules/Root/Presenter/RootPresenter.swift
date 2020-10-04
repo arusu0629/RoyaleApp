@@ -11,6 +11,8 @@ import Domain
 
 protocol RootPresenter: AnyObject {
     func viewWillAppear()
+
+    func didSelectSettings()
 }
 
 final class RootPresenterImpl: RootPresenter {
@@ -19,6 +21,28 @@ final class RootPresenterImpl: RootPresenter {
     var wireframe: RootWireframe!
 
     func viewWillAppear() {
+        if AppConfig.playerTag.isEmpty {
+            self.presentSignIn {
+                self.view?.showAllTabs(TabUseCaseProvider.provide().list())
+            }
+            return
+        }
         self.view?.showAllTabs(TabUseCaseProvider.provide().list())
+    }
+}
+
+// MARK: - Signin
+extension RootPresenterImpl {
+
+    func presentSignIn(dismissCompletion: (() -> Void)?) {
+        self.wireframe.presentSignIn(dismissCompletion: dismissCompletion)
+    }
+}
+
+// MARK: - Settings
+extension RootPresenterImpl {
+
+    func didSelectSettings() {
+        self.wireframe.pushSettings()
     }
 }

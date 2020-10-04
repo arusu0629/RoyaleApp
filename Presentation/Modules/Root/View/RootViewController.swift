@@ -33,18 +33,30 @@ extension RootViewController {
         super.viewWillAppear(animated)
         self.presenter.viewWillAppear()
         self.setupNavigationTitle()
+        self.setupNavigationSettings()
     }
 }
 
 // MARK: - Setup
-extension RootViewController {
+private extension RootViewController {
 
     func setupNavigationTitle() {
         self.navigationItem.titleView = {
+            let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
             let imageView = UIImageView(image: Asset.titleIcon.image)
             imageView.contentMode = .scaleAspectFit
-            return imageView
+            imageView.frame = titleView.bounds
+            titleView.addSubview(imageView)
+            return titleView
         }()
+    }
+
+    func setupNavigationSettings() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: SFSymbols.settingIconImage, style: .plain, target: self, action: #selector(tappedSettings(_:)))
+    }
+
+    @objc func tappedSettings(_ sender: UIBarButtonItem) {
+        self.presenter.didSelectSettings()
     }
 }
 

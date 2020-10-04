@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol RootWireframe: AnyObject {}
+protocol RootWireframe: TransitToSignInWireframe, TransitToSettingsWireframe {}
 
 final class RootWireframeImpl: RootWireframe {
 

@@ -20,6 +20,8 @@ final class SFSymbols {
     static var webIconImage:     UIImage { return UIImage(systemName: "globe")!.withTintColor(SFSymbols.iconImageColor) }
     static var webFillIconImage: UIImage { return UIImage(systemName: "globe")!.withTintColor(SFSymbols.fillIconImageColor) }
 
+    static var settingIconImage: UIImage { return UIImage(systemName: "gear")!.withTintColor(SFSymbols.iconImageColor) }
+
     // MARK: - WebViewController
     static var arrowLeftIconImage: UIImage { return UIImage(systemName: "arrow.left")!.withTintColor(SFSymbols.iconImageColor) }
     static var arrowRightIconImage: UIImage { return UIImage(systemName: "arrow.right")!.withTintColor(SFSymbols.iconImageColor) }

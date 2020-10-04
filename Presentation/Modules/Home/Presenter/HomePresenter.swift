@@ -27,10 +27,6 @@ final class HomePresenterImpl: HomePresenter {
     var trophyDateFilterUseCase: TrophyDateFilterUseCase!
 
     func viewDidLoad() {
-        if AppConfig.playerTag.isEmpty {
-            self.presentSignIn(dismissCompletion: self.setup)
-            return
-        }
         AnalyticsManager.sendEvent(HomeEvent.display)
         self.setup()
         self.view?.showFooterAdView()
@@ -132,13 +128,5 @@ extension HomePresenterImpl {
             return
         }
         self.view?.didUpdatePlayerBattleLog(realmBattleLogs: realmBattleLogs)
-    }
-}
-
-// MARK: - SignIn
-private extension HomePresenterImpl {
-
-    func presentSignIn(dismissCompletion: (() -> Void)?) {
-        self.wireframe.presentSignIn(dismissCompletion: dismissCompletion)
     }
 }
