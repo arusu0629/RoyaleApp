@@ -35,7 +35,13 @@ enum SoundEffect {
 final class SoundManager {
 
     static let shared = SoundManager()
-    private init() {}
+    private init() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.ambient)
+        } catch let error {
+            print("AVAudioSession.sharedInstance().setCategory ambient error = \(error)")
+        }
+    }
 
     private var player: AVAudioPlayer?
 
