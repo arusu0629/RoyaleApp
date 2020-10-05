@@ -12,9 +12,7 @@ import UIKit
 
 import DataStore
 
-protocol RootView: AnyObject {
-    func showAllTabs(_ tabs: [Tab])
-}
+protocol RootView: AnyObject {}
 
 // MARK: - Properties
 public final class RootViewController: SwipeableTabBarController {
@@ -27,13 +25,17 @@ extension RootViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupNavigationTitle()
+        self.setupNavigationSettings()
+
+        // FIXME: SwipeableTabBarController is called this before presenter is nil, So this code
+        // Ideal: self.presenter.viewDidLoad -> self.view?.showAllTabs(TabUseCaseProvider.provide().list())
+        self.showAllTabs(TabUseCaseProvider.provide().list())
     }
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter.viewWillAppear()
-        self.setupNavigationTitle()
-        self.setupNavigationSettings()
     }
 }
 
@@ -58,16 +60,16 @@ private extension RootViewController {
     @objc func tappedSettings(_ sender: UIBarButtonItem) {
         self.presenter.didSelectSettings()
     }
-}
-
-// MARK: - RootView
-extension RootViewController: RootView {
 
     func showAllTabs(_ tabs: [Tab]) {
         let viewControllers: [UIViewController] = tabs.map { $0.viewController }
         self.setViewControllers(viewControllers, animated: false)
+        self.selectedIndex = Tab.home.rawValue
     }
 }
+
+// MARK: - RootView
+extension RootViewController: RootView {}
 
 // MARK: - Tab
 private extension Tab {

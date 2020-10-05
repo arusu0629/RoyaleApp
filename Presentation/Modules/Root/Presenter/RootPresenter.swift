@@ -23,11 +23,9 @@ final class RootPresenterImpl: RootPresenter {
     func viewWillAppear() {
         if AppConfig.playerTag.isEmpty {
             self.presentSignIn {
-                self.view?.showAllTabs(TabUseCaseProvider.provide().list())
+                return
             }
-            return
         }
-        self.view?.showAllTabs(TabUseCaseProvider.provide().list())
     }
 }
 
