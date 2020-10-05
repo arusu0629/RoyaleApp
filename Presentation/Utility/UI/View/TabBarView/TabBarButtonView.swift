@@ -14,6 +14,8 @@ protocol TabBarButtonViewDelegate: AnyObject {
 
 final class TabBarButtonView: UIView {
 
+    static let DefaultFontSize: CGFloat = 16
+
     @IBOutlet private weak var button: UIButton!
     @IBOutlet private weak var borderLine: UIView!
 
@@ -39,9 +41,10 @@ final class TabBarButtonView: UIView {
 // MARK: - Setup
 extension TabBarButtonView {
 
-    func setup(text: String, index: Int) {
+    func setup(text: String, index: Int, fontSize: CGFloat) {
         self.button.setTitle(text, for: .normal)
         self.index = index
+        self.button.titleLabel?.font = UIFont.HiraginoSansW6(size: fontSize)
     }
 }
 

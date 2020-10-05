@@ -95,7 +95,7 @@ extension WebViewController: WebView {
     }
 
     func setupWebViewTab(_ tabs: [WebViewTab], initialIndex: Int) {
-        self.webViewTabBarView.setupTab(tabTexts: tabs.map { $0.label }, initialIndex: initialIndex)
+        self.webViewTabBarView.setupTab(tabTexts: tabs.map { $0.label }, initialIndex: initialIndex, fontSize: 14)
     }
 
     func loadRequest(_ request: URLRequest) {
