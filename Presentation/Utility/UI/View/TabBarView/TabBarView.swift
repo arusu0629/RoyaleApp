@@ -42,12 +42,12 @@ final class TabBarView: UIView {
 // MARK: - Setup
 extension TabBarView {
 
-    func setupTab(tabTexts: [String], initialIndex: Int = 0) {
+    func setupTab(tabTexts: [String], initialIndex: Int = 0, fontSize: CGFloat = TabBarButtonView.DefaultFontSize) {
         self.tabTexts = tabTexts
         self.selectedTabIndex = initialIndex
         self.removeAllTabBarButtonViews()
-        self.addTabBarButtonViews(texts: tabTexts)
-        self.setupStackView()
+        self.addTabBarButtonViews(texts: tabTexts, fontSize: fontSize)
+        self.setupStackView(fontSize: fontSize)
         self.moveSelectedView(index: self.selectedTabIndex, moveDuration: 0)
     }
 
@@ -61,26 +61,27 @@ extension TabBarView {
     }
 
     // Create button view and add StackView
-    private func addTabBarButtonViews(texts: [String]) {
+    private func addTabBarButtonViews(texts: [String], fontSize: CGFloat) {
         for (index, text) in texts.enumerated() {
-            let tabBarButtonView = self.createTabBarButtonView(text: text, index: index)
+            let tabBarButtonView = self.createTabBarButtonView(text: text, index: index, fontSize: fontSize)
             self.stackView.addArrangedSubview(tabBarButtonView)
             self.tabBarButtonViews.append(tabBarButtonView)
         }
     }
 
-    private func setupStackView() {
+    private func setupStackView(fontSize: CGFloat) {
         self.stackView.isHidden = false
         self.stackView.layoutIfNeeded() // want to get child view frame
         let stackViewSize = self.stackView.frame.size
         self.selectedView.frame.size = CGSize(width: stackViewSize.width / CGFloat(self.tabBarButtonViews.count), height: stackViewSize.height)
         self.selectedViewLabel.frame.size = self.selectedView.frame.size
+        self.selectedViewLabel.font = UIFont.HiraginoSansW7(size: fontSize)
     }
 
-    private func createTabBarButtonView(text: String, index: Int) -> TabBarButtonView {
+    private func createTabBarButtonView(text: String, index: Int, fontSize: CGFloat) -> TabBarButtonView {
         let tabBarButtonView = TabBarButtonView()
         tabBarButtonView.delegate = self
-        tabBarButtonView.setup(text: text, index: index)
+        tabBarButtonView.setup(text: text, index: index, fontSize: fontSize)
         return tabBarButtonView
     }
 }
