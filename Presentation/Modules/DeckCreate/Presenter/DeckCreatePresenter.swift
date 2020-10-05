@@ -49,6 +49,7 @@ extension DeckCreatePresenterImpl {
 
     func viewDidload() {
         AnalyticsManager.sendEvent(DeckCreateEvent.display)
+        self.view?.didFetchCardSortType(cardSortType: self.sortType)
         self.getDeckInfo()
         self.view?.showFooterAd()
     }
