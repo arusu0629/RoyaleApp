@@ -28,8 +28,21 @@ settings:
 targets:
   Analytics:
     dependencies:
+    - sdk: libc++.tbd
     - target: DataStore
     - target: Domain
+    - framework: Carthage/Build/iOS/FIRAnalyticsConnector.framework
+    - framework: Carthage/Build/iOS/FirebaseAnalytics.framework
+    - framework: Carthage/Build/iOS/FirebaseCore.framework
+    - framework: Carthage/Build/iOS/FirebaseCoreDiagnostics.framework
+    - framework: Carthage/Build/iOS/FirebaseCrashlytics.framework
+    - framework: Carthage/Build/iOS/FirebaseInstallations.framework
+    - framework: Carthage/Build/iOS/FirebaseRemoteConfig.framework
+    - framework: Carthage/Build/iOS/GoogleAppMeasurement.framework
+    - framework: Carthage/Build/iOS/GoogleDataTransport.framework
+    - framework: Carthage/Build/iOS/GoogleUtilities.framework
+    - framework: Carthage/Build/iOS/nanopb.framework
+    - framework: Carthage/Build/iOS/PromisesObjC.framework
     platform: iOS
     settings:
       configs:
@@ -43,6 +56,7 @@ targets:
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
           PRODUCT_BUNDLE_IDENTIFIER: com.Analytics
           SWIFT_VERSION: 5.0
+          OTHER_LDFLAGS: -ObjC
         Release:
           CODE_SIGN_STYLE: Automatic
           DEVELOPMENT_TEAM: 8CBGKNYH9U
@@ -53,6 +67,7 @@ targets:
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
           PRODUCT_BUNDLE_IDENTIFIER: com.Analytics
           SWIFT_VERSION: 5.0
+          OTHER_LDFLAGS: -ObjC
     sources: [Analytics]
     type: framework
   AnalyticsTests:
@@ -98,6 +113,7 @@ targets:
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DataStore
           SWIFT_VERSION: 5.0
+          OTHER_LDFLAGS: -ObjC
         Release:
           CODE_SIGN_STYLE: Automatic
           FRAMEWORK_SEARCH_PATHS:
@@ -108,6 +124,7 @@ targets:
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DataStore
           SWIFT_VERSION: 5.0
+          OTHER_LDFLAGS: -ObjC
     sources: [DataStore]
     type: framework
   DataStoreTests:
@@ -185,10 +202,11 @@ targets:
   Presentation:
     dependencies:
     - target: Analytics
-    - framework: Carthage/Build/iOS/Charts.framework
     - target: Domain
+    - framework: Carthage/Build/iOS/Charts.framework
     - framework: Carthage/Build/iOS/Kingfisher.framework
     - framework: Carthage/Build/iOS/SwipeableTabBarController.framework
+    - framework: Carthage/Build/iOS/GoogleMobileAds.framework
     platform: iOS
     settings:
       configs:
@@ -201,6 +219,7 @@ targets:
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Presentation
           SWIFT_VERSION: 5.0
+          OTHER_LDFLAGS: -ObjC
         Release:
           CODE_SIGN_STYLE: Automatic
           FRAMEWORK_SEARCH_PATHS:
@@ -210,6 +229,7 @@ targets:
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Presentation
           SWIFT_VERSION: 5.0
+          OTHER_LDFLAGS: -ObjC
     sources: [Presentation]
     type: framework
   PresentationTests:
