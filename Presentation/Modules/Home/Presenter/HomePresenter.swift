@@ -14,6 +14,7 @@ protocol HomePresenter: AnyObject {
     func viewDidLoad()
     func willEnterForground()
     func didSelectDateFilterButton(index: Int)
+    func refreshUI()
 }
 
 final class HomePresenterImpl: HomePresenter {
@@ -42,6 +43,10 @@ final class HomePresenterImpl: HomePresenter {
         let trophyDateFilter = self.trophyDateFilterUseCase.list()[index]
         AnalyticsManager.sendEvent(HomeEvent.selectDateFilter(trophyDateFilter: trophyDateFilter))
         self.requestBattleLog(with: trophyDateFilter.filterDate)
+    }
+
+    func refreshUI() {
+        self.setup()
     }
 }
 

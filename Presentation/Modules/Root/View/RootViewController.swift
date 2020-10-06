@@ -12,7 +12,9 @@ import UIKit
 
 import DataStore
 
-protocol RootView: AnyObject {}
+protocol RootView: AnyObject {
+    func refreshHomeUI()
+}
 
 // MARK: - Properties
 public final class RootViewController: SwipeableTabBarController {
@@ -36,6 +38,21 @@ extension RootViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter.viewWillAppear()
+    }
+}
+
+// MARK: - RootView
+extension RootViewController: RootView {
+
+    func refreshHomeUI() {
+        guard let viewControllers = self.viewControllers else {
+            return
+        }
+        viewControllers.forEach {
+            if let homeVC = $0 as? HomeViewController {
+                homeVC.refreshUI()
+            }
+        }
     }
 }
 
@@ -67,9 +84,6 @@ private extension RootViewController {
         self.selectedIndex = Tab.home.rawValue
     }
 }
-
-// MARK: - RootView
-extension RootViewController: RootView {}
 
 // MARK: - Tab
 private extension Tab {

@@ -6,8 +6,8 @@
 //  Copyright © 2020 arusu0629. All rights reserved.
 //
 
-import Foundation
 import Domain
+import Foundation
 
 protocol RootPresenter: AnyObject {
     func viewWillAppear()
@@ -21,11 +21,12 @@ final class RootPresenterImpl: RootPresenter {
     var wireframe: RootWireframe!
 
     func viewWillAppear() {
-        if AppConfig.playerTag.isEmpty {
-            self.presentSignIn {
-                return
-            }
+        if !AppConfig.playerTag.isEmpty {
+            return
         }
+        self.presentSignIn(dismissCompletion: {
+            self.view?.refreshHomeUI()
+        })
     }
 }
 

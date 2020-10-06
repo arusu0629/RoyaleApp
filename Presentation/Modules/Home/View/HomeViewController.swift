@@ -41,6 +41,8 @@ public final class HomeViewController: UIViewController {
     @IBOutlet private weak var footerAdView: FooterAdView!
 
     var presenter: HomePresenter!
+
+    private var isFinishViewDidLoad = false
 }
 
 // MARK: - Life cycle
@@ -49,6 +51,7 @@ extension HomeViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.viewDidLoad()
+        self.isFinishViewDidLoad = true
     }
 }
 
@@ -108,6 +111,15 @@ extension HomeViewController: HomeView {
     func showFooterAdView() {
         self.footerAdView.showLoading()
         AdManager.shared.setupAd(dataSource: self, delegate: self, targetView: self.footerAdView)
+    }
+}
+
+extension HomeViewController {
+
+    func refreshUI() {
+        if self.isFinishViewDidLoad {
+            self.presenter.refreshUI()
+        }
     }
 }
 
