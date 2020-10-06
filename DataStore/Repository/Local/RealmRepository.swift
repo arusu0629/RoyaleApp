@@ -17,9 +17,12 @@ public enum RealmRepositoryProvider {
 }
 
 public protocol RealmRepository {
+    typealias Completion = (Result<Void, Error>) -> Void
+
     func save<T: Object>(object: T)
     func save<T: Object>(objects: [T])
     func get<T: Object>(with type: T.Type) -> Results<T>?
+    func deleteAll(completion: Completion)
 }
 
 private struct RealmRepositoryImpl: RealmRepository {
@@ -36,5 +39,9 @@ private struct RealmRepositoryImpl: RealmRepository {
 
     func get<T>(with type: T.Type) -> Results<T>? where T : Object {
         return self.realmDataStore.get(with: type)
+    }
+
+    func deleteAll(completion: Completion) {
+        self.realmDataStore.deleteAll(completion: completion)
     }
 }

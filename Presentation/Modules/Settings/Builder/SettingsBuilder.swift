@@ -21,6 +21,8 @@ enum SettingsBuilder {
         presenter.view = view
         presenter.wireframe = wireframe
         presenter.settingsSectionUseCase = SettingsSelectionUseCaseProvider.provide()
+        presenter.realmBattleLogUseCase = RealmBattleLogsUseCaseProvider.provide()
+        presenter.realmDeckModelUseCase = RealmDeckModelUseCaseProvider.provide()
 
         wireframe.viewController = view
 

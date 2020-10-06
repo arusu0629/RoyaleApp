@@ -21,6 +21,8 @@ final class SettingsPresenterImpl: SettingsPresenter {
 
     weak var view: SettingsView?
     var wireframe: SettingsWireframe!
+    var realmBattleLogUseCase: RealmBattleLogsUseCase!
+    var realmDeckModelUseCase: RealmDeckModelUseCase!
 
     var settingsSectionUseCase: SettingsSelectionUseCase!
 
@@ -33,10 +35,23 @@ final class SettingsPresenterImpl: SettingsPresenter {
     }
 
     func didSelectLogout() {
-        // TODO: delete battle info, deck info with usecase
-
-        AppConfig.playerTag = ""
-        self.wireframe.popViewController()
+        // Delete battle info, deck info with usecase
+        self.realmBattleLogUseCase.deleteAll { result in
+            switch result {
+            case .success:
+                self.realmDeckModelUseCase.deleteAll { result in
+                    switch result {
+                    case .success:
+                        AppConfig.playerTag = ""
+                        self.wireframe.popViewController()
+                    case .failure(let error):
+                        self.view?.showErrorAlert(error)
+                    }
+                }
+            case .failure(let error):
+                self.view?.showErrorAlert(error)
+            }
+        }
     }
 
     func didSelectBack() {

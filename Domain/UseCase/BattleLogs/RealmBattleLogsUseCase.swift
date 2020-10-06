@@ -20,10 +20,13 @@ public enum RealmBattleLogsUseCaseProvider {
 }
 
 public protocol RealmBattleLogsUseCase {
+    typealias Completion = (Result<Void, Error>) -> Void
+
     func save(object: RealmBattleLogModel)
     func save(objects: [RealmBattleLogModel])
     func get() -> Results<RealmBattleLogModel>?
     func getLatest() -> RealmBattleLogModel?
+    func deleteAll(completion: Completion)
 }
 
 private struct RealmBattleLogsUseCaseImpl: RealmBattleLogsUseCase {
@@ -51,5 +54,9 @@ private struct RealmBattleLogsUseCaseImpl: RealmBattleLogsUseCase {
             return nil
         }
         return sortedBattleLogs[sortedBattleLogs.count - 1]
+    }
+
+    func deleteAll(completion: Completion) {
+        self.realmUseCase.deleteAll(completion: completion)
     }
 }

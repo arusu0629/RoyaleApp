@@ -18,9 +18,12 @@ enum RealmUseCaseProvider {
 }
 
 protocol RealmUseCase {
+    typealias Completion = (Result<Void, Error>) -> Void
+
     func save<T: Object>(object: T)
     func save<T: Object>(objects: [T])
     func get<T: Object>(with type: T.Type) -> Results<T>?
+    func deleteAll(completion: Completion)
 }
 
 private struct RealmUseCaseImpl: RealmUseCase {
@@ -37,5 +40,9 @@ private struct RealmUseCaseImpl: RealmUseCase {
 
     func get<T>(with type: T.Type) -> Results<T>? where T : Object {
         return self.repository.get(with: type)
+    }
+
+    func deleteAll(completion: Completion) {
+        self.repository.deleteAll(completion: completion)
     }
 }

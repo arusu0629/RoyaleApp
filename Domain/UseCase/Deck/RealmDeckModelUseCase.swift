@@ -20,8 +20,11 @@ public enum RealmDeckModelUseCaseProvider {
 }
 
 public protocol RealmDeckModelUseCase {
+    typealias Completion = (Result<Void, Error>) -> Void
+
     func save(object: RealmDeckModel)
     func get() -> Results<RealmDeckModel>?
+    func deleteAll(completion: Completion)
 }
 
 private struct RealmDeckModelUseCaseImpl: RealmDeckModelUseCase {
@@ -34,5 +37,9 @@ private struct RealmDeckModelUseCaseImpl: RealmDeckModelUseCase {
 
     func get() -> Results<RealmDeckModel>? {
         return self.realmUseCase.get(with: RealmDeckModel.self)
+    }
+
+    func deleteAll(completion: Completion) {
+        self.realmUseCase.deleteAll(completion: completion)
     }
 }

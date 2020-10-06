@@ -17,9 +17,12 @@ enum RealmDataStoreProvider {
 }
 
 protocol RealmDataStore {
+    typealias Completion = (Result<Void, Error>) -> Void
+
     func save<T: Object>(object: T)
     func save<T: Object>(objects: [T])
     func get<T: Object>(with type: T.Type) -> Results<T>?
+    func deleteAll(completion: Completion)
     var configName: String { get set }
 }
 
@@ -55,6 +58,21 @@ private struct RealmDataStoreImpl: RealmDataStore {
             return nil
         }
         return realm.objects(type.self)
+    }
+
+    func deleteAll(completion: (Result<Void, Error>) -> Void) {
+        guard let realm = self.realm() else {
+            completion(.failure(RealmDataStoreError.instance))
+            return
+        }
+        do {
+            try realm.write {
+                realm.deleteAll()
+                completion(.success(()))
+            }
+        } catch {
+            completion(.failure(RealmDataStoreError.failedDelete))
+        }
     }
 
     private func realm() -> Realm? {

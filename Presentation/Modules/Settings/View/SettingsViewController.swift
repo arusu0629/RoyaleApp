@@ -9,7 +9,7 @@
 import Domain
 import UIKit
 
-protocol SettingsView: ShowAlertView {
+protocol SettingsView: ShowErrorAlertView {
     func reloadData(settingsSections: [SettingsSection])
 
     func showLogoutAlertView()
