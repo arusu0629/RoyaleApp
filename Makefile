@@ -1,4 +1,4 @@
-PROJECT_NAME := RoyaleApp
+PRODUCT_NAME := RoyaleApp
 SCHEME_NAME := ${PRODUCT_NAME}
 PROJECT_NAME := ${PRODUCT_NAME}.xcodeproj
 UI_TESTS_TARGET_NAME := ${PRODUCT_NAME}UITests
@@ -31,3 +31,31 @@ xcodegen:
 .PHONY: open
 open:
 	open ./${PROJECT_NAME}
+
+.PHONY: show-devices
+show-devices:
+	instruments -s devices
+
+.PHONY: build-debug
+build-debug:
+	set -o pipefail && \
+xcodebuild \
+-sdk ${TEST_SDK} \
+-configuration ${TEST_CONFIGURATION} \
+-project ${PROJECT_NAME} \
+-scheme ${SCHEME_NAME} \
+build \
+| xcpretty
+
+.PHONY: test
+test:
+	set -o pipefail && \
+xcodebuild \
+-sdk ${TEST_SDK} \
+-configuration ${TEST_CONFIGURATION} \
+-project ${PROJECT_NAME} \
+-scheme ${SCHEME_NAME} \
+-destination ${TEST_DESTINATION} \
+-skip-testing:${UI_TESTS_TARGET_NAME} \
+clean test \
+| xcpretty
