@@ -11,9 +11,9 @@ import UIKit
 
 enum DeckCreateBuilder {
 
-    static func build(deckIndex: Int, selectedCardList: [CardModel]) -> UIViewController {
+    static func build(deckIndex: Int, selectedCardList: [CardModel], dismissCompletion: (() -> Void)? = nil) -> UIViewController {
         let view = DeckCreateViewController.instantiate()
-        let presenter = DeckCreatePresenterImpl(deckIndex: deckIndex, selectedCardList: selectedCardList)
+        let presenter = DeckCreatePresenterImpl(deckIndex: deckIndex, selectedCardList: selectedCardList, dismissCompletion: dismissCompletion)
         let wireframe = DeckCreateWireframeImpl()
 
         view.presenter = presenter

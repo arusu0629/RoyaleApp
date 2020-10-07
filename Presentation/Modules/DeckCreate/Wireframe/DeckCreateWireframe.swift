@@ -18,7 +18,6 @@ final class DeckCreateWireframeImpl: DeckCreateWireframe {
     weak var viewController: UIViewController?
 
     func dismiss(completion: (() -> Void)?) {
-        // passed create deck info previous vc
         self.viewController?.dismiss(animated: true, completion: completion)
     }
 }
