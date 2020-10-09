@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInDescriptionView" customModule="Presentation" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="QwS-xj-GQ8" id="Q6j-nj-tJW"/>
+                <outlet property="pageControl" destination="RjZ-fq-EjK" id="pK9-pz-TRX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QwS-xj-GQ8">
+                    <rect key="frame" x="12" y="0.0" width="276" height="276"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="QwS-xj-GQ8" secondAttribute="height" multiplier="1:1" id="jHf-ez-qeo"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="7Gu-nv-RMP">
+                        <size key="itemSize" width="0.0" height="0.0"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="RjZ-fq-EjK">
+                    <rect key="frame" x="12" y="276" width="276" height="24"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="RjZ-fq-EjK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1x7-vb-Zp6"/>
+                <constraint firstItem="RjZ-fq-EjK" firstAttribute="top" secondItem="QwS-xj-GQ8" secondAttribute="bottom" id="36x-08-Os6"/>
+                <constraint firstItem="QwS-xj-GQ8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6uf-B1-Vey"/>
+                <constraint firstAttribute="bottom" secondItem="RjZ-fq-EjK" secondAttribute="bottom" id="9Go-hD-r22"/>
+                <constraint firstItem="QwS-xj-GQ8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="IbY-VS-YXM"/>
+                <constraint firstItem="RjZ-fq-EjK" firstAttribute="width" secondItem="QwS-xj-GQ8" secondAttribute="width" id="fft-Wb-u1a"/>
+                <constraint firstItem="QwS-xj-GQ8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hz4-KT-Tx1"/>
+                <constraint firstItem="QwS-xj-GQ8" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.92" id="kXL-nM-djG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="121"/>
+        </view>
+    </objects>
+</document>
