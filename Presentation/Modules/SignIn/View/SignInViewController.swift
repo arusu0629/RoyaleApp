@@ -15,14 +15,22 @@ final class SignInViewController: UIViewController {
 
     var presenter: SignInPresenter!
 
+    private let descriptionImages = [Asset.signinExample1.image, Asset.signinExample2.image, Asset.signinExample3.image]
+
+    @IBOutlet private var stackView: UIStackView!
+    @IBOutlet private var stackViewCenterYConstraint: NSLayoutConstraint!
+
     @IBOutlet private weak var inputPlayerTagTextField: UITextField! {
         willSet {
             newValue.delegate = self
         }
     }
 
-    @IBOutlet private var stackView: UIStackView!
-    @IBOutlet private var stackViewCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var descriptionView: SignInDescriptionView! {
+        willSet {
+            newValue.setData(self.descriptionImages)
+        }
+    }
 
     deinit {
         self.unRegisterKeyboardManagerDelegate()
@@ -109,7 +117,7 @@ extension SignInViewController: KeyboardManagerDelegate {
         }
 
         // キーボードの高さに合わせて TextField を上げる
-        self.stackViewCenterYConstraint.constant = -diffY
+        self.stackViewCenterYConstraint.constant = -(diffY + 100)
         UIView.animate(withDuration: keyboardInfo.duration) {
             self.view.layoutIfNeeded()
         }

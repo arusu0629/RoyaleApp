@@ -24,6 +24,10 @@ project:
 	mint run SwiftGen/SwiftGen swiftgen
 	mint run XcodeGen xcodegen
 
+.PHONY: swiftgen
+swiftgen:
+	mint run SwiftGen/SwiftGen swiftgen
+
 .PHONY: xcodegen
 xcodegen:
 	mint run XcodeGen xcodegen
