@@ -63,6 +63,11 @@ extension DeckViewController {
         super.viewDidLoad()
         self.presenter.viewDidLoad()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter.viewWillAppear()
+    }
 }
 
 // MARK: - DeckView

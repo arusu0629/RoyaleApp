@@ -9,5 +9,5 @@
 import Foundation
 
 public enum SettingsSection: Int, CaseIterable {
-    case logout
+    case SignOut
 }

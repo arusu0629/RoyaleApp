@@ -14,6 +14,7 @@ protocol DeckPresenter: AnyObject {
 
     // LifeCycle
     func viewDidLoad()
+    func viewWillAppear()
 
     func didSelectDeckCreate()
     func didSelectDeckChange()
@@ -49,6 +50,9 @@ extension DeckPresenterImpl {
     func viewDidLoad() {
         AnalyticsManager.sendEvent(DeckEvent.display)
         self.view?.showFooterAdView()
+    }
+
+    func viewWillAppear() {
         self.selectedDeckIndex = AppConfig.lastSelectedDeckIndex
         self.getDeckModel()
     }

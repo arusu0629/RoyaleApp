@@ -27,12 +27,7 @@ extension RootViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigationTitle()
-        self.setupNavigationSettings()
-
-        // FIXME: SwipeableTabBarController is called this before presenter is nil, So this code
-        // Ideal: self.presenter.viewDidLoad -> self.view?.showAllTabs(TabUseCaseProvider.provide().list())
-        self.showAllTabs(TabUseCaseProvider.provide().list())
+        self.setup()
     }
 
     public override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +54,16 @@ extension RootViewController: RootView {
 // MARK: - Setup
 private extension RootViewController {
 
+    func setup() {
+        self.setupNavigationTitle()
+        self.setupNavigationSettings()
+        self.setupNotification()
+
+        // FIXME: SwipeableTabBarController is called this before presenter is nil, So this code
+        // Ideal: self.presenter.viewDidLoad -> self.view?.showAllTabs(TabUseCaseProvider.provide().list())
+        self.showAllTabs(TabUseCaseProvider.provide().list())
+    }
+
     func setupNavigationTitle() {
         self.navigationItem.titleView = {
             let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
@@ -74,14 +79,32 @@ private extension RootViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: SFSymbols.settingIconImage, style: .plain, target: self, action: #selector(tappedSettings(_:)))
     }
 
-    @objc func tappedSettings(_ sender: UIBarButtonItem) {
-        self.presenter.didSelectSettings()
-    }
-
     func showAllTabs(_ tabs: [Tab]) {
         let viewControllers: [UIViewController] = tabs.map { $0.viewController }
         self.setViewControllers(viewControllers, animated: false)
         self.selectedIndex = Tab.home.rawValue
+    }
+
+    func setupNotification() {
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(showSetting(_:)), name: Notification.Name.Setting.show, object: nil)
+        center.addObserver(self, selector: #selector(hideSetting(_:)), name: Notification.Name.Setting.hide, object: nil)
+    }
+}
+
+// MARK: - objc
+private extension RootViewController {
+
+    @objc func tappedSettings(_ sender: UIBarButtonItem) {
+        self.presenter.didSelectSettings()
+    }
+
+    @objc func showSetting(_ sender: NSNotification) {
+        self.setupNavigationSettings()
+    }
+
+    @objc func hideSetting(_ sender: NSNotification) {
+        self.navigationItem.rightBarButtonItem = nil
     }
 }
 

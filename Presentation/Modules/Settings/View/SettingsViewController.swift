@@ -12,7 +12,7 @@ import UIKit
 protocol SettingsView: ShowErrorAlertView {
     func reloadData(settingsSections: [SettingsSection])
 
-    func showLogoutAlertView()
+    func showSignOutAlertView()
 }
 
 // MARK: - Properties
@@ -64,11 +64,11 @@ extension SettingsViewController: SettingsView {
         self.tableView.reloadData()
     }
 
-    func showLogoutAlertView() {
+    func showSignOutAlertView() {
         self.showAlert("", message: self.signOutAlertMessage, actions: [
             .init(title: "Cancel", style: .default, handler: nil),
             .init(title: "OK", style: .default, handler: { [weak self] _ in
-                self?.presenter.didSelectLogout()
+                self?.presenter.didSelectSignOut()
             })
             ]
         )
@@ -97,7 +97,7 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let settingSection = self.settingsSections[indexPath.section]
         switch settingSection {
-        case .logout:
+        case .SignOut:
             let cell = tableView.dequeueReusableCell(withIdentifier: settingSection.className, for: indexPath) as! SignOutTableViewCell
             cell.delegate = self
             return cell
@@ -110,7 +110,7 @@ extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let settingsSection = self.settingsSections[indexPath.section]
         switch settingsSection {
-        case .logout: return SignOutTableViewCell.CellHeight
+        case .SignOut: return SignOutTableViewCell.CellHeight
         }
     }
 }
@@ -119,7 +119,7 @@ extension SettingsViewController: UITableViewDelegate {
 extension SettingsViewController: SignOutTableViewCellDelegate {
 
     func didTapSignOut() {
-        self.presenter.didSelectLogoutCell()
+        self.presenter.didSelectSignOutCell()
     }
 }
 
@@ -127,13 +127,13 @@ private extension SettingsSection {
 
     var nib: UINib {
         switch self {
-        case .logout: return SignOutTableViewCell.nib
+        case .SignOut: return SignOutTableViewCell.nib
         }
     }
 
     var className: String {
         switch self {
-        case .logout: return SignOutTableViewCell.className
+        case .SignOut: return SignOutTableViewCell.className
         }
     }
 

@@ -12,8 +12,8 @@ import Foundation
 protocol SettingsPresenter: AnyObject {
     func viewDidLoad()
 
-    func didSelectLogoutCell()
-    func didSelectLogout()
+    func didSelectSignOutCell()
+    func didSelectSignOut()
     func didSelectBack()
 }
 
@@ -30,11 +30,11 @@ final class SettingsPresenterImpl: SettingsPresenter {
         self.view?.reloadData(settingsSections: self.settingsSectionUseCase.all())
     }
 
-    func didSelectLogoutCell() {
-        self.view?.showLogoutAlertView()
+    func didSelectSignOutCell() {
+        self.view?.showSignOutAlertView()
     }
 
-    func didSelectLogout() {
+    func didSelectSignOut() {
         // Delete battle info, deck info with usecase
         self.realmBattleLogUseCase.deleteAll { result in
             switch result {
@@ -43,6 +43,7 @@ final class SettingsPresenterImpl: SettingsPresenter {
                     switch result {
                     case .success:
                         AppConfig.playerTag = ""
+                        self.resetAppConfigIndex()
                         self.wireframe.popViewController()
                     case .failure(let error):
                         self.view?.showErrorAlert(error)
@@ -56,5 +57,12 @@ final class SettingsPresenterImpl: SettingsPresenter {
 
     func didSelectBack() {
         self.wireframe.popViewController()
+    }
+
+    private func resetAppConfigIndex() {
+        AppConfig.lastSelectedDeckIndex = 0
+        AppConfig.lastSelectedSortIndex = 0
+        AppConfig.lastSelectedFilterDateIndex = 0
+        AppConfig.lastSelectedWebViewTabIndex = 0
     }
 }

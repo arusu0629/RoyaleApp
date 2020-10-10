@@ -40,7 +40,7 @@
                                             <constraint firstItem="GLN-LD-5J2" firstAttribute="leading" secondItem="v3w-pd-D78" secondAttribute="leading" id="zux-Wd-jz4"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D34-bL-teb" userLabel="LogoutView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D34-bL-teb" userLabel="SignOutView">
                                         <rect key="frame" x="0.0" y="25" width="355" height="45"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4HT-br-Qfr">
