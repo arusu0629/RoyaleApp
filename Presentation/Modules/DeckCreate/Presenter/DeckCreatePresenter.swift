@@ -37,13 +37,10 @@ final class DeckCreatePresenterImpl: DeckCreatePresenter {
 
     private var playerModel: PlayerModel?
 
-    private var dismissCompletion: (() -> Void)?
-
-    init(deckIndex: Int, selectedCardList: [CardModel], dismissCompletion: (() -> Void)? = nil) {
+    init(deckIndex: Int, selectedCardList: [CardModel]) {
         self.selectedDeckIndex = deckIndex
         self.selectedCardList = selectedCardList
         self.sortType = CardSortType(rawValue: AppConfig.lastSelectedSortIndex) ?? .arena
-        self.dismissCompletion = dismissCompletion
     }
 }
 
@@ -61,7 +58,7 @@ extension DeckCreatePresenterImpl {
         let deck = DeckModel(cards: self.selectedCardList)
         AnalyticsManager.sendEvent(DeckCreateEvent.selectDeckSelect(deck: deck))
         self.realmDeckModelUseCase.save(object: RealmDeckModel.create(playerTag: AppConfig.playerTag, index: self.selectedDeckIndex, name: "テスト", deckModel: deck))
-        self.wireframe.dismiss(completion: self.dismissCompletion)
+        self.wireframe.dismiss(completion: nil)
     }
 
     func didSelectDeckClear() {

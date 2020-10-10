@@ -56,16 +56,12 @@ extension DeckPresenterImpl {
     func didSelectDeckCreate() {
         AnalyticsManager.sendEvent(DeckEvent.selectCreateDeck)
         self.selectedDeckIndex = self.decks.count
-        self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex, selectedCardList: self.currentDeck.cards, dismissCompletion: {
-            self.getDeckModel()
-        })
+        self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex, selectedCardList: self.currentDeck.cards)
     }
 
     func didSelectDeckChange() {
         AnalyticsManager.sendEvent(DeckEvent.selectChangeDeck)
-        self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex, selectedCardList: self.currentDeck.cards, dismissCompletion: {
-            self.getDeckModel()
-        })
+        self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex, selectedCardList: self.currentDeck.cards)
     }
 
     func didSelectDeckShare() {
