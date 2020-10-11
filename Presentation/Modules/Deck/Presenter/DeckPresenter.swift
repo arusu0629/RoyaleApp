@@ -42,6 +42,7 @@ final class DeckPresenterImpl: DeckPresenter {
         }
         return self.decks[selectedDeckIndex]
     }
+    private let canDeckCreateCount: Int = 5
 }
 
 // MARK: - DeckPresenter
@@ -58,6 +59,10 @@ extension DeckPresenterImpl {
     }
 
     func didSelectDeckCreate() {
+        guard self.canDeckCreate(currentDeckCount: self.decks.count) else {
+            self.view?.showErrorAlert(DeckCreateError.limitedCreate(canCreateCount: self.canDeckCreateCount))
+            return
+        }
         AnalyticsManager.sendEvent(DeckEvent.selectCreateDeck)
         self.selectedDeckIndex = self.decks.count
         self.wireframe.presentDeckCreate(deckIndex: self.selectedDeckIndex, selectedCardList: self.currentDeck.cards)
@@ -70,11 +75,11 @@ extension DeckPresenterImpl {
 
     func didSelectDeckShare() {
         if let error = self.canDeckShare(deck: self.currentDeck) {
-            self.view?.failedToDeckShare(error: error)
+            self.view?.showErrorAlert(error)
             return
         }
         guard let url = DeckMaster.shared.createDeckShareUrl(currentDeck: self.currentDeck) else {
-            self.view?.failedToDeckShare(error: DeckShareError.invalidURL)
+            self.view?.showErrorAlert(DeckShareError.invalidURL)
             return
         }
         AnalyticsManager.sendEvent(DeckEvent.selectShareDeck(deck: self.currentDeck))
@@ -114,7 +119,7 @@ extension DeckPresenterImpl {
 // MARK: - DeckShare
 extension DeckPresenterImpl {
 
-    func canDeckShare(deck: DeckModel) -> Error? {
+    private func canDeckShare(deck: DeckModel) -> Error? {
         if deck.cards.count != 8 {
             return DeckShareError.invalidCardCount
         }
@@ -133,5 +138,13 @@ extension DeckPresenterImpl {
             cardIds.insert(card.id)
         }
         return false
+    }
+}
+
+// MARK: - DeckCreate
+extension DeckPresenterImpl {
+
+    private func canDeckCreate(currentDeckCount: Int) -> Bool {
+        return currentDeckCount < self.canDeckCreateCount
     }
 }

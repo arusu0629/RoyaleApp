@@ -9,13 +9,12 @@
 import Domain
 import UIKit
 
-protocol DeckView: AnyObject {
+protocol DeckView: ShowErrorAlertView {
     func willFetchDecks()
     func didFetchDecks(decks: [DeckModel], selectedDeckIndex: Int)
     func didFailedFetchDecks(error: Error)
 
     func executeDeckShare(url: URL)
-    func failedToDeckShare(error: Error)
     func didUpdateSelectedDeck(currentDeck: DeckModel)
 
     // Ad
@@ -23,7 +22,7 @@ protocol DeckView: AnyObject {
 }
 
 // MARK: - Properties
-final class DeckViewController: UIViewController, ShowErrorAlertView {
+final class DeckViewController: UIViewController {
 
     var presenter: DeckPresenter!
 
@@ -100,10 +99,6 @@ extension DeckViewController: DeckView {
         } else {
             self.showErrorAlert(DeckShareError.invalidURL)
         }
-    }
-
-    func failedToDeckShare(error: Error) {
-        self.showErrorAlert(error)
     }
 
     func didUpdateSelectedDeck(currentDeck: DeckModel) {

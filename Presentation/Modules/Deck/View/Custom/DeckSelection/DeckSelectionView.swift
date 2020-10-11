@@ -50,13 +50,13 @@ extension DeckSelectionView {
     func setup(deckCount: Int, lastSelectedDeckIndex: Int) {
         self.deckCount = deckCount
         self.lastSelectedDeckIndex = lastSelectedDeckIndex
+        //        self.updateCollectionViewFlowLayout()
         self.collectionView.reloadData()
     }
 }
 
 // MARK: - UICollectionViewDelegate
-extension DeckSelectionView: UICollectionViewDelegate {
-}
+extension DeckSelectionView: UICollectionViewDelegate {}
 
 // MARK: - UICollectionViewDataSource
 extension DeckSelectionView: UICollectionViewDataSource {

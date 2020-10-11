@@ -25,7 +25,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNc-kS-RuG" userLabel="HeaderView">
                                         <rect key="frame" x="0.0" y="179" width="355" height="40"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kAM-ee-xtF">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kAM-ee-xtF">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mh8-PX-K2U" userLabel="AddView">
@@ -57,7 +57,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEW-iG-63f" userLabel="DeckSelectionScrollView" customClass="DeckSelectionView" customModule="Presentation" customModuleProvider="target">
-                                                        <rect key="frame" x="60" y="0.0" width="235" height="40"/>
+                                                        <rect key="frame" x="50" y="0.0" width="255" height="40"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkG-kK-fQ1" userLabel="ShareView">
