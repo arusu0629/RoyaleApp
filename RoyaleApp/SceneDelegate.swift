@@ -6,6 +6,7 @@
 //  Copyright © 2020 nakandakari. All rights reserved.
 //
 
+import Domain
 import Presentation
 import UIKit
 
@@ -55,7 +56,7 @@ extension SceneDelegate {
         }
 
         guard let viewControllers = rootViewController.viewControllers,
-            let homeViewController = viewControllers[0] as? HomeViewController else {
+            let homeViewController = viewControllers[Tab.home.rawValue] as? HomeViewController else {
                 return nil
         }
 
