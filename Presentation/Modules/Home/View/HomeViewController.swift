@@ -54,14 +54,14 @@ extension HomeViewController {
         self.isFinishViewDidLoad = true
     }
 
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.showSettingNavigationItem()
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.showNavigationItem()
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.hideSettingNavigationItem()
+        self.hideNavigationItem()
     }
 }
 
@@ -124,8 +124,18 @@ extension HomeViewController: HomeView {
     }
 }
 
-// MARK: - Show, Hide Setting Navigation Item
+// MARK: - Show, Hide Navigation Item
 private extension HomeViewController {
+
+    func showNavigationItem() {
+        self.showSettingNavigationItem()
+        self.showRefreshNavigationItem()
+    }
+
+    func hideNavigationItem() {
+        self.hideSettingNavigationItem()
+        self.hideRefreshNavigationItem()
+    }
 
     func showSettingNavigationItem() {
         NotificationCenter.default.post(name: Notification.Name.Setting.show, object: nil)
@@ -133,6 +143,14 @@ private extension HomeViewController {
 
     func hideSettingNavigationItem() {
         NotificationCenter.default.post(name: Notification.Name.Setting.hide, object: nil)
+    }
+
+    func showRefreshNavigationItem() {
+        NotificationCenter.default.post(name: Notification.Name.Refresh.show, object: nil)
+    }
+
+    func hideRefreshNavigationItem() {
+        NotificationCenter.default.post(name: Notification.Name.Refresh.hide, object: nil)
     }
 }
 

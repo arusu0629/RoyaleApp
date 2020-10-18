@@ -13,6 +13,9 @@ protocol RootPresenter: AnyObject {
     func viewWillAppear()
 
     func didSelectSettings()
+    func didSelectRefresh()
+
+    func didSelectCancelRefresh()
 }
 
 final class RootPresenterImpl: RootPresenter {
@@ -28,6 +31,18 @@ final class RootPresenterImpl: RootPresenter {
             self.view?.refreshHomeUI()
         })
     }
+
+    func didSelectSettings() {
+        self.wireframe.pushSettings()
+    }
+
+    func didSelectRefresh() {
+        self.view?.showMovie()
+    }
+
+    func didSelectCancelRefresh() {
+        self.view?.cancelMovie()
+    }
 }
 
 // MARK: - Signin
@@ -35,13 +50,5 @@ extension RootPresenterImpl {
 
     func presentSignIn(dismissCompletion: (() -> Void)?) {
         self.wireframe.presentSignIn(dismissCompletion: dismissCompletion)
-    }
-}
-
-// MARK: - Settings
-extension RootPresenterImpl {
-
-    func didSelectSettings() {
-        self.wireframe.pushSettings()
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import GoogleMobileAds
+import UIKit
 
 public protocol AdManagerDataSource: AnyObject {
     func currentViewController() -> UIViewController
@@ -19,7 +19,7 @@ public protocol AdManagerDelegate: AnyObject {
 }
 
 protocol AdManagerProtocol: AnyObject {
-    var delegate: AdReceiverDelegate? { get set }
+    var adDelegate: AdReceiverDelegate? { get set }
 }
 
 protocol AdReceiverDelegate: AnyObject {
@@ -34,7 +34,7 @@ public final class AdManager {
     private init() {}
 
     public static func setup() {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        AdMobManager.setup()
     }
 
     weak var delegate: AdManagerDelegate?
@@ -62,7 +62,7 @@ extension AdManager {
         switch adNetwork {
         case .admob(let id):
             self.adMobManager = AdMobManager()
-            self.adMobManager?.delegate = self
+            self.adMobManager?.adDelegate = self
             self.adMobManager?.setupBannerView(vc: vc, adView: targetView, id: id)
         }
     }

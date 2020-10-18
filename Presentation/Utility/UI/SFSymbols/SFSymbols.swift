@@ -20,7 +20,9 @@ final class SFSymbols {
     static var webIconImage:     UIImage { return UIImage(systemName: "globe")!.withTintColor(SFSymbols.iconImageColor) }
     static var webFillIconImage: UIImage { return UIImage(systemName: "globe")!.withTintColor(SFSymbols.fillIconImageColor) }
 
-    static var settingIconImage: UIImage { return UIImage(systemName: "gear")!.withTintColor(SFSymbols.iconImageColor) }
+    // MARK: - HomeViewController
+    static var navigationItemSettingIconImage: UIImage { return UIImage(systemName: "gear")!.withTintColor(SFSymbols.iconImageColor) }
+    static var navigationItemRefreshIconImage: UIImage { return UIImage(systemName: "arrow.counterclockwise")!.withTintColor(SFSymbols.iconImageColor) }
 
     // MARK: - WebViewController
     static var arrowLeftIconImage: UIImage { return UIImage(systemName: "arrow.left")!.withTintColor(SFSymbols.iconImageColor) }

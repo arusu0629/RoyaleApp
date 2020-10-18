@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CancelableLoadingView" customModule="Presentation" customModuleProvider="target">
+            <connections>
+                <outlet property="indicator" destination="NVg-MF-vz5" id="tJM-wI-LAk"/>
+                <outlet property="titleLabel" destination="MCh-9h-AUD" id="Hs0-6S-amm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfy-qe-3c7" userLabel="BackgroundView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7y-kR-Ked">
+                    <rect key="frame" x="87.5" y="243.5" width="200" height="180"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="eoi-T1-VvR">
+                            <rect key="frame" x="22" y="44.5" width="156.5" height="91"/>
+                            <subviews>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="NVg-MF-vz5">
+                                    <rect key="frame" x="68" y="0.0" width="20" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="E2M-G6-wDO"/>
+                                        <constraint firstAttribute="width" constant="20" id="fcE-al-7yb"/>
+                                    </constraints>
+                                </activityIndicatorView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready for movie reward" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCh-9h-AUD">
+                                    <rect key="frame" x="0.0" y="37" width="156.5" height="12"/>
+                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yY-8y-ch7" userLabel="Cancel">
+                                    <rect key="frame" x="54" y="66" width="48" height="25"/>
+                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="13"/>
+                                    <state key="normal" title="Cancel"/>
+                                    <connections>
+                                        <action selector="didTapButton" destination="-1" eventType="touchUpInside" id="xU9-Zo-EXA"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="6cz-3m-1mS"/>
+                        <constraint firstAttribute="width" constant="200" id="O4x-5z-l37"/>
+                        <constraint firstItem="eoi-T1-VvR" firstAttribute="centerY" secondItem="a7y-kR-Ked" secondAttribute="centerY" id="qfc-vW-066"/>
+                        <constraint firstItem="eoi-T1-VvR" firstAttribute="centerX" secondItem="a7y-kR-Ked" secondAttribute="centerX" id="vbd-8b-xRZ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="nfy-qe-3c7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7CM-2e-JrX"/>
+                <constraint firstAttribute="bottom" secondItem="nfy-qe-3c7" secondAttribute="bottom" id="SSf-sx-jjW"/>
+                <constraint firstAttribute="trailing" secondItem="nfy-qe-3c7" secondAttribute="trailing" id="hBN-hA-bkm"/>
+                <constraint firstItem="a7y-kR-Ked" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jXH-zV-7kC"/>
+                <constraint firstItem="nfy-qe-3c7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mZP-AU-9yx"/>
+                <constraint firstItem="a7y-kR-Ked" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pVR-oX-tp5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="139" y="110"/>
+        </view>
+    </objects>
+</document>

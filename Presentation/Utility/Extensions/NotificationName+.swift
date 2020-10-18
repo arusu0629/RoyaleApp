@@ -18,4 +18,13 @@ extension Notification.Name {
         static var show: NSNotification.Name { return NSNotification.Name("\(Key)\(#function)") }
         static var hide: NSNotification.Name { return NSNotification.Name("\(Key)\(#function)") }
     }
+
+    struct Refresh {
+
+        private static let Key = "Refresh."
+
+        static var show: NSNotification.Name { return NSNotification.Name("\(Key)\(#function)") }
+        static var hide: NSNotification.Name { return NSNotification.Name("\(Key)\(#function)") }
+
+    }
 }

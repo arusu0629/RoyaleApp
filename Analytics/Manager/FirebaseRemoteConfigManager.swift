@@ -56,6 +56,11 @@ extension FirebaseRemoteConfigManager {
         let key = "admob_adunit_id"
         return fetchStringValue(key: key)
     }
+
+    public static func getAdMobMovieRewardId() -> String {
+        let key = "admob_movie_reward_id"
+        return fetchStringValue(key: key)
+    }
 }
 
 // MARK: - WebView
