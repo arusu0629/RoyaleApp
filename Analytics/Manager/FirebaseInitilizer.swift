@@ -12,7 +12,26 @@ import Foundation
 public enum FirebaseInitilizer {
 
     public static func setup() {
-        FirebaseApp.configure()
+        if let options = firebaseOptions {
+            FirebaseApp.configure(options: options)
+        } else {
+            FirebaseApp.configure()
+        }
         FirebaseRemoteConfigManager.setup()
+    }
+
+    private static var firebaseOptions: FirebaseOptions? {
+        var fileName = ""
+        #if DEBUG
+        fileName = "GoogleService-Info-Dev"
+        #else
+        fileName = "GoogleService-Info"
+        #endif
+
+        guard let file = Bundle.main.path(forResource: fileName, ofType: "plist") else {
+            return nil
+        }
+
+        return FirebaseOptions(contentsOfFile: file)!
     }
 }
