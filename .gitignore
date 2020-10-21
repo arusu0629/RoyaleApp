@@ -94,3 +94,7 @@ iOSInjectionProject/
 /.bundle/
 /vendor/bundle/
 /lib/bundler/man/
+
+# ipa
+archive
+build

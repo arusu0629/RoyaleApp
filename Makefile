@@ -63,3 +63,29 @@ xcodebuild \
 -skip-testing:${UI_TESTS_TARGET_NAME} \
 clean test \
 | xcpretty
+
+.PHONY: archive-debug
+archive-debug:
+	set -o pipefail && \
+xcodebuild \
+-workspace ${PROJECT_NAME}/project.xcworkspace \
+-scheme ${SCHEME_NAME} \
+-configuration Debug \
+archive -archivePath ./build/archive && \
+xcodebuild \
+-exportArchive -archivePath ./build/archive.xcarchive \
+-exportPath ~/Desktop/RoyaleApp-Dev/ -exportOptionsPlist ./build/ExportOptions-Dev.plist \
+| xcpretty
+
+.PHONY: archive-release
+archive-release:
+	set -o pipefail && \
+xcodebuild \
+-workspace ${PROJECT_NAME}/project.xcworkspace \
+-scheme ${SCHEME_NAME} \
+-configuration Release \
+archive -archivePath ./build/archive && \
+xcodebuild \
+-exportArchive -archivePath ./build/archive.xcarchive \
+-exportPath ~/Desktop/RoyaleApp-Release/ -exportOptionsPlist ./build/ExportOptions-Release.plist \
+| xcpretty

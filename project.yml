@@ -269,15 +269,23 @@ targets:
         --format\n  mint run swiftlint swiftlint\nelse\n  echo \"warning: Mint not
         installed, download from https://github.com/yonaskolb/Mint\"\nfi\n"
       shell: /bin/sh
-
+    - name: Run Crashytics
+      script: "${PROJECT_DIR}/scripts/FirebaseCrashlytics/run"
+      shell: /bin/sh
+      inputFiles:
+        - ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}
+        - ${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}
+    - name: Upload dSYMs
+      script: "${PROJECT_DIR}/scripts/FirebaseCrashlytics/upload-symbols"
+      shell: /bin/sh
     preBuildScripts:
     - name: Copy GoogleService-Info.plist
       script: |
        # Type a script or drag a script file from your workspace to insert its path.
-       PATH_TO_GOOGLE_PLISTS="${PROJECT_DIR}/RoyaleApp/"
+       PATH_TO_GOOGLE_PLISTS="${PROJECT_DIR}/RoyaleApp"
        case "${CONFIGURATION}" in
           "Debug" )
-              cp -r "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-dev.plist" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist" ;;
+              cp -r "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-Dev.plist" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist" ;;
           "Release" )
               cp -r "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info.plist" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist" ;;
              *)
@@ -313,6 +321,7 @@ targets:
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleApp.dev
           SWIFT_VERSION: 5.0
           ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Dev
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
         Release:
           ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
           CODE_SIGN_IDENTITY: Apple Distribution
@@ -324,6 +333,7 @@ targets:
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleApp
           SWIFT_VERSION: 5.0
           ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
     sources: [RoyaleApp]
     type: application
   RoyaleAppTests:
