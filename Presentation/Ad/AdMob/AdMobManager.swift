@@ -112,7 +112,6 @@ extension AdMobManager: GADRewardedAdDelegate {
 
     /// Tells the delegate that the user earned a reward.
     func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
-        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
         self.userDidEarn = true
     }
     /// Tells the delegate that the rewarded ad was presented.
@@ -124,11 +123,12 @@ extension AdMobManager: GADRewardedAdDelegate {
     func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
         if self.userDidEarn {
             self.movieRewardDelegate?.didSuccessMovieReward()
+        } else {
+            self.movieRewardDelegate?.didCancelMovieReward()
         }
     }
     /// Tells the delegate that the rewarded ad failed to present.
     func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
-        print("Rewarded ad failed to present.")
         self.movieRewardDelegate?.didFailedMovieReward(error: error)
     }
 }

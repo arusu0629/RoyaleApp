@@ -6,6 +6,7 @@
 //  Copyright © 2020 arusu0629. All rights reserved.
 //
 
+import Analytics
 import Domain
 import Foundation
 
@@ -16,6 +17,11 @@ protocol RootPresenter: AnyObject {
     func didSelectRefresh()
 
     func didSelectCancelRefresh()
+
+    // Movie Reward
+    func didSuccessMovieReward()
+    func didCancelMovieReward()
+    func didFailedToPresentMovie(error: Error)
 }
 
 final class RootPresenterImpl: RootPresenter {
@@ -37,11 +43,27 @@ final class RootPresenterImpl: RootPresenter {
     }
 
     func didSelectRefresh() {
+        AnalyticsManager.sendEvent(HomeEvent.selectPlayMovie)
         self.view?.showMovie()
     }
 
     func didSelectCancelRefresh() {
+        AnalyticsManager.sendEvent(HomeEvent.selectCancelMovie)
         self.view?.cancelMovie()
+    }
+
+    func didSuccessMovieReward() {
+        AnalyticsManager.sendEvent(HomeEvent.successMovieReward)
+        self.view?.refreshHomeUI()
+    }
+
+    func didCancelMovieReward() {
+        AnalyticsManager.sendEvent(HomeEvent.cancelMovieReward)
+    }
+
+    func didFailedToPresentMovie(error: Error) {
+        AnalyticsManager.sendEvent(HomeEvent.failedPlayMovie)
+        self.view?.showErrorAlert(error)
     }
 }
 

@@ -16,6 +16,7 @@ public protocol MovieRewardManagerDataSource: AnyObject {
 public protocol MovieRewardManagerDelegate: AnyObject {
     func didPresentMovieReward()
     func didSuccessMovieReward()
+    func didCancelMovieReward()
     func didFailedMovieReward(error: Error)
 }
 
@@ -32,6 +33,7 @@ protocol MovieRewardManagerProtocol: AnyObject {
 protocol MovieRewardReceiverDelegate: AnyObject {
     func didPresentMovieReward()
     func didSuccessMovieReward()
+    func didCancelMovieReward()
     func didFailedMovieReward(error: Error)
 }
 
@@ -90,6 +92,10 @@ extension MovieRewardManager: MovieRewardReceiverDelegate {
 
     func didSuccessMovieReward() {
         self.delegate?.didSuccessMovieReward()
+    }
+
+    func didCancelMovieReward() {
+        self.delegate?.didCancelMovieReward()
     }
 
     func didFailedMovieReward(error: Error) {

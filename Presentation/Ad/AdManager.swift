@@ -75,7 +75,7 @@ extension AdManager: AdReceiverDelegate {
     }
 
     func didFailedAd() {
-        // TODO: Load next ad
+        // TODO: AdNetwork 増やしたら次の広告を読み込み処理を追加する
         self.delegate?.didFailedAd()
     }
 }

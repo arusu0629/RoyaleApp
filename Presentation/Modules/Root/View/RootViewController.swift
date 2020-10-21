@@ -268,12 +268,15 @@ extension RootViewController: MovieRewardManagerDelegate, MovieRewardManagerData
     }
 
     public func didSuccessMovieReward() {
-        self.hideLoading()
-        self.refreshHomeUI()
+        self.presenter.didSuccessMovieReward()
+    }
+
+    public func didCancelMovieReward() {
+        self.presenter.didCancelMovieReward()
     }
 
     public func didFailedMovieReward(error: Error) {
         self.hideLoading()
-        self.showErrorAlert(error)
+        self.presenter.didFailedToPresentMovie(error: error)
     }
 }
