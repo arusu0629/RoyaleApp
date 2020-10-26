@@ -748,6 +748,28 @@
         "id": 26000080
     },
     {
+        "key": "electro-spirit",
+        "name": "Electro Spirit",
+        "sc_key": "ElectroSpirit",
+        "elixir": 1,
+        "type": "Troop",
+        "rarity": "Common",
+        "arena": 10,
+        "description": "Jumps on enemies, dealing Area Damage and stunning up to 9 enemy Troops. Locked in an eternal battle with Knight for the best mustache.",
+        "id": 26000084
+    },
+    {
+        "key": "electro-giant",
+        "name": "Electro Giant",
+        "sc_key": "ElectroGiant",
+        "elixir": 8,
+        "type": "Troop",
+        "rarity": "Epic",
+        "arena": 10,
+        "description": "He channels electricity through his Zap Pack, a unique device that stuns and damages any Troop attacking him within its range.\n\nDon't tell him that his finger guns aren't real! He'll zap you.",
+        "id": 26000085
+    },
+    {
         "key": "cannon",
         "name": "Cannon",
         "sc_key": "Cannon",
@@ -1085,7 +1107,7 @@
         "type": "Spell",
         "rarity": "Common",
         "arena": 12,
-        "description": "No need to sign for this package!\n\nDropped from the sky, it damages and knocks back enemy Troops before delivering a Royal Recruit.\n\nThe empty box is also handy for espionage.",
+        "description": "No need to sign for this package!\n\nDropped from the sky, it deals Area Damage to enemy Troops before delivering a Royal Recruit.\n\nThe empty box is also handy for espionage.",
         "id": 28000018
     }
 ]
