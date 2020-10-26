@@ -53,7 +53,7 @@ extension CRPlayerBattleLog {
 
     public struct Team: Decodable {
         let clan: Clan?
-        let cards: [Card]?
+        public let cards: [Card]?
         let tag: String?
         let name: String?
         public let startingTrophies: Int?
@@ -85,7 +85,7 @@ extension CRPlayerBattleLog.Team.Clan {
 extension CRPlayerBattleLog.Team {
 
     public struct Card: Decodable {
-        let id: Int?
+        public let id: Int?
         let count: Int?
         let level: Int?
         let starLevel: Int?

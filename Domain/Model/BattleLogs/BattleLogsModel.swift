@@ -17,6 +17,7 @@ public final class RealmBattleLogModel: Object {
     @objc dynamic public var afterTrophy: Int = 0
     @objc dynamic public var battleTime: String = ""
     @objc dynamic public var battleDate = Date(timeIntervalSince1970: 0)
+    @objc dynamic public var cardsInfo: String = ""
 
     public override class func primaryKey() -> String? {
         return "battleTime"
@@ -65,6 +66,11 @@ public extension BattleLogsModel {
             realmBattleLogModel.beforeTrophy = team[0].startingTrophies ?? 0
             realmBattleLogModel.trophyChange = team[0].trophyChange ?? 0
             realmBattleLogModel.afterTrophy = realmBattleLogModel.beforeTrophy + realmBattleLogModel.trophyChange
+        }
+
+        // Cards info
+        if let team = battleLog.team, let cards = team[0].cards {
+            realmBattleLogModel.cardsInfo = cards.map { String(describing: $0.id ?? 0) }.joined(separator: ",")
         }
 
         // BattleDate, Time
