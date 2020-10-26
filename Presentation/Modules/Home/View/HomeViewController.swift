@@ -82,6 +82,7 @@ extension HomeViewController: HomeView {
 
     func didFetchPlayerInfo(playerModel: PlayerModel) {
         self.playerInfoView.setup(playerModel: playerModel)
+        self.playerInfoView.setupTrophy(trophy: playerModel.trophies)
         self.playerInfoView.hideLoading()
     }
 
@@ -173,8 +174,6 @@ extension HomeViewController {
             return
         }
         self.playerTrophyChartView.setupData(battleLogs: realmBattleLogs)
-        let trophy = realmBattleLogs[realmBattleLogs.count - 1].afterTrophy
-        self.playerInfoView.setupTrophy(trophy: trophy)
     }
 }
 

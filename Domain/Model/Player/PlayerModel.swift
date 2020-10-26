@@ -15,6 +15,7 @@ public struct PlayerModel {
     public let tag: String
     public let clanName: String
     public var cards: [CardModel]
+    public var trophies: Int
 }
 
 extension PlayerModel {
@@ -23,6 +24,7 @@ extension PlayerModel {
         self.name = response.name ?? ""
         self.tag = response.tag ?? ""
         self.clanName = response.clan?.name ?? ""
+        self.trophies = response.trophies ?? 0
 
         if let cards = response.cards {
             self.cards = cards.map { CardModel($0) }
