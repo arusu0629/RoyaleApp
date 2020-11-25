@@ -19,25 +19,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnd-8g-JEr" userLabel="Spacer">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="33.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Register_logo" translatesAutoresizingMaskIntoConstraints="NO" id="pvP-8h-5la">
-                                        <rect key="frame" x="144.5" y="93.5" width="86" height="100"/>
+                                        <rect key="frame" x="144.5" y="53.5" width="86" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="sIi-5g-QdI"/>
                                             <constraint firstAttribute="width" secondItem="pvP-8h-5la" secondAttribute="height" multiplier="127:147" id="y0w-Oy-Vlt"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scE-s5-D3m" customClass="SignInDescriptionView" customModule="Presentation" customModuleProvider="target">
-                                        <rect key="frame" x="37.5" y="213.5" width="300" height="300"/>
+                                        <rect key="frame" x="37.5" y="173.5" width="300" height="300"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="scE-s5-D3m" secondAttribute="height" multiplier="1:1" id="Xd8-Cv-ZyE"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input player tag" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBj-yJ-g7G">
-                                        <rect key="frame" x="37.5" y="533.5" width="300" height="40"/>
+                                        <rect key="frame" x="37.5" y="493.5" width="300" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="QFf-ja-Ewz"/>
                                             <constraint firstAttribute="height" constant="40" id="z0C-by-nZa"/>
@@ -45,30 +45,70 @@
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocj-Ec-3Pb">
+                                        <rect key="frame" x="37.5" y="553.5" width="300" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="WnM-sO-Nxf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
+                                        <state key="normal" title="SignIn"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTapSignIn" destination="RvU-Wz-6Oh" eventType="touchUpInside" id="ofN-6g-9L4"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvf-vD-qyN" userLabel="Spacer">
-                                        <rect key="frame" x="0.0" y="593.5" width="375" height="73.5"/>
+                                        <rect key="frame" x="0.0" y="633.5" width="375" height="33.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Mvf-vD-qyN" firstAttribute="width" secondItem="bnd-8g-JEr" secondAttribute="width" id="6oT-b6-6S2"/>
+                                    <constraint firstItem="ocj-Ec-3Pb" firstAttribute="width" secondItem="SBj-yJ-g7G" secondAttribute="width" id="G2Q-AM-J90"/>
                                     <constraint firstItem="scE-s5-D3m" firstAttribute="width" secondItem="SBj-yJ-g7G" secondAttribute="width" id="HOH-iC-X9I"/>
                                     <constraint firstItem="Mvf-vD-qyN" firstAttribute="height" secondItem="bnd-8g-JEr" secondAttribute="height" id="bjY-DW-RkF"/>
                                 </constraints>
                             </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDm-TF-eID" userLabel="LoadingView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="I59-fX-Lau">
+                                        <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="1zV-G9-0Bp"/>
+                                            <constraint firstAttribute="width" constant="20" id="w5Z-ng-Mxg"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="I59-fX-Lau" firstAttribute="centerY" secondItem="eDm-TF-eID" secondAttribute="centerY" id="9WL-nP-WcP"/>
+                                    <constraint firstItem="I59-fX-Lau" firstAttribute="centerX" secondItem="eDm-TF-eID" secondAttribute="centerX" id="Fop-rV-92h"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="eDm-TF-eID" firstAttribute="top" secondItem="7km-GW-sGv" secondAttribute="top" id="13q-Bc-gUH"/>
+                            <constraint firstItem="7km-GW-sGv" firstAttribute="bottom" secondItem="eDm-TF-eID" secondAttribute="bottom" id="HqY-GK-FCG"/>
                             <constraint firstItem="hka-Es-e0e" firstAttribute="leading" secondItem="7km-GW-sGv" secondAttribute="leading" id="JEY-dK-9fc"/>
                             <constraint firstAttribute="trailing" secondItem="hka-Es-e0e" secondAttribute="trailing" id="SUQ-BV-KZL"/>
                             <constraint firstAttribute="bottom" secondItem="hka-Es-e0e" secondAttribute="bottom" id="Uit-cT-94V"/>
                             <constraint firstItem="hka-Es-e0e" firstAttribute="top" secondItem="7km-GW-sGv" secondAttribute="top" id="eFU-Mb-3vf"/>
+                            <constraint firstItem="7km-GW-sGv" firstAttribute="trailing" secondItem="eDm-TF-eID" secondAttribute="trailing" id="tqE-hR-kAW"/>
+                            <constraint firstItem="eDm-TF-eID" firstAttribute="leading" secondItem="7km-GW-sGv" secondAttribute="leading" id="vjq-KI-CpE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7km-GW-sGv"/>
                     </view>
                     <connections>
                         <outlet property="descriptionView" destination="scE-s5-D3m" id="iAl-Rb-YWA"/>
+                        <outlet property="indicator" destination="I59-fX-Lau" id="wlX-JX-cgJ"/>
                         <outlet property="inputPlayerTagTextField" destination="SBj-yJ-g7G" id="6sQ-3d-PeT"/>
+                        <outlet property="loadingView" destination="eDm-TF-eID" id="ZhK-iq-i1s"/>
                         <outlet property="stackView" destination="hka-Es-e0e" id="0MU-Le-yYz"/>
                         <outlet property="stackViewCenterYConstraint" destination="eFU-Mb-3vf" id="dye-xc-jrN"/>
                     </connections>

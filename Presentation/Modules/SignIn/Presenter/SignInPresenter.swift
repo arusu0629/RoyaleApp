@@ -30,6 +30,7 @@ final class SignInPresenterImpl: SignInPresenter {
 extension SignInPresenterImpl {
 
     func textFieldShouldReturn(_ text: String) {
+        self.view?.showLoading()
         self.requestPlayerInfo(playerTag: text)
     }
 }
@@ -40,6 +41,7 @@ extension SignInPresenterImpl {
     func requestPlayerInfo(playerTag: String) {
         let convertPlayerTag = AppConfig.convertPlayerTag(playerTag)
         self.playerUseCase.get(playerTag: convertPlayerTag) { result in
+            self.view?.hideLoading()
             switch result {
             case .success:
                 AppConfig.playerTag = convertPlayerTag

@@ -8,7 +8,10 @@
 
 import UIKit
 
-protocol SignInView: ShowErrorAlertView {}
+protocol SignInView: ShowErrorAlertView {
+    func showLoading()
+    func hideLoading()
+}
 
 // MARK: - Properties
 final class SignInViewController: UIViewController {
@@ -25,10 +28,20 @@ final class SignInViewController: UIViewController {
             newValue.delegate = self
         }
     }
-
     @IBOutlet private weak var descriptionView: SignInDescriptionView! {
         willSet {
             newValue.setData(self.descriptionImages)
+        }
+    }
+
+    @IBOutlet private weak var loadingView: UIView! {
+        willSet {
+            newValue.isHidden = true
+        }
+    }
+    @IBOutlet private weak var indicator: UIActivityIndicatorView! {
+        willSet {
+            newValue.isHidden = true
         }
     }
 
@@ -75,14 +88,35 @@ private extension SignInViewController {
 
 // MARK: - SignInView
 extension SignInViewController: SignInView {
+
+    func showLoading() {
+        self.loadingView.isHidden = false
+        self.indicator.isHidden = false
+        self.indicator.startAnimating()
+    }
+
+    func hideLoading() {
+        self.loadingView.isHidden = true
+        self.indicator.isHidden = true
+        self.indicator.stopAnimating()
+    }
+}
+
+// MARK: - SignIn Button
+extension SignInViewController {
+
+    @IBAction private func didTapSignIn() {
+        self.inputPlayerTagTextField.resignFirstResponder()
+        let textFieldText = self.inputPlayerTagTextField.text ?? ""
+        self.presenter.textFieldShouldReturn(textFieldText)
+    }
 }
 
 // MARK: - UITextFieldDelegate
 extension SignInViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.inputPlayerTagTextField.resignFirstResponder()
-        self.presenter.textFieldShouldReturn(textField.text ?? "")
+        textField.resignFirstResponder()
         return true
     }
 }
