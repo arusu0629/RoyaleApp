@@ -29,7 +29,7 @@ internal enum Asset {
   internal static let deckFourCycleElixir = ImageAsset(name: "deck_four_cycle_elixir")
   internal static let playerTrophy = ImageAsset(name: "player_trophy")
   internal static let titleIcon = ImageAsset(name: "title_icon")
-  internal static let registerLogo = ImageAsset(name: "Register_Logo")
+  internal static let registerLogo = ImageAsset(name: "Register_logo")
   internal static let signinExample1 = ImageAsset(name: "Signin_Example_1")
   internal static let signinExample2 = ImageAsset(name: "Signin_Example_2")
   internal static let signinExample3 = ImageAsset(name: "Signin_Example_3")
