@@ -25,6 +25,7 @@ final class SettingsViewController: UIViewController {
             newValue.delaysContentTouches = false
             newValue.dataSource = self
             newValue.delegate = self
+            newValue.register(SettingTableViewCell.nib, forCellReuseIdentifier: SettingTableViewCell.className)
         }
     }
 
@@ -60,7 +61,6 @@ extension SettingsViewController: SettingsView {
 
     func reloadData(settingsSections: [SettingsSection]) {
         self.settingsSections = settingsSections
-        self.settingsSections.forEach { self.tableView.register($0.nib, forCellReuseIdentifier: $0.className) }
         self.tableView.reloadData()
     }
 
@@ -96,12 +96,20 @@ extension SettingsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let settingSection = self.settingsSections[indexPath.section]
-        switch settingSection {
-        case .SignOut:
-            let cell = tableView.dequeueReusableCell(withIdentifier: settingSection.className, for: indexPath) as! SignOutTableViewCell
-            cell.delegate = self
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.className, for: indexPath) as! SettingTableViewCell
+        cell.setSettingSection(settingSection)
+        cell.delegate = self
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10.0
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView()
+        header.backgroundColor = .clear
+        return header
     }
 }
 
@@ -109,32 +117,24 @@ extension SettingsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let settingsSection = self.settingsSections[indexPath.section]
-        switch settingsSection {
-        case .SignOut: return SignOutTableViewCell.CellHeight
-        }
+        return settingsSection.cellHeight
     }
 }
 
 // MARK: - SignOutTableViewCellDelegate
-extension SettingsViewController: SignOutTableViewCellDelegate {
+extension SettingsViewController: SettingsTableViewCellDelegate {
 
-    func didTapSignOut() {
-        self.presenter.didSelectSignOutCell()
+    func didTapCell(setting: SettingsSection) {
+        self.presenter.didSelectCell(settingsSection: setting)
     }
 }
 
+// MARK: - SettingsSection
 private extension SettingsSection {
 
-    var nib: UINib {
+    var cellHeight: CGFloat {
         switch self {
-        case .SignOut: return SignOutTableViewCell.nib
+        case .SignOut, .AppVersion: return 70.0
         }
     }
-
-    var className: String {
-        switch self {
-        case .SignOut: return SignOutTableViewCell.className
-        }
-    }
-
 }

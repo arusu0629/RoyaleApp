@@ -12,7 +12,7 @@ import Foundation
 protocol SettingsPresenter: AnyObject {
     func viewDidLoad()
 
-    func didSelectSignOutCell()
+    func didSelectCell(settingsSection: SettingsSection)
     func didSelectSignOut()
     func didSelectBack()
 }
@@ -28,6 +28,15 @@ final class SettingsPresenterImpl: SettingsPresenter {
 
     func viewDidLoad() {
         self.view?.reloadData(settingsSections: self.settingsSectionUseCase.all())
+    }
+
+    func didSelectCell(settingsSection: SettingsSection) {
+        switch settingsSection {
+        case .SignOut:
+            self.view?.showSignOutAlertView()
+        case .AppVersion:
+            break
+        }
     }
 
     func didSelectSignOutCell() {
