@@ -1,4 +1,4 @@
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAdMobBinary.json" "7.1.0"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAdMobBinary.json" "7.0.0"
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" "7.1.0"
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json" "7.1.0"
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.json" "7.1.0"
