@@ -10,26 +10,23 @@
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or utilied.
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "sync/remote_mongo_database.hpp"
-#include "sync/remote_mongo_collection.hpp"
+#import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
+#import "AppDelegate.h"
 
-namespace realm {
-namespace app {
+@interface CocoaPodsDynamicExampleTests : XCTestCase
+@end
 
-MongoCollection MongoDatabase::collection(const std::string& collection_name)
-{
-    return MongoCollection(collection_name, m_name, m_user, m_service, m_service_name);
+@implementation CocoaPodsDynamicExampleTests
+
+- (void)testExample {
+    XCTAssertTrue([MyModel isSubclassOfClass:[RLMObject class]]);
 }
 
-MongoCollection MongoDatabase::operator[](const std::string& collection_name)
-{
-    return MongoCollection(collection_name, m_name, m_user, m_service, m_service_name);
-}
-}
-}
+@end

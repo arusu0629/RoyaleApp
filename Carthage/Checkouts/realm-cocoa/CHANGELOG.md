@@ -1,3 +1,122 @@
+10.1.4 Release notes (2020-11-16)
+=============================================================
+
+### Enhancements
+
+* Add arm64 slices to the macOS builds.
+
+### Compatibility
+
+* Realm Studio: 10.0.0 or later.
+* APIs are backwards compatible with all previous releases in the 10.x.y series.
+* Carthage release for Swift is built with Xcode 12.2.
+* CocoaPods: 1.10 or later.
+
+### Internal
+
+* Upgraded realm-core from v10.0.1 to v10.1.3
+* Upgraded realm-sync from v10.0.1 to v10.1.3
+
+10.1.3 Release notes (2020-11-13)
+=============================================================
+
+### Enhancements
+
+* Add Xcode 12.2 binaries to the release package.
+
+### Fixed
+
+* Disallow setting
+  `RLMRealmConfiguration.deleteRealmIfMigrationNeeded`/`Realm.Config.deleteRealmIfMigrationNeeded`
+  when sync is enabled. This did not actually work as it does not delete the
+  relevant server state and broke in confusing ways ([PR #6931](https://github.com/realm/realm-cocoa/pull/6931)).
+
+### Compatibility
+
+* Realm Studio: 10.0.0 or later.
+* APIs are backwards compatible with all previous releases in the 10.x.y series.
+* Carthage release for Swift is built with Xcode 12.1.
+* CocoaPods: 1.10 or later.
+
+10.1.2 Release notes (2020-11-06)
+=============================================================
+
+### Enhancements
+
+* Some error states which previously threw a misleading "NoSuchTable" exception
+  now throw a more descriptive exception.
+
+### Fixed
+
+* One of the Swift packages did not have the minimum deployment target set,
+  resulting in errors when archiving an app which imported Realm via SPM.
+* Reenable filelock emulation on watchOS so that the OS does not kill the app
+  when it is suspended while a Realm is open on watchOS 7 ([#6861](https://github.com/realm/realm-cocoa/issues/6861), since v5.4.8
+* Fix crash in case insensitive query on indexed string columns when nothing
+  matches ([#6836](https://github.com/realm/realm-cocoa/issues/6836), since v5.0.0).
+* Null values in a `List<Float?>` or `List<Double?>` were incorrectly treated
+  as non-null in some places. It is unknown if this caused any functional
+  problems when using the public API. ([Core PR #3987](https://github.com/realm/realm-core/pull/3987), since v5.0.0).
+* Deleting an entry in a list in two different clients could end deleting the
+  wrong entry in one client when the changes are merged (since v10.0.0).
+
+### Compatibility
+
+* Realm Studio: 10.0.0 or later.
+* APIs are backwards compatible with all previous releases in the 10.x.y series.
+* Carthage release for Swift is built with Xcode 12.1.
+* CocoaPods: 1.10 or later.
+
+### Internal
+
+* Upgraded realm-core from v10.0.0 to v10.1.1
+* Upgraded realm-sync from v10.0.0 to v10.1.1
+
+10.1.1 Release notes (2020-10-27)
+=============================================================
+
+### Enhancements
+
+* Set the minimum CocoaPods version in the podspec so that trying to install
+  with older versions gives a more useful error ([PR #6892](https://github.com/realm/realm-cocoa/pull/6892)).
+
+### Fixed
+
+* Embedded objects could not be marked as `ObjectKeyIdentifable`
+  ([PR #6890](https://github.com/realm/realm-cocoa/pull/6890), since v10.0.0).
+
+### Compatibility
+
+* Realm Studio: 10.0.0 or later.
+* APIs are backwards compatible with all previous releases in the 10.x.y series.
+* Carthage release for Swift is built with Xcode 12.1.
+* CocoaPods: 1.10 or later.
+
+10.1.0 Release notes (2020-10-22)
+=============================================================
+
+CocoaPods 1.10 or later is now required to install Realm.
+
+### Enhancements
+
+* Throw an exception for Objects that have none of its properties marked with @objc.
+* Mac Catalyst and arm64 simulators are now supported when integrating via Cocoapods.
+* Add Xcode 12.1 binaries to the release package.
+* Add Combine support for `Realm.asyncOpen()`.
+
+### Fixed
+
+* Implement precise and unbatched notification of sync completion events. This
+  avoids a race condition where an earlier upload completion event will notify
+  a later waiter whose changes haven't been uploaded yet.
+  ([#1118](https://github.com/realm/realm-object-store/pull/1118)).
+
+### Compatibility
+
+* Realm Studio: 10.0.0 or later.
+* APIs are backwards compatible with all previous releases in the 10.x.y series.
+* Carthage release for Swift is built with Xcode 12.1.
+
 10.0.0 Release notes (2020-10-16)
 =============================================================
 

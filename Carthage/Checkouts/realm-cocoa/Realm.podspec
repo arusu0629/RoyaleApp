@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
   s.name                    = 'Realm'
   version                   = `sh build.sh get-version`
   s.version                 = version
+  s.cocoapods_version       = '>= 1.10'
   s.summary                 = 'Realm is a modern data framework & database for iOS, macOS, tvOS & watchOS.'
   s.description             = <<-DESC
                               The Realm Mobile Database, for Objective-C. (If you want to use Realm from Swift, see the “RealmSwift” pod.)
@@ -127,16 +128,11 @@ Pod::Spec.new do |s|
   s.preserve_paths          = %w(build.sh include)
 
   s.ios.deployment_target   = '9.0'
-  s.ios.vendored_library    = 'core/librealmcore-ios.a'
-
   s.osx.deployment_target   = '10.9'
-  s.osx.vendored_library    = 'core/librealmcore-macosx.a'
-
   s.watchos.deployment_target = '2.0'
-  s.watchos.vendored_library  = 'core/librealmcore-watchos.a'
-
   s.tvos.deployment_target = '9.0'
-  s.tvos.vendored_library  = 'core/librealmcore-tvos.a'
+
+  s.vendored_frameworks  = 'core/realm-sync.xcframework'
 
   s.subspec 'Headers' do |s|
     s.source_files          = public_header_files

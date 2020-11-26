@@ -10,27 +10,20 @@
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or utilied.
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#include "sync/remote_mongo_client.hpp"
-#include "sync/remote_mongo_database.hpp"
+#import <UIKit/UIKit.h>
+#import <Realm/Realm.h>
 
-namespace realm {
-namespace app {
+@interface MyModel : RLMObject
+@end
 
-MongoDatabase MongoClient::operator[](const std::string& name)
-{
-    return MongoDatabase(name, m_user, m_service, m_service_name);
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-MongoDatabase MongoClient::db(const std::string& name)
-{
-    return MongoDatabase(name, m_user, m_service, m_service_name);
-}
+@property (strong, nonatomic) UIWindow *window;
 
-} // namespace app
-} // namespace realm
+@end
