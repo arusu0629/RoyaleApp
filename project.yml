@@ -270,13 +270,25 @@ targets:
         installed, download from https://github.com/yonaskolb/Mint\"\nfi\n"
       shell: /bin/sh
     - name: Run Crashytics
-      script: "${PROJECT_DIR}/scripts/FirebaseCrashlytics/run"
+      script: |
+        PATH_TO_GOOGLE_PLISTS="${PROJECT_DIR}/RoyaleApp"
+        if [ "${CONFIGURATION}" = "Release" ]; then
+            "${PROJECT_DIR}/scripts/FirebaseCrashlytics/run" -gsp "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info.plist"
+        else
+            "${PROJECT_DIR}/scripts/FirebaseCrashlytics/run" -gsp "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-Dev.plist"
+        fi
       shell: /bin/sh
       inputFiles:
         - ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}
         - ${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}
     - name: Upload dSYMs
-      script: "${PROJECT_DIR}/scripts/FirebaseCrashlytics/upload-symbols"
+      script: |
+        PATH_TO_GOOGLE_PLISTS="${PROJECT_DIR}/RoyaleApp"
+        if [ "${CONFIGURATION}" = "Release" ]; then
+            "${PROJECT_DIR}/scripts/FirebaseCrashlytics/upload-symbols" -gsp "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info.plist" -p ios "${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}"
+        else
+            "${PROJECT_DIR}/scripts/FirebaseCrashlytics/upload-symbols" -gsp "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-Dev.plist" -p ios "${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}"
+        fi
       shell: /bin/sh
     preBuildScripts:
     - name: Copy GoogleService-Info.plist
