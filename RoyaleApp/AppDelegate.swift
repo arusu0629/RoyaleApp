@@ -27,7 +27,7 @@ private extension AppDelegate {
     func setup() {
         self.setupFirebase()
         self.setupAd()
-        self.setupPushNotification()
+        //        self.setupPushNotification()
         self.setupBackgroundFetch()
     }
 }

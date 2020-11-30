@@ -105,7 +105,7 @@ final class BattleLogFetchOperation: Operation {
                 let addBattleLogCount = realmBattleLogs.filter { $0.battleDate > latestBattleLogTime }.count
                 self.realmBattleLogsUseCase.save(objects: realmBattleLogs)
                 if addBattleLogCount > 0 {
-                    NotificationHelper.postLocalNotification(with: Message(body: "Add BattleLog: \(addBattleLogCount) count"))
+                    //                    NotificationHelper.postLocalNotification(with: Message(body: "Add BattleLog: \(addBattleLogCount) count"))
                 }
             case .failure:
                 // TODO: Error Handling
