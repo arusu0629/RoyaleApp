@@ -4,6 +4,7 @@ attributes:
   ORGANIZATIONNAME: nakandakari
 configs:
   Debug: debug
+  Staging: staging
   Release: release
 name: RoyaleApp
 options:
@@ -19,6 +20,13 @@ settings:
       SDKROOT: iphoneos
       SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
       SWIFT_OPTIMIZATION_LEVEL: -Onone
+    Staging:
+      IPHONEOS_DEPLOYMENT_TARGET: 13.0
+      MTL_FAST_MATH: YES
+      SDKROOT: iphoneos
+      SWIFT_COMPILATION_MODE: wholemodule
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: STAGING      
+      SWIFT_OPTIMIZATION_LEVEL: -O   
     Release:
       IPHONEOS_DEPLOYMENT_TARGET: 13.0
       MTL_FAST_MATH: YES
@@ -57,6 +65,17 @@ targets:
           PRODUCT_BUNDLE_IDENTIFIER: com.Analytics
           SWIFT_VERSION: 5.0
           OTHER_LDFLAGS: -ObjC
+        Staging:
+          CODE_SIGN_STYLE: Automatic
+          DEVELOPMENT_TEAM: 8CBGKNYH9U
+          FRAMEWORK_SEARCH_PATHS:
+          - $(inherited)
+          - $(PROJECT_DIR)/Carthage/Build/iOS
+          INFOPLIST_FILE: Analytics/Info.plist
+          IPHONEOS_DEPLOYMENT_TARGET: 13.0
+          PRODUCT_BUNDLE_IDENTIFIER: com.Analytics
+          SWIFT_VERSION: 5.0
+          OTHER_LDFLAGS: -ObjC
         Release:
           CODE_SIGN_STYLE: Automatic
           DEVELOPMENT_TEAM: 8CBGKNYH9U
@@ -78,6 +97,14 @@ targets:
     settings:
       configs:
         Debug:
+          ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+          CODE_SIGN_STYLE: Automatic
+          INFOPLIST_FILE: AnalyticsTests/Info.plist
+          IPHONEOS_DEPLOYMENT_TARGET: 13.0
+          PRODUCT_BUNDLE_IDENTIFIER: com.AnalyticsTests
+          SWIFT_VERSION: 5.0
+          TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp
+        Staging:
           ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
           CODE_SIGN_STYLE: Automatic
           INFOPLIST_FILE: AnalyticsTests/Info.plist
@@ -114,6 +141,17 @@ targets:
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DataStore
           SWIFT_VERSION: 5.0
           OTHER_LDFLAGS: -ObjC
+        Staging:
+          CODE_SIGN_STYLE: Automatic
+          FRAMEWORK_SEARCH_PATHS:
+          - $(inherited)
+          - $(PROJECT_DIR)/Carthage/Build/iOS
+          - $(PROJECT_DIR)
+          INFOPLIST_FILE: DataStore/Info.plist
+          IPHONEOS_DEPLOYMENT_TARGET: 13.0
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DataStore
+          SWIFT_VERSION: 5.0
+          OTHER_LDFLAGS: -ObjC	  
         Release:
           CODE_SIGN_STYLE: Automatic
           FRAMEWORK_SEARCH_PATHS:
@@ -141,6 +179,13 @@ targets:
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DataStoreTests
           SWIFT_VERSION: 5.0
           TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp
+        Staging:
+          ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+          CODE_SIGN_STYLE: Automatic
+          INFOPLIST_FILE: DataStoreTests/Info.plist
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DataStoreTests
+          SWIFT_VERSION: 5.0
+          TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp	  
         Release:
           ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
           CODE_SIGN_STYLE: Automatic
@@ -165,6 +210,15 @@ targets:
           IPHONEOS_DEPLOYMENT_TARGET: 13.0
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Domain
           SWIFT_VERSION: 5.0
+        Staging:
+          CODE_SIGN_STYLE: Automatic
+          FRAMEWORK_SEARCH_PATHS:
+          - $(inherited)
+          - $(PROJECT_DIR)/Carthage/Build/iOS
+          INFOPLIST_FILE: Domain/Info.plist
+          IPHONEOS_DEPLOYMENT_TARGET: 13.0
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Domain
+          SWIFT_VERSION: 5.0	  
         Release:
           CODE_SIGN_STYLE: Automatic
           FRAMEWORK_SEARCH_PATHS:
@@ -190,6 +244,13 @@ targets:
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DomainTests
           SWIFT_VERSION: 5.0
           TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp
+        Staging:
+          ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+          CODE_SIGN_STYLE: Automatic
+          INFOPLIST_FILE: DomainTests/Info.plist
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DomainTests
+          SWIFT_VERSION: 5.0
+          TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp	  
         Release:
           ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
           CODE_SIGN_STYLE: Automatic
@@ -220,6 +281,16 @@ targets:
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Presentation
           SWIFT_VERSION: 5.0
           OTHER_LDFLAGS: -ObjC
+        Staging:
+          CODE_SIGN_STYLE: Automatic
+          FRAMEWORK_SEARCH_PATHS:
+          - $(inherited)
+          - $(PROJECT_DIR)/Carthage/Build/iOS
+          INFOPLIST_FILE: Presentation/Info.plist
+          IPHONEOS_DEPLOYMENT_TARGET: 13.0
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Presentation
+          SWIFT_VERSION: 5.0
+          OTHER_LDFLAGS: -ObjC	  
         Release:
           CODE_SIGN_STYLE: Automatic
           FRAMEWORK_SEARCH_PATHS:
@@ -246,6 +317,13 @@ targets:
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.PresentationTests
           SWIFT_VERSION: 5.0
           TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp
+        Staging:
+          ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+          CODE_SIGN_STYLE: Automatic
+          INFOPLIST_FILE: PresentationTests/Info.plist
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.PresentationTests
+          SWIFT_VERSION: 5.0
+          TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp	  
         Release:
           ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
           CODE_SIGN_STYLE: Automatic
@@ -334,6 +412,18 @@ targets:
           SWIFT_VERSION: 5.0
           ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Dev
           DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+        Staging:
+          ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+          CODE_SIGN_IDENTITY: Apple Development
+          CODE_SIGN_STYLE: Manual
+          DEVELOPMENT_TEAM: 8CBGKNYH9U
+          PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Staging
+          INFOPLIST_FILE: RoyaleApp/Info.plist
+          IPHONEOS_DEPLOYMENT_TARGET: 13.0
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleApp
+          SWIFT_VERSION: 5.0
+          ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym	  
         Release:
           ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
           CODE_SIGN_IDENTITY: Apple Distribution
@@ -346,6 +436,11 @@ targets:
           SWIFT_VERSION: 5.0
           ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
           DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+      info:
+        path: RoyaleApp/Info.plist
+      base:
+        MARKETING_VERSION: 1.0.0
+        CURRENT_PROJECT_VERSION: 2
     sources: [RoyaleApp]
     type: application
   RoyaleAppTests:
@@ -363,6 +458,15 @@ targets:
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleAppTests
           SWIFT_VERSION: 5.0
           TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp
+        Staging:
+          ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+          BUNDLE_LOADER: $(TEST_HOST)
+          CODE_SIGN_STYLE: Automatic
+          INFOPLIST_FILE: RoyaleAppTests/Info.plist
+          IPHONEOS_DEPLOYMENT_TARGET: 13.4
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleAppTests
+          SWIFT_VERSION: 5.0
+          TEST_HOST: $(BUILT_PRODUCTS_DIR)/RoyaleApp.app/RoyaleApp	  
         Release:
           ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
           BUNDLE_LOADER: $(TEST_HOST)
@@ -387,6 +491,13 @@ targets:
           PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleAppUITests
           SWIFT_VERSION: 5.0
           TEST_TARGET_NAME: RoyaleApp
+        Staging:
+          ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+          CODE_SIGN_STYLE: Automatic
+          INFOPLIST_FILE: RoyaleAppUITests/Info.plist
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleAppUITests
+          SWIFT_VERSION: 5.0
+          TEST_TARGET_NAME: RoyaleApp	  
         Release:
           ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
           CODE_SIGN_STYLE: Automatic
