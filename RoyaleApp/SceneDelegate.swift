@@ -51,13 +51,13 @@ extension SceneDelegate {
     private func homeViewController() -> HomeViewController? {
 
         guard let navigationController = self.window?.rootViewController as? UINavigationController,
-            let rootViewController = navigationController.viewControllers[0] as? RootViewController else {
-                return nil
+              let rootViewController = navigationController.viewControllers[0] as? RootViewController else {
+            return nil
         }
 
         guard let viewControllers = rootViewController.viewControllers,
-            let homeViewController = viewControllers[Tab.home.rawValue] as? HomeViewController else {
-                return nil
+              let homeViewController = viewControllers[Tab.home.rawValue] as? HomeViewController else {
+            return nil
         }
 
         return homeViewController

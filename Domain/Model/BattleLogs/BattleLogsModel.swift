@@ -44,8 +44,8 @@ public extension BattleLogsModel {
         var realmBattleLogs: [RealmBattleLogModel] = []
         for battleLog in self.battleLogs {
             guard let gameMode = battleLog.gameMode,
-                let gameModeName = gameMode.name else {
-                    continue
+                  let gameModeName = gameMode.name else {
+                continue
             }
             if !gameModeName.starts(with: "Ladder") {
                 continue
@@ -87,8 +87,8 @@ public extension BattleLogsModel {
         en_US_Formatter.timeZone = TimeZone(secondsFromGMT: 0)
 
         guard let battleTime = battleTime,
-            let battleDate = en_US_Formatter.date(from: battleTime) else {
-                return Date(timeIntervalSince1970: 0)
+              let battleDate = en_US_Formatter.date(from: battleTime) else {
+            return Date(timeIntervalSince1970: 0)
         }
         return battleDate
     }

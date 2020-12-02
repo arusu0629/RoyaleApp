@@ -37,7 +37,7 @@ public final class NotificationHelper {
                                                 }
                                                 content.body = message.body
                                                 return content
-        }(),
+                                            }(),
                                             trigger: UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false))
         DispatchQueue.main.async {
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)

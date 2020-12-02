@@ -34,6 +34,6 @@ extension CRAPIRequestable {
         return
             [
                 "Authorization": "Bearer " + self.token
-        ]
+            ]
     }
 }

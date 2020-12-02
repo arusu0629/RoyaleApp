@@ -70,7 +70,7 @@ extension SettingsViewController: SettingsView {
             .init(title: "OK", style: .default, handler: { [weak self] _ in
                 self?.presenter.didSelectSignOut()
             })
-            ]
+        ]
         )
     }
 }
