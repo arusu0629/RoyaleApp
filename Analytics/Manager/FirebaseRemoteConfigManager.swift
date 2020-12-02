@@ -21,8 +21,11 @@ extension FirebaseRemoteConfigManager {
     private static func fetchValues() {
         let remoteConfig = RemoteConfig.remoteConfig()
 
-        // TODO: 本番環境だと1時間以上空けるようにする
-        let duration = 0 // 即時更新
+        // 即時更新
+        var duration = 0
+        #if !DEBUG
+        duration = 60 * 60
+        #endif
         remoteConfig.fetch(withExpirationDuration: TimeInterval(duration), completionHandler: {(state, _) in
             switch state {
             case .success:
