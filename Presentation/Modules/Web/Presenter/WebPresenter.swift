@@ -38,7 +38,8 @@ final class WebPresenterImpl: WebPresenter {
 
     func viewDidLoad() {
         AnalyticsManager.sendEvent(WebEvent.display)
-        self.view?.showAdView()
+        //        self.view?.showFooterAdView()
+        self.view?.hideFooterAdView()
         self.setupWebView()
     }
 

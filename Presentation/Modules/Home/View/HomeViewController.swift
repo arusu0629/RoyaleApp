@@ -24,6 +24,7 @@ protocol HomeView: ShowErrorAlertView {
 
     // Ad
     func showFooterAdView()
+    func hideFooterAdView()
 }
 
 // MARK: - Properties
@@ -123,6 +124,10 @@ extension HomeViewController: HomeView {
         self.footerAdView.showLoading()
         AdManager.shared.setupAd(dataSource: self, delegate: self, targetView: self.footerAdView)
     }
+
+    func hideFooterAdView() {
+        self.footerAdView.isHidden = true
+    }
 }
 
 // MARK: - Show, Hide Navigation Item
@@ -206,10 +211,11 @@ extension HomeViewController: AdManagerDelegate {
 
     public func didReceiveAd() {
         self.footerAdView.hideLoading()
+        self.footerAdView.isHidden = false
     }
 
     public func didFailedAd() {
-        self.footerAdView.isHidden = true
+        self.hideFooterAdView()
         self.footerAdView.hideLoading()
     }
 }

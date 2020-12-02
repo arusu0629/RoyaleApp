@@ -18,7 +18,8 @@ protocol DeckCreateView: ShowErrorAlertView {
     func didClearSelectedCardList()
 
     // Ad
-    func showFooterAd()
+    func showFooterAdView()
+    func hideFooterAdView()
 }
 
 // MARK: - Properties
@@ -87,9 +88,13 @@ extension DeckCreateViewController: DeckCreateView {
     }
 
     // Ad
-    func showFooterAd() {
+    func showFooterAdView() {
         self.footerAdView.showLoading()
         AdManager.shared.setupAd(dataSource: self, delegate: self, targetView: self.footerAdView)
+    }
+
+    func hideFooterAdView() {
+        self.footerAdView.isHidden = true
     }
 }
 
@@ -144,10 +149,11 @@ extension DeckCreateViewController: AdManagerDelegate {
 
     public func didReceiveAd() {
         self.footerAdView.hideLoading()
+        self.footerAdView.isHidden = false
     }
 
     public func didFailedAd() {
-        self.footerAdView.isHidden = true
+        self.hideFooterAdView()
         self.footerAdView.hideLoading()
     }
 }

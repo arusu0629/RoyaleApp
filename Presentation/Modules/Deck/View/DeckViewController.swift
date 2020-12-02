@@ -19,6 +19,7 @@ protocol DeckView: ShowErrorAlertView {
 
     // Ad
     func showFooterAdView()
+    func hideFooterAdView()
 }
 
 // MARK: - Properties
@@ -110,6 +111,11 @@ extension DeckViewController: DeckView {
         self.footerAdView.showLoading()
         AdManager.shared.setupAd(dataSource: self, delegate: self, targetView: self.footerAdView)
     }
+
+    func hideFooterAdView() {
+        self.footerAdView.isHidden = true
+        self.footerSpacerView.isHidden = false
+    }
 }
 
 // MARK: Deck Create/Change/Share
@@ -149,11 +155,12 @@ extension DeckViewController: AdManagerDelegate {
 
     public func didReceiveAd() {
         self.footerAdView.hideLoading()
+        self.footerAdView.isHidden = false
         self.footerSpacerView.isHidden = true
     }
 
     public func didFailedAd() {
-        self.footerAdView.isHidden = true
+        self.hideFooterAdView()
         self.footerAdView.hideLoading()
         self.footerSpacerView.isHidden = false
     }

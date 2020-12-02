@@ -23,7 +23,8 @@ protocol WebView: ShowErrorAlertView {
     func pageReload()
 
     // Ad
-    func showAdView()
+    func showFooterAdView()
+    func hideFooterAdView()
 }
 
 // MARK: - Properties
@@ -125,9 +126,14 @@ extension WebViewController: WebView {
     }
 
     // Ad
-    func showAdView() {
+    func showFooterAdView() {
         self.footerAdView.showLoading()
         AdManager.shared.setupAd(dataSource: self, delegate: self, targetView: self.footerAdView)
+    }
+
+    func hideFooterAdView() {
+        self.footerAdView.isHidden = true
+        self.footerSpacerView.isHidden = false
     }
 }
 
@@ -171,13 +177,13 @@ extension WebViewController: AdManagerDelegate {
     func didReceiveAd() {
         self.footerAdView.hideLoading()
         self.footerAdView.isHidden = false
-        self.footerSpacerView.isHidden = false
+        self.footerSpacerView.isHidden = true
     }
 
     func didFailedAd() {
         self.footerAdView.hideLoading()
-        self.footerAdView.isHidden = true
-        self.footerSpacerView.isHidden = true
+        self.hideFooterAdView()
+        self.footerSpacerView.isHidden = false
     }
 }
 
