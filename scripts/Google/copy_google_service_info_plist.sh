@@ -1,6 +1,11 @@
 PATH_TO_GOOGLE_PLISTS="${PROJECT_DIR}/RoyaleApp"
-if [ "${CONFIGURATION}" = "Release" || "${CONFIGURATION}" = "Staging"  ]; then
-    "${PROJECT_DIR}/scripts/FirebaseCrashlytics/upload-symbols" -gsp "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info.plist" -p ios "${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}"
-else
-    "${PROJECT_DIR}/scripts/FirebaseCrashlytics/upload-symbols" -gsp "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-Dev.plist" -p ios "${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}"
-fi
+case "${CONFIGURATION}" in
+   "Debug" )
+       cp -r "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-Dev.plist" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist" ;;
+   "Staging")
+       cp -r "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info.plist" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist" ;;
+   "Release" )
+       cp -r "$PATH_TO_GOOGLE_PLISTS/GoogleService-Info.plist" "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist" ;;
+      *)
+        ;;
+esac
