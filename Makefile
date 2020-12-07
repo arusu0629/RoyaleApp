@@ -19,8 +19,8 @@ bootstrap:
 
 .PHONY: project
 project:
-	mint run Carthage/Carthage carthage bootstrap --platform iOS --cache-builds
-	mint run Carthage/Carthage carthage update --platform iOS --no-use-binaries
+	./Scripts/Carthage/carthage.sh bootstrap --platform iOS --cache-builds
+	./Scripts/Carthage/carthage.sh update --platform iOS --no-use-binaries
 	mint run SwiftGen/SwiftGen swiftgen
 	mint run XcodeGen xcodegen
 
