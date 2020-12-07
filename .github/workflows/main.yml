@@ -11,6 +11,7 @@ on:
 
 env: 
   DEVELOPER_DIR: /Applications/Xcode_12.2.app/Contents/Developer
+  cache-version: v2
 
 jobs:
   test:
@@ -31,35 +32,51 @@ jobs:
     - name: Show Xcode version
       run: xcodebuild -version
 
+    # Mint のインストール
+    - name: Install Mint
+      run: brew install mint
+
     # Mint で管理しているライブラリのキャッシュ復元
     - name: Cache Mint packages
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: mint
-        key: ${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
+        key: ${{ env.cache-version }}-${{ runner.os }}-mint-${{ hashFiles('**/Mintfile') }}
         restore-keys: |
-          ${{ runner.os }}-mint-
+          ${{ env.cache-version }}-${{ runner.os }}-mint-
 
     # Carthage で管理しているライブラリのキャッシュ復元
     - name: Cache Carthage packages
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       with:
         path: Carthage
-        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
+        key: ${{ env.cache-version }}-${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
         restore-keys: |
-          ${{ runner.os }}-carthage-
+          ${{ env.cache-version }}-${{ runner.os }}-carthage-
 
-    # セットアップ
-    - run: make bootstrap
-
-    # プロジェクト
-    - run: make project
+    # Carthage のライブラリをインストール
+    - name: Install Carthage Frameworks
+      run: make install-carthage
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # .XcodeProj の生成
+    - name: Generate XcodeProject
+      run: make generate-xcodeproj
 
     # ビルド
     - name: Xcode build
       run: make build-debug
+
+    # ビルドログのアップロード
+    - name: Upload build log Artifact
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: xcodebuild-logs
+        path: xcodebuild_build.log
+        if-no-files-found: ignore
+        retention-days: 14
 
     # 端末の一覧出力
     - name: Show devices
