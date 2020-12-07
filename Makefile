@@ -10,19 +10,44 @@ TEST_DEVICE ?= iPhone 11 Pro Max
 TEST_OS ?= 13.4.1
 TEST_DESTINATION := 'platform=${TEST_PLATFORM},name=${TEST_DEVICE},OS=${TEST_OS}'
 
-.PHONY: bootstrap
-bootstrap:
+.PHONY: setup
+setup-with-mint:
 	brew update
 	brew install mint
-	mint bootstrap
-	mint run XcodeGen xcodegen
+	$(MAKE) install-mint
+	$(MAKE) install-carthage
+	$(MAKE) generate-xcodeproj
 
-.PHONY: project
-project:
+.PHONY: setup-without-mint
+setup-without-mint:
+	$(MAKE) install-mint
+	$(MAKE) install-carthage
+	$(MAKE) generate-xcodeproj
+
+.PHONY: install-mint
+install-mint:
+	mint bootstrap --overwrite y
+
+.PHONY: install-carthage
+install-carthage:
 	./Scripts/Carthage/carthage.sh bootstrap --platform iOS --cache-builds
-	./Scripts/Carthage/carthage.sh update --platform iOS --no-use-binaries
-	mint run SwiftGen/SwiftGen swiftgen
-	mint run XcodeGen xcodegen
+	@$(MAKE) show-carthage-dependencies
+
+
+.PHONY: update-carthage
+update-carthage:
+	./Scripts/Carthage/carthage.sh update --platform iOS --cache-builds
+	@$(MAKE) show-carthage-dependencies
+
+.PHONY: show-carthage-dependencies
+show-carthage-dependencies:
+	@echo '*** Resolved dependencies:'
+	@cat 'Cartfile.resolved'
+
+.PHONY: generate-xcodeproj
+generate-xcodeproj:
+	mint run xcodegen xcodegen generate
+	$(MAKE) open
 
 .PHONY: swiftgen
 swiftgen:
