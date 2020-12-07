@@ -18,12 +18,10 @@ settings:
 
 configs:
   Debug: debug
-  Staging: staging
   Release: release
 
 configFiles:
   Debug: Configs/debug_config.xcconfig
-  Staging: Configs/staging_config.xcconfig
   Release: Configs/release_config.xcconfig
 
 settingGroups:
@@ -44,9 +42,6 @@ targets:
         Debug:
           PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Development
           ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Dev
-        Staging:
-          PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Staging
-          ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         Release:
           PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Production
           ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon          
