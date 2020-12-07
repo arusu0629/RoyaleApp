@@ -17,3 +17,5 @@ ENABLE_NS_ASSERTIONS = YES
 VALIDATE_PRODUCT = NO
 // ローカライズされていない文字列に対して警告を出すかどうか
 CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES
+// Xcode12 + Carthage のビルド対応
+EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64
