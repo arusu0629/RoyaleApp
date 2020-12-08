@@ -748,6 +748,17 @@
         "id": 26000080
     },
     {
+        "key": "mother-witch",
+        "name": "Mother Witch",
+        "sc_key": "MotherWitch",
+        "elixir": 4,
+        "type": "Troop",
+        "rarity": "Legendary",
+        "arena": 9,
+        "description": "Places a curse on enemy Troops with each attack. When a cused Troop is destroyed, It turns into a building-targeting Hog that Fights alongside the Mother Witch!",
+        "id": 26000083
+    },
+    {
         "key": "electro-spirit",
         "name": "Electro Spirit",
         "sc_key": "ElectroSpirit",
