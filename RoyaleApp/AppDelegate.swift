@@ -25,10 +25,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
 
     func setup() {
+        self.setupMigrate()
         self.setupFirebase()
         self.setupAd()
         //        self.setupPushNotification()
         self.setupBackgroundFetch()
+    }
+}
+
+// MARK: - Setup migrate
+private extension AppDelegate {
+
+    func setupMigrate() {
+        self.setupPlayerTagMigrate()
+    }
+
+    func setupPlayerTagMigrate() {
+        AppConfig.migratePlayerTag()
     }
 }
 
