@@ -13,7 +13,7 @@ import RealmSwift
 public final class RealmBattleLogModel: Object {
     @objc dynamic var gameMode: String = ""
     @objc dynamic var beforeTrophy: Int = 0
-    @objc dynamic var trophyChange: Int = 0
+    @objc dynamic public var trophyChange: Int = 0
     @objc dynamic public var afterTrophy: Int = 0
     @objc dynamic public var battleTime: String = ""
     @objc dynamic public var battleDate = Date(timeIntervalSince1970: 0)
