@@ -36,6 +36,7 @@ targets:
         ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
         INFOPLIST_FILE: RoyaleApp/Info.plist
         OTHER_LDFLAGS: $(inherited)
+        PRODUCT_NAME: クラロワガイド
       configs:
         Debug:
           PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Development
