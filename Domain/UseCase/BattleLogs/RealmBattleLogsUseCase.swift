@@ -12,10 +12,8 @@ import RealmSwift
 
 public enum RealmBattleLogsUseCaseProvider {
 
-    private static let configName: String = "BattleLog"
-
-    public static func provide() -> RealmBattleLogsUseCase {
-        RealmBattleLogsUseCaseImpl(realmUseCase: RealmUseCaseProvider.provide(configName: Constant.battleLogConfigName))
+    public static func provide(battleLogConfigName: String, appGroupName: String) -> RealmBattleLogsUseCase {
+        return RealmBattleLogsUseCaseImpl(realmUseCase: RealmUseCaseProvider.provide(configName: battleLogConfigName, appGroupName: appGroupName))
     }
 }
 

@@ -48,7 +48,7 @@ private extension AppDelegate {
 
     func setupRealmMigrateIfNeeded() {
         if !AppConfig.alreadyMigrateBattleLog {
-            RealmMigrateUseCaseProvider.provide(configName: Constant.battleLogConfigName).migrate { result in
+            RealmMigrateUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName).migrate { result in
                 switch result {
                 case .success:
                     AppConfig.alreadyMigrateBattleLog = true

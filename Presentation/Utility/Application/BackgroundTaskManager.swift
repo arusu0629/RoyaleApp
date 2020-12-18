@@ -93,7 +93,7 @@ extension BackgroundTaskManager {
 
 final class BattleLogFetchOperation: Operation {
 
-    let realmBattleLogsUseCase = RealmBattleLogsUseCaseProvider.provide()
+    let realmBattleLogsUseCase = RealmBattleLogsUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName)
     let battleLogUseCase = BattleLogsUseCaseProvider.provide()
 
     override func main() {
