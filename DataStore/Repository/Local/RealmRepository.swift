@@ -11,8 +11,8 @@ import RealmSwift
 
 public enum RealmRepositoryProvider {
 
-    public static func provide(configName: String) -> RealmRepository {
-        return RealmRepositoryImpl(realmDataStore: RealmDataStoreProvider.provide(configName: configName))
+    public static func provide(configName: String, appGroupName: String) -> RealmRepository {
+        return RealmRepositoryImpl(realmDataStore: RealmDataStoreProvider.provide(configName: configName, appGroupName: appGroupName))
     }
 }
 

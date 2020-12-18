@@ -15,6 +15,8 @@ settings:
     CURRENT_PROJECT_VERSION: 2
     DEVELOPMENT_TEAM: 8CBGKNYH9U
     DEBUG_INFORMATION_FORMAT: "dwarf-with-dsym"
+    CODE_SIGN_STYLE: Manual
+    SWIFT_VERSION: 5.0
 
 configs:
   Debug: debug
@@ -24,34 +26,32 @@ configFiles:
   Debug: Configs/debug_config.xcconfig
   Release: Configs/release_config.xcconfig
 
-settingGroups:
-  RoyaleAppSettings:
-    ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
-    CODE_SIGN_STYLE: Manual
-    DEVELOPMENT_TEAM: 8CBGKNYH9U
-    SWIFT_VERSION: 5.0    
-
 targets:
   RoyaleApp:
     type: application
     platform: iOS
     sources: [RoyaleApp]
     settings:
-      groups: [RoyaleAppSettings]
+      base:
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
+        INFOPLIST_FILE: RoyaleApp/Info.plist
+        OTHER_LDFLAGS: $(inherited)
       configs:
         Debug:
           PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Development
           ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Dev
+          CODE_SIGN_ENTITLEMENTS: RoyaleApp/RoyaleApp_Debug.entitlements
         Release:
           PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Production
-          ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon          
-      INFOPLIST_FILE: RoyaleApp/Info.plist
-      OTHER_LDFLAGS: $(inherited)      
+          ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+          CODE_SIGN_ENTITLEMENTS: RoyaleApp/RoyaleApp_Release.entitlements
+
     dependencies:
       - target: Analytics    
       - target: DataStore
       - target: Domain
       - target: Presentation
+      - target: RoyaleAppWidget
     preBuildScripts:
       - path: ./Scripts/Google/copy_google_service_info_plist.sh
         name: Copy GoogleService-Info.plist  
@@ -72,14 +72,13 @@ targets:
     platform: iOS
     sources: [Analytics]
     settings:
-      CODE_SIGN_STYLE: Automatic
-      INFOPLIST_FILE: Analytics/Info.plist
-      PRODUCT_BUNDLE_IDENTIFIER: com.Analytics
-      SWIFT_VERSION: 5.0
-      OTHER_LDFLAGS: -ObjC
-      FRAMEWORK_SEARCH_PATHS:
-        - $(inherited)
-        - $(PROJECT_DIR)/Carthage/Build/iOS
+      base:
+        INFOPLIST_FILE: Analytics/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.Analytics
+        OTHER_LDFLAGS: -ObjC
+        FRAMEWORK_SEARCH_PATHS:
+          - $(inherited)
+          - $(PROJECT_DIR)/Carthage/Build/iOS
     dependencies:
       - sdk: libc++.tbd
       - target: DataStore
@@ -102,12 +101,12 @@ targets:
     platform: iOS
     sources: [DataStore]
     settings:
-      CODE_SIGN_STYLE: Automatic
-      INFOPLIST_FILE: DataStore/Info.plist
-      PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DataStore
-      SWIFT_VERSION: 5.0
-      OTHER_LDFLAGS: -ObjC      
-      LD_RUNPATH_SEARCH_PATHS: ${inherited} @executable_path/Frameworks @loader_path/Frameworks
+      base:
+        INFOPLIST_FILE: DataStore/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DataStore
+        OTHER_LDFLAGS: -ObjC      
+        LD_RUNPATH_SEARCH_PATHS: ${inherited} @executable_path/Frameworks @loader_path/Frameworks
+        APPLICATION_EXTENSION_API_ONLY: YES # To use from widget-extension
     dependencies:
       - carthage: Alamofire
       - carthage: Realm
@@ -118,10 +117,10 @@ targets:
     platform: iOS
     sources: [Domain]
     settings:
-      CODE_SIGN_STYLE: Automatic
-      INFOPLIST_FILE: Domain/Info.plist      
-      PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Domain
-      SWIFT_VERSION: 5.0      
+      base:
+        INFOPLIST_FILE: Domain/Info.plist      
+        PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Domain
+        APPLICATION_EXTENSION_API_ONLY: YES # To use from widget-extension
     dependencies:
       - target: DataStore
 
@@ -137,12 +136,39 @@ targets:
       - carthage: SwipeableTabBarController
       - carthage: GoogleMobileAds
     settings:
-      CODE_SIGN_STYLE: Automatic
-      INFOPLIST_FILE: Presentation/Info.plist
-      PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Presentation
-      SWIFT_VERSION: 5.0
-      OTHER_LDFLAGS: -ObjC
-      LD_RUNPATH_SEARCH_PATHS: ${inherited} @executable_path/Frameworks @loader_path/Frameworks
+      base:
+        INFOPLIST_FILE: Presentation/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Presentation
+        OTHER_LDFLAGS: -ObjC
+        LD_RUNPATH_SEARCH_PATHS: ${inherited} @executable_path/Frameworks @loader_path/Frameworks
+  
+  RoyaleAppWidget:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: 14.0
+    sources: [RoyaleAppWidget]
+    dependencies:
+      - target: Domain
+      - sdk: SwiftUI.framework
+      - sdk: WidgetKit.framework
+    settings:
+      base:
+        INFOPLIST_FILE: RoyaleAppWidget/Info.plist
+        PRODUCT_NAME: "RoyaleAppWidgets"
+        OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
+        LD_RUNPATH_SEARCH_PATHS: 
+          - "$(inherited)"
+          - "@executable_path/Frameworks"
+          - "@executable_path/../../Frameworks"
+      configs:
+        Debug:
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleApp.dev.Widget
+          PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Widget_Development
+          CODE_SIGN_ENTITLEMENTS: RoyaleAppWidget/RoyaleAppWidgets_Debug.entitlements
+        Release:
+          PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.RoyaleApp.Widget
+          PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Widget_Production
+          CODE_SIGN_ENTITLEMENTS: RoyaleAppWidget/RoyaleAppWidgets_Release.entitlements
 
 schemes:
   RoyaleApp:
