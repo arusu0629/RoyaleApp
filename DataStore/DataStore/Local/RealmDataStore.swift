@@ -11,8 +11,8 @@ import RealmSwift
 
 enum RealmDataStoreProvider {
 
-    static func provide(configName: String) -> RealmDataStore {
-        return RealmDataStoreImpl(configName: configName)
+    static func provide(configName: String, appGroupName: String) -> RealmDataStore {
+        return RealmDataStoreImpl(configName: configName, appGroupName: appGroupName)
     }
 }
 
@@ -30,9 +30,11 @@ protocol RealmDataStore {
 private struct RealmDataStoreImpl: RealmDataStore {
 
     var configName: String
+    var appGroupName: String
 
-    init(configName: String) {
+    init(configName: String, appGroupName: String) {
         self.configName = configName
+        self.appGroupName = appGroupName
     }
 
     func save<T>(object: T) where T : Object {
@@ -101,7 +103,7 @@ private struct RealmDataStoreImpl: RealmDataStore {
     }
 
     private var configUrl: URL {
-        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Constant.appGroup)!
+        let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: self.appGroupName)!
         return url.appendingPathComponent("\(self.configName).realm")
     }
 }

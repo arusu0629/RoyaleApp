@@ -9,9 +9,14 @@ import Domain
 import Foundation
 
 enum TodaysResultUseCaseProvider {
+
+    // TODO: Refer to Constant.swift
+    private static let battleLogConfigName = "BattleLog"
+    static let appGroupName = "group.nakandakari.toru.RoyaleApp"
+
     static func provide() -> TodaysResultUseCase {
         return TodaysResultUseCaseImpl(
-            realmBattleLogsUseCase: RealmBattleLogsUseCaseProvider.provide(),
+            realmBattleLogsUseCase: RealmBattleLogsUseCaseProvider.provide(battleLogConfigName: self.battleLogConfigName, appGroupName: self.appGroupName),
             battleLogsUseCase: BattleLogsUseCaseProvider.provide()
         )
     }
@@ -27,6 +32,11 @@ private struct TodaysResultUseCaseImpl: TodaysResultUseCase {
     private let realmBattleLogsUseCase: RealmBattleLogsUseCase
     private let battleLogsUseCase: BattleLogsUseCase
 
+    // TODO: Refer to AppConfig.playerTag
+    private var playerTag: String {
+        return UserDefaults(suiteName: TodaysResultUseCaseProvider.appGroupName)?.string(forKey: "playerTag_v1") ?? ""
+    }
+
     init(realmBattleLogsUseCase: RealmBattleLogsUseCase, battleLogsUseCase: BattleLogsUseCase) {
         self.realmBattleLogsUseCase = realmBattleLogsUseCase
         self.battleLogsUseCase = battleLogsUseCase
@@ -39,7 +49,7 @@ private struct TodaysResultUseCaseImpl: TodaysResultUseCase {
     }
 
     private func requestBattleLogs(completion: @escaping (() -> Void)) {
-        self.battleLogsUseCase.get(playerTag: AppConfig.playerTag) { result in
+        self.battleLogsUseCase.get(playerTag: self.playerTag) { result in
             switch result {
             case .success(let battleLogsModel):
                 let realmBattleLogs = battleLogsModel.realmBattleLogs()

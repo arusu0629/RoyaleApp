@@ -8,8 +8,8 @@
 import Foundation
 
 public enum RealmMigrateRepositoryProvider {
-    public static func provide(configName: String) -> RealmMigrateRepository {
-        return RealmMigrateRepositoryImpl(realmDataStore: RealmDataStoreProvider.provide(configName: configName))
+    public static func provide(configName: String, appGroupName: String) -> RealmMigrateRepository {
+        return RealmMigrateRepositoryImpl(realmDataStore: RealmDataStoreProvider.provide(configName: configName, appGroupName: appGroupName))
     }
 }
 

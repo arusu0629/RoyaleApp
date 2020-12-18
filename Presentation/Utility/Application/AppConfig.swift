@@ -84,15 +84,20 @@ extension AppConfig {
 
     public static var playerTag: String {
         set {
-            UserDefaults(suiteName: Constant.appGroup)?.set(newValue, forKey: #function + playerTagVersion)
+            UserDefaults(suiteName: Constant.appGroupName)?.set(newValue, forKey: #function + playerTagVersion)
         }
         get {
-            return UserDefaults(suiteName: Constant.appGroup)?.string(forKey: #function + playerTagVersion) ?? ""
+            return UserDefaults(suiteName: Constant.appGroupName)?.string(forKey: #function + playerTagVersion) ?? ""
         }
     }
 
     public static func migratePlayerTag() {
-        self.playerTag = UserDefaults.standard.string(forKey: "playerTag") ?? ""
+        guard let playerTag = UserDefaults.standard.string(forKey: "playerTag"),
+              !playerTag.isEmpty else {
+            return
+        }
+        self.playerTag = playerTag
+        UserDefaults.standard.removeObject(forKey: "playerTag")
     }
 
     /// Note that player tags start with hash character '#' and that needs to be URL-encoded properly to work in URL, so for example player tag '#2ABC' would become '%232ABC' in the URL.
