@@ -50,7 +50,7 @@ extension DeckPresenterImpl {
 
     func viewDidLoad() {
         AnalyticsManager.sendEvent(DeckEvent.display)
-        //        self.view?.showFooterAdView()
+        self.view?.showFooterAdView()
         self.view?.hideFooterAdView()
     }
 

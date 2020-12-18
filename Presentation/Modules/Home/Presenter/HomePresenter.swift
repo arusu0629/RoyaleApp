@@ -37,7 +37,7 @@ final class HomePresenterImpl: HomePresenter {
     func viewDidLoad() {
         AnalyticsManager.sendEvent(HomeEvent.display)
         self.setup()
-        //        self.view?.showFooterAdView()
+        self.view?.showFooterAdView()
         self.view?.hideFooterAdView()
     }
 
