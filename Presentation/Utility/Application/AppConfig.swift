@@ -109,3 +109,16 @@ extension AppConfig {
         return replaceCharacter + convertPlayerTag
     }
 }
+
+// MARK: Realm Migrate
+extension AppConfig {
+
+    public static var alreadyMigrateBattleLog: Bool {
+        set {
+            UserDefaults.standard.set(newValue, forKey: #function)
+        }
+        get {
+            return UserDefaults.standard.bool(forKey: #function)
+        }
+    }
+}

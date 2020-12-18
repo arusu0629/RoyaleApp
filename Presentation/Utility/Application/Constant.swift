@@ -8,5 +8,6 @@
 import Foundation
 
 public class Constant {
-    static let appGroup = "group.nakandakari.toru.RoyaleApp"
+    static let appGroup                   = "group.nakandakari.toru.RoyaleApp"
+    public static let battleLogConfigName = "BattleLog"
 }

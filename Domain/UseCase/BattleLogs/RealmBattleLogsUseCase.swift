@@ -15,7 +15,7 @@ public enum RealmBattleLogsUseCaseProvider {
     private static let configName: String = "BattleLog"
 
     public static func provide() -> RealmBattleLogsUseCase {
-        RealmBattleLogsUseCaseImpl(realmUseCase: RealmUseCaseProvider.provide(configName: RealmBattleLogsUseCaseProvider.configName))
+        RealmBattleLogsUseCaseImpl(realmUseCase: RealmUseCaseProvider.provide(configName: Constant.battleLogConfigName))
     }
 }
 

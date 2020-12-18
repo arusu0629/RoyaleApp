@@ -11,6 +11,7 @@ import Foundation
 public enum RealmDataStoreError: LocalizedError {
     case instance
     case failedDelete
+    case failedMigrate
 
     public var errorDescription: String? {
         switch self {
@@ -18,6 +19,8 @@ public enum RealmDataStoreError: LocalizedError {
             return "Unknown error"
         case .failedDelete:
             return "Failed to delete data"
+        case .failedMigrate:
+            return "Failed to migrate data"
         }
     }
 }
