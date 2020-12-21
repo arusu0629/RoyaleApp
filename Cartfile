@@ -6,7 +6,7 @@ github "onevcat/Kingfisher" ~> 5.15.0
 
 # Firebase
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAdMobBinary.json" == 7.0.0
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json"
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json"
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.json"
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" == 7.1.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json" == 7.1.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.json" == 7.1.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinary.json" == 7.1.0
