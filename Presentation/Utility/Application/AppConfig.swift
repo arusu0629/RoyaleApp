@@ -13,15 +13,6 @@ public class AppConfig {}
 // MARK: - UserDefaults
 extension AppConfig {
 
-    public static var playerTag: String {
-        set {
-            UserDefaults.standard.set(newValue, forKey: #function)
-        }
-        get {
-            return UserDefaults.standard.string(forKey: #function) ?? ""
-        }
-    }
-
     public static var lastSelectedFilterDateIndex: Int {
         set {
             UserDefaults.standard.set(newValue, forKey: #function)
@@ -89,6 +80,26 @@ extension AppConfig {
 // MARK: - PlayerTag
 extension AppConfig {
 
+    private static let playerTagVersion = "_v1"
+
+    public static var playerTag: String {
+        set {
+            UserDefaults(suiteName: Constant.appGroupName)?.set(newValue, forKey: #function + playerTagVersion)
+        }
+        get {
+            return UserDefaults(suiteName: Constant.appGroupName)?.string(forKey: #function + playerTagVersion) ?? ""
+        }
+    }
+
+    public static func migratePlayerTag() {
+        guard let playerTag = UserDefaults.standard.string(forKey: "playerTag"),
+              !playerTag.isEmpty else {
+            return
+        }
+        self.playerTag = playerTag
+        UserDefaults.standard.removeObject(forKey: "playerTag")
+    }
+
     /// Note that player tags start with hash character '#' and that needs to be URL-encoded properly to work in URL, so for example player tag '#2ABC' would become '%232ABC' in the URL.
     static func convertPlayerTag(_ playerTag: String) -> String {
         let specialCharacter = "#"
@@ -101,5 +112,18 @@ extension AppConfig {
         convertPlayerTag.removeFirst()
 
         return replaceCharacter + convertPlayerTag
+    }
+}
+
+// MARK: Realm Migrate
+extension AppConfig {
+
+    public static var alreadyMigrateBattleLog: Bool {
+        set {
+            UserDefaults.standard.set(newValue, forKey: #function)
+        }
+        get {
+            return UserDefaults.standard.bool(forKey: #function)
+        }
     }
 }
