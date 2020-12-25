@@ -67,6 +67,8 @@ targets:
             - ${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}
         - path: ./Scripts/FirebaseCrashlytics/upload_dsyms.sh
           name: Upload dSYMs
+        - path: ./Scripts/carthage/remove_firebase.sh
+          name: Remove firebase for upload app store connect
 
   Analytics:
     type: framework
@@ -142,7 +144,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Presentation
         OTHER_LDFLAGS: -ObjC
         LD_RUNPATH_SEARCH_PATHS: ${inherited} @executable_path/Frameworks @loader_path/Frameworks
-  
+
   RoyaleAppWidget:
     type: app-extension
     platform: iOS
