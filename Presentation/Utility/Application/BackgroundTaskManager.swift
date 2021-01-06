@@ -108,7 +108,7 @@ final class BattleLogFetchOperation: Operation {
                     //                    NotificationHelper.postLocalNotification(with: Message(body: "Add BattleLog: \(addBattleLogCount) count"))
                 }
             case .failure:
-                // TODO: Error Handling
+                // Ignore error handling for background task
                 break
             }
         }

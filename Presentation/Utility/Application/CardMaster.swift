@@ -10,7 +10,6 @@ import Domain
 import Foundation
 import UIKit
 
-// TODO: remove test code
 public final class DeckMaster {
 
     public static let shared = DeckMaster()

@@ -56,9 +56,7 @@ struct TodaysTrophyGraphWidgetEntryView : View {
     var body: some View {
         switch family {
         case .systemSmall  : TodaysResultSmallView(todaysResult: entry.todaysResult)
-        // TODO: Replace TodaysResultMediumView
-        case .systemMedium : TodaysResultSmallView(todaysResult: entry.todaysResult)
-        default            : Text("") // Unsupported
+        default            : fatalError() // Unsupported
         }
     }
 }
