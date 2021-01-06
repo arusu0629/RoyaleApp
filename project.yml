@@ -5,7 +5,7 @@ options:
   deploymentTarget:
     iOS: 13.0
   developmentLanguage: en
-  xcodeVersion: "12.0"
+  xcodeVersion: "12.3"
   # Carthage の実行パスを指定
   carthageExecutablePath: ./Scripts/Carthage/carthage.sh
 
