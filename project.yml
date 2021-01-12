@@ -36,16 +36,17 @@ targets:
         ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
         INFOPLIST_FILE: RoyaleApp/Info.plist
         OTHER_LDFLAGS: $(inherited)
-        PRODUCT_NAME: クラロワガイド
       configs:
         Debug:
           PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Development
           ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Dev
           CODE_SIGN_ENTITLEMENTS: RoyaleApp/RoyaleApp_Debug.entitlements
+          PRODUCT_NAME: RoyaleApp
         Release:
           PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Production
           ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
           CODE_SIGN_ENTITLEMENTS: RoyaleApp/RoyaleApp_Release.entitlements
+          PRODUCT_NAME: クラロワガイド
 
     dependencies:
       - target: Analytics    
