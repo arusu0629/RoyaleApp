@@ -21,6 +21,7 @@ public enum SignInBuilder {
         presenter.view = view
         presenter.wireframe = wireframe
         presenter.playerUseCase = PlayerUseCaseProvider.provide()
+        presenter.playerTagUseCase = PlayerTagUseCaseProvider.provide()
 
         wireframe.viewController = view
 

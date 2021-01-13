@@ -30,6 +30,8 @@ final class DeckCreatePresenterImpl: DeckCreatePresenter {
 
     var playerUseCase: PlayerUseCase!
     var realmDeckModelUseCase: RealmDeckModelUseCase!
+    var playerTagUseCase: PlayerTagUseCase!
+    var lastSelectedSortIndexUseCase: LastSelectedSortIndexUseCase!
 
     private var selectedDeckIndex: Int = 0
     private var sortType: CardSortType = .arena
@@ -40,7 +42,6 @@ final class DeckCreatePresenterImpl: DeckCreatePresenter {
     init(deckIndex: Int, selectedCardList: [CardModel]) {
         self.selectedDeckIndex = deckIndex
         self.selectedCardList = selectedCardList
-        self.sortType = CardSortType(rawValue: AppConfig.lastSelectedSortIndex) ?? .arena
     }
 }
 
@@ -49,6 +50,7 @@ extension DeckCreatePresenterImpl {
 
     func viewDidload() {
         AnalyticsManager.sendEvent(DeckCreateEvent.display)
+        self.sortType = CardSortType(rawValue: self.lastSelectedSortIndexUseCase.get()) ?? .arena
         self.view?.didFetchCardSortType(cardSortType: self.sortType)
         self.getDeckInfo()
         //        self.view?.showFooterAdView()
@@ -58,7 +60,7 @@ extension DeckCreatePresenterImpl {
     func didSelectDeckSelect() {
         let deck = DeckModel(cards: self.selectedCardList)
         AnalyticsManager.sendEvent(DeckCreateEvent.selectDeckSelect(deck: deck))
-        self.realmDeckModelUseCase.save(object: RealmDeckModel.create(playerTag: AppConfig.playerTag, index: self.selectedDeckIndex, name: "テスト", deckModel: deck))
+        self.realmDeckModelUseCase.save(object: RealmDeckModel.create(playerTag: self.playerTagUseCase.get(), index: self.selectedDeckIndex, name: "テスト", deckModel: deck))
         self.wireframe.dismiss(completion: nil)
     }
 
@@ -71,7 +73,7 @@ extension DeckCreatePresenterImpl {
     func didSelectSortButton(sortType: CardSortType) {
         AnalyticsManager.sendEvent(DeckCreateEvent.selectCardSort(cardSortType: sortType))
         self.sortType = sortType
-        AppConfig.lastSelectedSortIndex = self.sortType.rawValue
+        self.lastSelectedSortIndexUseCase.set(index: self.sortType.rawValue)
         self.sortCards(sortType: self.sortType)
     }
 
@@ -110,7 +112,7 @@ extension DeckCreatePresenterImpl {
             return
         }
 
-        let playerDeckModel = [RealmDeckModel](realmDeckModel).filter { $0.playerTag == AppConfig.playerTag }
+        let playerDeckModel = [RealmDeckModel](realmDeckModel).filter { $0.playerTag == self.playerTagUseCase.get() }
         if let selectedDeckModel = playerDeckModel.first(where: { $0.index == self.selectedDeckIndex }) {
             self.view?.didFetchDeckInfo(playerModel: playerModel, currentDeck: selectedDeckModel.convertToDeckModel(cards: playerModel.cards))
         } else {
@@ -119,7 +121,7 @@ extension DeckCreatePresenterImpl {
     }
 
     private func getPlayerInfo(completion: @escaping (Result<PlayerModel, Error>) -> Void) {
-        self.playerUseCase.get(playerTag: AppConfig.playerTag) { result in
+        self.playerUseCase.get(playerTag: self.playerTagUseCase.get()) { result in
             switch result {
             case .success(let playerModel):
                 completion(.success(playerModel))

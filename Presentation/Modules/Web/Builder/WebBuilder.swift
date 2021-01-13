@@ -21,6 +21,7 @@ enum WebBuilder {
         presenter.view = view
         presenter.wireframe = wireframe
         presenter.webViewTabUseCase = WebViewTabUseCaseProvider.provide()
+        presenter.lastSelectedWebViewTabIndexUseCase = LastSelectedWebViewTabIndexUseCaseProvider.provide()
 
         wireframe.viewController = view
 

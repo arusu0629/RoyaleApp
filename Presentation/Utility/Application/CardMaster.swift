@@ -14,7 +14,7 @@ public final class DeckMaster {
 
     public static let shared = DeckMaster()
 
-    public func createDeckShareUrl(currentDeck: DeckModel) -> URL? {
+    public func createDeckShareUrl(currentDeck: DeckModel, playerTag: String) -> URL? {
         var urlString = "https://link.clashroyale.com/deck/jp?"
         var deckParameter = "deck="
         let deckParamSeparator = ";"
@@ -28,7 +28,7 @@ public final class DeckMaster {
         }
 
         var playerTagParamter = "id="
-        playerTagParamter += AppConfig.playerTag
+        playerTagParamter += playerTag
 
         urlString += deckParameter + playerTagParamter
         return URL(string: urlString)

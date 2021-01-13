@@ -6,97 +6,20 @@
 //  Copyright © 2020 nakandakari. All rights reserved.
 //
 
+import Domain
 import Foundation
 
 public class AppConfig {}
 
-// MARK: - UserDefaults
-extension AppConfig {
-
-    public static var lastSelectedFilterDateIndex: Int {
-        set {
-            UserDefaults.standard.set(newValue, forKey: #function)
-        }
-        get {
-            return UserDefaults.standard.integer(forKey: #function)
-        }
-    }
-
-    public static var lastSelectedDeckIndex: Int {
-        set {
-            UserDefaults.standard.set(newValue, forKey: #function)
-        }
-        get {
-            return UserDefaults.standard.integer(forKey: #function)
-        }
-    }
-
-    public static var lastSelectedSortIndex: Int {
-        set {
-            UserDefaults.standard.set(newValue, forKey: #function)
-        }
-        get {
-            return UserDefaults.standard.integer(forKey: #function)
-        }
-    }
-
-    public static var lastSelectedWebViewTabIndex: Int {
-        set {
-            UserDefaults.standard.set(newValue, forKey: #function)
-        }
-        get {
-            return UserDefaults.standard.integer(forKey: #function)
-        }
-    }
-
-    public static var lastRequestPlayerInfoTime: Int {
-        set {
-            UserDefaults.standard.set(newValue, forKey: #function)
-        }
-        get {
-            return UserDefaults.standard.integer(forKey: #function)
-        }
-    }
-
-    public static var lastRequestPlayerBattleLogsTime: Int {
-        set {
-            UserDefaults.standard.set(newValue, forKey: #function)
-        }
-        get {
-            return UserDefaults.standard.integer(forKey: #function)
-        }
-    }
-
-    public static var lastRequestUpComingChestsTime: Int {
-        set {
-            UserDefaults.standard.set(newValue, forKey: #function)
-        }
-        get {
-            return UserDefaults.standard.integer(forKey: #function)
-        }
-    }
-}
-
 // MARK: - PlayerTag
 extension AppConfig {
-
-    private static let playerTagVersion = "_v1"
-
-    public static var playerTag: String {
-        set {
-            UserDefaults(suiteName: Constant.appGroupName)?.set(newValue, forKey: #function + playerTagVersion)
-        }
-        get {
-            return UserDefaults(suiteName: Constant.appGroupName)?.string(forKey: #function + playerTagVersion) ?? ""
-        }
-    }
 
     public static func migratePlayerTag() {
         guard let playerTag = UserDefaults.standard.string(forKey: "playerTag"),
               !playerTag.isEmpty else {
             return
         }
-        self.playerTag = playerTag
+        PlayerTagUseCaseProvider.provide().set(playerTag: playerTag)
         UserDefaults.standard.removeObject(forKey: "playerTag")
     }
 
@@ -112,18 +35,5 @@ extension AppConfig {
         convertPlayerTag.removeFirst()
 
         return replaceCharacter + convertPlayerTag
-    }
-}
-
-// MARK: Realm Migrate
-extension AppConfig {
-
-    public static var alreadyMigrateBattleLog: Bool {
-        set {
-            UserDefaults.standard.set(newValue, forKey: #function)
-        }
-        get {
-            return UserDefaults.standard.bool(forKey: #function)
-        }
     }
 }

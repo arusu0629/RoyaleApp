@@ -19,7 +19,7 @@ protocol HomeView: ShowErrorAlertView {
     func didFailedFetchPlayerInfo(_ error: Error)
     func didFailedFetchUpComingChests(_ error: Error)
     func didFailedFetchPlayerBattleLog(_ error: Error)
-    func setupTrophyDateFilter(trophyDateFilters: [TrophyDateFilter])
+    func setupTrophyDateFilter(trophyDateFilters: [TrophyDateFilter], lastSelectedFilterDateIndex: Int)
     func willEnterForground()
 
     // Ad
@@ -112,8 +112,8 @@ extension HomeViewController: HomeView {
         self.showErrorAlert(error)
     }
 
-    func setupTrophyDateFilter(trophyDateFilters: [TrophyDateFilter]) {
-        self.playerTrophyChartView.setupDateFilterTabView(texts: trophyDateFilters.map { $0.label }, initialIndex: AppConfig.lastSelectedFilterDateIndex)
+    func setupTrophyDateFilter(trophyDateFilters: [TrophyDateFilter], lastSelectedFilterDateIndex: Int) {
+        self.playerTrophyChartView.setupDateFilterTabView(texts: trophyDateFilters.map { $0.label }, initialIndex: lastSelectedFilterDateIndex)
     }
 
     public func willEnterForground() {

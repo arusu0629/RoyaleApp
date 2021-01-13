@@ -37,6 +37,7 @@ private extension AppDelegate {
 // MARK: - Setup migrate
 private extension AppDelegate {
 
+    // TODO: Remove this code when over minimum appversion v1.1.0
     func setupMigrate() {
         self.setupPlayerTagMigrate()
         self.setupRealmMigrateIfNeeded()
@@ -47,15 +48,17 @@ private extension AppDelegate {
     }
 
     func setupRealmMigrateIfNeeded() {
-        if !AppConfig.alreadyMigrateBattleLog {
-            RealmMigrateUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName).migrate { result in
-                switch result {
-                case .success:
-                    AppConfig.alreadyMigrateBattleLog = true
-                case .failure(let error):
-                    // TODO: error handling
-                    print("error = \(error)")
-                }
+        // Already finished migrate
+        if AlreadyMigrateBattleLogUseCaseProvider.provide().get() {
+            return
+        }
+        RealmMigrateUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName).migrate { result in
+            switch result {
+            case .success:
+                AlreadyMigrateBattleLogUseCaseProvider.provide().set(flag: true)
+            case .failure(let error):
+                // TODO: error handling
+                print("error = \(error)")
             }
         }
     }

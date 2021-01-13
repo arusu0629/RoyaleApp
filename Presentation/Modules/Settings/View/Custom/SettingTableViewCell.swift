@@ -58,7 +58,7 @@ private extension SettingsSection {
 
     var subTitle: String {
         switch self {
-        case .SignOut    : return AppConfig.playerTag
+        case .SignOut    : return PlayerTagUseCaseProvider.provide().get()
         case .AppVersion : return Bundle.appVersion
         }
     }

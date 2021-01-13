@@ -22,6 +22,8 @@ enum DeckCreateBuilder {
         presenter.wireframe = wireframe
         presenter.playerUseCase = PlayerUseCaseProvider.provide()
         presenter.realmDeckModelUseCase = RealmDeckModelUseCaseProvider.provide(deckModelConfigName: Constant.deckModelConfigName, appGroupName: Constant.appGroupName)
+        presenter.playerTagUseCase = PlayerTagUseCaseProvider.provide()
+        presenter.lastSelectedSortIndexUseCase = LastSelectedSortIndexUseCaseProvider.provide()
 
         wireframe.viewController = view
 

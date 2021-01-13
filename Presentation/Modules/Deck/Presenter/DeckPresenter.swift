@@ -29,10 +29,12 @@ final class DeckPresenterImpl: DeckPresenter {
 
     var playerUserCase: PlayerUseCase!
     var realmDeckModelUseCase: RealmDeckModelUseCase!
+    var playerTagUseCase: PlayerTagUseCase!
+    var lastSelectedDeckIndexUseCase: LastSelectedDeckIndexUseCase!
 
     private var selectedDeckIndex: Int = 0 {
         didSet {
-            AppConfig.lastSelectedDeckIndex = self.selectedDeckIndex
+            self.lastSelectedDeckIndexUseCase.set(index: self.selectedDeckIndex)
         }
     }
     private var decks: [DeckModel] = []
@@ -55,7 +57,7 @@ extension DeckPresenterImpl {
     }
 
     func viewWillAppear() {
-        self.selectedDeckIndex = AppConfig.lastSelectedDeckIndex
+        self.selectedDeckIndex = self.lastSelectedDeckIndexUseCase.get()
         self.getDeckModel()
     }
 
@@ -79,7 +81,7 @@ extension DeckPresenterImpl {
             self.view?.showErrorAlert(error)
             return
         }
-        guard let url = DeckMaster.shared.createDeckShareUrl(currentDeck: self.currentDeck) else {
+        guard let url = DeckMaster.shared.createDeckShareUrl(currentDeck: self.currentDeck, playerTag: self.playerTagUseCase.get()) else {
             self.view?.showErrorAlert(DeckShareError.invalidURL)
             return
         }
@@ -103,9 +105,9 @@ extension DeckPresenterImpl {
             self.view?.didFetchDecks(decks: self.decks, selectedDeckIndex: self.selectedDeckIndex)
             return
         }
-        let realmDeckModel = [RealmDeckModel](deckModel).filter { $0.playerTag == AppConfig.playerTag }
+        let realmDeckModel = [RealmDeckModel](deckModel).filter { $0.playerTag == self.playerTagUseCase.get() }
 
-        self.playerUserCase.get(playerTag: AppConfig.playerTag) { result in
+        self.playerUserCase.get(playerTag: self.playerTagUseCase.get()) { result in
             switch result {
             case .success(let playerModel):
                 self.decks = realmDeckModel.map { $0.convertToDeckModel(cards: playerModel.cards) }

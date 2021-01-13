@@ -95,9 +95,10 @@ final class BattleLogFetchOperation: Operation {
 
     let realmBattleLogsUseCase = RealmBattleLogsUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName)
     let battleLogUseCase = BattleLogsUseCaseProvider.provide()
+    let playerTagUseCase = PlayerTagUseCaseProvider.provide()
 
     override func main() {
-        self.battleLogUseCase.get(playerTag: AppConfig.playerTag) { result in
+        self.battleLogUseCase.get(playerTag: self.playerTagUseCase.get()) { result in
             switch result {
             case .success(let battleLogModel):
                 let latestBattleLogTime = self.realmBattleLogsUseCase.getLatest()?.battleDate ?? Date(timeIntervalSince1970: 0)

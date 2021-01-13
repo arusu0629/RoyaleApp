@@ -18,6 +18,7 @@ final class SignInPresenterImpl: SignInPresenter {
     weak var view: SignInView?
     var wireframe: SignInWireframe!
     var playerUseCase: PlayerUseCase!
+    var playerTagUseCase: PlayerTagUseCase!
 
     var dismissCompletion: (() -> Void)?
 
@@ -44,7 +45,7 @@ extension SignInPresenterImpl {
             self.view?.hideLoading()
             switch result {
             case .success:
-                AppConfig.playerTag = convertPlayerTag
+                self.playerTagUseCase.set(playerTag: convertPlayerTag)
                 self.wireframe.dismiss(completion: self.dismissCompletion)
             case .failure(let error):
                 self.view?.showErrorAlert(error)

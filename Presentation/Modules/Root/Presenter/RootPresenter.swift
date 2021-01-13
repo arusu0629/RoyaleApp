@@ -29,8 +29,10 @@ final class RootPresenterImpl: RootPresenter {
     weak var view: RootView?
     var wireframe: RootWireframe!
 
+    var playerTagUseCase: PlayerTagUseCase!
+
     func viewWillAppear() {
-        if !AppConfig.playerTag.isEmpty {
+        if !self.playerTagUseCase.get().isEmpty {
             return
         }
         self.presentSignIn(dismissCompletion: {

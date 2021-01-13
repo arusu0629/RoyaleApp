@@ -23,6 +23,10 @@ enum SettingsBuilder {
         presenter.settingsSectionUseCase = SettingsSelectionUseCaseProvider.provide()
         presenter.realmBattleLogUseCase = RealmBattleLogsUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName)
         presenter.realmDeckModelUseCase = RealmDeckModelUseCaseProvider.provide(deckModelConfigName: Constant.deckModelConfigName, appGroupName: Constant.appGroupName)
+        presenter.playerTagUseCase = PlayerTagUseCaseProvider.provide()
+        presenter.lastSelectedDeckIndexUseCase = LastSelectedDeckIndexUseCaseProvider.provide()
+        presenter.lastSelectedSortIndexUseCase = LastSelectedSortIndexUseCaseProvider.provide()
+        presenter.lastSelectedFilterDateIndexUseCase = LastSelectedFilterDateIndexUseCaseProvider.provide()
 
         wireframe.viewController = view
 

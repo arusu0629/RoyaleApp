@@ -29,12 +29,7 @@ final class WebPresenterImpl: WebPresenter {
     var wireframe: WebWireframe!
 
     var webViewTabUseCase: WebViewTabUseCase!
-
-    private var selectedWebViewTabIndex: Int = 0
-
-    init() {
-        self.selectedWebViewTabIndex = AppConfig.lastSelectedWebViewTabIndex
-    }
+    var lastSelectedWebViewTabIndexUseCase: LastSelectedWebViewTabIndexUseCase!
 
     func viewDidLoad() {
         AnalyticsManager.sendEvent(WebEvent.display)
@@ -53,9 +48,10 @@ final class WebPresenterImpl: WebPresenter {
 
     private func setupWebView() {
         self.view?.setupWebView()
-        self.view?.setupWebViewTab(self.webViewTabUseCase.list(), initialIndex: self.selectedWebViewTabIndex)
+        let lastSelectedWebViewIndex = self.lastSelectedWebViewTabIndexUseCase.get()
+        self.view?.setupWebViewTab(self.webViewTabUseCase.list(), initialIndex: lastSelectedWebViewIndex)
 
-        let lastSelectedWebViewTab = self.webViewTabUseCase.list()[AppConfig.lastSelectedWebViewTabIndex]
+        let lastSelectedWebViewTab = self.webViewTabUseCase.list()[lastSelectedWebViewIndex]
         guard let url = URL(string: lastSelectedWebViewTab.urlString) else {
             self.view?.showErrorAlert(WebViewError.invalidURL(url: lastSelectedWebViewTab.urlString))
             return
@@ -83,7 +79,7 @@ final class WebPresenterImpl: WebPresenter {
         }
         AnalyticsManager.sendEvent(WebEvent.selectWebTab(tab: selectedWebViewTab))
         self.view?.loadRequest(URLRequest(url: url))
-        AppConfig.lastSelectedWebViewTabIndex = index
+        self.lastSelectedWebViewTabIndexUseCase.set(index: index)
     }
 }
 

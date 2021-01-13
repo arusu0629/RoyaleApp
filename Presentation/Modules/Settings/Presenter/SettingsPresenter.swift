@@ -23,8 +23,11 @@ final class SettingsPresenterImpl: SettingsPresenter {
     var wireframe: SettingsWireframe!
     var realmBattleLogUseCase: RealmBattleLogsUseCase!
     var realmDeckModelUseCase: RealmDeckModelUseCase!
-
     var settingsSectionUseCase: SettingsSelectionUseCase!
+    var playerTagUseCase: PlayerTagUseCase!
+    var lastSelectedDeckIndexUseCase: LastSelectedDeckIndexUseCase!
+    var lastSelectedSortIndexUseCase: LastSelectedSortIndexUseCase!
+    var lastSelectedFilterDateIndexUseCase: LastSelectedFilterDateIndexUseCase!
 
     func viewDidLoad() {
         self.view?.reloadData(settingsSections: self.settingsSectionUseCase.all())
@@ -51,7 +54,7 @@ final class SettingsPresenterImpl: SettingsPresenter {
                 self.realmDeckModelUseCase.deleteAll { result in
                     switch result {
                     case .success:
-                        AppConfig.playerTag = ""
+                        self.playerTagUseCase.set(playerTag: "")
                         self.resetAppConfigIndex()
                         self.wireframe.popViewController()
                     case .failure(let error):
@@ -69,9 +72,8 @@ final class SettingsPresenterImpl: SettingsPresenter {
     }
 
     private func resetAppConfigIndex() {
-        AppConfig.lastSelectedDeckIndex = 0
-        AppConfig.lastSelectedSortIndex = 0
-        AppConfig.lastSelectedFilterDateIndex = 0
-        AppConfig.lastSelectedWebViewTabIndex = 0
+        self.lastSelectedDeckIndexUseCase.set(index: 0)
+        self.lastSelectedSortIndexUseCase.set(index: 0)
+        self.lastSelectedFilterDateIndexUseCase.set(index: 0)
     }
 }

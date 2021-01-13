@@ -6,6 +6,7 @@
 //  Copyright © 2020 arusu0629. All rights reserved.
 //
 
+import Domain
 import UIKit
 
 public enum RootBuilder {
@@ -19,6 +20,8 @@ public enum RootBuilder {
 
         presenter.view = view
         presenter.wireframe = wireframe
+
+        presenter.playerTagUseCase = PlayerTagUseCaseProvider.provide()
 
         wireframe.viewController = view
 

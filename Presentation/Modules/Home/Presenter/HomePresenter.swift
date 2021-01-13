@@ -26,6 +26,11 @@ final class HomePresenterImpl: HomePresenter {
     var chestsUseCase: UpComingChestsUseCase!
     var realmBattleLogsUseCase: RealmBattleLogsUseCase!
     var trophyDateFilterUseCase: TrophyDateFilterUseCase!
+    var playerTagUseCase: PlayerTagUseCase!
+    var lastSelectedFilterDateIndexUseCase: LastSelectedFilterDateIndexUseCase!
+    var lastRequestedPlayerInfoTimeUseCase: LastRequestPlayerInfoTimeUseCase!
+    var lastRequestPlayerBattleLogsTimeUseCase: LastRequestPlayerBattleLogsTimeUseCase!
+    var lastRequestUpComingChestsTimeUseCase: LastRequestUpComingChestsTimeUseCase!
 
     // 30 minutes
     private let requestApiIntervalSec: Int = 30 * 60
@@ -46,7 +51,7 @@ final class HomePresenterImpl: HomePresenter {
     }
 
     func didSelectDateFilterButton(index: Int) {
-        AppConfig.lastSelectedFilterDateIndex = index
+        self.lastSelectedFilterDateIndexUseCase.set(index: index)
         let trophyDateFilter = self.trophyDateFilterUseCase.list()[index]
         AnalyticsManager.sendEvent(HomeEvent.selectDateFilter(trophyDateFilter: trophyDateFilter))
         self.requestBattleLog(with: trophyDateFilter.filterDate)
@@ -62,7 +67,7 @@ private extension HomePresenterImpl {
 
     func setup() {
         self.requestPlayerData()
-        self.view?.setupTrophyDateFilter(trophyDateFilters: self.trophyDateFilterUseCase.list())
+        self.view?.setupTrophyDateFilter(trophyDateFilters: self.trophyDateFilterUseCase.list(), lastSelectedFilterDateIndex: self.lastSelectedFilterDateIndexUseCase.get())
     }
 }
 
@@ -70,24 +75,24 @@ private extension HomePresenterImpl {
 private extension HomePresenterImpl {
 
     func requestPlayerData() {
-        self.requestPlayerInfo()
-        self.requestBattleLogs()
-        self.requestUpComingChests()
+        self.requestPlayerInfo(playerTag: self.playerTagUseCase.get())
+        self.requestBattleLogs(playerTag: self.playerTagUseCase.get())
+        self.requestUpComingChests(playerTag: self.playerTagUseCase.get())
     }
 
     func requestPlayerDataIfNeeded() {
         if self.shouldRequestPlayerInfo() {
-            self.requestPlayerInfo()
+            self.requestPlayerInfo(playerTag: self.playerTagUseCase.get())
         }
         if self.shouldRequestBattleLogs() {
-            self.requestBattleLogs()
+            self.requestBattleLogs(playerTag: self.playerTagUseCase.get())
         }
         if self.shouldRequestUpComingChests() {
-            self.requestUpComingChests()
+            self.requestUpComingChests(playerTag: self.playerTagUseCase.get())
         }
     }
 
-    func requestPlayerInfo(_ playerTag: String = AppConfig.playerTag) {
+    func requestPlayerInfo(playerTag: String) {
         if playerTag.isEmpty {
             return
         }
@@ -96,7 +101,7 @@ private extension HomePresenterImpl {
             switch result {
             case .success(let playerModel):
                 self.playerModel = playerModel
-                AppConfig.lastRequestPlayerInfoTime = Int(Date().timeIntervalSince1970)
+                self.lastRequestedPlayerInfoTimeUseCase.set(lastRequestedTime: Int(Date().timeIntervalSince1970))
                 self.view?.didFetchPlayerInfo(playerModel: playerModel)
             case .failure(let error):
                 self.view?.didFailedFetchPlayerInfo(error)
@@ -104,7 +109,7 @@ private extension HomePresenterImpl {
         }
     }
 
-    func requestBattleLogs(_ playerTag: String = AppConfig.playerTag) {
+    func requestBattleLogs(playerTag: String) {
         if playerTag.isEmpty {
             return
         }
@@ -113,9 +118,9 @@ private extension HomePresenterImpl {
             switch result {
             case .success(let battleLogsModel):
                 self.battleLogsModel = battleLogsModel
-                AppConfig.lastRequestPlayerBattleLogsTime = Int(Date().timeIntervalSince1970)
+                self.lastRequestPlayerBattleLogsTimeUseCase.set(lastRequestedTime: Int(Date().timeIntervalSince1970))
                 self.realmBattleLogsUseCase.save(objects: battleLogsModel.realmBattleLogs())
-                let filterDate = self.trophyDateFilterUseCase.list()[AppConfig.lastSelectedFilterDateIndex].filterDate
+                let filterDate = self.trophyDateFilterUseCase.list()[self.lastSelectedFilterDateIndexUseCase.get()].filterDate
                 self.requestBattleLog(with: filterDate)
             case .failure(let error):
                 self.view?.didFailedFetchPlayerInfo(error)
@@ -123,7 +128,7 @@ private extension HomePresenterImpl {
         }
     }
 
-    func requestUpComingChests(_ playerTag: String = AppConfig.playerTag) {
+    func requestUpComingChests(playerTag: String) {
         if playerTag.isEmpty {
             return
         }
@@ -132,7 +137,7 @@ private extension HomePresenterImpl {
             switch result {
             case .success(let upComingChestsModel):
                 self.upComingChestsModel = upComingChestsModel
-                AppConfig.lastRequestUpComingChestsTime = Int(Date().timeIntervalSince1970)
+                self.lastRequestPlayerBattleLogsTimeUseCase.set(lastRequestedTime: Int(Date().timeIntervalSince1970))
                 self.view?.didFetchUpComingChests(chestsModel: upComingChestsModel)
             case .failure(let error):
                 self.view?.didFailedFetchPlayerBattleLog(error)
@@ -147,7 +152,7 @@ private extension HomePresenterImpl {
         if self.playerModel == nil {
             return true
         }
-        let elapsedTimeInterval = Int(Date().timeIntervalSince1970) - AppConfig.lastRequestPlayerInfoTime
+        let elapsedTimeInterval = Int(Date().timeIntervalSince1970) - self.lastRequestedPlayerInfoTimeUseCase.get()
         return elapsedTimeInterval >= self.requestApiIntervalSec
     }
 
@@ -155,7 +160,7 @@ private extension HomePresenterImpl {
         if self.battleLogsModel == nil {
             return true
         }
-        let elapsedTimeInterval = Int(Date().timeIntervalSince1970) - AppConfig.lastRequestPlayerBattleLogsTime
+        let elapsedTimeInterval = Int(Date().timeIntervalSince1970) - self.lastRequestPlayerBattleLogsTimeUseCase.get()
         return elapsedTimeInterval >= self.requestApiIntervalSec
     }
 
@@ -163,7 +168,7 @@ private extension HomePresenterImpl {
         if self.upComingChestsModel == nil {
             return true
         }
-        let elapsedTimeInterval = Int(Date().timeIntervalSince1970) - AppConfig.lastRequestUpComingChestsTime
+        let elapsedTimeInterval = Int(Date().timeIntervalSince1970) - self.lastRequestUpComingChestsTimeUseCase.get()
         return elapsedTimeInterval >= self.requestApiIntervalSec
     }
 
