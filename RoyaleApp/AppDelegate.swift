@@ -7,6 +7,7 @@
 //
 
 import Analytics
+import Domain
 import Presentation
 import UIKit
 
@@ -25,10 +26,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
 
     func setup() {
+        self.setupMigrate()
         self.setupFirebase()
         self.setupAd()
         //        self.setupPushNotification()
         self.setupBackgroundFetch()
+    }
+}
+
+// MARK: - Setup migrate
+private extension AppDelegate {
+
+    func setupMigrate() {
+        self.setupPlayerTagMigrate()
+        self.setupRealmMigrateIfNeeded()
+    }
+
+    func setupPlayerTagMigrate() {
+        AppConfig.migratePlayerTag()
+    }
+
+    func setupRealmMigrateIfNeeded() {
+        if !AppConfig.alreadyMigrateBattleLog {
+            RealmMigrateUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName).migrate { result in
+                switch result {
+                case .success:
+                    AppConfig.alreadyMigrateBattleLog = true
+                case .failure(let error):
+                    // TODO: error handling
+                    print("error = \(error)")
+                }
+            }
+        }
     }
 }
 

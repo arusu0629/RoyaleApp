@@ -93,7 +93,7 @@ extension BackgroundTaskManager {
 
 final class BattleLogFetchOperation: Operation {
 
-    let realmBattleLogsUseCase = RealmBattleLogsUseCaseProvider.provide()
+    let realmBattleLogsUseCase = RealmBattleLogsUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName)
     let battleLogUseCase = BattleLogsUseCaseProvider.provide()
 
     override func main() {
@@ -108,7 +108,7 @@ final class BattleLogFetchOperation: Operation {
                     //                    NotificationHelper.postLocalNotification(with: Message(body: "Add BattleLog: \(addBattleLogCount) count"))
                 }
             case .failure:
-                // TODO: Error Handling
+                // Ignore error handling for background task
                 break
             }
         }

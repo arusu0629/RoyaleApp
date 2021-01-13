@@ -25,6 +25,8 @@ excluded:
  - Carthage/
  # 自動生成したリソースファイルは対象に含めない
  - Presentation/Resource/Generated
+ # API トークン文字列が Line Length Violation に引っかかるため(どうしようもないので対象から外す)
+ - DataStore/DataStoreConfig.swift
 # 1行あたりの文字数制限を300に変更
 # プロジェクト作成時にデフォルトで追加されるコメントをひっかけないため
 line_length: 300
