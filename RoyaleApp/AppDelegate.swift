@@ -52,7 +52,7 @@ private extension AppDelegate {
         if AlreadyMigrateBattleLogUseCaseProvider.provide().get() {
             return
         }
-        RealmMigrateUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName).migrate { result in
+        RealmMigrateUseCaseProvider.provide().migrate { result in
             switch result {
             case .success:
                 AlreadyMigrateBattleLogUseCaseProvider.provide().set(flag: true)

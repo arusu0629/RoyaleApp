@@ -12,8 +12,8 @@ import RealmSwift
 
 public enum RealmDeckModelUseCaseProvider {
 
-    public static func provide(deckModelConfigName: String, appGroupName: String) -> RealmDeckModelUseCase {
-        return RealmDeckModelUseCaseImpl(realmUseCase: RealmUseCaseProvider.provide(configName: deckModelConfigName, appGroupName: appGroupName))
+    public static func provide() -> RealmDeckModelUseCase {
+        return RealmDeckModelUseCaseImpl(realmUseCase: RealmUseCaseProvider.provide(configName: DataStoreConstant.deckModelConfigName, appGroupName: DataStoreConstant.appGroupName))
     }
 }
 

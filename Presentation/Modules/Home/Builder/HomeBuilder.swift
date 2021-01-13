@@ -23,7 +23,7 @@ enum HomeBuilder {
         presenter.playerUseCase = PlayerUseCaseProvider.provide()
         presenter.battleLogsUseCase = BattleLogsUseCaseProvider.provide()
         presenter.chestsUseCase = UpComingChestsProvider.provide()
-        presenter.realmBattleLogsUseCase = RealmBattleLogsUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName)
+        presenter.realmBattleLogsUseCase = RealmBattleLogsUseCaseProvider.provide()
         presenter.trophyDateFilterUseCase = TrophyDateFilterUseCaseProvider.provide()
         presenter.playerTagUseCase = PlayerTagUseCaseProvider.provide()
         presenter.lastSelectedFilterDateIndexUseCase = LastSelectedFilterDateIndexUseCaseProvider.provide()

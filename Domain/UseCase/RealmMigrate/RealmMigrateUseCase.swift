@@ -9,8 +9,8 @@ import DataStore
 import Foundation
 
 public enum RealmMigrateUseCaseProvider {
-    public static func provide(battleLogConfigName: String, appGroupName: String) -> RealmMigrateUseCase {
-        return RealmMigrateuseCaseImpl(realmMigrateRepository: RealmMigrateRepositoryProvider.provide(configName: battleLogConfigName, appGroupName: appGroupName))
+    public static func provide() -> RealmMigrateUseCase {
+        return RealmMigrateuseCaseImpl(realmMigrateRepository: RealmMigrateRepositoryProvider.provide(configName: DataStoreConstant.battleLogConfigName, appGroupName: DataStoreConstant.appGroupName))
     }
 }
 

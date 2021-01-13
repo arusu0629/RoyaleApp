@@ -93,7 +93,7 @@ extension BackgroundTaskManager {
 
 final class BattleLogFetchOperation: Operation {
 
-    let realmBattleLogsUseCase = RealmBattleLogsUseCaseProvider.provide(battleLogConfigName: Constant.battleLogConfigName, appGroupName: Constant.appGroupName)
+    let realmBattleLogsUseCase = RealmBattleLogsUseCaseProvider.provide()
     let battleLogUseCase = BattleLogsUseCaseProvider.provide()
     let playerTagUseCase = PlayerTagUseCaseProvider.provide()
 

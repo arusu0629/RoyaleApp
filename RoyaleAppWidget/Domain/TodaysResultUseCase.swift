@@ -10,14 +10,11 @@ import Foundation
 
 enum TodaysResultUseCaseProvider {
 
-    // TODO: Refer to Constant.swift
-    private static let battleLogConfigName = "BattleLog"
-    static let appGroupName = "group.nakandakari.toru.RoyaleApp"
-
     static func provide() -> TodaysResultUseCase {
         return TodaysResultUseCaseImpl(
-            realmBattleLogsUseCase: RealmBattleLogsUseCaseProvider.provide(battleLogConfigName: self.battleLogConfigName, appGroupName: self.appGroupName),
-            battleLogsUseCase: BattleLogsUseCaseProvider.provide()
+            realmBattleLogsUseCase: RealmBattleLogsUseCaseProvider.provide(),
+            battleLogsUseCase: BattleLogsUseCaseProvider.provide(),
+            playerTagUseCase: PlayerTagUseCaseProvider.provide()
         )
     }
 }
@@ -31,15 +28,16 @@ private struct TodaysResultUseCaseImpl: TodaysResultUseCase {
 
     private let realmBattleLogsUseCase: RealmBattleLogsUseCase
     private let battleLogsUseCase: BattleLogsUseCase
+    private let playerTagUseCase: PlayerTagUseCase
 
-    // TODO: Refer to AppConfig.playerTag
     private var playerTag: String {
-        return UserDefaults(suiteName: TodaysResultUseCaseProvider.appGroupName)?.string(forKey: "playerTag_v1") ?? ""
+        return self.playerTagUseCase.get()
     }
 
-    init(realmBattleLogsUseCase: RealmBattleLogsUseCase, battleLogsUseCase: BattleLogsUseCase) {
+    init(realmBattleLogsUseCase: RealmBattleLogsUseCase, battleLogsUseCase: BattleLogsUseCase, playerTagUseCase: PlayerTagUseCase) {
         self.realmBattleLogsUseCase = realmBattleLogsUseCase
         self.battleLogsUseCase = battleLogsUseCase
+        self.playerTagUseCase = playerTagUseCase
     }
 
     func get(completion: @escaping Completion) {

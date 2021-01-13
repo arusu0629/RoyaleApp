@@ -10,8 +10,8 @@ import Foundation
 public class DataStoreConstant {}
 
 extension DataStoreConstant {
-    public static let appGroupName = "group.nakandakari.toru.RoyaleApp"
-    static let battleLogConfigName = "BattleLog"
-    static let deckModelConfigName = "DeckModel"
-    static let playerTagVersion    = "_v1"
+    public static let appGroupName        = "group.nakandakari.toru.RoyaleApp"
+    public static let battleLogConfigName = "BattleLog"
+    public static let deckModelConfigName = "DeckModel"
+    static let playerTagVersion           = "_v1"
 }
