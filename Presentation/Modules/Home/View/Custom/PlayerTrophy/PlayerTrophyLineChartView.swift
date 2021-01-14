@@ -159,7 +159,7 @@ final class PlayerTrophyChartXAxisFormatter {
     }
 }
 
-extension PlayerTrophyChartXAxisFormatter: IAxisValueFormatter {
+extension PlayerTrophyChartXAxisFormatter: AxisValueFormatter {
 
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         let index = Int(value)
