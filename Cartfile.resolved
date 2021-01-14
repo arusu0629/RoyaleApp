@@ -4,7 +4,7 @@ binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.json" "7.1.0"
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinary.json" "7.1.0"
 github "Alamofire/Alamofire" "5.4.1"
-github "danielgindi/Charts" "v3.5.0"
+github "danielgindi/Charts" "v4.0.0"
 github "marcosgriselli/SwipeableTabBarController" "3.3.0"
 github "onevcat/Kingfisher" "5.15.8"
 github "realm/realm-cocoa" "v10.5.0"
