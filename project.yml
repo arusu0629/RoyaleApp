@@ -36,6 +36,7 @@ targets:
         ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: YES
         INFOPLIST_FILE: RoyaleApp/Info.plist
         OTHER_LDFLAGS: $(inherited)
+        OTHER_SWIFT_FLAGS: -Xfrontend -warn-long-function-bodies=300 -Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-expression-type-checking=200"
       configs:
         Debug:
           PROVISIONING_PROFILE_SPECIFIER: RoyaleApp_Development
@@ -80,6 +81,7 @@ targets:
         INFOPLIST_FILE: Analytics/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.Analytics
         OTHER_LDFLAGS: -ObjC
+        OTHER_SWIFT_FLAGS: -Xfrontend -warn-long-function-bodies=300 -Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-expression-type-checking=200"
         FRAMEWORK_SEARCH_PATHS:
           - $(inherited)
           - $(PROJECT_DIR)/Carthage/Build/iOS
@@ -108,7 +110,8 @@ targets:
       base:
         INFOPLIST_FILE: DataStore/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.DataStore
-        OTHER_LDFLAGS: -ObjC      
+        OTHER_LDFLAGS: -ObjC
+        OTHER_SWIFT_FLAGS: -Xfrontend -warn-long-function-bodies=300 -Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-expression-type-checking=200"
         LD_RUNPATH_SEARCH_PATHS: ${inherited} @executable_path/Frameworks @loader_path/Frameworks
         APPLICATION_EXTENSION_API_ONLY: YES # To use from widget-extension
     dependencies:
@@ -124,6 +127,7 @@ targets:
       base:
         INFOPLIST_FILE: Domain/Info.plist      
         PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Domain
+        OTHER_SWIFT_FLAGS: -Xfrontend -warn-long-function-bodies=300 -Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-expression-type-checking=200"
         APPLICATION_EXTENSION_API_ONLY: YES # To use from widget-extension
     dependencies:
       - target: DataStore
@@ -144,6 +148,7 @@ targets:
         INFOPLIST_FILE: Presentation/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: nakandakari.toru.Presentation
         OTHER_LDFLAGS: -ObjC
+        OTHER_SWIFT_FLAGS: -Xfrontend -warn-long-function-bodies=300 -Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-expression-type-checking=200"
         LD_RUNPATH_SEARCH_PATHS: ${inherited} @executable_path/Frameworks @loader_path/Frameworks
 
   RoyaleAppWidget:
@@ -160,6 +165,7 @@ targets:
         INFOPLIST_FILE: RoyaleAppWidget/Info.plist
         PRODUCT_NAME: "RoyaleAppWidgets"
         OTHER_LDFLAGS: $(inherited) $(OTHER_LDFLAGS) -ObjC
+        OTHER_SWIFT_FLAGS: -Xfrontend -warn-long-function-bodies=300 -Xfrontend -debug-time-function-bodies -Xfrontend -warn-long-expression-type-checking=200"
         LD_RUNPATH_SEARCH_PATHS: 
           - "$(inherited)"
           - "@executable_path/Frameworks"
