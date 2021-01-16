@@ -133,7 +133,6 @@ extension WebViewController: WebView {
 
     func hideFooterAdView() {
         self.footerAdView.isHidden = true
-        self.footerSpacerView.isHidden = false
     }
 }
 
@@ -177,7 +176,6 @@ extension WebViewController: AdManagerDelegate {
     func didReceiveAd() {
         self.footerAdView.hideLoading()
         self.footerAdView.isHidden = false
-        self.footerSpacerView.isHidden = true
     }
 
     func didFailedAd() {
