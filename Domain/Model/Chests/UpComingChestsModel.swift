@@ -36,6 +36,9 @@ public extension UpComingChestsModel {
         case epic
         case legendary
         case megaLightning
+        case goldCrate
+        case plentifulGoldCrate
+        case overflowingGoldCrate
         case none
     }
 
@@ -75,6 +78,12 @@ private extension UpComingChestsModel.UpComingChest {
             return .legendary
         case "Mega Lightning Chest":
             return .megaLightning
+        case "Gold Crate":
+            return .goldCrate
+        case "Plentiful Gold Crate":
+            return .plentifulGoldCrate
+        case "Overflowing Gold Crate":
+            return .overflowingGoldCrate
         default:
             return .none
         }
