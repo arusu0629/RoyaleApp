@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SwipeableTabBarController'
-  s.version          = '3.3.0'
+  s.version          = '3.4.1'
   s.summary          = 'A UITabBarController where you can swipe interactively between tabs.'
 
   s.description  = "Subclass of UITabBarController that adds a swipe recognizer to the lowest UIViewController so you can interactively change tabs."
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/marcosgriselli"
 
   s.source       = { :git => "https://github.com/marcosgriselli/SwipeableTabBarController.git", :tag => s.version.to_s }
-  s.source_files  = "SwipeableTabBarController", "SwipeableTabBarController/**/*.{h,m,swift}"
+  s.source_files  = "SwipeableTabBarController", "Sources/**/*.{h,m,swift}"
   
   s.swift_version = "5.1"
   s.swift_versions = ['4.0', '4.2', '5.0']

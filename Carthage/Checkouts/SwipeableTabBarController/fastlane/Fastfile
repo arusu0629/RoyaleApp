@@ -3,10 +3,9 @@ default_platform(:ios)
 platform :ios do
 
   lane :test do
-    cocoapods(podfile: "./Example/Podfile")
     scan(
-	    workspace: "./Example/SwipeableTabBarController.xcworkspace",
-	    scheme: "SwipeableTabBarController-Example",
+	    project: "./Example/Example.xcodeproj",
+	    scheme: "Example",
 	    device: "iPhone X"
     )
   end
@@ -31,8 +30,6 @@ platform :ios do
     podspec_name = "SwipeableTabBarController.podspec"
     version = version_bump_podspec(path: podspec_name,
                                    bump_type: type)
-    increment_version_number(version_number: version)
-    #cocoapods
     git_add
     git_commit(path: ".",
                message: "#{version} release")

@@ -19,6 +19,8 @@
 #import "RLMSyncTestCase.h"
 #import "RLMUser+ObjectServerTests.h"
 
+#if TARGET_OS_OSX
+
 #import "RLMApp_Private.hpp"
 #import "RLMBSON_Private.hpp"
 #import "RLMCredentials.h"
@@ -37,6 +39,9 @@
 
 #import <realm/object-store/shared_realm.hpp>
 #import <realm/object-store/sync/sync_manager.hpp>
+#import <realm/util/file.hpp>
+
+#import <atomic>
 
 #pragma mark - Helpers
 
@@ -124,7 +129,7 @@ static NSString *generateRandomString(int num) {
     RLMUser *secondUser = [self logInUserForCredentials:[self basicCredentialsWithName:@"test1@10gen.com"
                                                                               register:YES]];
 
-    XCTAssertTrue([[self.app currentUser].identifier isEqualTo:secondUser.identifier]);
+    XCTAssertEqualObjects(self.app.currentUser.identifier, secondUser.identifier);
     // `[app currentUser]` will now be `secondUser`, so let's logout firstUser and ensure
     // the state is correct
     XCTestExpectation *expectation = [self expectationWithDescription:@"should log out current user"];
@@ -1313,10 +1318,10 @@ static const NSInteger NUMBER_OF_BIG_OBJECTS = 2;
         return;
     }
 
-    __block NSInteger callCount = 0;
-    __block NSUInteger transferred = 0;
-    __block NSUInteger transferrable = 0;
-    __block BOOL hasBeenFulfilled = NO;
+    std::atomic<NSInteger> callCount{0};
+    std::atomic<NSUInteger> transferred{0};
+    std::atomic<NSUInteger> transferrable{0};
+    BOOL hasBeenFulfilled = NO;
     // Register a notifier.
     RLMRealm *realm = [self openRealmForPartitionValue:NSStringFromSelector(_cmd) user:user];
     RLMSyncSession *session = realm.syncSession;
@@ -1324,10 +1329,10 @@ static const NSInteger NUMBER_OF_BIG_OBJECTS = 2;
     XCTestExpectation *ex = [self expectationWithDescription:@"streaming-download-notifier"];
     id token = [session addProgressNotificationForDirection:RLMSyncProgressDirectionDownload
                                                        mode:RLMSyncProgressModeReportIndefinitely
-                                                      block:^(NSUInteger xfr, NSUInteger xfb) {
+                                                      block:[&](NSUInteger xfr, NSUInteger xfb) {
         // Make sure the values are increasing, and update our stored copies.
-        XCTAssertGreaterThanOrEqual(xfr, transferred);
-        XCTAssertGreaterThanOrEqual(xfb, transferrable);
+        XCTAssertGreaterThanOrEqual(xfr, transferred.load());
+        XCTAssertGreaterThanOrEqual(xfb, transferrable.load());
         transferred = xfr;
         transferrable = xfb;
         callCount++;
@@ -1342,17 +1347,17 @@ static const NSInteger NUMBER_OF_BIG_OBJECTS = 2;
     [token invalidate];
     // The notifier should have been called at least twice: once at the beginning and at least once
     // to report progress.
-    XCTAssertGreaterThan(callCount, 1);
-    XCTAssertGreaterThanOrEqual(transferred, transferrable);
+    XCTAssertGreaterThan(callCount.load(), 1);
+    XCTAssertGreaterThanOrEqual(transferred.load(), transferrable.load());
 }
 
 - (void)testStreamingUploadNotifier {
     RLMCredentials *credentials = [self basicCredentialsWithName:NSStringFromSelector(_cmd)
                                                         register:self.isParent];
     RLMUser *user = [self logInUserForCredentials:credentials];
-    __block NSInteger callCount = 0;
-    __block NSUInteger transferred = 0;
-    __block NSUInteger transferrable = 0;
+    std::atomic<NSInteger> callCount{0};
+    std::atomic<NSUInteger> transferred{0};
+    std::atomic<NSUInteger> transferrable{0};
     // Open the Realm
     RLMRealm *realm = [self openRealmForPartitionValue:NSStringFromSelector(_cmd) user:user];
 
@@ -1362,10 +1367,10 @@ static const NSInteger NUMBER_OF_BIG_OBJECTS = 2;
     XCTestExpectation *ex = [self expectationWithDescription:@"streaming-upload-expectation"];
     auto token = [session addProgressNotificationForDirection:RLMSyncProgressDirectionUpload
                                                          mode:RLMSyncProgressModeReportIndefinitely
-                                                        block:^(NSUInteger xfr, NSUInteger xfb) {
+                                                        block:[&](NSUInteger xfr, NSUInteger xfb) {
         // Make sure the values are increasing, and update our stored copies.
-        XCTAssertGreaterThanOrEqual(xfr, transferred);
-        XCTAssertGreaterThanOrEqual(xfb, transferrable);
+        XCTAssertGreaterThanOrEqual(xfr, transferred.load());
+        XCTAssertGreaterThanOrEqual(xfb, transferrable.load());
         transferred = xfr;
         transferrable = xfb;
         callCount++;
@@ -1384,8 +1389,8 @@ static const NSInteger NUMBER_OF_BIG_OBJECTS = 2;
     [token invalidate];
     // The notifier should have been called at least twice: once at the beginning and at least once
     // to report progress.
-    XCTAssertGreaterThan(callCount, 1);
-    XCTAssertGreaterThanOrEqual(transferred, transferrable);
+    XCTAssertGreaterThan(callCount.load(), 1);
+    XCTAssertGreaterThanOrEqual(transferred.load(), transferrable.load());
 }
 
 #pragma mark - Download Realm
@@ -1628,6 +1633,7 @@ static const NSInteger NUMBER_OF_BIG_OBJECTS = 2;
         [realm commitWriteTransaction];
         [self waitForUploadsForRealm:realm];
         [self waitForDownloadsForRealm:realm];
+        [realm.syncSession suspend];
 
         path = realm.configuration.pathOnDisk;
     }
@@ -1653,7 +1659,7 @@ static const NSInteger NUMBER_OF_BIG_OBJECTS = 2;
 
     auto finalSize = [[fileManager attributesOfItemAtPath:path error:nil][NSFileSize] unsignedLongLongValue];
     XCTAssertLessThan(finalSize, initialSize);
-    XCTAssertLessThanOrEqual(finalSize, usedSize + 4096U);
+    XCTAssertLessThanOrEqual(finalSize, usedSize + realm::util::page_size());
 }
 
 #pragma mark - Read Only
@@ -2526,3 +2532,5 @@ static NSString *oldPathForPartitionValue(RLMUser *user, id<RLMBSON> partitionVa
 }
 
 @end
+
+#endif // TARGET_OS_OSX

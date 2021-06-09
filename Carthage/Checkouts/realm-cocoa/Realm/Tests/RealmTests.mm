@@ -1014,6 +1014,7 @@
             [expectation fulfill];
             return;
         }
+        [token invalidate];
 
         XCTAssertEqual(1U, results.count);
         createObject();
@@ -1022,7 +1023,6 @@
         XCTAssertEqual(2U, results.count);
         [realm cancelWriteTransaction];
         [expectation fulfill];
-        [token invalidate];
     };
     token = [StringObject.allObjects addNotificationBlock:block];
     [self waitForExpectationsWithTimeout:2.0 handler:nil];
@@ -1252,14 +1252,20 @@
     XCTAssertThrows([array count]);
 }
 
-- (void)testInvalidateOnReadOnlyRealmIsError
+- (void)testInvalidateOnReadOnlyRealm
 {
     @autoreleasepool {
-        // Create the file
-        [self realmWithTestPath];
+        RLMRealm *realm = [self realmWithTestPath];
+        [realm transactionWithBlock:^{
+            [IntObject createInRealm:realm withValue:@[@0]];
+        }];
     }
     RLMRealm *realm = [self readOnlyRealmWithURL:RLMTestRealmURL() error:nil];
-    XCTAssertThrows([realm invalidate]);
+    IntObject *io = [[IntObject allObjectsInRealm:realm] firstObject];
+    [realm invalidate];
+    XCTAssertTrue(io.isInvalidated);
+    // Starts a new read transaction
+    XCTAssertFalse([[[IntObject allObjectsInRealm:realm] firstObject] isInvalidated]);
 }
 
 - (void)testInvalidateBeforeReadDoesNotAssert
@@ -1491,7 +1497,7 @@
 
     // wait for background realm to be created
     [self waitForExpectationsWithTimeout:2.0 handler:nil];
-    bgDone = [self expectationWithDescription:@"background queue done"];;
+    bgDone = [self expectationWithDescription:@"background queue done"];
 
     [realm beginWriteTransaction];
     [StringObject createInRealm:realm withValue:@[@"string"]];
@@ -1854,7 +1860,9 @@
     RLMRealm *realm = [RLMRealm defaultRealm];
     XCTAssertFalse(realm.frozen);
     RLMRealm *frozenRealm = [realm freeze];
+    RLMRealm *thawedRealm = [frozenRealm thaw];
     XCTAssertFalse(realm.frozen);
+    XCTAssertFalse(thawedRealm.frozen);
     XCTAssertTrue(frozenRealm.frozen);
 }
 
@@ -1901,6 +1909,68 @@
     [realm invalidate];
     RLMAssertThrowsWithReason([IntObject allObjectsInRealm:realm],
                               @"Cannot read from a frozen Realm which has been invalidated.");
+}
+
+- (void)testThaw {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    XCTAssertFalse(realm.frozen);
+
+    [realm beginWriteTransaction];
+    [IntObject createInRealm: realm withValue:@[@1]];
+    [realm commitWriteTransaction];
+
+    RLMRealm *frozenRealm = [realm freeze];
+    XCTAssertTrue(frozenRealm.frozen);
+    IntObject *frozenObj = [[IntObject objectsInRealm:frozenRealm where:@"intCol = 1"] firstObject];
+    XCTAssertTrue(frozenObj.frozen);
+
+    RLMRealm *thawedRealm = [realm thaw];
+    XCTAssertFalse(thawedRealm.frozen);
+    IntObject *thawedObj = [[IntObject objectsInRealm:thawedRealm where:@"intCol = 1"] firstObject];
+
+    [realm beginWriteTransaction];
+    thawedObj.intCol = 2;
+    [realm commitWriteTransaction];
+    XCTAssertNotEqual(thawedObj.intCol, frozenObj.intCol);
+
+    IntObject *nilObj = [[IntObject objectsInRealm:thawedRealm where:@"intCol = 1"] firstObject];
+    XCTAssertNil(nilObj);
+}
+
+- (void)testThawDifferentThread {
+    RLMRealm *frozenRealm = [[RLMRealm defaultRealm] freeze];
+    XCTAssertTrue(frozenRealm.frozen);
+    
+    // Thaw on a thread which already has a Realm should use existing reference.
+    [self dispatchAsyncAndWait:^{
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        RLMRealm *thawed = [frozenRealm thaw];
+        XCTAssertFalse(thawed.frozen);
+        XCTAssertEqual(thawed, realm);
+    }];
+    
+    // Thaw on thread without existing refernce.
+    [self dispatchAsyncAndWait:^{
+        RLMRealm *thawed = [frozenRealm thaw];
+        XCTAssertFalse(thawed.frozen);
+    }];
+}
+
+-(void)testThawPreviousVersion {
+    RLMRealm *frozenRealm = [[RLMRealm defaultRealm] freeze];
+    XCTAssertTrue(frozenRealm.frozen);
+    XCTAssertEqual(frozenRealm.isEmpty, [[RLMRealm defaultRealm] isEmpty]);
+
+    [RLMRealm.defaultRealm beginWriteTransaction];
+    [IntObject createInDefaultRealmWithValue:@[@1]];
+    [RLMRealm.defaultRealm commitWriteTransaction];
+    XCTAssertNotEqual(frozenRealm.isEmpty, [[RLMRealm defaultRealm] isEmpty], "Contents of frozen Realm should not mutate");
+
+
+    RLMRealm *thawed = [frozenRealm thaw];
+    XCTAssertFalse(thawed.isFrozen);
+    XCTAssertEqual(thawed.isEmpty, [[RLMRealm defaultRealm] isEmpty], "Thawed realm should reflect transactions since the original reference was frozen");
+    XCTAssertNotEqual(thawed.isEmpty, frozenRealm.isEmpty);
 }
 
 #pragma mark - Assorted tests
