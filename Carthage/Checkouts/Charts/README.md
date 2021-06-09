@@ -50,6 +50,7 @@ In order to correctly compile:
 #### Video tutorials
 
 * [Chart in Swift - Setting Up a Basic Line Chart Using iOS Charts(Alex Nagy)](https://www.youtube.com/watch?v=mWhwe_tLNE8&list=PL_csAAO9PQ8bjzg-wxEff1Fr0Y5W1hrum&index=5)
+* [Charts Framework in SwiftUI - Bar Chart (Stewart Lynch)](https://youtu.be/csd7pyfEXgw)
 
 #### Blog posts
 * [Using Realm and Charts with Swift 3 in iOS 10 (Sami Korpela)](https://medium.com/@skoli/using-realm-and-charts-with-swift-3-in-ios-10-40c42e3838c0#.2gyymwfh8)
@@ -91,6 +92,16 @@ github "danielgindi/Charts" ~> 4.0.0
 ```
 
 In order to build the binaries for a new release, use `carthage build --no-skip-current && carthage archive Charts`.
+
+## Swift Package Manager Install
+
+Swift Package Manager
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/danielgindi/Charts.git", .upToNextMajor(from: "4.0.0"))
+]
+```
 
 ## 3rd party bindings
 
