@@ -9,6 +9,7 @@
 import Foundation
 
 public enum SettingsSection: Int, CaseIterable {
-    case SignOut
-    case AppVersion
+    case signOut
+    case language
+    case appVersion
 }

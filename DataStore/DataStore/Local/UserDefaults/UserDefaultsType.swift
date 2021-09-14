@@ -17,6 +17,7 @@ public enum UserDefaultsType: String {
     case lastRequestPlayerBattleLogsTime
     case lastRequestUpComingChestsTime
     case alreadyMigrateBattleLog
+    case appLanguage
 }
 
 extension UserDefaultsType {
@@ -32,7 +33,8 @@ extension UserDefaultsType {
              .lastRequestPlayerInfoTime,
              .lastRequestPlayerBattleLogsTime,
              .lastRequestUpComingChestsTime,
-             .alreadyMigrateBattleLog:
+             .alreadyMigrateBattleLog,
+             .appLanguage:
             return self.rawValue
         }
     }

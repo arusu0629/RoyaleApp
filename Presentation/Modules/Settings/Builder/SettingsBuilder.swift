@@ -27,6 +27,7 @@ enum SettingsBuilder {
         presenter.lastSelectedDeckIndexUseCase = LastSelectedDeckIndexUseCaseProvider.provide()
         presenter.lastSelectedSortIndexUseCase = LastSelectedSortIndexUseCaseProvider.provide()
         presenter.lastSelectedFilterDateIndexUseCase = LastSelectedFilterDateIndexUseCaseProvider.provide()
+        presenter.appLanguageUseCase = AppLanguageUseCaseProvider.provide()
 
         wireframe.viewController = view
 

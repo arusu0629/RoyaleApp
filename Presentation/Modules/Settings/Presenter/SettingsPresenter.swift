@@ -14,6 +14,7 @@ protocol SettingsPresenter: AnyObject {
 
     func didSelectCell(settingsSection: SettingsSection)
     func didSelectSignOut()
+    func didSelectLanguage(_ language: AppLanguage)
     func didSelectBack()
 }
 
@@ -28,6 +29,7 @@ final class SettingsPresenterImpl: SettingsPresenter {
     var lastSelectedDeckIndexUseCase: LastSelectedDeckIndexUseCase!
     var lastSelectedSortIndexUseCase: LastSelectedSortIndexUseCase!
     var lastSelectedFilterDateIndexUseCase: LastSelectedFilterDateIndexUseCase!
+    var appLanguageUseCase: AppLanguageUseCase!
 
     func viewDidLoad() {
         self.view?.reloadData(settingsSections: self.settingsSectionUseCase.all())
@@ -35,9 +37,11 @@ final class SettingsPresenterImpl: SettingsPresenter {
 
     func didSelectCell(settingsSection: SettingsSection) {
         switch settingsSection {
-        case .SignOut:
+        case .signOut:
             self.view?.showSignOutAlertView()
-        case .AppVersion:
+        case .language:
+            self.view?.showLanguageActionSheet(languages: self.appLanguageUseCase.all())
+        case .appVersion:
             break
         }
     }
@@ -65,6 +69,12 @@ final class SettingsPresenterImpl: SettingsPresenter {
                 self.view?.showErrorAlert(error)
             }
         }
+    }
+
+    func didSelectLanguage(_ language: AppLanguage) {
+        self.appLanguageUseCase.set(language: language)
+        self.view?.reloadData(settingsSections: self.settingsSectionUseCase.all())
+        // TODO: Notification とかで各画面に言語が変わった事を通知する
     }
 
     func didSelectBack() {

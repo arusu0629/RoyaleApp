@@ -24,7 +24,7 @@ final class SettingTableViewCell: UITableViewCell {
     weak var delegate: SettingsTableViewCellDelegate?
 }
 
-// MARK: -
+// MARK: - setSettingSection
 extension SettingTableViewCell {
 
     func setSettingSection(_ settingSection: SettingsSection) {
@@ -51,22 +51,25 @@ private extension SettingsSection {
 
     var title: String {
         switch self {
-        case .SignOut    : return "SignOut"
-        case .AppVersion : return "App Version"
+        case .signOut    : return "SignOut"
+        case .language   : return "Language"
+        case .appVersion : return "App Version"
         }
     }
 
     var subTitle: String {
         switch self {
-        case .SignOut    : return PlayerTagUseCaseProvider.provide().get()
-        case .AppVersion : return Bundle.appVersion
+        case .signOut    : return PlayerTagUseCaseProvider.provide().get()
+        case .language   : return AppLanguageUseCaseProvider.provide().get().description
+        case .appVersion : return Bundle.appVersion
         }
     }
 
     var isButtonEnabled: Bool {
         switch self {
-        case .SignOut    : return true
-        case .AppVersion : return false
+        case .signOut    : return true
+        case .language   : return true
+        case .appVersion : return false
         }
     }
 }

@@ -13,6 +13,7 @@ protocol SettingsView: ShowErrorAlertView {
     func reloadData(settingsSections: [SettingsSection])
 
     func showSignOutAlertView()
+    func showLanguageActionSheet(languages: [AppLanguage])
 }
 
 // MARK: - Properties
@@ -70,8 +71,18 @@ extension SettingsViewController: SettingsView {
             .init(title: "OK", style: .default, handler: { [weak self] _ in
                 self?.presenter.didSelectSignOut()
             })
-        ]
-        )
+        ])
+    }
+
+    func showLanguageActionSheet(languages: [AppLanguage]) {
+        let sheet = UIAlertController(title: "Select Language", message: "", preferredStyle: .actionSheet)
+        languages.forEach { language in
+            sheet.addAction(.init(title: language.description, style: .default, handler: { [weak self] _ in
+                self?.presenter.didSelectLanguage(language)
+            }))
+        }
+        sheet.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
+        self.present(sheet, animated: true, completion: nil)
     }
 }
 
@@ -134,7 +145,8 @@ private extension SettingsSection {
 
     var cellHeight: CGFloat {
         switch self {
-        case .SignOut, .AppVersion: return 70.0
+        case .signOut, .language, .appVersion:
+            return 70.0
         }
     }
 }
