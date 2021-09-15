@@ -19,7 +19,11 @@ protocol SettingsView: ShowErrorAlertView {
 // MARK: - Properties
 final class SettingsViewController: UIViewController {
 
-    private let signOutAlertMessage = "Sure SignOut? \n\n All saved trophies and deck information will be deleted"
+    private let buttonCancelTitleKey           = "button_cancel_title_key"
+    private let buttonOkTitleKey               = "button_ok_title_key"
+    private let tabBarTitleKey                 = "settings_tab_title_key"
+    private let signOutAlertMessageKey         = "settings_sign_out_alert_message_key"
+    private let appLanguageActionSheetTitleKey = "settings_app_language_action_sheet_title_key"
 
     @IBOutlet private weak var tableView: UITableView! {
         willSet {
@@ -50,10 +54,15 @@ private extension SettingsViewController {
 
     func setup() {
         self.setupNavigationTitle()
+        self.setupNotification()
     }
 
     func setupNavigationTitle() {
-        self.title = "Settings"
+        self.title = self.tabBarTitleKey.localized
+    }
+
+    func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeAppLanguage(_:)), name: Notification.Name.AppLanguage.didChange, object: nil)
     }
 }
 
@@ -66,22 +75,24 @@ extension SettingsViewController: SettingsView {
     }
 
     func showSignOutAlertView() {
-        self.showAlert("", message: self.signOutAlertMessage, actions: [
-            .init(title: "Cancel", style: .default, handler: nil),
-            .init(title: "OK", style: .default, handler: { [weak self] _ in
+        let cancelTitle = self.buttonCancelTitleKey.localized
+        let okTitle     = self.buttonOkTitleKey.localized
+        self.showAlert("", message: self.signOutAlertMessageKey.localized, actions: [
+            .init(title: cancelTitle, style: .default, handler: nil),
+            .init(title: okTitle, style: .default, handler: { [weak self] _ in
                 self?.presenter.didSelectSignOut()
             })
         ])
     }
 
     func showLanguageActionSheet(languages: [AppLanguage]) {
-        let sheet = UIAlertController(title: "Select Language", message: "", preferredStyle: .actionSheet)
+        let sheet = UIAlertController(title: self.appLanguageActionSheetTitleKey.localized, message: "", preferredStyle: .actionSheet)
         languages.forEach { language in
             sheet.addAction(.init(title: language.description, style: .default, handler: { [weak self] _ in
                 self?.presenter.didSelectLanguage(language)
             }))
         }
-        sheet.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
+        sheet.addAction(.init(title: self.buttonCancelTitleKey.localized, style: .cancel, handler: nil))
         self.present(sheet, animated: true, completion: nil)
     }
 }
@@ -124,6 +135,7 @@ extension SettingsViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension SettingsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -137,6 +149,23 @@ extension SettingsViewController: SettingsTableViewCellDelegate {
 
     func didTapCell(setting: SettingsSection) {
         self.presenter.didSelectCell(settingsSection: setting)
+    }
+}
+
+// MARK: - objc
+extension SettingsViewController {
+
+    @objc func didChangeAppLanguage(_ sender: NSNotification) {
+        self.refreshText()
+    }
+}
+
+// MARK: - Refresh text
+private extension SettingsViewController {
+
+    func refreshText() {
+        self.title = self.tabBarTitleKey.localized
+        self.tableView.reloadData()
     }
 }
 

@@ -73,7 +73,6 @@ final class SettingsPresenterImpl: SettingsPresenter {
 
     func didSelectLanguage(_ language: AppLanguage) {
         self.appLanguageUseCase.set(language: language)
-        self.view?.reloadData(settingsSections: self.settingsSectionUseCase.all())
         NotificationCenter.default.post(.init(name: Notification.Name.AppLanguage.didChange))
     }
 

@@ -8,6 +8,7 @@
 
 /* General */
 "button_ok_title_key"     = "OK";
+"button_no_title_key"     = "NO";
 "button_cancel_title_key" = "Cancel";
 
 /* Root */
@@ -42,3 +43,20 @@
 
 // Upcoming chests
 "next_upcoming_chest_title_key" = "Next";
+
+
+/* Settings */
+
+// Tab bar title
+"settings_tab_title_key" = "Settings";
+
+// Cell title
+"settings_sign_out_cell_title_key"     = "SignOut";
+"settings_app_version_cell_title_key"  = "App Version";
+"settings_app_language_cell_title_key" = "App Language";
+
+// Alert message
+"settings_sign_out_alert_message_key" = "Sure SignOut? \n\n ※All saved trophies and deck information will be deleted";
+
+// App language action sheet
+"settings_app_language_action_sheet_title_key" = "Select Language";

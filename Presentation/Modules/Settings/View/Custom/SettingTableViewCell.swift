@@ -51,9 +51,9 @@ private extension SettingsSection {
 
     var title: String {
         switch self {
-        case .signOut    : return "SignOut"
-        case .language   : return "Language"
-        case .appVersion : return "App Version"
+        case .signOut    : return "settings_sign_out_cell_title_key".localized
+        case .language   : return "settings_app_language_cell_title_key".localized
+        case .appVersion : return "settings_app_version_cell_title_key".localized
         }
     }
 

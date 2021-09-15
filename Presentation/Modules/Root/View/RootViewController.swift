@@ -23,7 +23,7 @@ public final class RootViewController: SwipeableTabBarController {
     private let confirmMovieAlertTitleKey   : String = "movie_reward_alert_title_key"
     private let confirmMovieAlertMessageKey : String = "movie_reward_alert_message_key"
     private let loadingViewTitleKey         : String = "movie_reward_load_title_key"
-    
+
     private let buttonCancelTitleKey : String = "button_cancel_title_key"
     private let buttonOkTitleKey     : String = "button_ok_title_key"
 

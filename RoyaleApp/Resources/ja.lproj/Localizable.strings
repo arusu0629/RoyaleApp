@@ -8,7 +8,8 @@
 
 /* 汎用 */
 "button_ok_title_key"     = "はい";
-"button_cancel_title_key" = "いいえ";
+"button_no_title_key"     = "いいえ";
+"button_cancel_title_key" = "キャンセル";
 
 
 /* ルート */
@@ -22,6 +23,7 @@
 "movie_reward_alert_title_key"   = "プレイヤー情報を更新しますか？";
 "movie_reward_alert_message_key" = "動画を視聴して更新する";
 "movie_reward_load_title_key"    = "動画広告を準備中...";
+
 
 /* ホーム */
 
@@ -42,3 +44,20 @@
 
 // 宝箱
 "next_upcoming_chest_title_key" = "次";
+
+
+/* 設定画面 */
+
+// タブバータイトル
+"settings_tab_title_key" = "設定";
+
+// セルタイトル
+"settings_sign_out_cell_title_key"     = "サインアウト";
+"settings_app_language_cell_title_key" = "言語設定";
+"settings_app_version_cell_title_key"  = "アプリバージョン";
+
+// アラートメッセージ
+"settings_sign_out_alert_message_key" = "サインアウトしますか? \n\n ※サインアウトをすると全てのデータが消えます";
+
+// 言語設定アクションシート
+"settings_app_language_action_sheet_title_key" = "言語選択";
