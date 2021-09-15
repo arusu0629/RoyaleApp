@@ -21,6 +21,8 @@ protocol WebPresenter: AnyObject {
     func didSelectForward()
     func didSelectReload()
     func didSelectWebViewTab(index: Int)
+
+    func didChangeAppLanguage()
 }
 
 final class WebPresenterImpl: WebPresenter {
@@ -80,6 +82,10 @@ final class WebPresenterImpl: WebPresenter {
         AnalyticsManager.sendEvent(WebEvent.selectWebTab(tab: selectedWebViewTab))
         self.view?.loadRequest(URLRequest(url: url))
         self.lastSelectedWebViewTabIndexUseCase.set(index: index)
+    }
+
+    func didChangeAppLanguage() {
+        self.view?.refreshTabText(self.webViewTabUseCase.list())
     }
 }
 

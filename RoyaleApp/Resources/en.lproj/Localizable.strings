@@ -60,3 +60,11 @@
 
 // App language action sheet
 "settings_app_language_action_sheet_title_key" = "Select Language";
+
+
+/* Web */
+
+// ウェブタブバータイトル
+"web_classic_tab_title_key"    = "Classic";
+"web_grand_tab_title_key"      = "Grand";
+"web_top_ladder_tab_title_key" = "Top Ladder";

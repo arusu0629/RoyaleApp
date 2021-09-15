@@ -61,3 +61,11 @@
 
 // 言語設定アクションシート
 "settings_app_language_action_sheet_title_key" = "言語選択";
+
+
+/* ウェブ画面 */
+
+// ウェブタブバータイトル
+"web_classic_tab_title_key"    = "クラシック";
+"web_grand_tab_title_key"      = "グラチャレ";
+"web_top_ladder_tab_title_key" = "トップ";

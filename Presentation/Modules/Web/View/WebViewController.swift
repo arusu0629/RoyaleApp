@@ -13,6 +13,7 @@ import WebKit
 protocol WebView: ShowErrorAlertView {
     func setupWebView()
     func setupWebViewTab(_ tabs: [WebViewTab], initialIndex: Int)
+    func refreshTabText(_ tabs: [WebViewTab])
     func loadRequest(_ request: URLRequest)
 
     func showLoading()
@@ -82,6 +83,19 @@ extension WebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.viewDidLoad()
+        self.setup()
+    }
+}
+
+// MARK: - Setup
+private extension WebViewController {
+
+    func setup() {
+        self.setupNotification()
+    }
+
+    func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeAppLanguage(_:)), name: Notification.Name.AppLanguage.didChange, object: nil)
     }
 }
 
@@ -96,7 +110,11 @@ extension WebViewController: WebView {
     }
 
     func setupWebViewTab(_ tabs: [WebViewTab], initialIndex: Int) {
-        self.webViewTabBarView.setupTab(tabTexts: tabs.map { $0.label }, initialIndex: initialIndex, fontSize: 14)
+        self.webViewTabBarView.setupTab(tabTexts: tabs.map { $0.tabTitle }, initialIndex: initialIndex, fontSize: 14)
+    }
+
+    func refreshTabText(_ tabs: [WebViewTab]) {
+        self.webViewTabBarView.refreshText(tabTexts: tabs.map { $0.tabTitle })
     }
 
     func loadRequest(_ request: URLRequest) {
@@ -207,5 +225,25 @@ extension WebViewController: TabBarViewDelegate {
 
     func didTapTabBarButton(index: Int) {
         self.presenter.didSelectWebViewTab(index: index)
+    }
+}
+
+// MARK: - objc
+extension WebViewController {
+
+    @objc func didChangeAppLanguage(_ sender: NSNotification) {
+        self.presenter.didChangeAppLanguage()
+    }
+}
+
+// MARK: - WebViewTab
+private extension WebViewTab {
+
+    var tabTitle: String {
+        switch self {
+        case .classicChallenge : return "web_classic_tab_title_key".localized
+        case .grandChallenge   : return "web_grand_tab_title_key".localized
+        case .topLadder        : return "web_top_ladder_tab_title_key".localized
+        }
     }
 }
