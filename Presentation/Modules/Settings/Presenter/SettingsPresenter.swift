@@ -74,7 +74,7 @@ final class SettingsPresenterImpl: SettingsPresenter {
     func didSelectLanguage(_ language: AppLanguage) {
         self.appLanguageUseCase.set(language: language)
         self.view?.reloadData(settingsSections: self.settingsSectionUseCase.all())
-        // TODO: Notification とかで各画面に言語が変わった事を通知する
+        NotificationCenter.default.post(.init(name: Notification.Name.AppLanguage.didChange))
     }
 
     func didSelectBack() {

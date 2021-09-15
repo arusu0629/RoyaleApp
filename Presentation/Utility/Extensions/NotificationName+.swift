@@ -28,3 +28,14 @@ extension Notification.Name {
 
     }
 }
+
+// MARK: - Did change app language
+extension Notification.Name {
+
+    struct AppLanguage {
+
+        private static let Key = "AppLanguage."
+
+        static var didChange: NSNotification.Name { return NSNotification.Name("\(Key)\(#function)") }
+    }
+}

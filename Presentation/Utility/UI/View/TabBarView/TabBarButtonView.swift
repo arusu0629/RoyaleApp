@@ -84,3 +84,11 @@ extension TabBarButtonView {
         self.button.titleLabel?.isHidden = true
     }
 }
+
+// MARK: - Refresh text
+extension TabBarButtonView {
+
+    func refreshButtonText(_ text: String) {
+        self.button.setTitle(text, for: .normal)
+    }
+}

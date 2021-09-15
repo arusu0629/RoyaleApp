@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,6 +13,7 @@
                 <outlet property="clanLabel" destination="eAE-VG-1fo" id="vmI-3h-muG"/>
                 <outlet property="indicator" destination="idL-Ws-4f5" id="EmZ-Gc-nO2"/>
                 <outlet property="nameAndTagLabel" destination="j2l-Kj-zJf" id="YLj-2Z-poD"/>
+                <outlet property="playerTitleLabel" destination="IP9-Yx-B2E" id="CqV-gG-PNu"/>
                 <outlet property="trophyImageView" destination="9FP-o4-mFH" id="uxM-JP-XKX"/>
                 <outlet property="trophyLabel" destination="Gqd-EJ-gX7" id="LgK-4D-72j"/>
             </connections>
@@ -61,7 +64,7 @@
                                                         <constraint firstAttribute="height" constant="15" id="EIm-QU-VqE"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
-                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemOrangeColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大きなノッポの古時計" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-VG-1fo" userLabel="ClanLabel" customClass="HiraginoLabel" customModule="Presentation" customModuleProvider="target">
@@ -70,7 +73,7 @@
                                                         <constraint firstAttribute="height" constant="10" id="qvm-KQ-YlO"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="10"/>
-                                                    <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" systemColor="systemOrangeColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05r-Fb-jHZ" userLabel="Spacer">
@@ -120,7 +123,7 @@
                                                                 <constraint firstAttribute="height" constant="20" id="ZC2-1S-CaJ"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="18"/>
-                                                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" systemColor="systemOrangeColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -163,7 +166,7 @@
                                     </constraints>
                                 </activityIndicatorView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" systemColor="systemGray2Color"/>
                             <constraints>
                                 <constraint firstItem="J43-FQ-7Ft" firstAttribute="leading" secondItem="nzP-gp-LbV" secondAttribute="leading" id="9ec-WJ-Cob"/>
                                 <constraint firstAttribute="trailing" secondItem="J43-FQ-7Ft" secondAttribute="trailing" id="HwN-Pb-IBr"/>
@@ -201,5 +204,11 @@
     </objects>
     <resources>
         <image name="player_trophy" width="132" height="128"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -10,8 +12,10 @@
             <connections>
                 <outlet property="dateFilterTabView" destination="Wen-co-QK4" id="ugA-Ws-I9T"/>
                 <outlet property="indicator" destination="hk7-DK-RFV" id="ftJ-Es-wJf"/>
+                <outlet property="noDataTitleLabel" destination="T4W-Tw-G62" id="NJr-FS-ext"/>
                 <outlet property="noDataView" destination="jAX-XC-XUS" id="cQT-y3-JLp"/>
                 <outlet property="trophyLineChartView" destination="RvQ-et-JRu" id="Wrb-AG-a0W"/>
+                <outlet property="trophyTitleLabel" destination="ece-4V-rIl" id="PwT-bC-aYH"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,7 +37,7 @@
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wen-co-QK4" customClass="TabBarView" customModule="Presentation" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="30" width="350" height="35"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="2Ct-3p-wSJ"/>
                             </constraints>
@@ -43,7 +47,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvQ-et-JRu" customClass="LineChartView" customModule="Charts">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="230"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAX-XC-XUS" userLabel="NoDataView">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="230"/>
@@ -58,7 +62,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" systemColor="systemGray2Color"/>
                                     <constraints>
                                         <constraint firstItem="T4W-Tw-G62" firstAttribute="centerY" secondItem="jAX-XC-XUS" secondAttribute="centerY" id="5Gd-OR-Z9J"/>
                                         <constraint firstItem="T4W-Tw-G62" firstAttribute="centerX" secondItem="jAX-XC-XUS" secondAttribute="centerX" id="G9L-EN-X5U"/>
@@ -81,14 +85,14 @@
                                         <constraint firstAttribute="height" constant="20" id="Isp-cV-mtI"/>
                                     </constraints>
                                 </activityIndicatorView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zV-Fx-KIs">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zV-Fx-KIs">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="230"/>
                                     <connections>
                                         <action selector="didTapLineChartView" destination="-1" eventType="touchUpInside" id="Rpt-ve-IaC"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="4zV-Fx-KIs" secondAttribute="bottom" id="1WU-57-uej"/>
                                 <constraint firstItem="hk7-DK-RFV" firstAttribute="centerX" secondItem="lan-th-nev" secondAttribute="centerX" id="3J5-P3-aeY"/>
@@ -109,7 +113,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="FiJ-ul-V3R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8IQ-cE-nT1"/>
                 <constraint firstItem="FiJ-ul-V3R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QXl-Ta-XLX"/>
@@ -120,4 +124,12 @@
             <point key="canvasLocation" x="141" y="127"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

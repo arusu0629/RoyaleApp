@@ -16,6 +16,8 @@ final class UpComingChestCell: UIView {
     @IBOutlet private weak var chestImage: UIImageView!
     @IBOutlet private weak var indexLabel: UILabel!
 
+    private var chest: UpComingChestsModel.UpComingChest?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.initialize()
@@ -34,6 +36,7 @@ final class UpComingChestCell: UIView {
 extension UpComingChestCell {
 
     func setupChest(_ chest: UpComingChestsModel.UpComingChest) {
+        self.chest = chest
         self.chestImage.image = chest.image
         self.indexLabel.text = chest.label
         self.setIndexLabelCornerRadius()
@@ -42,6 +45,14 @@ extension UpComingChestCell {
     private func setIndexLabelCornerRadius() {
         let radius = self.indexLabel.frame.width / 3.0
         self.indexLabel.layer.cornerRadius = radius
+    }
+}
+
+// MARK: - Refresh text
+extension UpComingChestCell {
+
+    func refreshText() {
+        self.indexLabel.text = self.chest?.label
     }
 }
 
@@ -79,7 +90,7 @@ private extension UpComingChestsModel.UpComingChest {
             return ""
         }
         if self.index == 0 {
-            return "Next"
+            return "next_upcoming_chest_title_key".localized
         }
         return "+\(self.index)"
     }

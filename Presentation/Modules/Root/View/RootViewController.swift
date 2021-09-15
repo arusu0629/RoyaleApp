@@ -10,8 +10,6 @@ import Domain
 import SwipeableTabBarController
 import UIKit
 
-import DataStore
-
 protocol RootView: ShowErrorAlertView {
     func refreshHomeUI()
 
@@ -22,10 +20,12 @@ protocol RootView: ShowErrorAlertView {
 // MARK: - Properties
 public final class RootViewController: SwipeableTabBarController {
 
-    private let confirmMovieAlertTitle:   String = "Update your player information?"
-    private let confirmMovieAlertMessage: String = "show movie to update"
-
-    private let loadingViewTitle: String = "Ready for movie reward ad"
+    private let confirmMovieAlertTitleKey   : String = "movie_reward_alert_title_key"
+    private let confirmMovieAlertMessageKey : String = "movie_reward_alert_message_key"
+    private let loadingViewTitleKey         : String = "movie_reward_load_title_key"
+    
+    private let buttonCancelTitleKey : String = "button_cancel_title_key"
+    private let buttonOkTitleKey     : String = "button_ok_title_key"
 
     var presenter: RootPresenter!
 }
@@ -122,6 +122,7 @@ private extension RootViewController {
         center.addObserver(self, selector: #selector(hideSetting(_:)), name: Notification.Name.Setting.hide, object: nil)
         center.addObserver(self, selector: #selector(showRefresh(_:)), name: Notification.Name.Refresh.show, object: nil)
         center.addObserver(self, selector: #selector(hideRefresh(_:)), name: Notification.Name.Refresh.hide, object: nil)
+        center.addObserver(self, selector: #selector(didChangeAppLanguage(_:)), name: Notification.Name.AppLanguage.didChange, object: nil)
     }
 }
 
@@ -133,9 +134,11 @@ private extension RootViewController {
     }
 
     @objc func tappedRefresh(_ sender: UIBarButtonItem) {
-        self.showAlert(self.confirmMovieAlertTitle, message: self.confirmMovieAlertMessage, actions: [
-            .init(title: "Cancel", style: .default, handler: nil),
-            .init(title: "OK", style: .default, handler: { _ in
+        let cancelTitle = self.buttonCancelTitleKey.localized
+        let okTitle     = self.buttonOkTitleKey.localized
+        self.showAlert(self.confirmMovieAlertTitleKey.localized, message: self.confirmMovieAlertMessageKey.localized, actions: [
+            .init(title: cancelTitle, style: .default, handler: nil),
+            .init(title: okTitle, style: .default, handler: { _ in
                 self.presenter.didSelectRefresh()
             })
         ])
@@ -156,69 +159,9 @@ private extension RootViewController {
     @objc func hideRefresh(_ sender: NSNotification) {
         self.navigationItem.leftBarButtonItem = nil
     }
-}
 
-// MARK: - Tab
-private extension Tab {
-
-    var viewController: UIViewController {
-        let vc: UIViewController = {
-            switch self {
-            case .home:
-                return HomeBuilder.build()
-            case .deck:
-                return DeckBuilder.build()
-            case .web:
-                return WebBuilder.build()
-            }
-        }()
-        vc.tabBarItem = self.tabBarItem
-        return vc
-    }
-
-    private var tabBarItem: UITabBarItem {
-        let item = UITabBarItem(title: self.title, image: self.image, selectedImage: self.selectedImage)
-        item.tag = self.rawValue
-        return item
-    }
-
-    private var title: String {
-        switch self {
-        case .home:
-            return "Home"
-        case .deck:
-            return "Deck"
-        case .web:
-            return "Web"
-        }
-    }
-
-    private var image: UIImage? {
-        let image: UIImage? = {
-            switch self {
-            case .home:
-                return SFSymbols.homeIconImage
-            case .deck:
-                return SFSymbols.deckIconImage
-            case .web:
-                return SFSymbols.webIconImage
-            }
-        }()
-        return image?.withRenderingMode(.alwaysOriginal)
-    }
-
-    private var selectedImage: UIImage? {
-        let image: UIImage? = {
-            switch self {
-            case .home:
-                return SFSymbols.homeFillIconImage
-            case .deck:
-                return SFSymbols.deckFillIconImage
-            case .web:
-                return SFSymbols.webFillIconImage
-            }
-        }()
-        return image?.withRenderingMode(.alwaysOriginal)
+    @objc func didChangeAppLanguage(_ sender: NSNotification) {
+        self.refreshText()
     }
 }
 
@@ -226,7 +169,7 @@ private extension Tab {
 private extension RootViewController {
 
     func showLoading() {
-        let loadingView = LoadingManager.shared.createCancelableLoadingView(title: self.loadingViewTitle)
+        let loadingView = LoadingManager.shared.createCancelableLoadingView(title: self.loadingViewTitleKey.localized)
         loadingView.delegate = self
         loadingView.show()
         self.view.addSubview(loadingView)
@@ -278,5 +221,83 @@ extension RootViewController: MovieRewardManagerDelegate, MovieRewardManagerData
     public func didFailedMovieReward(error: Error) {
         self.hideLoading()
         self.presenter.didFailedToPresentMovie(error: error)
+    }
+}
+
+// MARK: - Refresh text because did change appLanguage
+private extension RootViewController {
+
+    func refreshText() {
+        self.refreshTabBarItemText()
+    }
+
+    func refreshTabBarItemText() {
+        for (index, tab) in TabUseCaseProvider.provide().list().enumerated() {
+            if index >= (self.viewControllers?.count ?? 0) {
+                return
+            }
+            self.viewControllers?[index].tabBarItem.title = tab.title
+        }
+    }
+}
+
+// MARK: - Tab
+private extension Tab {
+
+    var viewController: UIViewController {
+        let vc: UIViewController = {
+            switch self {
+            case .home:
+                return HomeBuilder.build()
+            case .deck:
+                return DeckBuilder.build()
+            case .web:
+                return WebBuilder.build()
+            }
+        }()
+        vc.tabBarItem = self.tabBarItem
+        return vc
+    }
+
+    private var tabBarItem: UITabBarItem {
+        let item = UITabBarItem(title: self.title, image: self.image, selectedImage: self.selectedImage)
+        item.tag = self.rawValue
+        return item
+    }
+
+    var title: String {
+        switch self {
+        case .home : return "tab_home_title_key".localized
+        case .deck : return "tab_deck_title_key".localized
+        case .web  : return "tab_web_title_key".localized
+        }
+    }
+
+    private var image: UIImage? {
+        let image: UIImage? = {
+            switch self {
+            case .home:
+                return SFSymbols.homeIconImage
+            case .deck:
+                return SFSymbols.deckIconImage
+            case .web:
+                return SFSymbols.webIconImage
+            }
+        }()
+        return image?.withRenderingMode(.alwaysOriginal)
+    }
+
+    private var selectedImage: UIImage? {
+        let image: UIImage? = {
+            switch self {
+            case .home:
+                return SFSymbols.homeFillIconImage
+            case .deck:
+                return SFSymbols.deckFillIconImage
+            case .web:
+                return SFSymbols.webFillIconImage
+            }
+        }()
+        return image?.withRenderingMode(.alwaysOriginal)
     }
 }

@@ -16,6 +16,24 @@ protocol DateFilterTabViewDelegate: AnyObject {
 
 final class PlayerTrophyLineChartView: UIView {
 
+    private let lineAnimateSecPerOne: TimeInterval = 1.0 / 60.0
+
+    private let trophyTitleLabelKey = "trophy_cell_title_key"
+    private let noDataTitleLabelKey = "trophy_graph_no_data_title_key"
+    private let trophyChangesTitleLabelKey = "trophy_graph_changes_title_key"
+
+    @IBOutlet private weak var trophyTitleLabel: UILabel! {
+        willSet {
+            newValue.text = self.trophyTitleLabelKey.localized
+        }
+    }
+
+    @IBOutlet private weak var noDataTitleLabel: UILabel! {
+        willSet {
+            newValue.text = self.noDataTitleLabelKey.localized
+        }
+    }
+
     @IBOutlet private weak var trophyLineChartView: LineChartView! {
         willSet {
             newValue.isHidden = true
@@ -41,7 +59,8 @@ final class PlayerTrophyLineChartView: UIView {
 
     weak var dateFitlerDelegate: DateFilterTabViewDelegate?
 
-    let lineAnimateSecPerOne: TimeInterval = 1.0 / 60.0
+    private var battleLogs: [RealmBattleLogModel] = []
+    private var trophyDateFilters: [TrophyDateFilter] = []
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -86,6 +105,7 @@ extension PlayerTrophyLineChartView {
     }
 
     func setupData(battleLogs: [RealmBattleLogModel]) {
+        self.battleLogs = battleLogs
         self.trophyLineChartView.isHidden = false
         self.noDataView.isHidden = true
 
@@ -96,8 +116,10 @@ extension PlayerTrophyLineChartView {
         self.trophyLineChartView.animate(xAxisDuration: self.lineAnimateSecPerOne * TimeInterval(battleLogs.count))
     }
 
-    func setupDateFilterTabView(texts: [String], initialIndex: Int = 0) {
-        self.dateFilterTabView.setupTab(tabTexts: texts, initialIndex: initialIndex)
+    func setupDateFilterTabView(trophyDateFilters: [TrophyDateFilter], initialIndex: Int = 0) {
+        self.trophyDateFilters = trophyDateFilters
+        let tabTexts = self.trophyDateFilters.map { $0.tabTitle }
+        self.dateFilterTabView.setupTab(tabTexts: tabTexts, initialIndex: initialIndex)
         self.dateFilterTabView.isHidden = false
     }
 
@@ -120,7 +142,7 @@ extension PlayerTrophyLineChartView {
     }
 
     private func createDataSet(entry: [ChartDataEntry]) -> LineChartDataSet {
-        let dataSet = LineChartDataSet(entries: entry, label: "Trophy Changes")
+        let dataSet = LineChartDataSet(entries: entry, label: self.trophyChangesTitleLabelKey.localized)
 
         // Circle Point
         dataSet.circleRadius = 2.0
@@ -186,6 +208,7 @@ extension PlayerTrophyLineChartView {
         self.indicator.isHidden = true
         self.indicator.stopAnimating()
 
+        // TODO: 消しても良さそう
         if let entryCount = self.trophyLineChartView.data?.entryCount, entryCount <= 0 {
             self.trophyLineChartView.noDataText = "No Data"
         }
@@ -198,5 +221,35 @@ extension PlayerTrophyLineChartView {
     @IBAction private func didTapLineChartView() {
         // Stop animating
         self.trophyLineChartView.animate(xAxisDuration: 0)
+    }
+}
+
+// MARK: - Refresh text
+extension PlayerTrophyLineChartView {
+
+    func refreshText() {
+        self.trophyTitleLabel.text    = self.trophyTitleLabelKey.localized
+        self.noDataTitleLabel.text    = self.noDataTitleLabelKey.localized
+        self.trophyLineChartView.data = self.recreateLineChartData()
+        self.dateFilterTabView.refreshText(tabTexts: self.trophyDateFilters.map { $0.tabTitle })
+    }
+
+    private func recreateLineChartData() -> LineChartData {
+        let entry = createEntries(realmBattleLogModels: self.battleLogs)
+        let dataSet = self.createDataSet(entry: entry)
+        let chartData = LineChartData(dataSet: dataSet)
+        return chartData
+    }
+}
+
+private extension TrophyDateFilter {
+
+    var tabTitle: String {
+        switch self {
+        case .today   : return "trophy_graph_tab_today_title_key".localized
+        case .weekly  : return "trophy_graph_tab_week_title_key".localized
+        case .monthly : return "trophy_graph_tab_month_title_key".localized
+        case .year    : return "trophy_graph_tab_year_title_key".localized
+        }
     }
 }

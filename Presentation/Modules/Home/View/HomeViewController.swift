@@ -52,6 +52,7 @@ extension HomeViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.viewDidLoad()
+        self.setup()
         self.isFinishViewDidLoad = true
     }
 
@@ -63,6 +64,18 @@ extension HomeViewController {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.hideNavigationItem()
+    }
+}
+
+// MARK: - Setup
+extension HomeViewController {
+
+    private func setup() {
+        self.setupNotification()
+    }
+
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeAppLanguage(_:)), name: Notification.Name.AppLanguage.didChange, object: nil)
     }
 }
 
@@ -113,7 +126,7 @@ extension HomeViewController: HomeView {
     }
 
     func setupTrophyDateFilter(trophyDateFilters: [TrophyDateFilter], lastSelectedFilterDateIndex: Int) {
-        self.playerTrophyChartView.setupDateFilterTabView(texts: trophyDateFilters.map { $0.label }, initialIndex: lastSelectedFilterDateIndex)
+        self.playerTrophyChartView.setupDateFilterTabView(trophyDateFilters: trophyDateFilters, initialIndex: lastSelectedFilterDateIndex)
     }
 
     public func willEnterForground() {
@@ -217,5 +230,23 @@ extension HomeViewController: AdManagerDelegate {
     public func didFailedAd() {
         self.hideFooterAdView()
         self.footerAdView.hideLoading()
+    }
+}
+
+// MARK: - objc
+extension HomeViewController {
+
+    @objc func didChangeAppLanguage(_ sender: NSNotification) {
+        self.refreshText()
+    }
+}
+
+// MARK: - Refresh text because did change appLanguage
+private extension HomeViewController {
+
+    func refreshText() {
+        self.playerInfoView.refreshText()
+        self.playerTrophyChartView.refreshText()
+        self.upcomingChestListView.refreshText()
     }
 }

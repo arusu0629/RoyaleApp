@@ -1,0 +1,44 @@
+/* 
+  Localizable.strings(English)
+  RoyaleApp
+
+  Created by nakandakari on 2021/09/15.
+  
+*/
+
+/* General */
+"button_ok_title_key"     = "OK";
+"button_cancel_title_key" = "Cancel";
+
+/* Root */
+
+// Tab name
+"tab_home_title_key" = "home";
+"tab_deck_title_key" = "deck";
+"tab_web_title_key"  = "web";
+
+// Movie reward dialog
+"movie_reward_alert_title_key"   = "Update your player information?";
+"movie_reward_alert_message_key" = "show movie to update";
+"movie_reward_load_title_key"    = "Ready for movie reward ad";
+
+/* Home */
+
+// Cell title
+"player_cell_title_key"          = "Player";
+"trophy_cell_title_key"          = "Trophies";
+"upcoming_chests_cell_title_key" = "UpComingChests";
+
+// Trophy graph filter title
+"trophy_graph_tab_today_title_key" = "Today";
+"trophy_graph_tab_week_title_key"  = "Week";
+"trophy_graph_tab_month_title_key" = "Month";
+"trophy_graph_tab_year_title_key"  = "Year";
+
+
+// Graph
+"trophy_graph_no_data_title_key" = "No Data Battle Log";
+"trophy_graph_changes_title_key" = "Trophy Changes";
+
+// Upcoming chests
+"next_upcoming_chest_title_key" = "Next";

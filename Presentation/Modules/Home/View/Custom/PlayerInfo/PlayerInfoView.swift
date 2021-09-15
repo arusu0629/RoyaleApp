@@ -12,6 +12,14 @@ import UIKit
 
 final class PlayerInfoView: UIView {
 
+    private let playerTitleLabelKey: String = "player_cell_title_key"
+
+    @IBOutlet private weak var playerTitleLabel: UILabel! {
+        willSet {
+            newValue.text = self.playerTitleLabelKey.localized
+        }
+    }
+
     @IBOutlet private weak var nameAndTagLabel: UILabel! {
         willSet {
             newValue.isHidden = true
@@ -81,5 +89,13 @@ extension PlayerInfoView {
     func hideLoading() {
         self.indicator.isHidden = true
         self.indicator.stopAnimating()
+    }
+}
+
+// MARK: - Refresh text
+extension PlayerInfoView {
+
+    func refreshText() {
+        self.playerTitleLabel.text = self.playerTitleLabelKey.localized
     }
 }

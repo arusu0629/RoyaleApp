@@ -1,0 +1,44 @@
+/* 
+  Localizable.strings(Japanese)
+  RoyaleApp
+
+  Created by nakandakari on 2021/09/15.
+  
+*/
+
+/* 汎用 */
+"button_ok_title_key"     = "はい";
+"button_cancel_title_key" = "いいえ";
+
+
+/* ルート */
+
+// タブ名
+"tab_home_title_key" = "ホーム";
+"tab_deck_title_key" = "デッキ";
+"tab_web_title_key"  = "ウェブ";
+
+// 動画リワードダイアログ
+"movie_reward_alert_title_key"   = "プレイヤー情報を更新しますか？";
+"movie_reward_alert_message_key" = "動画を視聴して更新する";
+"movie_reward_load_title_key"    = "動画広告を準備中...";
+
+/* ホーム */
+
+// セルタイトル
+"player_cell_title_key"          = "プレイヤー";
+"trophy_cell_title_key"          = "トロフィー";
+"upcoming_chests_cell_title_key" = "宝箱";
+
+// トロフィーグラフフィルタータブタイトル
+"trophy_graph_tab_today_title_key" = "今日";
+"trophy_graph_tab_week_title_key"  = "週";
+"trophy_graph_tab_month_title_key" = "月";
+"trophy_graph_tab_year_title_key"  = "年";
+
+// グラフ
+"trophy_graph_no_data_title_key" = "プレイ結果がありません";
+"trophy_graph_changes_title_key" = "トロフィー推移";
+
+// 宝箱
+"next_upcoming_chest_title_key" = "次";

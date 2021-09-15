@@ -38,7 +38,7 @@ extension HomeEvent: AnalyticsEvent {
         case .display, .selectPlayMovie, .selectCancelMovie, .successMovieReward, .cancelMovieReward, .failedPlayMovie:
             return [:]
         case .selectDateFilter(let trophyDateFilter):
-            return [AnalyticsManager.EventProperty.trophyDateFilter.key: trophyDateFilter.label]
+            return [AnalyticsManager.EventProperty.trophyDateFilter.key: trophyDateFilter.analyticsEventValue]
         }
     }
 }

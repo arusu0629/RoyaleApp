@@ -12,12 +12,12 @@ public enum TrophyDateFilter: Int, CaseIterable {
     case monthly
     case year
 
-    public var label: String {
+    public var analyticsEventValue: String {
         switch self {
-        case .today :  return "Today"
-        case .weekly:  return "Weekly"
-        case .monthly: return "Monthly"
-        case .year:    return "Year"
+        case .today   : return "Today"
+        case .weekly  : return "Weekly"
+        case .monthly : return "Monthly"
+        case .year    : return "Year"
         }
     }
 

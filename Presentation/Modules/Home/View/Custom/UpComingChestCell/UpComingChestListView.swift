@@ -11,6 +11,13 @@ import UIKit
 
 final class UpComingChestListView: UIView {
 
+    private let upcomingChestTitleLabelKey = "upcoming_chests_cell_title_key"
+
+    @IBOutlet private weak var upcomingChestTitleLabel: UILabel! {
+        willSet {
+            newValue.text = self.upcomingChestTitleLabelKey.localized
+        }
+    }
     @IBOutlet private weak var upcomingChestStackView: UIStackView!
 
     private var chestCells: [UpComingChestCell] = []
@@ -80,5 +87,14 @@ extension UpComingChestListView {
     func hideLoading() {
         self.indicator.isHidden = true
         self.indicator.stopAnimating()
+    }
+}
+
+// MARK: - Refresh text
+extension UpComingChestListView {
+
+    func refreshText() {
+        self.upcomingChestTitleLabel.text = self.upcomingChestTitleLabelKey.localized
+        self.chestCells.forEach { $0.refreshText() }
     }
 }

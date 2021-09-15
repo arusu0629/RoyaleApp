@@ -156,3 +156,19 @@ private extension TabBarView {
         self.tabBarButtonViews[index].hideText()
     }
 }
+
+// MARK: - Refresh text
+extension TabBarView {
+
+    func refreshText(tabTexts: [String]) {
+        self.tabTexts = tabTexts
+
+        // ボタンそれぞれのテキストを変更
+        for (index, text) in self.tabTexts.enumerated() {
+            self.tabBarButtonViews[index].refreshButtonText(text)
+        }
+
+        // ボタンの上に載せているテキストを変更
+        self.selectedViewLabel.text = self.tabTexts[self.selectedTabIndex]
+    }
+}
