@@ -14,12 +14,19 @@ protocol CancelableLoadingViewDelegate: AnyObject {
 
 final class CancelableLoadingView: UIView {
 
+    private let cancelButtonTitleKey = "button_cancel_title_key"
+
     @IBOutlet private weak var indicator: UIActivityIndicatorView! {
         willSet {
             newValue.stopAnimating()
         }
     }
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var cancelButton: UIButton! {
+        willSet {
+            newValue.setTitle(self.cancelButtonTitleKey.localized, for: .normal)
+        }
+    }
 
     weak var delegate: CancelableLoadingViewDelegate?
 
