@@ -18,6 +18,9 @@ final class SignInViewController: UIViewController {
 
     var presenter: SignInPresenter!
 
+    private let textFieldPlaceholderTitleKey = "signin_textfield_placeholder_title_key"
+    private let signInButtonTitleKey         = "signin_sign_in_button_title_key"
+
     private let descriptionImages = [Asset.signinExample1.image, Asset.signinExample2.image, Asset.signinExample3.image]
 
     @IBOutlet private var stackView: UIStackView!
@@ -31,6 +34,11 @@ final class SignInViewController: UIViewController {
     @IBOutlet private weak var descriptionView: SignInDescriptionView! {
         willSet {
             newValue.setData(self.descriptionImages)
+        }
+    }
+    @IBOutlet private weak var signInButton: UIButton! {
+        willSet {
+            newValue.setTitle(self.signInButtonTitleKey.localized, for: .normal)
         }
     }
 
@@ -76,7 +84,7 @@ private extension SignInViewController {
     }
 
     func setupTextFieldPlaceholder() {
-        let buttonText = "Input player tag"
+        let buttonText = self.textFieldPlaceholderTitleKey.localized
         // Shifting the placeholder letter up from the baseline to the bottom of the g
         let attributes = [
             NSAttributedString.Key.baselineOffset: NSNumber(value: 1.0)

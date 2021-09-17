@@ -23,6 +23,11 @@
 "error_web_view_invalid_url_title_key" = "URLが正しくありません\n%@";
 
 
+/* サインイン */
+"signin_textfield_placeholder_title_key" = "プレイヤータグ";
+"signin_sign_in_button_title_key"        = "サインイン";
+
+
 /* ルート */
 
 // タブ名

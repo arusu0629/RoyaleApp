@@ -22,6 +22,12 @@
 
 "error_web_view_invalid_url_title_key" = "Invalid web view url\n%@";
 
+
+/* SignIn */
+"signin_textfield_placeholder_title_key" = "Input player tag";
+"signin_sign_in_button_title_key"        = "SignIn";
+
+
 /* Root */
 
 // Tab name
