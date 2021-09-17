@@ -15,7 +15,7 @@ public enum AppLanguage: Int, CaseIterable {
 public extension AppLanguage {
 
     static var defaultLanguage: AppLanguage {
-        return .en
+        return .ja
     }
 
     var description: String {
