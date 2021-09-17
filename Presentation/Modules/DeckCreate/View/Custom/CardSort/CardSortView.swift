@@ -15,8 +15,27 @@ protocol CardSortViewDelegate: AnyObject {
 
 final class CardSortView: UIView {
 
+    private let cardCollectionTitleLabelKey = "deck_create_card_collection_title_key"
+    private let cardFoundTitleLabelKey      = "deck_create_card_found_title_key"
+
+    @IBOutlet private weak var cardCollectionTitleLabel: UILabel! {
+        willSet {
+            newValue.text = self.cardCollectionTitleLabelKey.localized
+        }
+    }
+    @IBOutlet private weak var cardFoundTitleLabel: UILabel! {
+        willSet {
+            newValue.text = self.cardFoundTitleLabelKey.localized
+        }
+    }
+
     @IBOutlet private weak var cardFoundLabel: UILabel!
-    @IBOutlet private weak var sortButton: UIButton!
+    @IBOutlet private weak var sortButton: UIButton! {
+        willSet {
+            newValue.titleLabel?.minimumScaleFactor = 0.5
+            newValue.titleLabel?.adjustsFontSizeToFitWidth = true
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,11 +94,11 @@ private extension CardSortType {
 
     var sortText: String {
         switch self {
-        case .arena:            return "Arena"
-        case .elixir:           return "Elixir"
-        case .rarity:           return "Rarity"
-        case .rarityDescending: return "Rarity(desc)"
-        case .level:            return "Level"
+        case .arena:            return "deck_create_sort_arena_title_key".localized
+        case .elixir:           return "deck_create_sort_elixir_title_key".localized
+        case .rarity:           return "deck_create_sort_rarity_title_key".localized
+        case .rarityDescending: return "deck_create_sort_rarity_desc_title_key".localized
+        case .level:            return "deck_create_sort_level_title_key".localized
         }
     }
 }

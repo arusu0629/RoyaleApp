@@ -160,7 +160,7 @@ extension SettingsViewController {
     }
 }
 
-// MARK: - Refresh text
+// MARK: - Refresh text because did change appLanguage
 private extension SettingsViewController {
 
     func refreshText() {

@@ -10,6 +10,17 @@
 "button_ok_title_key"     = "OK";
 "button_no_title_key"     = "NO";
 "button_cancel_title_key" = "Cancel";
+"button_clear_title_key"  = "Clear";
+"button_close_title_key"  = "Close";
+
+
+/* エラーダイアログ */
+"error_alert_key" = "Error";
+"error_deck_share_invalid_card_count_title_key" = "You need 8 cards for a deck share";
+"error_deck_share_duplication_title_key" = "All 8 cards must be different cards";
+"error_deck_share_invalid_url_title_key" = "Invalid URL\nPlease try again later";
+
+"error_web_view_invalid_url_title_key" = "Invalid web view url\n%@";
 
 /* Root */
 
@@ -60,6 +71,23 @@
 
 // App language action sheet
 "settings_app_language_action_sheet_title_key" = "Select Language";
+
+
+/* Deck */
+"deck_average_elixir_title_key"  = "Avg Elixir";
+"deck_four_card_cycle_title_key" = "4-Card Cycle";
+"deck_change_deck_title_key"     = "Deck Change";
+
+
+/* Deck Create */
+"deck_create_card_collection_title_key" = "Card Collection";
+"deck_create_card_found_title_key"      = "Found";
+
+"deck_create_sort_elixir_title_key"      = "By Elixir";
+"deck_create_sort_rarity_title_key"      = "By Rarity";
+"deck_create_sort_rarity_desc_title_key" = "By Rarity Descending";
+"deck_create_sort_level_title_key"       = "By Level";
+"deck_create_sort_arena_title_key"       = "By Arena";
 
 
 /* Web */

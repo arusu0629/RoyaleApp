@@ -49,11 +49,13 @@ final class WebPresenterImpl: WebPresenter {
     }
 
     private func setupWebView() {
+
         self.view?.setupWebView()
         let lastSelectedWebViewIndex = self.lastSelectedWebViewTabIndexUseCase.get()
         self.view?.setupWebViewTab(self.webViewTabUseCase.list(), initialIndex: lastSelectedWebViewIndex)
 
         let lastSelectedWebViewTab = self.webViewTabUseCase.list()[lastSelectedWebViewIndex]
+
         guard let url = URL(string: lastSelectedWebViewTab.urlString) else {
             self.view?.showErrorAlert(WebViewError.invalidURL(url: lastSelectedWebViewTab.urlString))
             return

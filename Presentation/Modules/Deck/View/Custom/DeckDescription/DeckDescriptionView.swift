@@ -11,10 +11,24 @@ import UIKit
 
 final class DeckDescriptionView: UIView {
 
+    private let deckAverageElixirTitleKey = "deck_average_elixir_title_key"
+    private let deckFourCardCycleTitleKey = "deck_four_card_cycle_title_key"
+
     @IBOutlet private weak var descriptionStackView: UIStackView!
     @IBOutlet private weak var indicator: UIActivityIndicatorView!
 
+    @IBOutlet private weak var averageElixirTitleLabel: UILabel! {
+        willSet {
+            newValue.text = self.deckAverageElixirTitleKey.localized
+        }
+    }
     @IBOutlet private weak var averageElixirLabel: UILabel!
+
+    @IBOutlet private weak var fourCardCycleElixirTitleLabel: UILabel! {
+        willSet {
+            newValue.text = self.deckFourCardCycleTitleKey.localized
+        }
+    }
     @IBOutlet private weak var fourCardCycleElixirLabel: UILabel!
 
     override init(frame: CGRect) {
@@ -82,5 +96,14 @@ extension DeckDescriptionView {
         self.indicator.isHidden = true
         self.indicator.stopAnimating()
         self.descriptionStackView.isHidden = false
+    }
+}
+
+// MARK: - Refresh text
+extension DeckDescriptionView {
+
+    func refreshText() {
+        self.averageElixirTitleLabel.text       = self.deckAverageElixirTitleKey.localized
+        self.fourCardCycleElixirTitleLabel.text = self.deckFourCardCycleTitleKey.localized
     }
 }

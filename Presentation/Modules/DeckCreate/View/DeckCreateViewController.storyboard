@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BLX-9N-R0N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BLX-9N-R0N">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,9 +37,9 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHo-4x-seI">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHP-Yc-3Tb">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHP-Yc-3Tb">
                                                         <rect key="frame" x="0.0" y="0.0" width="107.5" height="96"/>
-                                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="96" id="fPj-Kd-jeb"/>
                                                         </constraints>
@@ -64,9 +66,9 @@
                                                             <constraint firstAttribute="width" secondItem="rL9-hy-TgT" secondAttribute="height" multiplier="160:96" id="Kxy-Vj-lTA"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPU-j4-Vo9">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPU-j4-Vo9">
                                                         <rect key="frame" x="267.5" y="0.0" width="107.5" height="96"/>
-                                                        <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="96" id="FKL-Hv-u5Q"/>
                                                         </constraints>
@@ -115,19 +117,21 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3Aq-GK-SNy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="PZd-94-TBe" firstAttribute="top" secondItem="3Aq-GK-SNy" secondAttribute="top" id="8gl-Y8-qaZ"/>
                             <constraint firstItem="3Aq-GK-SNy" firstAttribute="trailing" secondItem="PZd-94-TBe" secondAttribute="trailing" id="Cqj-8U-O4K"/>
                             <constraint firstItem="3Aq-GK-SNy" firstAttribute="bottom" secondItem="PZd-94-TBe" secondAttribute="bottom" id="ExZ-lc-kt6"/>
                             <constraint firstItem="PZd-94-TBe" firstAttribute="leading" secondItem="F5D-7c-VQg" secondAttribute="leading" id="nxx-GT-WoB"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="3Aq-GK-SNy"/>
                     </view>
                     <connections>
                         <outlet property="cardSortView" destination="bfp-7I-CGS" id="gb3-Nz-70l"/>
+                        <outlet property="deckClearButton" destination="dHP-Yc-3Tb" id="UxU-wv-ubc"/>
                         <outlet property="deckCreateListView" destination="qI4-DI-agr" id="vWf-2U-Pn5"/>
                         <outlet property="deckCreatePreviewView" destination="rL9-hy-TgT" id="TV6-MX-Ou8"/>
+                        <outlet property="deckOkButton" destination="qPU-j4-Vo9" id="ose-m2-5M4"/>
                         <outlet property="footerAdView" destination="tbK-TL-PPp" id="sFp-1r-clJ"/>
                     </connections>
                 </viewController>
@@ -136,4 +140,12 @@
             <point key="canvasLocation" x="213" y="128"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

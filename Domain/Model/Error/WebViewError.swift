@@ -8,13 +8,6 @@
 
 import Foundation
 
-public enum WebViewError: LocalizedError {
+public enum WebViewError: Error {
     case invalidURL(url: String)
-
-    public var errorDescription: String? {
-        switch self {
-        case .invalidURL(let url):
-            return "Invalid web view url = \(url)"
-        }
-    }
 }

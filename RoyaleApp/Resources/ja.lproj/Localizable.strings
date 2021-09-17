@@ -10,6 +10,17 @@
 "button_ok_title_key"     = "はい";
 "button_no_title_key"     = "いいえ";
 "button_cancel_title_key" = "キャンセル";
+"button_clear_title_key"  = "クリア";
+"button_close_title_key"  = "閉じる";
+
+
+/* エラーダイアログ */
+"error_alert_key" = "エラー";
+"error_deck_share_invalid_card_count_title_key" = "シェアには8枚のカードが必要です";
+"error_deck_share_duplication_title_key" = "8枚のカードはそれぞれ異なっている必要があります";
+"error_deck_share_invalid_url_title_key" = "シェアURLが正しくありません\n後ほどお試し下さい";
+
+"error_web_view_invalid_url_title_key" = "URLが正しくありません\n%@";
 
 
 /* ルート */
@@ -61,6 +72,23 @@
 
 // 言語設定アクションシート
 "settings_app_language_action_sheet_title_key" = "言語選択";
+
+
+/* デッキ画面 */
+"deck_average_elixir_title_key"  = "平均エリクサー";
+"deck_four_card_cycle_title_key" = "4枚サイクル";
+"deck_change_deck_title_key"     = "デッキ変更";
+
+
+/* デッキ作成画面 */
+"deck_create_card_collection_title_key" = "カードコレクション";
+"deck_create_card_found_title_key"      = "発見";
+
+"deck_create_sort_elixir_title_key"      = "エリクサー";
+"deck_create_sort_rarity_title_key"      = "レア度";
+"deck_create_sort_rarity_desc_title_key" = "レア度降順";
+"deck_create_sort_level_title_key"       = "レベル";
+"deck_create_sort_arena_title_key"       = "アリーナ";
 
 
 /* ウェブ画面 */

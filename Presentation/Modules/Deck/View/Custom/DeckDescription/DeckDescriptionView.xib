@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeckDescriptionView" customModule="Presentation" customModuleProvider="target">
             <connections>
                 <outlet property="averageElixirLabel" destination="Vmu-3F-5hb" id="AAz-cR-aIS"/>
+                <outlet property="averageElixirTitleLabel" destination="kVg-X3-9tq" id="NFJ-hT-2l1"/>
                 <outlet property="descriptionStackView" destination="0wK-n8-CKH" id="aof-zd-vZM"/>
                 <outlet property="fourCardCycleElixirLabel" destination="Tg2-Pg-Yh5" id="IUH-pv-H5E"/>
+                <outlet property="fourCardCycleElixirTitleLabel" destination="4oF-yg-qhl" id="da7-H1-teX"/>
                 <outlet property="indicator" destination="gAl-6n-vrO" id="lZU-t4-Orr"/>
             </connections>
         </placeholder>
@@ -77,7 +81,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                 </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemGray2Color"/>
             <constraints>
                 <constraint firstItem="gAl-6n-vrO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IzY-6h-sl0"/>
                 <constraint firstAttribute="trailing" secondItem="gAl-6n-vrO" secondAttribute="trailing" id="TkI-CK-i1i"/>
@@ -95,5 +99,8 @@
     <resources>
         <image name="deck_average_elixir" width="36" height="49"/>
         <image name="deck_four_cycle_elixir" width="49" height="49"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

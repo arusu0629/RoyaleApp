@@ -27,6 +27,8 @@ final class DeckViewController: UIViewController {
 
     var presenter: DeckPresenter!
 
+    private let deckChangeTitleKey = "deck_change_deck_title_key"
+
     private var decks: [DeckModel] = []
     private var selectedDeckIndex: Int = 0
 
@@ -44,6 +46,11 @@ final class DeckViewController: UIViewController {
     }
     @IBOutlet private weak var deckPreviewView: DeckPreviewView!
     @IBOutlet private weak var deckDescritpionView: DeckDescriptionView!
+    @IBOutlet private weak var deckChangeButton: UIButton! {
+        willSet {
+            newValue.setTitle(self.deckChangeTitleKey.localized, for: .normal)
+        }
+    }
 
     // Ad
     @IBOutlet private weak var footerAdView: FooterAdView!
@@ -62,11 +69,24 @@ extension DeckViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.viewDidLoad()
+        self.setupNotification()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter.viewWillAppear()
+    }
+}
+
+// MARK: - Setup
+extension DeckViewController {
+
+    private func setup() {
+        self.setupNotification()
+    }
+
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeAppLanguage(_:)), name: Notification.Name.AppLanguage.didChange, object: nil)
     }
 }
 
@@ -163,5 +183,22 @@ extension DeckViewController: AdManagerDelegate {
         self.hideFooterAdView()
         self.footerAdView.hideLoading()
         self.footerSpacerView.isHidden = false
+    }
+}
+
+// MARK: - objc
+extension DeckViewController {
+
+    @objc func didChangeAppLanguage(_ sender: NSNotification) {
+        self.refreshText()
+    }
+}
+
+// MARK: - Refresh text because did change appLanguage
+extension DeckViewController {
+
+    func refreshText() {
+        self.deckChangeButton.setTitle(self.deckChangeTitleKey.localized, for: .normal)
+        self.deckDescritpionView.refreshText()
     }
 }

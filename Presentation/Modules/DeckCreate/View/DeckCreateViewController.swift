@@ -27,6 +27,9 @@ final class DeckCreateViewController: UIViewController {
 
     var presenter: DeckCreatePresenter!
 
+    private let deckClearButtonTitleKey = "button_clear_title_key".localized
+    private let deckOkButtonTitleKey    = "button_ok_title_key".localized
+
     @IBOutlet private weak var cardSortView: CardSortView! {
         willSet {
             newValue.delegate = self
@@ -40,6 +43,17 @@ final class DeckCreateViewController: UIViewController {
     @IBOutlet private weak var deckCreatePreviewView: DeckCreatePreviewView! {
         willSet {
             newValue.delegate = self
+        }
+    }
+
+    @IBOutlet private weak var deckClearButton: UIButton! {
+        willSet {
+            newValue.setTitle(self.deckClearButtonTitleKey.localized, for: .normal)
+        }
+    }
+    @IBOutlet private weak var deckOkButton: UIButton! {
+        willSet {
+            newValue.setTitle(self.deckOkButtonTitleKey.localized, for: .normal)
         }
     }
 
