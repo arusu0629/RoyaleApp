@@ -71,7 +71,9 @@ extension DeckPreviewView: UICollectionViewDataSource {
         if index >= self.currentDeck.cards.count {
             cell.isHidden = true
         } else {
-            cell.setData(iconUrl: self.currentDeck.cards[index].iconUrl)
+            let card = self.currentDeck.cards[index]
+            let placeHolder = UIImage(named: card.placeHolderImageUrl, in: Bundle.current, with: nil)
+            cell.setData(iconUrl: card.iconUrl, placeHolder: placeHolder)
             cell.isHidden = false
         }
         return cell

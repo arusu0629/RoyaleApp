@@ -14,10 +14,12 @@ public struct CardModel {
     public let id: Int
     public let level: Int
     public let iconUrl: String
+    public let placeHolderImageUrl: String
 
     init(_ card: CRPlayerResponse.Card) {
         self.id = card.id ?? 0
         self.level = card.level ?? 1
         self.iconUrl = card.iconUrls?.medium ?? ""
+        self.placeHolderImageUrl = "card_placeholder_\(self.id)"
     }
 }

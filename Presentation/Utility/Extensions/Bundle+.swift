@@ -13,4 +13,9 @@ extension Bundle {
     static var appVersion: String {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
     }
+
+    static var current: Bundle {
+        class DummyClass {}
+        return Bundle(for: type(of: DummyClass()))
+    }
 }

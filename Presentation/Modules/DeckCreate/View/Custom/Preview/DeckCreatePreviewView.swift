@@ -95,7 +95,9 @@ extension DeckCreatePreviewView: UICollectionViewDataSource {
             cell.isHidden = true
         } else {
             cell.isHidden = false
-            cell.setup(iconUrl: self.selectedCardList[index].iconUrl)
+            let card = self.selectedCardList[index]
+            let placeHolder = UIImage(named: card.placeHolderImageUrl, in: Bundle.current, with: nil)
+            cell.setup(iconUrl: card.iconUrl, placeHolder: placeHolder)
         }
         return cell
     }

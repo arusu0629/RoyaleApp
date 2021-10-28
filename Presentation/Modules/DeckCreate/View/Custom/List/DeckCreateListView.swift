@@ -11,6 +11,7 @@ import UIKit
 
 protocol DeckCreateListViewDelegate: AnyObject {
     func didUpdateSelectedCardList(selectedCardList: [CardModel])
+    func didSelectMultipleChampionsCard()
 }
 
 final class DeckCreateListView: UIView {
@@ -124,6 +125,24 @@ extension DeckCreateListView: UICollectionViewDataSource {
             self.willReloadIndexPathList.append(indexPath)
         } else {
             if self.selectedCardList.count >= self.maxCardCountPerDeck {
+                return
+            }
+            // TODO: リファクタリング
+            // チャンピオンを複数選択した場合はアラート表示
+            let willSelectCardRarity = CardMaster.shared.getRarity(id: self.cardList[cardIndex].id)
+            let alreadySelectedChampionsCount = self.selectedCardList
+                .map { $0.id }
+                .filter {
+                    switch CardMaster.shared.getRarity(id: $0) {
+                    case .champion:
+                        return true
+                    default:
+                        return false
+                    }
+                }
+                .count
+            if case .champion = willSelectCardRarity, alreadySelectedChampionsCount > 0 {
+                self.delegate?.didSelectMultipleChampionsCard()
                 return
             }
             self.selectedCardList.append(self.cardList[cardIndex])

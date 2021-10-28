@@ -95,6 +95,7 @@
 "deck_create_sort_level_title_key"       = "レベル";
 "deck_create_sort_arena_title_key"       = "アリーナ";
 
+"deck_create_multiple_champion_alert_message_key" = "チャンピオンはデッキに1枚しか\nセットできません";
 
 /* ウェブ画面 */
 

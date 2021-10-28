@@ -82,6 +82,7 @@ public enum CardRarity: Int {
     case rare
     case epic
     case legendary
+    case champion
     case none
 
     var cardLevelOffset: Int {
@@ -94,6 +95,8 @@ public enum CardRarity: Int {
             return 5
         case .legendary:
             return 8
+        case .champion:
+            return 10
         }
     }
 
@@ -115,6 +118,8 @@ public enum CardRarity: Int {
             self = .epic
         case "Legendary":
             self = .legendary
+        case "Champion":
+            self = .champion
         default:
             self = .none
         }

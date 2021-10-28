@@ -38,7 +38,7 @@ extension DeckCreateListCell {
     func setup(card: CardModel, selectedNumber: Int) {
         self.levelLabel.text = "level \(card.cardLevel)"
         self.elixirLabel.text = String(card.elixir)
-        self.iconImageView.setImage(imageUrl: card.iconUrl)
+        self.iconImageView.setImage(imageUrl: card.iconUrl, placeHolder: UIImage(named: card.placeHolderImageUrl, in: Bundle.current, with: nil))
         self.selectedNumber = selectedNumber
     }
 }

@@ -22,7 +22,7 @@ final class DeckPreviewCell: UICollectionViewCell {
 // MARK: - Setup
 extension DeckPreviewCell {
 
-    func setData(iconUrl: String) {
-        self.cardIconImageView.setImage(imageUrl: iconUrl)
+    func setData(iconUrl: String, placeHolder: UIImage? = nil) {
+        self.cardIconImageView.setImage(imageUrl: iconUrl, placeHolder: placeHolder)
     }
 }

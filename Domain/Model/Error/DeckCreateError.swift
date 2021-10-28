@@ -10,11 +10,14 @@ import Foundation
 
 public enum DeckCreateError: LocalizedError {
     case limitedCreate(canCreateCount: Int)
+    case multipleSelectChampion(errorDescription: String)
 
     public var errorDescription: String? {
         switch self {
         case .limitedCreate(let canCreateCount):
             return "You can only create up \(canCreateCount) decks."
+        case .multipleSelectChampion(let errorDescription):
+            return errorDescription
         }
     }
 }
