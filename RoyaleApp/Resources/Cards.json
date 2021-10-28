@@ -737,6 +737,39 @@
         "id": 26000068
     },
     {
+        "key": "skeleton-king",
+        "name": "Skeleton King",
+        "sc_key": "SkeletonKing",
+        "elixir": 4,
+        "type": "Troop",
+        "rarity": "Champion",
+        "arena": 15,
+        "description": "",
+        "id": 26000069
+    },
+    {
+        "key": "archer-queen",
+        "name": "Archer Queen",
+        "sc_key": "ArcherQueen",
+        "elixir": 5,
+        "type": "Troop",
+        "rarity": "Champion",
+        "arena": 15,
+        "description": "",
+        "id": 26000072
+    },
+    {
+        "key": "golden-knight",
+        "name": "Golden Knight",
+        "sc_key": "GoldenKnight",
+        "elixir": 4,
+        "type": "Troop",
+        "rarity": "Champion",
+        "arena": 15,
+        "description": "",
+        "id": 26000074
+    },
+    {
         "key": "skeleton-dragons",
         "name": "Skeleton Dragons",
         "sc_key": "SkeletonDragons",
