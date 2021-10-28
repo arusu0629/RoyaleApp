@@ -30,6 +30,8 @@ final class DeckCreateViewController: UIViewController {
     private let deckClearButtonTitleKey = "button_clear_title_key".localized
     private let deckOkButtonTitleKey    = "button_ok_title_key".localized
 
+    private let multipleSelectedChampionsAlertMessageKey = "deck_create_multiple_champion_alert_message_key"
+
     @IBOutlet private weak var cardSortView: CardSortView! {
         willSet {
             newValue.delegate = self
@@ -138,6 +140,11 @@ extension DeckCreateViewController: DeckCreateListViewDelegate {
     func didUpdateSelectedCardList(selectedCardList: [CardModel]) {
         self.presenter.didUpdateSelectedCardList(selectedCardList)
         self.deckCreatePreviewView.setup(selectedCardList: selectedCardList)
+    }
+
+    func didSelectMultipleChampionsCard() {
+        let error = DeckCreateError.multipleSelectChampion(errorDescription: self.multipleSelectedChampionsAlertMessageKey.localized)
+        self.showErrorAlert(error)
     }
 }
 

@@ -95,6 +95,8 @@
 "deck_create_sort_level_title_key"       = "By Level";
 "deck_create_sort_arena_title_key"       = "By Arena";
 
+"deck_create_multiple_champion_alert_message_key" = "You can only have one champion in your deck";
+
 
 /* Web */
 
