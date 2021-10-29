@@ -3,7 +3,7 @@ binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.j
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json" "7.1.0"
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.json" "7.1.0"
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinary.json" "7.1.0"
-github "Alamofire/Alamofire" "5.4.3"
+github "Alamofire/Alamofire" "5.4.4"
 github "danielgindi/Charts" "v4.0.1"
 github "marcosgriselli/SwipeableTabBarController" "3.4.1"
 github "onevcat/Kingfisher" "5.15.8"
