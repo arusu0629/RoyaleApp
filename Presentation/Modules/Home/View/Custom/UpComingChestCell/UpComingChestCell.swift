@@ -80,6 +80,8 @@ private extension UpComingChestsModel.UpComingChest {
             return Asset.chestPlentifulgoldcrate.image
         case .overflowingGoldCrate:
             return Asset.chestOverflowinggoldcrate.image
+        case .royalWild:
+            return Asset.chestRoyalwild.image
         case .none:
             return nil
         }

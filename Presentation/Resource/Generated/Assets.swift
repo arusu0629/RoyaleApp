@@ -27,6 +27,7 @@ internal enum Asset {
   internal static let chestMegalightning = ImageAsset(name: "chest-megalightning")
   internal static let chestOverflowinggoldcrate = ImageAsset(name: "chest-overflowinggoldcrate")
   internal static let chestPlentifulgoldcrate = ImageAsset(name: "chest-plentifulgoldcrate")
+  internal static let chestRoyalwild = ImageAsset(name: "chest-royalwild")
   internal static let chestSilver = ImageAsset(name: "chest-silver")
   internal static let cardPlaceholder26000069 = ImageAsset(name: "card_placeholder_26000069")
   internal static let cardPlaceholder26000072 = ImageAsset(name: "card_placeholder_26000072")
