@@ -39,6 +39,7 @@ public extension UpComingChestsModel {
         case goldCrate
         case plentifulGoldCrate
         case overflowingGoldCrate
+        case royalWild
         case none
     }
 
@@ -84,6 +85,8 @@ private extension UpComingChestsModel.UpComingChest {
             return .plentifulGoldCrate
         case "Overflowing Gold Crate":
             return .overflowingGoldCrate
+        case "Royal Wild Chest":
+            return .royalWild
         default:
             return .none
         }
