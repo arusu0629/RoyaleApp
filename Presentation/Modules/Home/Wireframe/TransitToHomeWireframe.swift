@@ -18,15 +18,15 @@ protocol TransitToHomeWireframe: AnyObject {
 
 extension TransitToHomeWireframe {
 
-    //func pushHome() {
+    // func pushHome() {
     //    let vc = HomeBuilder.build()
     //    self.viewController?.navigationController?.pushViewController(vc, animated: true)
-    //}
+    // }
 
-    //func presentHome() {
+    // func presentHome() {
     //    let vc = HomeBuilder.build()
     //    self.viewController?.present(vc, animated: true, completion: nil)
-    //}
+    // }
 }
 
-//protocol HomeWireframeDelegate: AnyObject {}
+// protocol HomeWireframeDelegate: AnyObject {}

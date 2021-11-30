@@ -18,15 +18,15 @@ protocol TransitToDeckWireframe: AnyObject {
 
 extension TransitToDeckWireframe {
 
-    //func pushDeck() {
+    // func pushDeck() {
     //    let vc = DeckBuilder.build()
     //    self.viewController?.navigationController?.pushViewController(vc, animated: true)
-    //}
+    // }
 
-    //func presentDeck() {
+    // func presentDeck() {
     //    let vc = DeckBuilder.build()
     //    self.viewController?.present(vc, animated: true, completion: nil)
-    //}
+    // }
 }
 
-//protocol DeckWireframeDelegate: AnyObject {}
+// protocol DeckWireframeDelegate: AnyObject {}

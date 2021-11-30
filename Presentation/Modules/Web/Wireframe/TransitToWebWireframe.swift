@@ -18,15 +18,15 @@ protocol TransitToWebWireframe: AnyObject {
 
 extension TransitToWebWireframe {
 
-    //func pushWeb() {
+    // func pushWeb() {
     //    let vc = WebBuilder.build()
     //    self.viewController?.navigationController?.pushViewController(vc, animated: true)
-    //}
+    // }
 
-    //func presentWeb() {
+    // func presentWeb() {
     //    let vc = WebBuilder.build()
     //    self.viewController?.present(vc, animated: true, completion: nil)
-    //}
+    // }
 }
 
-//protocol WebWireframeDelegate: AnyObject {}
+// protocol WebWireframeDelegate: AnyObject {}
