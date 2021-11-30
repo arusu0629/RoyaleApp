@@ -6,6 +6,7 @@
 //  Copyright © 2020 nakandakari. All rights reserved.
 //
 
+import Algorithms
 import Charts
 import Domain
 import UIKit

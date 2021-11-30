@@ -24,6 +24,11 @@ configFiles:
   Debug: Configs/debug_config.xcconfig
   Release: Configs/release_config.xcconfig
 
+packages: # SPM で扱うパッケージ
+  Algorithms:
+    url: https://github.com/apple/swift-algorithms
+    from: 1.0.0
+
 targets:
   RoyaleApp:
     type: application
@@ -141,6 +146,7 @@ targets:
       - framework: Carthage/Build/Kingfisher.xcframework
       - framework: Carthage/Build/SwipeableTabBarController.xcframework
       - carthage: GoogleMobileAds
+      - package: Algorithms
     settings:
       base:
         INFOPLIST_FILE: Presentation/Info.plist
