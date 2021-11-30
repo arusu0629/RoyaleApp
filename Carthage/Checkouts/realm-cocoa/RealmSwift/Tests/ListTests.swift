@@ -89,6 +89,8 @@ class ListTests: TestCase {
         XCTAssertEqual(obj.int.index(of: 6), 1)
         XCTAssertEqual(2, obj.int.index(matching: NSPredicate(format: "self == 7")))
         XCTAssertNil(obj.int.index(matching: NSPredicate(format: "self == 9")))
+        XCTAssertEqual(2, obj.int.index(matching: { $0 == 7 && $0 < 456 }))
+        XCTAssertNil(obj.int.index(matching: { $0 == 9 }))
         XCTAssertEqual(obj.int.max(), 8)
         XCTAssertEqual(obj.int.sum(), 26)
 
@@ -111,6 +113,7 @@ class ListTests: TestCase {
         XCTAssertFalse(obj.date.contains(Date()))
         XCTAssertFalse(obj.decimal.contains(Decimal128()))
         XCTAssertFalse(obj.objectId.contains(ObjectId()))
+        XCTAssertFalse(obj.uuidOpt.contains(UUID()))
 
         XCTAssertFalse(obj.intOpt.contains { $0 == nil })
         XCTAssertFalse(obj.int8Opt.contains { $0 == nil })
@@ -124,6 +127,7 @@ class ListTests: TestCase {
         XCTAssertFalse(obj.dateOpt.contains { $0 == nil })
         XCTAssertFalse(obj.decimalOpt.contains { $0 == nil })
         XCTAssertFalse(obj.objectIdOpt.contains { $0 == nil })
+        XCTAssertFalse(obj.uuidOpt.contains { $0 == nil })
     }
 
     func testInvalidated() {
@@ -503,6 +507,7 @@ class ListTests: TestCase {
         testProperty("objectIdCol") { $0.objectIdCol }
     }
 
+    @available(*, deprecated) // Silence deprecation warnings for RealmOptional
     func testValueForKeyOptional() {
         let realm = try! Realm()
         try! realm.write {

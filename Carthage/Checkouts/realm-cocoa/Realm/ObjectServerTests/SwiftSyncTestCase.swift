@@ -26,26 +26,32 @@ import RealmTestSupport
 import RealmSyncTestSupport
 #endif
 
-public class SwiftPerson: Object {
-    @objc public dynamic var _id: ObjectId? = ObjectId.generate()
-    @objc public dynamic var firstName: String = ""
-    @objc public dynamic var lastName: String = ""
-    @objc public dynamic var age: Int = 30
-
-    public convenience init(firstName: String, lastName: String) {
-        self.init()
-        self.firstName = firstName
-        self.lastName = lastName
-    }
-
-    public override class func primaryKey() -> String? {
-        return "_id"
+public extension User {
+    func configuration<T: BSON>(testName: T) -> Realm.Configuration {
+        var config = self.configuration(partitionValue: testName)
+        config.objectTypes = [SwiftPerson.self, SwiftHugeSyncObject.self, SwiftTypesSyncObject.self]
+        return config
     }
 }
 
 public func randomString(_ length: Int) -> String {
     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     return String((0..<length).map { _ in letters.randomElement()! })
+}
+
+public typealias ChildProcessEnvironment = RLMChildProcessEnvironment
+
+public enum ProcessKind {
+    case parent
+    case child(environment: ChildProcessEnvironment)
+
+    public static var current: ProcessKind {
+        if getenv("RLMProcessIsChild") == nil {
+            return .parent
+        } else {
+            return .child(environment: ChildProcessEnvironment.current())
+        }
+    }
 }
 
 open class SwiftSyncTestCase: RLMSyncTestCase {
@@ -82,7 +88,13 @@ open class SwiftSyncTestCase: RLMSyncTestCase {
     public func openRealm(configuration: Realm.Configuration) throws -> Realm {
         var configuration = configuration
         if configuration.objectTypes == nil {
-            configuration.objectTypes = [SwiftPerson.self, Person.self, Dog.self, HugeSyncObject.self]
+            configuration.objectTypes = [SwiftPerson.self,
+                                         SwiftHugeSyncObject.self,
+                                         SwiftCollectionSyncObject.self,
+                                         SwiftUUIDPrimaryKeyObject.self,
+                                         SwiftStringPrimaryKeyObject.self,
+                                         SwiftIntPrimaryKeyObject.self,
+                                         SwiftTypesSyncObject.self]
         }
         let realm = try Realm(configuration: configuration)
         waitForDownloads(for: realm)
@@ -92,7 +104,9 @@ open class SwiftSyncTestCase: RLMSyncTestCase {
     public func immediatelyOpenRealm(partitionValue: String, user: User) throws -> Realm {
         var configuration = user.configuration(partitionValue: partitionValue)
         if configuration.objectTypes == nil {
-            configuration.objectTypes = [SwiftPerson.self, Person.self, Dog.self, HugeSyncObject.self]
+            configuration.objectTypes = [SwiftPerson.self,
+                                         SwiftHugeSyncObject.self,
+                                         SwiftTypesSyncObject.self]
         }
         return try Realm(configuration: configuration)
     }
@@ -165,6 +179,39 @@ open class SwiftSyncTestCase: RLMSyncTestCase {
                 file: (fileName), line: lineNumber)
         }
     }
+
+    public static let bigObjectCount = 2
+    public func populateRealm<T: BSON>(user: User? = nil, partitionValue: T) {
+        do {
+            let user = try (user ?? logInUser(for: basicCredentials()))
+            let config = user.configuration(testName: partitionValue)
+
+            let realm = try openRealm(configuration: config)
+            try! realm.write {
+                for _ in 0..<SwiftSyncTestCase.bigObjectCount {
+                    realm.add(SwiftHugeSyncObject.create())
+                }
+            }
+            waitForUploads(for: realm)
+            checkCount(expected: SwiftSyncTestCase.bigObjectCount, realm, SwiftHugeSyncObject.self)
+        } catch {
+            XCTFail("Got an error: \(error) (process: \(isParent ? "parent" : "child"))")
+        }
+    }
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+
+@available(macOS 12.0, *)
+extension SwiftSyncTestCase {
+    public func basicCredentials(usernameSuffix: String = "", app: App? = nil) async throws -> Credentials {
+        let email = "\(randomString(10))\(usernameSuffix)"
+        let password = "abcdef"
+        let credentials = Credentials.emailPassword(email: email, password: password)
+        try await (app ?? self.app).emailPasswordAuth.registerUser(email: email, password: password)
+        return credentials
+    }
+}
+
+#endif // swift(>=5.5)
 #endif // os(macOS)

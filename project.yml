@@ -6,8 +6,6 @@ options:
     iOS: 13.0
   developmentLanguage: en
   xcodeVersion: "13.0"
-  # Carthage の実行パスを指定
-  carthageExecutablePath: ./Scripts/Carthage/carthage.sh
 
 settings:
   base:
@@ -115,9 +113,9 @@ targets:
         LD_RUNPATH_SEARCH_PATHS: ${inherited} @executable_path/Frameworks @loader_path/Frameworks
         APPLICATION_EXTENSION_API_ONLY: YES # To use from widget-extension
     dependencies:
-      - carthage: Alamofire
-      - carthage: Realm
-      - carthage: RealmSwift
+      - framework: Carthage/Build/Alamofire.xcframework
+      - framework: Carthage/Build/Realm.xcframework
+      - framework: Carthage/Build/RealmSwift.xcframework
 
   Domain:
     type: framework
@@ -139,9 +137,9 @@ targets:
     dependencies:
       - target: Analytics
       - target: Domain
-      - carthage: Charts
-      - carthage: Kingfisher
-      - carthage: SwipeableTabBarController
+      - framework: Carthage/Build/Charts.xcframework
+      - framework: Carthage/Build/Kingfisher.xcframework
+      - framework: Carthage/Build/SwipeableTabBarController.xcframework
       - carthage: GoogleMobileAds
     settings:
       base:

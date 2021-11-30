@@ -28,6 +28,7 @@
 #import "RLMSyncConfiguration_Private.h"
 #import "RLMUtil.hpp"
 #import "RLMApp_Private.hpp"
+#import "RLMChildProcessEnvironment.h"
 
 #import <realm/object-store/sync/sync_manager.hpp>
 #import <realm/object-store/sync/sync_session.hpp>
@@ -100,6 +101,17 @@
     return @[@"firstName", @"lastName", @"age"];
 }
 
+- (instancetype)initWithPrimaryKey:(RLMObjectId *)primaryKey age:(NSInteger)age firstName:(NSString *)firstName lastName:(NSString *)lastName {
+    self = [super init];
+    if (self) {
+        self._id = primaryKey;
+        self.age = age;
+        self.firstName = firstName;
+        self.lastName = lastName;
+    }
+    return self;
+}
+
 + (instancetype)john {
     Person *john = [[Person alloc] init];
     john._id = [RLMObjectId objectId];
@@ -136,6 +148,15 @@
     return george;
 }
 
++ (instancetype)stuart {
+    Person *stuart = [[Person alloc] init];
+    stuart._id = [RLMObjectId objectId];
+    stuart.age = 30;
+    stuart.firstName = @"Stuart";
+    stuart.lastName = @"Sutcliffe";
+    return stuart;
+}
+
 @end
 
 #pragma mark HugeSyncObject
@@ -150,14 +171,206 @@
     return @"_id";
 }
 
-+ (instancetype)objectWithRealmId:(NSString *)realmId {
++ (instancetype)hugeSyncObject {
     const NSInteger fakeDataSize = 1000000;
     HugeSyncObject *object = [[self alloc] init];
     char fakeData[fakeDataSize];
     memset(fakeData, 16, sizeof(fakeData));
     object.dataProp = [NSData dataWithBytes:fakeData length:sizeof(fakeData)];
-    object.realm_id = realmId;
     return object;
+}
+
+@end
+
+#pragma mark AllTypeSyncObject
+
+@implementation AllTypesSyncObject
+
++ (NSDictionary *)defaultPropertyValues {
+    return @{@"_id": [RLMObjectId objectId]};
+}
+
++ (NSString *)primaryKey {
+    return @"_id";
+}
+
++ (NSArray *)requiredProperties {
+    return @[@"boolCol", @"cBoolcol",
+             @"intCol", @"doubleCol",
+             @"stringCol", @"binaryCol",
+             @"dateCol", @"longCol",
+             @"decimalCol", @"uuidCol", @"objectIdCol"];
+}
+
++ (NSDictionary *)values:(int)i {
+    NSString *str = [NSString stringWithFormat:@"%d", i];
+    return @{
+             @"boolCol": @(i % 2),
+             @"cBoolCol": @(i % 2),
+             @"intCol": @(i),
+             @"doubleCol": @(1.11 * i),
+             @"stringCol": [NSString stringWithFormat:@"%d", i],
+             @"binaryCol": [str dataUsingEncoding:NSUTF8StringEncoding],
+             @"dateCol": [NSDate dateWithTimeIntervalSince1970:i],
+             @"longCol": @((long long)i * INT_MAX + 1),
+             @"decimalCol": [[RLMDecimal128 alloc] initWithNumber:@(i)],
+             @"uuidCol": i < 4 ? @[[[NSUUID alloc] initWithUUIDString:@"85d4fbee-6ec6-47df-bfa1-615931903d7e"],
+                                   [[NSUUID alloc] initWithUUIDString:@"00000000-0000-0000-0000-000000000000"],
+                                   [[NSUUID alloc] initWithUUIDString:@"137DECC8-B300-4954-A233-F89909F4FD89"],
+                                   [[NSUUID alloc] initWithUUIDString:@"b84e8912-a7c2-41cd-8385-86d200d7b31e"]][i] :
+                 [[NSUUID alloc] initWithUUIDString:@"b9d325b0-3058-4838-8473-8f1aaae410db"],
+             @"anyCol": @(i+1),
+             };
+}
+
+@end
+
+#pragma mark RLMArraySyncObject
+
+@implementation RLMArraySyncObject
+
++ (NSDictionary *)defaultPropertyValues {
+    return @{@"_id": [RLMObjectId objectId]};
+}
+
++ (NSString *)primaryKey {
+    return @"_id";
+}
+
++ (NSArray *)requiredProperties {
+    return @[@"intArray", @"boolArray",
+             @"stringArray", @"dataArray",
+             @"doubleArray", @"objectIdArray",
+             @"decimalArray", @"uuidArray", @"anyArray"];
+}
+
+@end
+
+#pragma mark RLMSetSyncObject
+
+@implementation RLMSetSyncObject
+
++ (NSDictionary *)defaultPropertyValues {
+    return @{@"_id": [RLMObjectId objectId]};
+}
+
++ (NSString *)primaryKey {
+    return @"_id";
+}
+
++ (NSArray *)requiredProperties {
+    return @[@"intSet", @"boolSet",
+             @"stringSet", @"dataSet",
+             @"doubleSet", @"objectIdSet",
+             @"decimalSet", @"uuidSet", @"anySet",
+             @"otherIntSet", @"otherBoolSet",
+             @"otherStringSet", @"otherDataSet",
+             @"otherDoubleSet", @"otherObjectIdSet",
+             @"otherDecimalSet", @"otherUuidSet", @"otherAnySet"];
+}
+
+@end
+
+#pragma mark RLMDictionarySyncObject
+
+@implementation RLMDictionarySyncObject
+
++ (NSDictionary *)defaultPropertyValues {
+    return @{@"_id": [RLMObjectId objectId]};
+}
+
++ (NSString *)primaryKey {
+    return @"_id";
+}
+
++ (NSArray *)requiredProperties {
+    return @[@"intDictionary", @"boolDictionary", @"stringDictionary",
+             @"dataDictionary", @"doubleDictionary", @"objectIdDictionary",
+             @"decimalDictionary", @"uuidDictionary", @"anyDictionary"];
+}
+
+@end
+
+#pragma mark UUIDPrimaryKeyObject
+
+@implementation UUIDPrimaryKeyObject
+
++ (NSString *)primaryKey {
+    return @"_id";
+}
+
++ (NSArray *)requiredProperties {
+    return @[@"strCol", @"intCol"];
+}
+
++ (NSDictionary *)defaultPropertyValues {
+    return @{@"_id": [[NSUUID alloc] initWithUUIDString:@"85d4fbee-6ec6-47df-bfa1-615931903d7e"]};
+}
+
+- (instancetype)initWithPrimaryKey:(NSUUID *)primaryKey strCol:(NSString *)strCol intCol:(NSInteger)intCol {
+    self = [super init];
+    if (self) {
+        self._id = primaryKey;
+        self.strCol = strCol;
+        self.intCol = intCol;
+    }
+    return self;
+}
+
+@end
+
+#pragma mark StringPrimaryKeyObject
+
+@implementation StringPrimaryKeyObject
+
++ (NSString *)primaryKey {
+    return @"_id";
+}
+
++ (NSArray *)requiredProperties {
+    return @[@"strCol", @"intCol"];
+}
+
++ (NSDictionary *)defaultPropertyValues {
+    return @{@"_id": @"1234567890ab1234567890ab"};
+}
+
+- (instancetype)initWithPrimaryKey:(NSString *)primaryKey strCol:(NSString *)strCol intCol:(NSInteger)intCol {
+    self = [super init];
+    if (self) {
+        self._id = primaryKey;
+        self.strCol = strCol;
+        self.intCol = intCol;
+    }
+    return self;
+}
+
+@end
+
+#pragma mark IntPrimaryKeyObject
+
+@implementation IntPrimaryKeyObject
+
++ (NSString *)primaryKey {
+    return @"_id";
+}
+
++ (NSArray *)requiredProperties {
+    return @[@"_id", @"strCol", @"intCol"];
+}
+
++ (NSDictionary *)defaultPropertyValues {
+    return @{@"_id": @1234567890};
+}
+
+- (instancetype)initWithPrimaryKey:(NSInteger)primaryKey strCol:(NSString *)strCol intCol:(NSInteger)intCol {
+    self = [super init];
+    if (self) {
+        self._id = primaryKey;
+        self.strCol = strCol;
+        self.intCol = intCol;
+    }
+    return self;
 }
 
 @end
@@ -200,9 +413,14 @@ static NSURL *syncDirectoryForChildProcess() {
 }
 
 - (RLMCredentials *)basicCredentialsWithName:(NSString *)name register:(BOOL)shouldRegister {
+    return [self basicCredentialsWithName:name register:shouldRegister app:nil];
+}
+
+- (RLMCredentials *)basicCredentialsWithName:(NSString *)name register:(BOOL)shouldRegister app:(nullable RLMApp *) app {
     if (shouldRegister) {
         XCTestExpectation *expectation = [self expectationWithDescription:@""];
-        [self.app.emailPasswordAuth registerUserWithEmail:name password:@"password" completion:^(NSError *error) {
+        RLMApp *currentApp = app ?: self.app;
+        [currentApp.emailPasswordAuth registerUserWithEmail:name password:@"password" completion:^(NSError *error) {
             XCTAssertNil(error);
             [expectation fulfill];
         }];
@@ -223,6 +441,14 @@ static NSURL *syncDirectoryForChildProcess() {
 - (void)addPersonsToRealm:(RLMRealm *)realm persons:(NSArray<Person *> *)persons {
     [realm beginWriteTransaction];
     [realm addObjects:persons];
+    [realm commitWriteTransaction];
+}
+
+- (void)addAllTypesSyncObjectToRealm:(RLMRealm *)realm values:(NSDictionary *)dictionary person:(Person *)person {
+    [realm beginWriteTransaction];
+    AllTypesSyncObject *obj = [[AllTypesSyncObject alloc] initWithValue:dictionary];
+    obj.objectCol = person;
+    [realm addObject:obj];
     [realm commitWriteTransaction];
 }
 
@@ -312,7 +538,9 @@ static NSURL *syncDirectoryForChildProcess() {
                                          stopPolicy:(RLMSyncStopPolicy)stopPolicy {
     auto c = [user configurationWithPartitionValue:partitionValue];
     c.encryptionKey = encryptionKey;
-    c.objectClasses = @[Dog.self, Person.self, HugeSyncObject.self];
+    c.objectClasses = @[Dog.self, Person.self, HugeSyncObject.self, RLMSetSyncObject.self,
+                        RLMArraySyncObject.self, UUIDPrimaryKeyObject.self, StringPrimaryKeyObject.self,
+                        IntPrimaryKeyObject.self, AllTypesSyncObject.self, RLMDictionarySyncObject.self];
     RLMSyncConfiguration *syncConfig = c.syncConfiguration;
     syncConfig.stopPolicy = stopPolicy;
     c.syncConfiguration = syncConfig;
@@ -363,7 +591,7 @@ static NSURL *syncDirectoryForChildProcess() {
     NSAssert(session, @"Cannot call with invalid partition value");
     XCTestExpectation *ex = expectation ?: [self expectationWithDescription:@"Wait for download completion"];
     __block NSError *theError = nil;
-    BOOL queued = [session waitForDownloadCompletionOnQueue:nil callback:^(NSError *err) {
+    BOOL queued = [session waitForDownloadCompletionOnQueue:dispatch_get_global_queue(0, 0) callback:^(NSError *err) {
         theError = err;
         [ex fulfill];
     }];
@@ -382,7 +610,7 @@ static NSURL *syncDirectoryForChildProcess() {
     NSAssert(session, @"Cannot call with invalid Realm");
     XCTestExpectation *ex = [self expectationWithDescription:@"Wait for upload completion"];
     __block NSError *completionError;
-    BOOL queued = [session waitForUploadCompletionOnQueue:nil callback:^(NSError *error) {
+    BOOL queued = [session waitForUploadCompletionOnQueue:dispatch_get_global_queue(0, 0) callback:^(NSError *error) {
         completionError = error;
         [ex fulfill];
     }];
@@ -428,7 +656,6 @@ static NSURL *syncDirectoryForChildProcess() {
 + (XCTestSuite *)defaultTestSuite {
     if ([RealmServer haveServer]) {
         return [super defaultTestSuite];
-
     }
     NSLog(@"Skipping sync tests: server is not present. Run `build.sh setup-baas` to install it.");
     return [[XCTestSuite alloc] initWithName:[super defaultTestSuite].name];
@@ -448,9 +675,12 @@ static NSURL *syncDirectoryForChildProcess() {
     if (auto ids = NSProcessInfo.processInfo.environment[@"RLMParentAppIds"]) {
         _appIds = [ids componentsSeparatedByString:@","];   //take the one array for split the string
     }
-    [NSFileManager.defaultManager removeItemAtURL:self.clientDataRoot error:nil];
-    [NSFileManager.defaultManager createDirectoryAtURL:self.clientDataRoot
-                           withIntermediateDirectories:YES attributes:nil error:nil];
+    NSURL *clientDataRoot = self.clientDataRoot;
+    [NSFileManager.defaultManager removeItemAtURL:clientDataRoot error:nil];
+    NSError *error;
+    [NSFileManager.defaultManager createDirectoryAtURL:clientDataRoot
+                           withIntermediateDirectories:YES attributes:nil error:&error];
+    XCTAssertNil(error);
 }
 
 - (void)tearDown {
@@ -458,72 +688,71 @@ static NSURL *syncDirectoryForChildProcess() {
     [super tearDown];
 }
 
-- (void)setupSyncManager {
-    static NSString *s_appId;
-    if (self.isParent && s_appId) {
-        _appId = s_appId;
-    }
-    else {
-        NSError *error;
-        _appId = NSProcessInfo.processInfo.environment[@"RLMParentAppId"] ?: [RealmServer.shared createAppAndReturnError:&error];
-        if (error) {
-            NSLog(@"Failed to create app: %@", error);
-            abort();
-        }
-
-        if (self.isParent) {
-            s_appId = _appId;
-        }
-    }
-
-    _app = [RLMApp appWithId:_appId configuration:self.defaultAppConfiguration rootDirectory:self.clientDataRoot];
-
-    RLMSyncManager *syncManager = self.app.syncManager;
-    syncManager.logLevel = RLMSyncLogLevelTrace;
-    syncManager.userAgent = self.name;
-}
-
 - (NSString *)appId {
     if (!_appId) {
-        [self setupSyncManager];
+        static NSString *s_appId;
+        if (self.isParent && s_appId) {
+            _appId = s_appId;
+        }
+        else {
+            NSError *error;
+            _appId = NSProcessInfo.processInfo.environment[@"RLMParentAppId"] ?: [RealmServer.shared createAppAndReturnError:&error];
+            if (error) {
+                NSLog(@"Failed to create app: %@", error);
+                abort();
+            }
+
+            if (self.isParent) {
+                s_appId = _appId;
+            }
+        }
     }
     return _appId;
 }
 
 - (RLMApp *)app {
     if (!_app) {
-        [self setupSyncManager];
+        _app = [RLMApp appWithId:self.appId configuration:self.defaultAppConfiguration rootDirectory:self.clientDataRoot];
+        RLMSyncManager *syncManager = self.app.syncManager;
+        syncManager.logLevel = RLMSyncLogLevelTrace;
+        syncManager.userAgent = self.name;
     }
     return _app;
 }
 
 - (void)resetSyncManager {
-    if (!_appId) {
-        return;
-    }
+    _app = nil;
+    [self resetAppCache];
+}
 
+- (void)resetAppCache {
+    NSArray<RLMApp *> *apps = [RLMApp allApps];
     NSMutableArray<XCTestExpectation *> *exs = [NSMutableArray new];
-    [self.app.allUsers enumerateKeysAndObjectsUsingBlock:^(NSString *, RLMUser *user, BOOL *) {
-        XCTestExpectation *ex = [self expectationWithDescription:@"Wait for logout"];
-        [exs addObject:ex];
-        [user logOutWithCompletion:^(NSError *) {
-            [ex fulfill];
-        }];
+    for (RLMApp *app : apps) @autoreleasepool {
+        [app.allUsers enumerateKeysAndObjectsUsingBlock:^(NSString *, RLMUser *user, BOOL *) {
+            XCTestExpectation *ex = [self expectationWithDescription:@"Wait for logout"];
+            [exs addObject:ex];
+            [user logOutWithCompletion:^(NSError *) {
+                [ex fulfill];
+            }];
 
-        // Sessions are removed from the user asynchronously after a logout.
-        // We need to wait for this to happen before calling resetForTesting as
-        // that expects all sessions to be cleaned up first.
-        if (user.allSessions.count) {
-            [exs addObject:[self expectationForPredicate:[NSPredicate predicateWithFormat:@"allSessions.@count == 0"]
-                                     evaluatedWithObject:user handler:nil]];
-        }
-    }];
+            // Sessions are removed from the user asynchronously after a logout.
+            // We need to wait for this to happen before calling resetForTesting as
+            // that expects all sessions to be cleaned up first.
+            if (user.allSessions.count) {
+                [exs addObject:[self expectationForPredicate:[NSPredicate predicateWithFormat:@"allSessions.@count == 0"]
+                                         evaluatedWithObject:user handler:nil]];
+            }
+        }];
+    }
 
     if (exs.count) {
         [self waitForExpectations:exs timeout:60.0];
     }
 
-    [self.app.syncManager resetForTesting];
+    for (RLMApp *app : apps) {
+        [app.syncManager resetForTesting];
+    }
     [RLMApp resetAppCache];
 }
 
@@ -557,6 +786,28 @@ static NSURL *syncDirectoryForChildProcess() {
 
 - (NSTask *)childTask {
     return [self childTaskWithAppIds:_appId ? @[_appId] : @[]];
+}
+
+- (RLMApp *)appFromAppId:(NSString *)appId {
+    return [RLMApp appWithId:appId
+               configuration:self.defaultAppConfiguration
+               rootDirectory:self.clientDataRoot];
+}
+
+- (NSString *)partitionBsonType:(id<RLMBSON>)bson {
+    switch(bson.bsonType){
+        case RLMBSONTypeString:
+            return @"string";
+        case RLMBSONTypeUUID:
+            return @"uuid";
+        case RLMBSONTypeInt32:
+        case RLMBSONTypeInt64:
+            return @"long";
+        case RLMBSONTypeObjectId:
+            return @"objectId";
+        default:
+            return(@"");
+        }
 }
 
 @end

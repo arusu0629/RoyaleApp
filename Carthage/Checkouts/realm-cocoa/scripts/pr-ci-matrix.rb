@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # A script to generate the .jenkins.yml file for the CI pull request job
-XCODE_VERSIONS = %w(11.3 11.7 12.2 12.4 12.5)
+XCODE_VERSIONS = %w(12.2 12.4 12.5.1 13.0 13.1)
 
 all = ->(v) { true }
 latest_only = ->(v) { v == XCODE_VERSIONS.last }
@@ -10,20 +10,16 @@ def minimum_version(major)
   ->(v) { v.split('.').first.to_i >= major }
 end
 
-def not_11_3
-  ->(v) { v != "11.3" }
-end
-
 targets = {
   'docs' => latest_only,
   'swiftlint' => latest_only,
 
   'osx' => all,
-  'osx-encryption' => oldest_and_latest,
+  'osx-encryption' => latest_only,
   'osx-object-server' => oldest_and_latest,
 
-  'swiftpm' => not_11_3,
-  'swiftpm-debug' => not_11_3,
+  'swiftpm' => oldest_and_latest,
+  'swiftpm-debug' => all,
   'swiftpm-address' => latest_only,
   'swiftpm-thread' => latest_only,
   'swiftpm-ios' => latest_only,
@@ -52,6 +48,7 @@ targets = {
   'cocoapods-watchos' => oldest_and_latest,
   # 'cocoapods-catalyst' => oldest_and_latest,
   'swiftui-ios' => latest_only,
+  'swiftui-server-osx' => latest_only,
 }
 
 output_file = """

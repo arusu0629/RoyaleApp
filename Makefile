@@ -30,13 +30,13 @@ install-mint:
 
 .PHONY: install-carthage
 install-carthage:
-	./Scripts/Carthage/carthage.sh bootstrap --platform iOS --cache-builds
+	mint run Carthage carthage bootstrap --platform iOS --cache-builds --use-xcframeworks
 	@$(MAKE) show-carthage-dependencies
 
 
 .PHONY: update-carthage
 update-carthage:
-	./Scripts/Carthage/carthage.sh update --platform iOS --cache-builds
+	mint run Carthage carthage update --platform iOS --cache-builds --use-xcframeworks
 	@$(MAKE) show-carthage-dependencies
 
 .PHONY: show-carthage-dependencies
