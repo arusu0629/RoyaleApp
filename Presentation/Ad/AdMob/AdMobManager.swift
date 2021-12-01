@@ -52,31 +52,25 @@ extension AdMobManager: GADBannerViewDelegate {
     }
 
     /// Tells the delegate an ad request failed.
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
         self.adDelegate?.didFailedAd()
     }
 
     /// Tells the delegate that a full-screen view will be presented in response
     /// to the user clicking on an ad.
-    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
-        print("adViewWillPresentScreen")
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("bannerViewWillPresentScreen")
     }
 
     /// Tells the delegate that the full-screen view will be dismissed.
-    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
-        print("adViewWillDismissScreen")
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("bannerViewWillDismissScreen")
     }
 
     /// Tells the delegate that the full-screen view has been dismissed.
-    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-        print("adViewDidDismissScreen")
-    }
-
-    /// Tells the delegate that a user click will open another app (such as
-    /// the App Store), backgrounding the current app.
-    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-        print("adViewWillLeaveApplication")
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("bannerViewDidDismissScreen")
     }
 }
 
@@ -85,21 +79,22 @@ extension AdMobManager {
 
     func setupMovieReward(vc: UIViewController, id: String) {
         self.hasRequestMovieCancel = false
-        self.rewardedAd = GADRewardedAd(adUnitID: id)
-        if self.rewardedAd.isReady {
-            self.rewardedAd.present(fromRootViewController: vc, delegate: self)
-            return
-        }
-        self.rewardedAd.load(GADRequest()) { error in
+
+        let request = GADRequest()
+        GADRewardedAd.load(withAdUnitID: id, request: request, completionHandler: { (ad, gadError) in
+            if let error = gadError {
+                self.movieRewardDelegate?.didFailedMovieReward(error: error)
+                return
+            }
             if self.hasRequestMovieCancel {
                 return
             }
-            if let error = error {
-                self.movieRewardDelegate?.didFailedMovieReward(error: error)
-            } else {
-                self.rewardedAd.present(fromRootViewController: vc, delegate: self)
-            }
-        }
+            self.rewardedAd = ad
+            self.rewardedAd.fullScreenContentDelegate = self
+            self.rewardedAd.present(fromRootViewController: vc, userDidEarnRewardHandler: {
+                self.userDidEarn = true
+            })
+        })
     }
 
     func requestCancelMovieReward() {
@@ -107,19 +102,16 @@ extension AdMobManager {
     }
 }
 
-extension AdMobManager: GADRewardedAdDelegate {
+extension AdMobManager: GADFullScreenContentDelegate {
 
-    /// Tells the delegate that the user earned a reward.
-    func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
-        self.userDidEarn = true
-    }
     /// Tells the delegate that the rewarded ad was presented.
-    func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
+    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("adDidPresentFullScreenContent")
         self.movieRewardDelegate?.didPresentMovieReward()
         self.userDidEarn = false
     }
     /// Tells the delegate that the rewarded ad was dismissed.
-    func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         if self.userDidEarn {
             self.movieRewardDelegate?.didSuccessMovieReward()
         } else {
@@ -127,7 +119,7 @@ extension AdMobManager: GADRewardedAdDelegate {
         }
     }
     /// Tells the delegate that the rewarded ad failed to present.
-    func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
-        self.movieRewardDelegate?.didFailedMovieReward(error: error)
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("GADFullScreenPresentingAd with error: \(error.localizedDescription).")
     }
 }

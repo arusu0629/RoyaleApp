@@ -28,6 +28,12 @@ packages: # SPM で扱うパッケージ
   Algorithms:
     url: https://github.com/apple/swift-algorithms
     from: 1.0.0
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk.git
+    from: 8.0.0
+  GoogleMobileAds:
+    url: https://github.com/quanghits/GoogleMobileAds
+    from: 8.0.0
 
 targets:
   RoyaleApp:
@@ -92,18 +98,12 @@ targets:
       - sdk: libc++.tbd
       - target: DataStore
       - target: Domain
-      - carthage: FIRAnalyticsConnector
-      - carthage: FirebaseAnalytics
-      - carthage: FirebaseCore
-      - carthage: FirebaseCoreDiagnostics
-      - carthage: FirebaseCrashlytics
-      - carthage: FirebaseInstallations
-      - carthage: FirebaseRemoteConfig
-      - carthage: GoogleAppMeasurement
-      - carthage: GoogleDataTransport
-      - carthage: GoogleUtilities
-      - carthage: nanopb
-      - carthage: PromisesObjC
+      - package: Firebase
+        product: FirebaseAnalytics
+      - package: Firebase
+        product: FirebaseCrashlytics
+      - package: Firebase
+        product: FirebaseRemoteConfig
 
   DataStore:
     type: framework
@@ -145,7 +145,7 @@ targets:
       - framework: Carthage/Build/Charts.xcframework
       - framework: Carthage/Build/Kingfisher.xcframework
       - framework: Carthage/Build/SwipeableTabBarController.xcframework
-      - carthage: GoogleMobileAds
+      - package: GoogleMobileAds
       - package: Algorithms
     settings:
       base:
