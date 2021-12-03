@@ -47,7 +47,7 @@ extension AdMobManager {
 extension AdMobManager: GADBannerViewDelegate {
 
     /// Tells the delegate an ad request loaded an ad.
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         self.adDelegate?.didReceiveAd()
     }
 
