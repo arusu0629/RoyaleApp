@@ -98,3 +98,6 @@ iOSInjectionProject/
 # ipa
 archive
 build
+
+# Frameworks
+Frameworks/

@@ -1,5 +1,5 @@
-github "Alamofire/Alamofire"
-github "marcosgriselli/SwipeableTabBarController"
-github "realm/realm-cocoa"
-github "danielgindi/Charts" ~> 4.0.0
-github "onevcat/Kingfisher" ~> 7.1.1
+github "Alamofire/Alamofire" == 5.4.4
+github "marcosgriselli/SwipeableTabBarController" == 3.4.2
+github "realm/realm-cocoa" == 10.20.0
+github "onevcat/Kingfisher" == 7.1.1
+github "danielgindi/Charts" == 4.0.1
