@@ -61,6 +61,16 @@ jobs:
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    # SwiftPMで管理しているライブラリのキャッシュ
+    - name: Cache libraries managed by SwiftPM
+      uses: actions/cache@v2
+      with:
+        path: SourcePackages
+        key: ${{ runner.os }}-swiftpm-${{ hashFiles('**/RoyaleApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-swiftpm-
+
+
     # .XcodeProj の生成
     - name: Generate XcodeProject
       run: make generate-xcodeproj

@@ -73,7 +73,8 @@ xcodebuild \
 -configuration ${TEST_CONFIGURATION} \
 -project ${PROJECT_NAME} \
 -scheme ${SCHEME_NAME} \
-build \
+-clonedSourcePackagesDirPath './SourcePackages' \
+clean build \
 | xcpretty
 
 .PHONY: test
