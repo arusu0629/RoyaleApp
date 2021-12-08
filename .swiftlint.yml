@@ -23,6 +23,7 @@ opt_in_rules:
 excluded:
  # 追加したOSSライブラリは対象に含めたくない
  - Carthage/
+ - SourcePackages/
  # 自動生成したリソースファイルは対象に含めない
  - Presentation/Resource/Generated
  # API トークン文字列が Line Length Violation に引っかかるため(どうしようもないので対象から外す)
