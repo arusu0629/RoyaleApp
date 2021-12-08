@@ -99,8 +99,5 @@ iOSInjectionProject/
 archive
 build
 
-# Frameworks
-Frameworks/GoogleMobileAds/
-
 # Swift Package Manager
 SourcePackages/
