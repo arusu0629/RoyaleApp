@@ -60,6 +60,8 @@ Pods/
 # xcodegen
 *.xcodeproj
 *.xcworkspace
+!RoyaleApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
 
 # Carthage
 #
