@@ -25,10 +25,9 @@ configFiles:
   Release: Configs/release_config.xcconfig
 
 packages: # SPM で扱うパッケージ
-  # Charts SDK のために必要
-  Algorithms:
-    url: https://github.com/apple/swift-algorithms
-    version: 0.0.1
+  Charts:
+    url: https://github.com/danielgindi/Charts
+    version: 4.0.1
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk.git
     version: 8.9.1
@@ -70,7 +69,6 @@ targets:
       - framework: Carthage/Build/RealmSwift.xcframework
       - framework: Carthage/Build/Kingfisher.xcframework
       - framework: Carthage/Build/SwipeableTabBarController.xcframework
-      - framework: Carthage/Build/Charts.xcframework
 
     preBuildScripts:
       - path: ./Scripts/Google/copy_google_service_info_plist.sh
@@ -149,11 +147,10 @@ targets:
     dependencies:
       - target: Analytics
       - target: Domain
-      - framework: Carthage/Build/Charts.xcframework
       - framework: Carthage/Build/Kingfisher.xcframework
       - framework: Carthage/Build/SwipeableTabBarController.xcframework
       - framework: Frameworks/GoogleMobileAds/GoogleMobileAds.xcframework
-      - package: Algorithms
+      - package: Charts
     settings:
       base:
         INFOPLIST_FILE: Presentation/Info.plist
