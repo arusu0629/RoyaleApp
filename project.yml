@@ -25,13 +25,29 @@ configFiles:
   Release: Configs/release_config.xcconfig
 
 packages: # SPM で扱うパッケージ
+  Firebase:
+    url: https://github.com/firebase/firebase-ios-sdk.git
+    version: 9.6.0
+  Alamofire:
+    url: https://github.com/Alamofire/Alamofire.git
+    version: 5.6.2
+  SwipeableTabBarController:
+    url: https://github.com/marcosgriselli/SwipeableTabBarController.git
+    version: 3.4.2
+  realm-swift:
+    url: https://github.com/realm/realm-swift.git
+    version: 10.29.0
+  Kingfisher:
+    url: https://github.com/onevcat/Kingfisher.git
+    version: 7.3.2
+  Charts:
+    url: https://github.com/danielgindi/Charts.git
+    version: 4.1.0
   # Charts SDK のために必要
   Algorithms:
     url: https://github.com/apple/swift-algorithms
     version: 0.0.1
-  Firebase:
-    url: https://github.com/firebase/firebase-ios-sdk.git
-    version: 8.9.1
+
 
 targets:
   RoyaleApp:
@@ -64,13 +80,6 @@ targets:
       - target: RoyaleAppWidget
         codeSign: false
         embed: true
-      # Carthage + xcframework ではアプリ本体側にも追加しないと実機ビルドでリンクエラーになる
-      - framework: Carthage/Build/Alamofire.xcframework
-      - framework: Carthage/Build/Realm.xcframework
-      - framework: Carthage/Build/RealmSwift.xcframework
-      - framework: Carthage/Build/Kingfisher.xcframework
-      - framework: Carthage/Build/SwipeableTabBarController.xcframework
-      - framework: Carthage/Build/Charts.xcframework
 
     preBuildScripts:
       - path: ./Scripts/Google/copy_google_service_info_plist.sh
@@ -86,8 +95,6 @@ targets:
             - ${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}
         - path: ./Scripts/FirebaseCrashlytics/upload_dsyms.sh
           name: Upload dSYMs
-        - path: ./Scripts/carthage/remove_firebase.sh
-          name: Remove firebase for upload app store connect
 
   Analytics:
     type: framework
@@ -125,9 +132,8 @@ targets:
         LD_RUNPATH_SEARCH_PATHS: ${inherited} @executable_path/Frameworks @loader_path/Frameworks
         APPLICATION_EXTENSION_API_ONLY: YES # To use from widget-extension
     dependencies:
-      - framework: Carthage/Build/Alamofire.xcframework
-      - framework: Carthage/Build/Realm.xcframework
-      - framework: Carthage/Build/RealmSwift.xcframework
+      - package: Alamofire
+      - package: realm-swift
 
   Domain:
     type: framework
@@ -149,10 +155,10 @@ targets:
     dependencies:
       - target: Analytics
       - target: Domain
-      - framework: Carthage/Build/Charts.xcframework
-      - framework: Carthage/Build/Kingfisher.xcframework
-      - framework: Carthage/Build/SwipeableTabBarController.xcframework
-      - framework: Frameworks/GoogleMobileAds/GoogleMobileAds.xcframework
+      - package: Charts
+      - package: Kingfisher
+      - package: SwipeableTabBarController
+      # - framework: Frameworks/GoogleMobileAds/GoogleMobileAds.xcframework
       - package: Algorithms
     settings:
       base:

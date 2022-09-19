@@ -15,29 +15,16 @@ setup-with-mint:
 	brew update
 	brew install mint
 	$(MAKE) install-mint
-	$(MAKE) install-carthage
 	$(MAKE) generate-xcodeproj
 
 .PHONY: setup-without-mint
 setup-without-mint:
 	$(MAKE) install-mint
-	$(MAKE) install-carthage
 	$(MAKE) generate-xcodeproj
 
 .PHONY: install-mint
 install-mint:
 	mint bootstrap --overwrite y
-
-.PHONY: install-carthage
-install-carthage:
-	mint run Carthage carthage bootstrap --platform iOS --cache-builds --use-xcframeworks
-	@$(MAKE) show-carthage-dependencies
-
-
-.PHONY: update-carthage
-update-carthage:
-	mint run Carthage carthage update --platform iOS --cache-builds --use-xcframeworks
-	@$(MAKE) show-carthage-dependencies
 
 .PHONY: show-carthage-dependencies
 show-carthage-dependencies:
