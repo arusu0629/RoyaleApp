@@ -6,6 +6,8 @@
 //  Copyright © 2020 nakandakari. All rights reserved.
 //
 
+import UIKit
+
 public enum TrophyDateFilter: Int, CaseIterable {
     case today
     case weekly

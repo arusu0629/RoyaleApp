@@ -104,12 +104,14 @@ extension AdMobManager {
 
 extension AdMobManager: GADFullScreenContentDelegate {
 
-    /// Tells the delegate that the rewarded ad was presented.
-    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        print("adDidPresentFullScreenContent")
+    /// Tells the delegate that an impression has been recorded for the ad.
+    func adDidRecordImpression(_ ad: GADFullScreenPresentingAd) {
+        print("adDidRecordImpression")
         self.movieRewardDelegate?.didPresentMovieReward()
         self.userDidEarn = false
+
     }
+
     /// Tells the delegate that the rewarded ad was dismissed.
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         if self.userDidEarn {
@@ -118,6 +120,7 @@ extension AdMobManager: GADFullScreenContentDelegate {
             self.movieRewardDelegate?.didCancelMovieReward()
         }
     }
+
     /// Tells the delegate that the rewarded ad failed to present.
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         print("GADFullScreenPresentingAd with error: \(error.localizedDescription).")
