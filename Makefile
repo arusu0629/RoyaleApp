@@ -15,34 +15,18 @@ setup-with-mint:
 	brew update
 	brew install mint
 	$(MAKE) install-mint
-	$(MAKE) generate-xcodeproj
 
 .PHONY: setup-without-mint
 setup-without-mint:
 	$(MAKE) install-mint
-	$(MAKE) generate-xcodeproj
 
 .PHONY: install-mint
 install-mint:
 	mint bootstrap --overwrite y
 
-.PHONY: show-carthage-dependencies
-show-carthage-dependencies:
-	@echo '*** Resolved dependencies:'
-	@cat 'Cartfile.resolved'
-
-.PHONY: generate-xcodeproj
-generate-xcodeproj:
-	mint run xcodegen xcodegen generate
-	$(MAKE) open
-
 .PHONY: swiftgen
 swiftgen:
 	mint run SwiftGen/SwiftGen swiftgen
-
-.PHONY: xcodegen
-xcodegen:
-	mint run XcodeGen xcodegen
 
 .PHONY: open
 open:
