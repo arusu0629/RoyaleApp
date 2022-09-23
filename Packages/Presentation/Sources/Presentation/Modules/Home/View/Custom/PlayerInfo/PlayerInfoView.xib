@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerInfoView" customModule="Presentation" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerInfoView" customModule="Presentation" >
             <connections>
                 <outlet property="clanLabel" destination="eAE-VG-1fo" id="vmI-3h-muG"/>
                 <outlet property="indicator" destination="idL-Ws-4f5" id="EmZ-Gc-nO2"/>
@@ -26,7 +26,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Swa-Sa-Z9e">
                     <rect key="frame" x="0.0" y="0.0" width="365" height="65"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="IP9-Yx-B2E" customClass="HiraginoLabel" customModule="Presentation" customModuleProvider="target">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="IP9-Yx-B2E" customClass="HiraginoLabel" customModule="Presentation" >
                             <rect key="frame" x="0.0" y="0.0" width="365" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="c8R-le-OnQ"/>
@@ -58,7 +58,7 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" id="uZF-3U-HgW"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="とーる　#R89920JY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2l-Kj-zJf" userLabel="PlayerNameAndTagLabel" customClass="HiraginoLabel" customModule="Presentation" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="とーる　#R89920JY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2l-Kj-zJf" userLabel="PlayerNameAndTagLabel" customClass="HiraginoLabel" customModule="Presentation" >
                                                     <rect key="frame" x="0.0" y="6.5" width="235" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="EIm-QU-VqE"/>
@@ -67,7 +67,7 @@
                                                     <color key="textColor" systemColor="systemOrangeColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大きなノッポの古時計" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-VG-1fo" userLabel="ClanLabel" customClass="HiraginoLabel" customModule="Presentation" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大きなノッポの古時計" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-VG-1fo" userLabel="ClanLabel" customClass="HiraginoLabel" customModule="Presentation" >
                                                     <rect key="frame" x="0.0" y="23.5" width="235" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10" id="qvm-KQ-YlO"/>
@@ -116,7 +116,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBx-9l-9hg">
                                                     <rect key="frame" x="41" y="0.0" width="69" height="40"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-EJ-gX7" customClass="HiraginoLabel" customModule="Presentation" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gqd-EJ-gX7" customClass="HiraginoLabel" customModule="Presentation" >
                                                             <rect key="frame" x="0.0" y="10" width="59" height="20"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>

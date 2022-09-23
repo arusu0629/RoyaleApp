@@ -12,7 +12,7 @@
         <!--Deck View Controller-->
         <scene sceneID="P4F-RH-irW">
             <objects>
-                <viewController id="ebh-mb-J0C" customClass="DeckViewController" customModule="Presentation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ebh-mb-J0C" customClass="DeckViewController" customModule="Presentation"  sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lca-IT-thV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEW-iG-63f" userLabel="DeckSelectionScrollView" customClass="DeckSelectionView" customModule="Presentation" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEW-iG-63f" userLabel="DeckSelectionScrollView" customClass="DeckSelectionView" customModule="Presentation" >
                                                         <rect key="frame" x="50" y="0.0" width="255" height="40"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
@@ -104,7 +104,7 @@
                                             <constraint firstItem="kAM-ee-xtF" firstAttribute="leading" secondItem="DNc-kS-RuG" secondAttribute="leading" id="pdG-Ap-jrF"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvN-ws-aBX" customClass="DeckPreviewView" customModule="Presentation" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvN-ws-aBX" customClass="DeckPreviewView" customModule="Presentation" >
                                         <rect key="frame" x="0.0" y="229" width="355" height="213"/>
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <constraints>
@@ -119,7 +119,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DX-Rw-Vi6" userLabel="DeckDescriptionView" customClass="DeckDescriptionView" customModule="Presentation" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DX-Rw-Vi6" userLabel="DeckDescriptionView" customClass="DeckDescriptionView" customModule="Presentation" >
                                         <rect key="frame" x="0.0" y="452" width="355" height="45"/>
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <constraints>
@@ -169,7 +169,7 @@
                                         <rect key="frame" x="0.0" y="592" width="355" height="169"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deD-zo-whs" userLabel="AdView" customClass="FooterAdView" customModule="Presentation" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deD-zo-whs" userLabel="AdView" customClass="FooterAdView" customModule="Presentation" >
                                         <rect key="frame" x="0.0" y="597" width="355" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>

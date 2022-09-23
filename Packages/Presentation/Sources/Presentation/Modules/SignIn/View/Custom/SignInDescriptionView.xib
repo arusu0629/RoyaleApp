@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInDescriptionView" customModule="Presentation" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInDescriptionView" customModule="Presentation" >
             <connections>
                 <outlet property="collectionView" destination="QwS-xj-GQ8" id="Q6j-nj-tJW"/>
                 <outlet property="pageControl" destination="RjZ-fq-EjK" id="pK9-pz-TRX"/>

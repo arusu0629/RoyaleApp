@@ -17,8 +17,8 @@ protocol StoryboardInstantiate {
 extension StoryboardInstantiate where Self: UIViewController {
 
     static func instantiate() -> Self {
-        let bundle = Bundle(for: self.self)
         let name = String(describing: self.self)
+        let bundle = Bundle.module
 
         guard let vc = UIStoryboard(name: name, bundle: bundle).instantiateInitialViewController() as? Self else {
             fatalError("UIViewController.instantiate() failed: \(name)")

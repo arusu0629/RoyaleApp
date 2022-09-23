@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpComingChestListView" customModule="Presentation" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpComingChestListView" customModule="Presentation" >
             <connections>
                 <outlet property="indicator" destination="2xY-Pi-bRE" id="DaB-lW-DXb"/>
                 <outlet property="upcomingChestStackView" destination="Ghf-JB-edz" id="rKi-mK-vbq"/>
@@ -22,7 +22,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Q05-c3-oZa">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UpComingChests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="yz1-VA-yac" userLabel="UpComingChestsLabel" customClass="HiraginoLabel" customModule="Presentation" customModuleProvider="target">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UpComingChests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="yz1-VA-yac" userLabel="UpComingChestsLabel" customClass="HiraginoLabel" customModule="Presentation" >
                             <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="fsk-MY-lJh"/>

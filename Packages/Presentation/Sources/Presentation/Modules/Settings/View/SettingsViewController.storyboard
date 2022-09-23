@@ -10,7 +10,7 @@
         <!--Settings View Controller-->
         <scene sceneID="BFq-Wd-YkA">
             <objects>
-                <viewController id="NhM-T0-0Uu" customClass="SettingsViewController" customModule="Presentation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NhM-T0-0Uu" customClass="SettingsViewController" customModule="Presentation"  sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1AX-bh-1SA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

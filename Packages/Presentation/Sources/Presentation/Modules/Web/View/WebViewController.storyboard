@@ -12,7 +12,7 @@
         <!--Web View Controller-->
         <scene sceneID="WyD-9r-pip">
             <objects>
-                <viewController id="7Xy-1w-dLe" customClass="WebViewController" customModule="Presentation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7Xy-1w-dLe" customClass="WebViewController" customModule="Presentation"  sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ehQ-jN-FdK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uaV-T0-ABA">
                                 <rect key="frame" x="16" y="0.0" width="343" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SiW-ng-FYd" customClass="TabBarView" customModule="Presentation" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SiW-ng-FYd" customClass="TabBarView" customModule="Presentation" >
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="35"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -83,7 +83,7 @@
                                             <constraint firstAttribute="height" constant="44" id="qbM-jf-dcU"/>
                                         </constraints>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fl9-x9-sOH" customClass="FooterAdView" customModule="Presentation" customModuleProvider="target">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fl9-x9-sOH" customClass="FooterAdView" customModule="Presentation" >
                                         <rect key="frame" x="0.0" y="617" width="343" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>

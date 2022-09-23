@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerTrophyLineChartView" customModule="Presentation" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerTrophyLineChartView" customModule="Presentation" >
             <connections>
                 <outlet property="dateFilterTabView" destination="Wen-co-QK4" id="ugA-Ws-I9T"/>
                 <outlet property="indicator" destination="hk7-DK-RFV" id="ftJ-Es-wJf"/>
@@ -35,7 +35,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wen-co-QK4" customClass="TabBarView" customModule="Presentation" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wen-co-QK4" customClass="TabBarView" customModule="Presentation" >
                             <rect key="frame" x="0.0" y="30" width="350" height="35"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -52,7 +52,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAX-XC-XUS" userLabel="NoDataView">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="230"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Battle Log" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4W-Tw-G62" customClass="HiraginoLabel" customModule="Presentation" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Battle Log" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4W-Tw-G62" customClass="HiraginoLabel" customModule="Presentation" >
                                             <rect key="frame" x="0.0" y="95" width="350" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="HrY-xX-3uq"/>

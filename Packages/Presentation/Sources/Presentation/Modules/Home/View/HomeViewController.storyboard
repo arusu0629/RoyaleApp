@@ -10,7 +10,7 @@
         <!--Home View Controller-->
         <scene sceneID="0Ir-gT-rFz">
             <objects>
-                <viewController id="hA2-hf-Ug9" customClass="HomeViewController" customModule="Presentation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hA2-hf-Ug9" customClass="HomeViewController" customModule="Presentation"  sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lcz-hx-WxI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -18,24 +18,24 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2lR-5t-woL">
                                 <rect key="frame" x="10" y="10" width="355" height="647"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gN-R1-vXK" userLabel="PlayerInfoView" customClass="PlayerInfoView" customModule="Presentation" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gN-R1-vXK" userLabel="PlayerInfoView" customClass="PlayerInfoView" customModule="Presentation" >
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="65"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="nwu-7L-mlZ"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fo9-aF-SHd" customClass="PlayerTrophyLineChartView" customModule="Presentation" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fo9-aF-SHd" customClass="PlayerTrophyLineChartView" customModule="Presentation" >
                                         <rect key="frame" x="0.0" y="75" width="355" height="397"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgy-cK-gQd" customClass="UpComingChestListView" customModule="Presentation" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgy-cK-gQd" customClass="UpComingChestListView" customModule="Presentation" >
                                         <rect key="frame" x="0.0" y="482" width="355" height="105"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="105" id="iz7-dO-ooh"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWX-1o-kiA" userLabel="FooterAdView" customClass="FooterAdView" customModule="Presentation" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWX-1o-kiA" userLabel="FooterAdView" customClass="FooterAdView" customModule="Presentation" >
                                         <rect key="frame" x="0.0" y="597" width="355" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>

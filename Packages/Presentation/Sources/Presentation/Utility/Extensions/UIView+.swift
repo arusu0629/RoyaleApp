@@ -12,7 +12,7 @@ import UIKit
 extension UIView {
 
     static var nib: UINib {
-        return UINib(nibName: self.className, bundle: Bundle(for: self.self))
+        return UINib(nibName: self.className, bundle: Bundle.module)
     }
 
     var nib: UINib {
@@ -24,7 +24,7 @@ extension UIView {
 extension UIView {
 
     func loadXib(_ nibName: String? = nil) {
-        let bundle = Bundle(for: type(of: self))
+        let bundle = Bundle.module
         let nib = UINib(nibName: nibName ?? self.className, bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil).first as? UIView ?? { fatalError("Can not load xib!") }()
         self.addSubview(view)

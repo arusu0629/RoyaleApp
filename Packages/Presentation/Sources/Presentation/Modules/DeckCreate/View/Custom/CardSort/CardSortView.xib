@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardSortView" customModule="Presentation" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardSortView" customModule="Presentation" >
             <connections>
                 <outlet property="cardCollectionTitleLabel" destination="8q9-sG-YuU" id="4KK-4h-qpd"/>
                 <outlet property="cardFoundLabel" destination="avY-tr-jZF" id="U8M-lT-vb9"/>
@@ -30,7 +30,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="234" height="1.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Card Collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8q9-sG-YuU" customClass="HiraginoLabel" customModule="Presentation" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Card Collection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8q9-sG-YuU" customClass="HiraginoLabel" customModule="Presentation" >
                                     <rect key="frame" x="0.0" y="4.5" width="234" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="4gQ-Ej-fkK"/>
@@ -42,13 +42,13 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFG-ge-9bA">
                                     <rect key="frame" x="0.0" y="22.5" width="234" height="13"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Found：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtg-MM-XGv" customClass="HiraginoLabel" customModule="Presentation" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Found：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtg-MM-XGv" customClass="HiraginoLabel" customModule="Presentation" >
                                             <rect key="frame" x="0.0" y="0.0" width="53.5" height="13"/>
                                             <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avY-tr-jZF" customClass="HiraginoLabel" customModule="Presentation" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avY-tr-jZF" customClass="HiraginoLabel" customModule="Presentation" >
                                             <rect key="frame" x="53.5" y="0.0" width="180.5" height="13"/>
                                             <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                             <color key="textColor" red="1" green="0.54901960780000003" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
