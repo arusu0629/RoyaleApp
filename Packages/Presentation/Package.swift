@@ -21,7 +21,6 @@ let package = Package(
         .package(url: "https://github.com/danielgindi/Charts", from: "4.1.0"),
         .package(url: "https://github.com/marcosgriselli/SwipeableTabBarController", from: "3.4.2"),
         .package(url: "https://github.com/onevcat/Kingfisher", from: "7.3.2"),
-        .package(url: "https://github.com/apple/swift-algorithms", from: "1.0.0"),
         .package(url: "https://github.com/googleads/swift-package-manager-google-mobile-ads", from: "9.11.0")
     ],
     targets: [
