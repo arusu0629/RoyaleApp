@@ -10,6 +10,7 @@ import Analytics
 import Domain
 import Presentation
 import UIKit
+import Test
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,6 +32,8 @@ private extension AppDelegate {
         self.setupAd()
         //        self.setupPushNotification()
         self.setupBackgroundFetch()
+
+        let test = Test()
     }
 }
 

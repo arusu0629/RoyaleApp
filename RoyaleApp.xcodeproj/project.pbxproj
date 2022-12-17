@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		258FBCC32F5D9F2E9011D1D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDD5BE51CD11E9A053E48A3F /* Localizable.strings */; };
+		2F125302294D47B800AA0D9E /* Test in Frameworks */ = {isa = PBXBuildFile; productRef = 2F125301294D47B800AA0D9E /* Test */; };
 		2FD86787B9B2D69032FAE6A7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E27B3A0717058330D51D1B7 /* WidgetKit.framework */; };
 		305634B568D8E55FCB9B922B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34DCFDF127E3FDBA01BA04A6 /* GoogleService-Info.plist */; };
 		4BF19794121D8469D0D65FB7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EFACF684A76CABAFC8255AB /* SwiftUI.framework */; };
@@ -78,6 +79,7 @@
 		1EE4CE98C55102903F5EBE5E /* RoyaleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoyaleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDC3C88E154768084882B9E /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		2E27B3A0717058330D51D1B7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2F2CFD4F294D443F009221F3 /* Test */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Test; sourceTree = "<group>"; };
 		34DCFDF127E3FDBA01BA04A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4775240B3A2951BBC034E571 /* RoyaleApp_Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RoyaleApp_Release.entitlements; sourceTree = "<group>"; };
 		4C4CAD6792CCF7D57758B98B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F125302294D47B800AA0D9E /* Test in Frameworks */,
 				A1908D2528D9E8B500F6FCD7 /* Domain in Frameworks */,
 				A1908D2728D9E8B500F6FCD7 /* Presentation in Frameworks */,
 				A1908D2328D9E8B500F6FCD7 /* Analytics in Frameworks */,
@@ -224,6 +227,7 @@
 		A154E59E28D8B4E2003A4480 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				2F2CFD4F294D443F009221F3 /* Test */,
 				A12D8A2428D8B89100745418 /* Analytics */,
 				A154E59F28D8B503003A4480 /* DataStore */,
 				A1AA04CC28D9E7CE00F31DCC /* Domain */,
@@ -315,6 +319,7 @@
 				A1908D2228D9E8B500F6FCD7 /* Analytics */,
 				A1908D2428D9E8B500F6FCD7 /* Domain */,
 				A1908D2628D9E8B500F6FCD7 /* Presentation */,
+				2F125301294D47B800AA0D9E /* Test */,
 			);
 			productName = RoyaleApp;
 			productReference = 1EE4CE98C55102903F5EBE5E /* RoyaleApp.app */;
@@ -776,6 +781,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F125301294D47B800AA0D9E /* Test */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Test;
+		};
 		A1908D2028D9E88900F6FCD7 /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Domain;
